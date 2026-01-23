@@ -148,7 +148,7 @@
     <header class="hero" id="home">
         <div class="hero-bg"></div>
         <div class="hero-content">
-            <p class="season-tag">Spring / Summer 2026</p> <h1 class="main-title">UNCOMMON <br> LUXURY</h1> <a href="#collection" class="cta-btn">View Collection</a> </div>
+            <p class="season-tag">Spring / Summer 2026</p> <h1 class="main-title">COMEING <br> SOON</h1> <a href="#collection" class="cta-btn">View Collection</a> </div>
         
         <div style="position: absolute; bottom: 40px; color: #fff; opacity: 0.7; animation: float 3s infinite;">
             <p style="font-size: 10px; letter-spacing: 3px; margin-bottom: 10px;">SCROLL</p>
@@ -157,6 +157,102 @@
     </header>
 
     <section class="philosophy" id="philosophy">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+    .sv-philosophy-section {
+        background-color: #f9f9f9; /* হালকা ব্যাকগ্রাউন্ড */
+        padding: 80px 20px;
+        font-family: 'Lato', sans-serif;
+        color: #333;
+        text-align: center;
+        border-top: 1px solid #e0e0e0; /* উপরের অংশের সাথে সেপারেশন */
+        margin-top: 50px; /* উপরের কন্টেন্ট থেকে একটু গ্যাপ */
+    }
+    .sv-container { max-width: 1200px; margin: 0 auto; }
+    
+    .sv-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.2rem;
+        color: #111;
+        margin-bottom: 15px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+    }
+    .sv-subtitle {
+        color: #D4AF37; /* গোল্ডেন কালার */
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        display: block;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+    .sv-history-text {
+        max-width: 750px;
+        margin: 0 auto 50px auto;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: #555;
+    }
+    .sv-gallery {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr); /* এক লাইনে ৬টি ছবি */
+        gap: 10px;
+    }
+    .sv-gallery-item {
+        position: relative;
+        overflow: hidden;
+        height: 180px; /* ছোট হাইট, যেহেতু ফুটারে থাকবে */
+        border-radius: 4px;
+    }
+    .sv-gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    .sv-gallery-item:hover img { transform: scale(1.1); }
+
+    /* মোবাইলের জন্য রেস্পনসিভ */
+    @media (max-width: 768px) {
+        .sv-gallery {
+            grid-template-columns: repeat(3, 1fr); /* মোবাইলে এক লাইনে ৩টি */
+            gap: 5px;
+        }
+        .sv-gallery-item { height: 120px; }
+        .sv-title { font-size: 1.8rem; }
+    }
+</style>
+
+<section class="sv-philosophy-section">
+    <div class="sv-container">
+        <span class="sv-subtitle">The SherenVogue Story</span>
+        <h2 class="sv-title">Our Philosophy</h2>
+        
+        <p class="sv-history-text">
+            SherenVogue-এর যাত্রা শুরু হয়েছিল একটি স্বপ্ন থেকে—বাংলাদেশের ফ্যাশনকে আন্তর্জাতিক মানে পৌঁছে দেওয়া। 
+            আমরা বিশ্বাস করি প্রতিটি পোশাকের একটি নিজস্ব ভাষা আছে। তাই আমাদের প্রতিটি ডিজাইনে থাকে আভিজাত্য, 
+            মান এবং ভালোবাসার ছোঁয়া। আমাদের সাথে এই যাত্রায় থাকার জন্য ধন্যবাদ।
+        </p>
+
+        <div class="sv-gallery">
+            <div class="sv-gallery-item"><img src="https://images.unsplash.com/photo-1558235286-9a288c9460d5?w=400&q=80" alt="Sketch"></div>
+            <div class="sv-gallery-item"><img src="https://images.unsplash.com/photo-1620799140408-ed5341cd2431?w=400&q=80" alt="Fabric"></div>
+            <div class="sv-gallery-item"><img src="https://images.unsplash.com/photo-1605289982774-9a6fef564df8?w=400&q=80" alt="Sewing"></div>
+            <div class="sv-gallery-item"><img src="https://images.unsplash.com/photo-1537832816519-689ad163238b?w=400&q=80" alt="Craft"></div>
+            <div class="sv-gallery-item"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&q=80" alt="Luxury"></div>
+            <div class="sv-gallery-item"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&q=80" alt="Style"></div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
         <p style="font-size: 10px; letter-spacing: 4px; color: #D4AF37; margin-bottom: 20px; text-transform: uppercase;">The Vision</p>
         <h2 class="quote">"We don't just design clothes; we architect <span style="color: #D4AF37;">moments</span>."</h2>
     </section>
@@ -193,7 +289,7 @@
         <div class="social-links">
             <i class="fab fa-instagram"></i><i class="fab fa-facebook-f"></i>
         </div>
-        <p>&copy; 2026 SHEREN VOGUE. PARIS - LONDON - DHAKA.</p>
+        <p>&copy; 2026 SHEREN VOGUE</p>
     </footer>
 
     <script>
