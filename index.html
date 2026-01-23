@@ -3,291 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Sheren Vogue | The Future of Avant-Garde Fashion</title>
-    
-    <meta name="description" content="Discover Sheren Vogue - An international luxury fashion house defining modern elegance. Shop exclusive runway collections, bags, and perfumes.">
+    <title>Sheren Vogue | Home</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        /* --- CSS DESIGN --- */
+        /* --- বেসিক ডিজাইন সেটিংস --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        body { background-color: #000; color: #fff; font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+        :root { --font-heading: 'Cinzel', serif; --gold: #D4AF37; }
 
-        body { 
-            background-color: #000000; 
-            color: #ffffff; 
-            font-family: 'Montserrat', sans-serif; 
-            overflow-x: hidden; 
-        }
-
-        /* Variables */
-        :root { --font-heading: 'Cinzel', serif; --gold: #D4AF37; --dark-overlay: rgba(0,0,0,0.5); }
-
-        /* Navbar Style */
-        .navbar {
-            position: fixed; top: 0; width: 100%; padding: 25px 40px;
-            display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000; background: linear-gradient(to bottom, rgba(0,0,0,0.95), transparent);
-            transition: 0.4s ease;
-        }
-        .navbar.scrolled { background: rgba(5, 5, 5, 0.95); padding: 15px 40px; border-bottom: 1px solid #222; }
-        
-        .logo { font-family: var(--font-heading); font-size: 24px; letter-spacing: 4px; font-weight: 700; color: #fff; cursor: pointer; }
+        /* ন্যাভিগেশন বার ডিজাইন */
+        .navbar { position: fixed; top: 0; width: 100%; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent); }
+        .logo { font-family: var(--font-heading); font-size: 24px; font-weight: 700; color: #fff; text-decoration: none; }
         .logo span { color: var(--gold); }
-        .nav-icons i { font-size: 20px; color: #fff; margin-left: 25px; cursor: pointer; transition: 0.3s; }
+        .nav-icons i { font-size: 20px; color: #fff; margin-left: 25px; cursor: pointer; }
 
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-            background: #080808; z-index: 2000; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; transform: translateY(-100%);
-            transition: 0.6s cubic-bezier(0.77, 0, 0.175, 1);
-        }
+        /* মোবাইল মেনু ডিজাইন */
+        .mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: #080808; z-index: 2000; display: flex; flex-direction: column; justify-content: center; align-items: center; transform: translateY(-100%); transition: 0.5s; }
         .mobile-menu.active { transform: translateY(0); }
-        .mobile-menu a {
-            color: #fff; text-decoration: none; font-family: var(--font-heading);
-            font-size: 2.5rem; margin: 10px 0; opacity: 0; transform: translateY(20px);
-            transition: 0.5s;
-        }
-        .mobile-menu.active a { opacity: 1; transform: translateY(0); }
+        .mobile-menu a { color: #fff; text-decoration: none; font-family: var(--font-heading); font-size: 2rem; margin: 15px 0; }
         .close-btn { position: absolute; top: 30px; right: 30px; font-size: 40px; cursor: pointer; color: var(--gold); }
 
-        /* --- (৩) ব্যাকগ্রাউন্ড ছবি পরিবর্তনের জায়গা --- */
-        .hero {
-            height: 100vh; width: 100%; position: relative; overflow: hidden;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-            background-color: #000;
-        }
+        /* হিরো সেকশন (বড় ব্যানার) */
+        .hero { height: 100vh; width: 100%; position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('https://raw.githubusercontent.com/sherenvogue/sherenvogue.github.io/main/1000020030.png'); background-size: contain; background-repeat: no-repeat; background-position: center; z-index: -1; }
+        @media (max-width: 768px) { .hero-bg { background-size: cover; background-position: center top; } }
         
-        .hero-bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            
-            /* নিচে url এর ভেতরে ছবির লিংক বদলাতে পারেন */
-            background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5)), 
-                              url('https://raw.githubusercontent.com/sherenvogue/sherenvogue.github.io/main/1000020030.png');
-            
-            background-size: contain; 
-            background-repeat: no-repeat;
-            background-position: center;
-            z-index: 1; 
-        }
-        
-        /* মোবাইলের জন্য সাইজ */
-        @media (max-width: 768px) {
-            .hero-bg {
-                background-size: cover; 
-                background-position: center top;
-            }
-        }
-
-        .hero-content { position: relative; z-index: 3; animation: fadeIn 2s ease-out; margin-top: 150px; }
-        
-        /* Animations */
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
-
-        .season-tag { font-size: 11px; letter-spacing: 8px; margin-bottom: 25px; text-transform: uppercase; color: #ccc; }
-        .main-title { font-family: var(--font-heading); font-size: 4.5rem; line-height: 1.1; letter-spacing: 2px; margin-bottom: 45px; text-shadow: 0 10px 30px rgba(0,0,0,0.8); }
-        
-        .cta-btn {
-            padding: 18px 50px; border: 1px solid rgba(255,255,255,0.4); color: #fff;
-            text-decoration: none; font-size: 12px; letter-spacing: 4px; transition: 0.4s;
-            background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); text-transform: uppercase;
-        }
+        .main-title { font-family: var(--font-heading); font-size: 4rem; line-height: 1.1; margin-bottom: 40px; margin-top: 100px; }
+        .cta-btn { padding: 15px 40px; border: 1px solid rgba(255,255,255,0.5); color: #fff; text-decoration: none; font-size: 12px; letter-spacing: 3px; background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); text-transform: uppercase; transition: 0.3s; }
         .cta-btn:hover { background: #fff; color: #000; }
 
-        /* Sections */
-        .philosophy { padding: 120px 20px; text-align: center; background: #0b0b0b; }
-        .quote { font-family: var(--font-heading); font-size: 2rem; line-height: 1.5; max-width: 900px; margin: 0 auto; }
+        /* ফিলোসফি সেকশন ডিজাইন */
+        .sv-philosophy-section { background-color: #f9f9f9; padding: 80px 20px; font-family: 'Lato', sans-serif; color: #333; text-align: center; }
+        .sv-container { max-width: 1200px; margin: 0 auto; }
+        .sv-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #111; margin-bottom: 15px; text-transform: uppercase; }
+        .sv-subtitle { color: #D4AF37; font-size: 1rem; font-weight: 600; margin-bottom: 10px; display: block; letter-spacing: 2px; text-transform: uppercase; }
+        .sv-history-text { max-width: 750px; margin: 0 auto 50px auto; font-size: 1.05rem; line-height: 1.7; color: #555; }
+        .sv-gallery { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+        .sv-gallery-item { height: 180px; overflow: hidden; }
+        .sv-gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .sv-gallery-item:hover img { transform: scale(1.1); }
+        @media (max-width: 768px) { .sv-gallery { grid-template-columns: repeat(3, 1fr); } .sv-gallery-item { height: 120px; } .main-title { font-size: 2.8rem; } }
 
-        .atelier { padding: 80px 20px 120px; text-align: center; background: #050505; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1200px; margin: 60px auto 0; }
-        
-        .product-card { cursor: pointer; transition: 0.4s; }
-        .image-wrapper { overflow: hidden; height: 500px; margin-bottom: 20px; }
-        .image-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 0.7s; }
-        .product-card:hover img { transform: scale(1.1); }
-        .product-info h4 { font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 8px; color: #fff; }
-        .product-info p { color: #888; font-size: 0.9rem; }
-
-        .newsletter { padding: 100px 20px; text-align: center; background: #111; border-top: 1px solid #222; }
-        .newsletter input { padding: 15px; width: 300px; background: transparent; border: 1px solid #444; color: #fff; margin-right: 10px; }
-        .newsletter button { padding: 15px 30px; background: #fff; border: none; font-weight: bold; cursor: pointer; }
-
-        footer { padding: 60px; text-align: center; font-size: 11px; letter-spacing: 3px; color: #555; background: #000; }
-        .social-links i { color: #fff; margin: 0 15px; font-size: 18px; cursor: pointer; }
-
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .main-title { font-size: 2.8rem; }
-        }
+        /* ফুটার */
+        footer { padding: 50px; text-align: center; font-size: 11px; letter-spacing: 2px; color: #666; background: #000; border-top: 1px solid #222; }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
         <div class="menu-icon" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
-        <div class="logo">SHEREN<span>VOGUE</span></div>
-        <div class="nav-icons">
-            <i class="fas fa-search"></i>
-            <i class="fas fa-shopping-bag"></i>
-        </div>
+        <a href="index.html" class="logo">SHEREN<span>VOGUE</span></a>
+        <div class="nav-icons"><i class="fas fa-shopping-bag"></i></div>
     </nav>
 
     <div class="mobile-menu" id="mobileMenu">
         <span class="close-btn" onclick="toggleMenu()">&times;</span>
-        <a href="#home" onclick="toggleMenu()">Home</a>
-        <a href="#collection" onclick="toggleMenu()">Collections</a>
-        <a href="#philosophy" onclick="toggleMenu()">Runway</a>
-        <a href="#">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="collection.html">Collections</a> 
+        <a href="#philosophy" onclick="toggleMenu()">Philosophy</a>
     </div>
 
-    <header class="hero" id="home">
+    <header class="hero">
         <div class="hero-bg"></div>
-        <div class="hero-content">
-            <p class="season-tag">Spring / Summer 2026</p> <h1 class="main-title">COMEING <br> SOON</h1> <a href="#collection" class="cta-btn">View Collection</a> </div>
-        
-        <div style="position: absolute; bottom: 40px; color: #fff; opacity: 0.7; animation: float 3s infinite;">
-            <p style="font-size: 10px; letter-spacing: 3px; margin-bottom: 10px;">SCROLL</p>
-            <div style="width: 1px; height: 30px; background: #fff; margin: 0 auto;"></div>
-        </div>
+        <p style="letter-spacing: 5px; font-size: 12px; margin-bottom: 20px; color: #ccc;">SS / 2026</p>
+        <h1 class="main-title">COMING <br> SOON</h1>
+        <a href="collection.html" class="cta-btn">View Collection</a> 
     </header>
 
-    <section class="philosophy" id="philosophy">
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
-
-<style>
-    .sv-philosophy-section {
-        background-color: #f9f9f9; /* হালকা ব্যাকগ্রাউন্ড */
-        padding: 80px 20px;
-        font-family: 'Lato', sans-serif;
-        color: #333;
-        text-align: center;
-        border-top: 1px solid #e0e0e0; /* উপরের অংশের সাথে সেপারেশন */
-        margin-top: 50px; /* উপরের কন্টেন্ট থেকে একটু গ্যাপ */
-    }
-    .sv-container { max-width: 1200px; margin: 0 auto; }
-    
-    .sv-title {
-        font-family: 'Playfair Display', serif;
-        font-size: 2.2rem;
-        color: #111;
-        margin-bottom: 15px;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-    }
-    .sv-subtitle {
-        color: #D4AF37; /* গোল্ডেন কালার */
-        font-size: 1rem;
-        font-weight: 600;
-        margin-bottom: 10px;
-        display: block;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-    }
-    .sv-history-text {
-        max-width: 750px;
-        margin: 0 auto 50px auto;
-        font-size: 1.05rem;
-        line-height: 1.7;
-        color: #555;
-    }
-    .sv-gallery {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr); /* এক লাইনে ৬টি ছবি */
-        gap: 10px;
-    }
-    .sv-gallery-item {
-        position: relative;
-        overflow: hidden;
-        height: 180px; /* ছোট হাইট, যেহেতু ফুটারে থাকবে */
-        border-radius: 4px;
-    }
-    .sv-gallery-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-    }
-    .sv-gallery-item:hover img { transform: scale(1.1); }
-
-    /* মোবাইলের জন্য রেস্পনসিভ */
-    @media (max-width: 768px) {
-        .sv-gallery {
-            grid-template-columns: repeat(3, 1fr); /* মোবাইলে এক লাইনে ৩টি */
-            gap: 5px;
-        }
-        .sv-gallery-item { height: 120px; }
-        .sv-title { font-size: 1.8rem; }
-    }
-</style>
-
-<section class="sv-philosophy-section">
-    <div class="sv-container">
-        <span class="sv-subtitle">The SherenVogue Story</span>
-        <h2 class="sv-title"> Philosophy</h2>
-        
-        <p class="sv-history-text">
-            SherenVogue-এর যাত্রা শুরু হয়েছিল একটি স্বপ্ন থেকে—বাংলাদেশের ফ্যাশনকে আন্তর্জাতিক মানে পৌঁছে দেওয়া। 
-            আমরা বিশ্বাস করি প্রতিটি পোশাকের একটি নিজস্ব ভাষা আছে। তাই আমাদের প্রতিটি ডিজাইনে থাকে আভিজাত্য, 
-            মান এবং ভালোবাসার ছোঁয়া। আমাদের সাথে এই যাত্রায় থাকার জন্য ধন্যবাদ।
-        </p>
-
-        <div class="sv-gallery">
-            <div class="sv-gallery-item"><img src="https://images.unsplash.com/photo-1558235286-9a288c9460d5?w=400&q=80" alt="Sketch"></div>
-            <div class="sv-gallery-item"><img src="https://images.unsplash.com/photo-1620799140408-ed5341cd2431?w=400&q=80" alt="Fabric"></div>
-            <div class="sv-gallery-item"><img src="https://images.unsplash.com/photo-1605289982774-9a6fef564df8?w=400&q=80" alt="Sewing"></div>
-            <div class="sv-gallery-item"><img src="https://images.unsplash.com/photo-1537832816519-689ad163238b?w=400&q=80" alt="Craft"></div>
-            <div class="sv-gallery-item"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&q=80" alt="Luxury"></div>
-            <div class="sv-gallery-item"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&q=80" alt="Style"></div>
-        </div>
-    </div>
-</section>
-
-
-
-
-
-
- <div class="product-info"><h4>The Obsidian Gown</h4><p>Midnight Silk Edition</p></div>
-            </div>
-            <div class="product-card">
-                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800&auto=format&fit=crop" loading="lazy"></div>
-                <div class="product-info"><h4>Gilded Corset</h4><p>24k Thread Work</p></div>
-            </div>
-            <div class="product-card">
-                <div class="image-wrapper"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1769&auto=format&fit=crop" loading="lazy"></div>
-                <div class="product-info"><h4>Vogue Signature Bag</h4><p>Italian Leather</p></div>
+    <section class="sv-philosophy-section" id="philosophy">
+        <div class="sv-container">
+            <span class="sv-subtitle">The SherenVogue Story</span>
+            <h2 class="sv-title">Our Philosophy</h2>
+            <p class="sv-history-text">
+                SherenVogue-এর যাত্রা শুরু হয়েছিল একটি স্বপ্ন থেকে—বাংলাদেশের ফ্যাশনকে আন্তর্জাতিক মানে পৌঁছে দেওয়া। 
+                আমরা বিশ্বাস করি প্রতিটি পোশাকের একটি নিজস্ব ভাষা আছে।
+            </p>
+            <div class="sv-gallery">
+                <div class="sv-gallery-item"><img src="https://images.unsplash.com/photo-1558235286-9a288c9460d5?w=400&q=80"></div>
+                <div class="sv-gallery-item"><img src="https://images.unsplash.com/photo-1620799140408-ed5341cd2431?w=400&q=80"></div>
+                <div class="sv-gallery-item"><img src="https://images.unsplash.com/photo-1605289982774-9a6fef564df8?w=400&q=80"></div>
+                <div class="sv-gallery-item"><img src="https://images.unsplash.com/photo-1537832816519-689ad163238b?w=400&q=80"></div>
+                <div class="sv-gallery-item"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&q=80"></div>
+                <div class="sv-gallery-item"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&q=80"></div>
             </div>
         </div>
     </section>
 
-    <section class="newsletter">
-        <h3>Join the Inner Circle</h3>
-        <form onsubmit="event.preventDefault(); alert('Subscribed!');">
-            <input type="email" placeholder="Your Email Address" required>
-            <button type="submit">SUBSCRIBE</button>
-        </form>
-    </section>
+    <footer><p>&copy; 2026 SHEREN VOGUE</p></footer>
 
-    <footer>
-        <div class="social-links">
-            <i class="fab fa-instagram"></i><i class="fab fa-facebook-f"></i>
-        </div>
-        <p>&copy; 2026 SHEREN VOGUE</p>
-    </footer>
-
-    <script>
-        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) navbar.classList.add('scrolled');
-            else navbar.classList.remove('scrolled');
-        });
-    </script>
+    <script> function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); } </script>
 </body>
 </html>
