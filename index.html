@@ -3,106 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sheren Vogue | Fashion & Lifestyle</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Sheren Vogue | Uncommon Luxury</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <div class="top-bar">
-            <div class="date">EST. 2024</div>
-            <div class="social-icons">
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-pinterest"></i>
-            </div>
+    <nav class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
         </div>
         
-        <nav class="navbar">
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#">Fashion</a></li>
-                <li><a href="#">Beauty</a></li>
-                <li><a href="#">Culture</a></li>
-                <li><a href="#">Runway</a></li>
-            </ul>
-        </nav>
+        <div class="logo">
+            SHEREN<span class="highlight">VOGUE</span>
+        </div>
 
-        <div class="logo-container">
-            <h1 class="logo">SHEREN VOGUE</h1>
+        <div class="nav-icons">
+            <i class="fas fa-search"></i>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="badge">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <span class="close-btn" onclick="toggleMenu()">&times;</span>
+        <a href="#">Collections</a>
+        <a href="#">Runway</a>
+        <a href="#">Atelier</a>
+        <a href="#">About</a>
+    </div>
+
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="season-tag">SPRING / SUMMER 2026</p>
+            <h1 class="main-title">UNCOMMON <br> LUXURY</h1>
+            <a href="#collection" class="cta-btn">EXPLORE COLLECTION</a>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span>SCROLL</span>
+            <div class="line"></div>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <span class="category">COVER STORY</span>
-            <h2>The New Era of Elegance</h2>
-            <p>Discover the trends defining this season's most exclusive looks.</p>
-            <a href="#" class="btn">Read More</a>
-        </div>
+    <section class="philosophy">
+        <p class="section-label">THE PHILOSOPHY</p>
+        <h2 class="quote">
+            "True luxury is not just about rarity, but about the audacity to be <span class="gold-text">uncommon</span>. We create for those who walk the edge of avant-garde."
+        </h2>
+        <div class="divider"></div>
     </section>
 
-    <section class="container">
-        <div class="section-title">
-            <h3>LATEST STORIES</h3>
-            <div class="line"></div>
-        </div>
+    <section class="atelier" id="collection">
+        <p class="section-label">SELECTED PIECES</p>
+        <h3>The Atelier Edit</h3>
         
-        <div class="articles-grid">
-            <article class="card">
-                <div class="card-img" style="background-image: url('https://source.unsplash.com/600x800/?fashion,model');"></div>
-                <div class="card-text">
-                    <span class="tag">FASHION</span>
-                    <h4>Summer Collection 2024 Highlights</h4>
-                    <p>From Paris to Milan, see what's trending on the runway.</p>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=687&auto=format&fit=crop" alt="Luxury Gown">
                 </div>
-            </article>
-
-            <article class="card">
-                <div class="card-img" style="background-image: url('https://source.unsplash.com/600x800/?makeup,beauty');"></div>
-                <div class="card-text">
-                    <span class="tag">BEAUTY</span>
-                    <h4>Skincare Secrets for Glowing Skin</h4>
-                    <p>Expert tips on maintaining a flawless complexion.</p>
+                <h4>The Obsidian Gown</h4>
+                <p>$1,250</p>
+            </div>
+            
+            <div class="product-card">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800&auto=format&fit=crop" alt="Gold Corset">
                 </div>
-            </article>
-
-            <article class="card">
-                <div class="card-img" style="background-image: url('https://source.unsplash.com/600x800/?lifestyle,luxury');"></div>
-                <div class="card-text">
-                    <span class="tag">LIFESTYLE</span>
-                    <h4>Luxury Living: Interior Trends</h4>
-                    <p>Minimalist designs that are taking over modern homes.</p>
-                </div>
-            </article>
+                <h4>Gilded Corset</h4>
+                <p>$890</p>
+            </div>
         </div>
-    </section>
-
-    <section class="newsletter">
-        <h3>Subscribe to Sheren Vogue</h3>
-        <p>Get the latest fashion news directly in your inbox.</p>
-        <form>
-            <input type="email" placeholder="Your Email Address" required>
-            <button type="submit">SUBSCRIBE</button>
-        </form>
     </section>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">SHEREN VOGUE</div>
-            <ul class="footer-links">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-            </ul>
-            <p>&copy; 2024 Sheren Vogue. All Rights Reserved.</p>
-        </div>
+        <p>&copy; 2026 SHEREN VOGUE. PARIS - LONDON - DHAKA.</p>
     </footer>
 
     <script src="script.js"></script>
