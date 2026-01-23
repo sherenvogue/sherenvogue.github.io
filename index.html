@@ -3,16 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheren Vogue | Uncommon Luxury</title>
     
-    <title>Sheren Vogue | The Future of Avant-Garde Fashion</title>
-    <meta name="description" content="Sheren Vogue - International luxury fashion house. Shop exclusive runway collections, ladies' bags, and perfumes.">
-    <meta name="keywords" content="Sheren Vogue, Luxury Fashion, Avant-Garde, Designer Bags, Bangladesh Fashion, Runway 2026">
-    <meta name="author" content="Sheren Vogue House">
-    
-    <meta property="og:title" content="Sheren Vogue | Uncommon Luxury">
-    <meta property="og:description" content="Experience the new era of luxury. Step inside the world of Sheren Vogue.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/sherenvogue/sherenvogue.github.io/main/1000020030.png">
-    
+    <meta name="description" content="Sheren Vogue - International luxury fashion house.">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -31,28 +24,24 @@
         .navbar {
             position: fixed; top: 0; width: 100%; padding: 25px 40px;
             display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000; background: linear-gradient(to bottom, rgba(0,0,0,0.95), transparent);
-            transition: 0.4s;
+            z-index: 1000; background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
         }
-        .navbar.scrolled { background: rgba(0,0,0,0.95); border-bottom: 1px solid #222; }
-        .logo { font-family: 'Cinzel', serif; font-size: 24px; letter-spacing: 4px; font-weight: 700; color: #fff; }
+        .logo { font-family: 'Cinzel', serif; font-size: 24px; font-weight: 700; color: #fff; letter-spacing: 4px; }
         .logo span { color: #D4AF37; }
-        .nav-icons i { font-size: 20px; color: #fff; margin-left: 20px; cursor: pointer; transition: 0.3s; }
-        .nav-icons i:hover { color: #D4AF37; }
+        .nav-icons i { font-size: 20px; color: #fff; margin-left: 20px; cursor: pointer; }
 
         /* Mobile Menu */
         .mobile-menu {
             position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background: #050505; z-index: 2000; display: flex; flex-direction: column;
             justify-content: center; align-items: center; transform: translateY(-100%);
-            transition: 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+            transition: 0.6s;
         }
         .mobile-menu.active { transform: translateY(0); }
-        .mobile-menu a { color: #fff; text-decoration: none; font-size: 2.5rem; margin: 15px 0; font-family: 'Cinzel', serif; opacity: 0; transition: 0.5s; transform: translateY(20px); }
-        .mobile-menu.active a { opacity: 1; transform: translateY(0); }
+        .mobile-menu a { color: #fff; text-decoration: none; font-size: 2rem; margin: 15px 0; font-family: 'Cinzel', serif; }
         .close-btn { position: absolute; top: 30px; right: 30px; font-size: 40px; cursor: pointer; color: #D4AF37; }
 
-        /* Hero Section (YOUR UPLOADED PHOTO IS HERE) */
+        /* Hero Section (FIXED FOR FULL IMAGE) */
         .hero {
             height: 100vh; width: 100%; position: relative;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -62,39 +51,49 @@
         
         .hero-bg {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            /* --- ডাইরেক্ট লিংক ব্যবহার করা হয়েছে --- */
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6)), 
-                        url('https://raw.githubusercontent.com/sherenvogue/sherenvogue.github.io/main/1000020030.png');
-            background-size: cover;
-            background-position: center top;
+            
+            /* --- ইমেজ লিংক --- */
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6)), 
+                              url('https://raw.githubusercontent.com/sherenvogue/sherenvogue.github.io/main/1000020030.png'); 
+            
+            /* --- ফিক্সড সাইজ (যাতে পুরো ছবি আসে) --- */
+            background-size: contain; /* ছবি কাটবে না */
+            background-repeat: no-repeat;
+            background-position: center center; 
             z-index: 1; 
-            animation: slowZoom 20s infinite alternate;
         }
-        @keyframes slowZoom { from { transform: scale(1); } to { transform: scale(1.1); } }
 
-        .hero-content { position: relative; z-index: 3; animation: fadeIn 2s ease-out; }
+        /* মোবাইলে ছবি যাতে পুরো স্ক্রিন নেয় */
+        @media (max-width: 768px) {
+            .hero-bg {
+                background-size: cover; /* মোবাইলে ফুল স্ক্রিন */
+                background-position: center top;
+            }
+        }
+
+        .hero-content { position: relative; z-index: 3; animation: fadeIn 2s ease-out; margin-top: 200px; }
 
         .season-tag { font-size: 12px; letter-spacing: 6px; margin-bottom: 25px; text-transform: uppercase; color: #ddd; }
-        .main-title { font-family: 'Cinzel', serif; font-size: 4.5rem; line-height: 1.1; letter-spacing: 2px; margin-bottom: 45px; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .main-title { font-family: 'Cinzel', serif; font-size: 4rem; line-height: 1.1; letter-spacing: 2px; margin-bottom: 45px; text-shadow: 0 10px 30px rgba(0,0,0,0.8); }
         
         .cta-btn {
             padding: 18px 50px; border: 1px solid rgba(255,255,255,0.4); color: #fff;
-            text-decoration: none; font-size: 12px; letter-spacing: 4px; transition: 0.4s;
-            background: rgba(255,255,255,0.05); backdrop-filter: blur(10px);
+            text-decoration: none; font-size: 12px; letter-spacing: 4px;
+            background: rgba(255,255,255,0.1); backdrop-filter: blur(5px);
         }
-        .cta-btn:hover { background: #fff; color: #000; border-color: #fff; }
 
         /* Sections */
         .philosophy { padding: 120px 20px; text-align: center; background: #0b0b0b; }
-        .quote { font-family: 'Cinzel', serif; font-size: 2rem; max-width: 900px; margin: 0 auto; line-height: 1.5; }
+        .quote { font-family: 'Cinzel', serif; font-size: 1.8rem; max-width: 900px; margin: 0 auto; line-height: 1.5; color: #fff; }
         
         /* Product Grid */
-        .atelier { padding: 80px 20px 120px; text-align: center; background: #050505; }
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1200px; margin: 60px auto 0; }
-        .image-wrapper { overflow: hidden; height: 500px; margin-bottom: 20px; }
+        .atelier { padding: 80px 20px; text-align: center; background: #050505; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 60px auto 0; }
+        .image-wrapper { overflow: hidden; height: 450px; margin-bottom: 15px; }
         .image-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: 0.7s; }
         .product-card:hover img { transform: scale(1.1); }
-        
+        .product-card h4 { color: #fff; font-family: 'Cinzel', serif; margin-top: 10px; }
+
         /* Newsletter */
         .newsletter { padding: 80px 20px; text-align: center; background: #111; border-top: 1px solid #222; }
         .newsletter input { padding: 15px; width: 300px; background: transparent; border: 1px solid #444; color: #fff; margin-right: 10px; }
@@ -103,14 +102,6 @@
         footer { padding: 60px; text-align: center; font-size: 11px; letter-spacing: 3px; color: #555; background: #000; }
         
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Mobile Fix */
-        @media (max-width: 768px) {
-            .main-title { font-size: 2.8rem; }
-            .newsletter input { width: 100%; margin-bottom: 10px; }
-            .hero-bg { background-position: center top; }
-        }
-        /* --- CSS END --- */
     </style>
 </head>
 <body>
@@ -127,7 +118,6 @@
         <span class="close-btn" onclick="document.getElementById('mobileMenu').classList.remove('active')">&times;</span>
         <a href="#home">Home</a>
         <a href="#collection">Collections</a>
-        <a href="#">Runway</a>
         <a href="#">Contact</a>
     </div>
 
@@ -146,18 +136,18 @@
 
     <section class="atelier" id="collection">
         <p style="font-size: 10px; letter-spacing: 4px; color: #D4AF37; margin-bottom: 20px; text-transform: uppercase;">Selected Works</p>
-        <h3 style="font-family: 'Cinzel', serif; font-size: 2.5rem; margin-bottom: 40px;">The Atelier Edit</h3>
+        <h3 style="font-family: 'Cinzel', serif; font-size: 2.5rem; margin-bottom: 40px; color: #fff;">The Atelier Edit</h3>
         
         <div class="product-grid">
             <div class="product-card">
                 <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=687&auto=format&fit=crop" loading="lazy" alt="Sheren Vogue Gown">
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=687&auto=format&fit=crop" loading="lazy" alt="Gown">
                 </div>
                 <h4>The Obsidian Gown</h4>
             </div>
             <div class="product-card">
                 <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1769&auto=format&fit=crop" loading="lazy" alt="Sheren Vogue Bag">
+                    <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1769&auto=format&fit=crop" loading="lazy" alt="Bag">
                 </div>
                 <h4>Signature Leather Bag</h4>
             </div>
@@ -165,7 +155,7 @@
     </section>
 
     <section class="newsletter">
-        <h3 style="font-family: 'Cinzel', serif; margin-bottom: 20px;">Join the Inner Circle</h3>
+        <h3 style="font-family: 'Cinzel', serif; margin-bottom: 20px; color: #fff;">Join the Inner Circle</h3>
         <form onsubmit="event.preventDefault(); alert('Subscribed!');">
             <input type="email" placeholder="Email Address" required>
             <button type="submit">JOIN</button>
@@ -173,21 +163,8 @@
     </section>
 
     <footer>
-        <div style="margin-bottom: 20px;">
-            <i class="fab fa-instagram" style="color: #fff; margin: 0 10px;"></i>
-            <i class="fab fa-facebook-f" style="color: #fff; margin: 0 10px;"></i>
-        </div>
         <p>&copy; 2026 SHEREN VOGUE. PARIS - LONDON - DHAKA.</p>
     </footer>
-
-    <script>
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) navbar.classList.add('scrolled');
-            else navbar.classList.remove('scrolled');
-        });
-    </script>
 
 </body>
 </html>
