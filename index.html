@@ -41,7 +41,7 @@
             color: var(--white);
             font-family: var(--font-body);
             overflow-x: hidden;
-            -webkit-tap-highlight-color: transparent; /* Mobile tap fix */
+            -webkit-tap-highlight-color: transparent;
         }
 
         /* --- SCROLLBAR --- */
@@ -116,7 +116,6 @@
             perspective: 1000px; 
         }
 
-        /* Stable Image Link for Hero */
         .hero-bg {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); 
@@ -200,7 +199,7 @@
 
         .image-wrapper {
             position: relative;
-            height: 350px; /* Fixed height for consistency */
+            height: 350px;
             overflow: hidden;
             background-color: #1a1a1a;
         }
@@ -244,7 +243,7 @@
             left: 0; top: 0; width: 100%; height: 100%;
             background-color: rgba(0,0,0,0.95);
             backdrop-filter: blur(5px);
-            overflow-y: auto; /* Enable scrolling on mobile */
+            overflow-y: auto; 
             align-items: center; justify-content: center;
         }
 
@@ -281,6 +280,11 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             width: 100%;
+            transition: 0.3s;
+        }
+        .buy-btn:hover {
+            background: var(--white);
+            color: var(--black);
         }
 
         /* --- FOOTER --- */
@@ -296,7 +300,6 @@
 
         /* --- MOBILE & RESPONSIVE TWEAKS --- */
         @media (max-width: 768px) {
-            /* Navbar on Mobile */
             nav {
                 padding: 15px 20px;
                 flex-direction: column;
@@ -307,17 +310,11 @@
                 margin: 0;
                 max-width: 100%;
             }
-            
-            /* Hero Text on Mobile */
             h1 { font-size: 2.8rem; letter-spacing: 5px; }
             .subtitle { font-size: 1rem; }
-            
-            /* Grid on Mobile */
             .products { padding: 60px 20px; }
             .grid { grid-template-columns: 1fr; gap: 40px; }
-            
-            /* Modal on Mobile */
-            .modal { align-items: flex-start; padding-top: 20px; } /* Start from top to scroll */
+            .modal { align-items: flex-start; padding-top: 20px; }
             .modal-content { 
                 width: 90%; 
                 flex-direction: column; 
@@ -356,7 +353,7 @@
         <h2 style="color:var(--gold); font-family:var(--font-heading); margin-bottom:20px; font-size:1.8rem;">আমাদের দর্শন</h2>
         <div style="width: 50px; height: 2px; background: var(--gold); margin: 0 auto 30px;"></div>
         <p style="font-family:var(--font-bangla); font-size:1.1rem; line-height:2; color:#ccc; max-width:800px; margin:0 auto;">
-            <span style="color:var(--gold); font-weight:bold;">শেরেনভোগ (SherenVogue)</span> শুধু একটি ব্র্যান্ড নয়, এটি আভিজাত্যের প্রতীক। 
+            <span style="color:var(--gold); font-weight:bold;">শেরেনভোগ (SherenVogue)</span> শুধু একটি ব্র্যান্ড নয়, এটি আভিজাত্যের প্রতীক। 
             আমরা বিশ্বাস করি প্রতিটি পণ্যের নিজস্ব একটি গল্প থাকে। আমাদের আন্তর্জাতিক মানের কালেকশন আপনার ব্যক্তিত্বকে করে তুলবে আরও উজ্জ্বল।
             <br><br>
             "বিলাসিতা আপনার অধিকার, আর তা পৌঁছে দেওয়াই আমাদের অঙ্গীকার।"
@@ -365,7 +362,7 @@
 
     <section id="collection" class="products">
         <div class="section-header">
-            <h2 class="section-title"> Unpublished New Arrivals</h2>
+            <h2 class="section-title">New Arrivals</h2>
             <p style="color:#666; margin-top:10px;">Exclusive Collection 2026</p>
         </div>
 
@@ -378,7 +375,7 @@
                 </div>
                 <div class="card-info">
                     <h3 class="card-title">The Empress Tote</h3>
-                    <p class="card-price">$</p>
+                    <p class="card-price">$450</p>
                     <button class="view-btn">View Details</button>
                 </div>
             </div>
@@ -390,31 +387,31 @@
                 </div>
                 <div class="card-info">
                     <h3 class="card-title">Midnight Chrono</h3>
-                    <p class="card-price">$</p>
+                    <p class="card-price">$1,200</p>
                     <button class="view-btn">View Details</button>
                 </div>
             </div>
 
-            <div class="card" onclick="openModal('img3', 'Velvet Rose Parfum', '$', 'A seductive blend of Bulgarian rose, oud, and vanilla. Long lasting premium fragrance.')">
+            <div class="card" onclick="openModal('img3', 'Velvet Rose Parfum', '$180', 'A seductive blend of Bulgarian rose, oud, and vanilla. Long lasting premium fragrance.')">
                 <div class="image-wrapper">
                     <img src="https://images.unsplash.com/photo-1594035910387-fea4779426e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img3" alt="Perfume">
                     <div class="brand-watermark">SherenVogue</div>
                 </div>
                 <div class="card-info">
                     <h3 class="card-title">Velvet Rose Parfum</h3>
-                    <p class="card-price">$</p>
+                    <p class="card-price">$180</p>
                     <button class="view-btn">View Details</button>
                 </div>
             </div>
 
-            <div class="card" onclick="openModal('img4', 'Golden Waist Belt', '$', 'Premium leather belt with signature gold buckle. Adjustable and stylish.')">
+            <div class="card" onclick="openModal('img4', 'Golden Waist Belt', '$95', 'Premium leather belt with signature gold buckle. Adjustable and stylish.')">
                 <div class="image-wrapper">
                     <img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img4" alt="Belt">
                     <div class="brand-watermark">SherenVogue</div>
                 </div>
                 <div class="card-info">
                     <h3 class="card-title">Golden Waist Belt</h3>
-                    <p class="card-price">$</p>
+                    <p class="card-price">$95</p>
                     <button class="view-btn">View Details</button>
                 </div>
             </div>
@@ -431,7 +428,7 @@
                 <h3 id="modalPrice" style="color: white; margin-bottom: 20px; font-size: 1.4rem;"></h3>
                 <div style="width: 100%; height: 1px; background: #333; margin-bottom: 20px;"></div>
                 <p id="modalDesc" style="color: #ccc; line-height: 1.6; margin-bottom: 30px;"></p>
-                <button class="buy-btn" onclick="alert('Proceeding to checkout via Email...')">Add to Bag</button>
+                <button class="buy-btn" onclick="orderViaEmail()">Add to Bag & Order</button>
             </div>
         </div>
     </div>
@@ -471,7 +468,7 @@
             }
         }
 
-        // Modal
+        // Modal Logic
         function openModal(imgId, title, price, desc) {
             let imgSrc = document.getElementById(imgId).src;
             document.getElementById('modalImg').src = imgSrc;
@@ -481,12 +478,12 @@
             
             let modal = document.getElementById('productModal');
             modal.style.display = "flex";
-            document.body.style.overflow = "hidden"; // Prevent background scrolling
+            document.body.style.overflow = "hidden"; 
         }
 
         function closeModal() {
             document.getElementById('productModal').style.display = "none";
-            document.body.style.overflow = "auto"; // Re-enable scrolling
+            document.body.style.overflow = "auto"; 
         }
 
         window.onclick = function(event) {
@@ -496,9 +493,27 @@
             }
         }
 
-        // 3D Parallax Effect (Optimized for Desktop)
+        // --- NEW FEATURE: Order via Email ---
+        function orderViaEmail() {
+            // Get product details
+            const title = document.getElementById('modalTitle').innerText;
+            const price = document.getElementById('modalPrice').innerText;
+            
+            // Create email content
+            const subject = "Order Request: " + title;
+            const body = "Hi SherenVogue,\n\nI am interested in purchasing the following item:\n\n" + 
+                         "Product: " + title + "\n" + 
+                         "Price: " + price + "\n\n" +
+                         "Please let me know the payment and delivery details.\n\n" +
+                         "Thank you.";
+
+            // Open Mail Client
+            window.location.href = `mailto:hello@sherenvogue.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        // 3D Parallax
         document.addEventListener('mousemove', (e) => {
-            if (window.innerWidth > 768) { // Only enable on desktop
+            if (window.innerWidth > 768) { 
                 const x = (window.innerWidth / 2 - e.pageX) / 40;
                 const y = (window.innerHeight / 2 - e.pageY) / 40;
                 
