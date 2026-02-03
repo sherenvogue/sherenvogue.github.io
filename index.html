@@ -1,529 +1,831 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>SherenVogue | International Luxury Fashion</title>
+
     <meta name="description" content="SherenVogue - Official Store. Shop exclusive luxury bags, watches, and perfumes. Worldwide shipping available.">
+
     <meta name="keywords" content="SherenVogue, Luxury Brand, Fashion, Ladies Bag, Premium Watch, Bangladesh">
+
     
+
     <script type="application/ld+json">
+
     {
+
       "@context": "https://schema.org",
+
       "@type": "Organization",
+
       "name": "SherenVogue",
+
       "url": "https://sherenvogue.com",
+
       "logo": "https://sherenvogue.com/logo.png"
+
     }
+
     </script>
 
+
+
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;1,400&family=Lato:wght@300;400&family=Noto+Serif+Bengali:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+
+
     <style>
+
         /* --- LUXURY THEME VARIABLES --- */
+
         :root {
+
             --gold: #D4AF37;
+
             --gold-gradient: linear-gradient(45deg, #D4AF37, #F2D06B, #D4AF37);
+
             --black: #050505;
+
             --rich-black: #0f0f0f;
+
             --white: #ffffff;
+
             --font-heading: 'Cinzel', serif;
+
             --font-sub: 'Playfair Display', serif;
+
             --font-body: 'Lato', sans-serif;
+
             --font-bangla: 'Noto Serif Bengali', serif;
+
         }
+
+
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+
+
         body {
+
             background-color: var(--black);
+
             color: var(--white);
+
             font-family: var(--font-body);
+
             overflow-x: hidden;
-            -webkit-tap-highlight-color: transparent;
+
+            -webkit-tap-highlight-color: transparent; /* Mobile tap fix */
+
         }
+
+
 
         /* --- SCROLLBAR --- */
+
         ::-webkit-scrollbar { width: 6px; }
+
         ::-webkit-scrollbar-track { background: var(--black); }
+
         ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
 
+
+
         /* --- NAVIGATION --- */
+
         nav {
+
             position: fixed; top: 0; width: 100%;
+
             padding: 15px 50px;
+
             display: flex; justify-content: space-between; align-items: center;
+
             background: rgba(5, 5, 5, 0.9);
+
             backdrop-filter: blur(12px);
+
             z-index: 1000;
+
             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+
             transition: all 0.3s ease;
+
         }
+
+
 
         .logo {
+
             font-family: var(--font-heading);
+
             font-size: 24px;
+
             background: var(--gold-gradient);
+
             -webkit-background-clip: text;
+
             -webkit-text-fill-color: transparent;
+
             font-weight: 700;
+
             letter-spacing: 2px;
+
             text-transform: uppercase;
+
         }
+
+
 
         .search-container {
+
             position: relative;
+
             margin: 0 20px;
+
             flex-grow: 1;
+
             max-width: 400px;
+
         }
+
+
 
         .search-input {
+
             width: 100%;
+
             padding: 10px 40px 10px 15px;
+
             background: rgba(255, 255, 255, 0.05);
+
             border: 1px solid var(--gold);
+
             color: var(--white);
+
             border-radius: 30px;
+
             font-family: var(--font-body);
+
             transition: 0.3s;
+
         }
+
         
+
         .search-input:focus { outline: none; background: rgba(0,0,0,0.9); box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
+
         
+
         .search-icon {
+
             position: absolute; right: 15px; top: 50%;
+
             transform: translateY(-50%);
+
             color: var(--gold);
+
         }
+
+
 
         .nav-icon {
+
             color: var(--gold);
+
             font-size: 1.2rem;
+
             cursor: pointer;
+
             text-decoration: none;
+
         }
+
+
 
         /* --- 3D HERO SECTION --- */
+
         header {
+
             height: 100vh;
+
             display: flex; flex-direction: column; justify-content: center; align-items: center;
+
             text-align: center;
+
             position: relative;
+
             overflow: hidden;
+
             background: #000;
+
             perspective: 1000px; 
+
         }
+
+
+
+        /* Stable Image Link for Hero */
 
         .hero-bg {
+
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+
             background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); 
+
             background-size: cover;
+
             background-position: center;
+
             opacity: 0.5;
+
             transform: scale(1.1);
+
             transition: transform 0.2s ease-out; 
+
             z-index: 0;
+
             filter: contrast(1.2) brightness(0.7);
+
         }
+
+
 
         .hero-content {
+
             z-index: 2;
+
             padding: 20px;
+
             transform-style: preserve-3d;
+
         }
+
+
 
         h1 {
+
             font-family: var(--font-heading);
+
             font-size: 4.5rem;
+
             color: var(--gold);
+
             letter-spacing: 10px;
+
             text-transform: uppercase;
+
             text-shadow: 0 10px 30px rgba(0,0,0,0.9);
+
             margin-bottom: 15px;
+
             animation: fadeInUp 1.5s ease-out forwards;
+
         }
+
+
 
         .subtitle {
+
             font-family: var(--font-sub);
+
             font-size: 1.2rem; color: #ddd;
+
             font-style: italic;
+
             letter-spacing: 3px;
+
             animation: fadeInUp 1.5s ease-out 0.5s forwards;
+
             opacity: 0;
+
         }
+
+
 
         @keyframes fadeInUp {
+
             from { opacity: 0; transform: translateY(40px); }
+
             to { opacity: 1; transform: translateY(0); }
+
         }
+
+
 
         /* --- PHILOSOPHY --- */
+
         .philosophy-section {
+
             padding: 80px 10%; 
+
             background:#080808; 
+
             text-align:center;
+
         }
+
+
 
         /* --- PRODUCTS GRID --- */
+
         .products { padding: 80px 5%; background: var(--black); }
+
         
+
         .section-header { text-align: center; margin-bottom: 50px; }
+
         .section-title {
+
             font-family: var(--font-heading); font-size: 2.5rem; color: var(--gold);
+
             border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 10px;
+
         }
+
+
 
         .grid {
+
             display: grid;
+
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
             gap: 30px;
+
         }
+
+
 
         .card {
+
             background: #0f0f0f;
+
             border: 1px solid #222;
+
             position: relative;
+
             overflow: hidden;
+
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+
             cursor: pointer;
+
             border-radius: 4px;
+
         }
+
+
 
         .card:hover {
+
             transform: translateY(-5px);
+
             box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+
             border-color: var(--gold);
+
         }
+
+
 
         .image-wrapper {
+
             position: relative;
-            height: 350px;
+
+            height: 350px; /* Fixed height for consistency */
+
             overflow: hidden;
+
             background-color: #1a1a1a;
+
         }
 
+
+
         .card-img {
+
             width: 100%; height: 100%; object-fit: cover;
+
             transition: transform 0.6s ease;
+
             opacity: 0.9;
+
         }
+
+
 
         .card:hover .card-img { transform: scale(1.1); opacity: 1; }
 
+
+
         .brand-watermark {
+
             position: absolute; bottom: 10px; right: 10px;
+
             font-family: var(--font-heading); color: var(--gold);
+
             font-size: 0.7rem; letter-spacing: 1px;
+
             background: rgba(0,0,0,0.7); padding: 4px 8px;
+
             border: 1px solid var(--gold);
+
         }
+
+
 
         .card-info { padding: 20px; text-align: center; }
+
         .card-title { color: var(--white); font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 5px; }
+
         .card-price { color: var(--gold); font-size: 1rem; font-weight: bold; }
+
         
+
         .view-btn {
+
             margin-top: 12px;
+
             padding: 8px 25px;
+
             background: transparent;
+
             border: 1px solid #333;
+
             color: #888;
+
             font-size: 0.8rem;
+
             text-transform: uppercase;
+
             transition: 0.3s;
+
             cursor: pointer;
+
         }
+
         .card:hover .view-btn { border-color: var(--gold); color: var(--gold); }
 
+
+
         /* --- PRODUCT MODAL --- */
+
         .modal {
+
             display: none; position: fixed; z-index: 2000;
+
             left: 0; top: 0; width: 100%; height: 100%;
+
             background-color: rgba(0,0,0,0.95);
+
             backdrop-filter: blur(5px);
-            overflow-y: auto; 
+
+            overflow-y: auto; /* Enable scrolling on mobile */
+
             align-items: center; justify-content: center;
+
         }
 
+
+
         .modal-content {
+
             background-color: #0a0a0a;
+
             margin: auto; padding: 0;
+
             border: 1px solid var(--gold);
+
             width: 80%; max-width: 900px;
+
             display: flex; flex-wrap: wrap;
+
             box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
+
             position: relative;
+
             animation: zoomIn 0.3s ease;
+
         }
+
+
 
         @keyframes zoomIn { from {transform: scale(0.9); opacity: 0;} to {transform: scale(1); opacity: 1;} }
 
+
+
         .modal-img { flex: 1 1 400px; height: 500px; object-fit: cover; }
+
         .modal-details { flex: 1 1 350px; padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+
         
+
         .close-btn {
+
             position: absolute; top: 10px; right: 15px;
+
             color: var(--gold); font-size: 30px; cursor: pointer;
+
             z-index: 10; background: rgba(0,0,0,0.5); width: 40px; height: 40px; text-align: center; line-height: 40px; border-radius: 50%;
+
         }
+
+
 
         .buy-btn {
+
             margin-top: 25px;
+
             padding: 15px 30px;
+
             background: var(--gold);
+
             color: var(--black);
+
             font-weight: 700;
+
             border: none;
+
             cursor: pointer;
+
             text-transform: uppercase;
+
             letter-spacing: 2px;
+
             width: 100%;
-            transition: 0.3s;
+
         }
-        .buy-btn:hover {
-            background: var(--white);
-            color: var(--black);
-        }
+
+
 
         /* --- FOOTER --- */
+
         footer {
+
             padding: 60px 5%; background: #020202; text-align: center; border-top: 1px solid #1a1a1a;
+
         }
+
         .contact-email { 
+
             color: var(--gold); text-decoration: none; font-size: 1.2rem; 
+
             border-bottom: 1px solid transparent; transition:0.3s;
+
             display: inline-block; margin-top: 10px;
+
         }
+
         .contact-email:hover { border-bottom: 1px solid var(--gold); }
 
+
+
         /* --- MOBILE & RESPONSIVE TWEAKS --- */
+
         @media (max-width: 768px) {
+
+            /* Navbar on Mobile */
+
             nav {
+
                 padding: 15px 20px;
+
                 flex-direction: column;
+
                 gap: 15px;
+
             }
+
             .search-container {
+
                 width: 100%;
+
                 margin: 0;
+
                 max-width: 100%;
+
             }
+
+            
+
+            /* Hero Text on Mobile */
+
             h1 { font-size: 2.8rem; letter-spacing: 5px; }
+
             .subtitle { font-size: 1rem; }
+
+            
+
+            /* Grid on Mobile */
+
             .products { padding: 60px 20px; }
+
             .grid { grid-template-columns: 1fr; gap: 40px; }
-            .modal { align-items: flex-start; padding-top: 20px; }
+
+            
+
+            /* Modal on Mobile */
+
+            .modal { align-items: flex-start; padding-top: 20px; } /* Start from top to scroll */
+
             .modal-content { 
+
                 width: 90%; 
+
                 flex-direction: column; 
+
                 margin-bottom: 50px; 
+
             }
+
             .modal-img { height: 300px; width: 100%; }
+
             .modal-details { padding: 25px; }
+
             .close-btn { top: 10px; right: 10px; }
+
         }
+
     </style>
+
 </head>
+
 <body>
 
+
+
     <nav>
+
         <div class="logo">SherenVogue</div>
+
         
+
         <div class="search-container">
+
             <input type="text" id="searchInput" class="search-input" placeholder="Search bags, watches..." onkeyup="searchProducts()">
+
             <i class="fas fa-search search-icon"></i>
+
         </div>
+
+
 
         <a href="#collection" class="nav-icon">
+
             <i class="fas fa-shopping-bag"></i>
+
         </a>
+
     </nav>
 
+
+
     <header id="home">
+
         <div class="hero-bg" id="heroBg"></div>
+
         <div class="hero-content">
+
             <h1>SherenVogue</h1>
+
             <p class="subtitle">The Art of Timeless Luxury</p>
+
         </div>
+
     </header>
 
+
+
     <section class="philosophy-section">
+
         <h2 style="color:var(--gold); font-family:var(--font-heading); margin-bottom:20px; font-size:1.8rem;">আমাদের দর্শন</h2>
+
         <div style="width: 50px; height: 2px; background: var(--gold); margin: 0 auto 30px;"></div>
+
         <p style="font-family:var(--font-bangla); font-size:1.1rem; line-height:2; color:#ccc; max-width:800px; margin:0 auto;">
+
             <span style="color:var(--gold); font-weight:bold;">শেরেনভোগ (SherenVogue)</span> শুধু একটি ব্র্যান্ড নয়, এটি আভিজাত্যের প্রতীক। 
+
             আমরা বিশ্বাস করি প্রতিটি পণ্যের নিজস্ব একটি গল্প থাকে। আমাদের আন্তর্জাতিক মানের কালেকশন আপনার ব্যক্তিত্বকে করে তুলবে আরও উজ্জ্বল।
+
             <br><br>
+
             "বিলাসিতা আপনার অধিকার, আর তা পৌঁছে দেওয়াই আমাদের অঙ্গীকার।"
+
         </p>
+
     </section>
+
+
 
     <section id="collection" class="products">
+
         <div class="section-header">
-            <h2 class="section-title">New Arrivals</h2>
+
+            <h2 class="section-title"> Unpublished New Arrivals</h2>
+
             <p style="color:#666; margin-top:10px;">Exclusive Collection 2026</p>
+
         </div>
+
+
 
         <div class="grid" id="productGrid">
+
             
+
             <div class="card" onclick="openModal('img1', 'The Empress Tote', '$450', 'Genuine Italian leather with 24k gold plated hardware. Perfect for daily luxury usage.')">
+
                 <div class="image-wrapper">
+
                     <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img1" alt="Luxury Bag">
+
                     <div class="brand-watermark">SherenVogue</div>
+
                 </div>
+
                 <div class="card-info">
+
                     <h3 class="card-title">The Empress Tote</h3>
-                    <p class="card-price">$450</p>
+
+                    <p class="card-price">$</p>
+
                     <button class="view-btn">View Details</button>
+
                 </div>
+
             </div>
+
+
 
             <div class="card" onclick="openModal('img2', 'Midnight Chrono', '$1,200', 'Swiss movement automatic watch with sapphire crystal glass. A masterpiece of time.')">
+
                 <div class="image-wrapper">
+
                     <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img2" alt="Luxury Watch">
+
                     <div class="brand-watermark">SherenVogue</div>
+
                 </div>
+
                 <div class="card-info">
+
                     <h3 class="card-title">Midnight Chrono</h3>
-                    <p class="card-price">$1,200</p>
+
+                    <p class="card-price">$</p>
+
                     <button class="view-btn">View Details</button>
+
                 </div>
+
             </div>
 
-            <div class="card" onclick="openModal('img3', 'Velvet Rose Parfum', '$180', 'A seductive blend of Bulgarian rose, oud, and vanilla. Long lasting premium fragrance.')">
+
+
+            <div class="card" onclick="openModal('img3', 'Velvet Rose Parfum', '$', 'A seductive blend of Bulgarian rose, oud, and vanilla. Long lasting premium fragrance.')">
+
                 <div class="image-wrapper">
+
                     <img src="https://images.unsplash.com/photo-1594035910387-fea4779426e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img3" alt="Perfume">
+
                     <div class="brand-watermark">SherenVogue</div>
+
                 </div>
+
                 <div class="card-info">
+
                     <h3 class="card-title">Velvet Rose Parfum</h3>
-                    <p class="card-price">$180</p>
+
+                    <p class="card-price">$</p>
+
                     <button class="view-btn">View Details</button>
+
                 </div>
+
             </div>
 
-            <div class="card" onclick="openModal('img4', 'Golden Waist Belt', '$95', 'Premium leather belt with signature gold buckle. Adjustable and stylish.')">
+
+
+            <div class="card" onclick="openModal('img4', 'Golden Waist Belt', '$', 'Premium leather belt with signature gold buckle. Adjustable and stylish.')">
+
                 <div class="image-wrapper">
+
                     <img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img4" alt="Belt">
+
                     <div class="brand-watermark">SherenVogue</div>
+
                 </div>
+
                 <div class="card-info">
+
                     <h3 class="card-title">Golden Waist Belt</h3>
-                    <p class="card-price">$95</p>
-                    <button class="view-btn">View Details</button>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <div id="productModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <img src="" id="modalImg" class="modal-img">
-            <div class="modal-details">
-                <h2 id="modalTitle" style="font-family: var(--font-heading); color: var(--gold); margin-bottom: 10px; font-size: 1.8rem;"></h2>
-                <h3 id="modalPrice" style="color: white; margin-bottom: 20px; font-size: 1.4rem;"></h3>
-                <div style="width: 100%; height: 1px; background: #333; margin-bottom: 20px;"></div>
-                <p id="modalDesc" style="color: #ccc; line-height: 1.6; margin-bottom: 30px;"></p>
-                <button class="buy-btn" onclick="orderViaEmail()">Add to Bag & Order</button>
-            </div>
-        </div>
-    </div>
-
-    <footer id="contact">
-        <h2 class="logo" style="margin-bottom: 20px;">SherenVogue</h2>
-        <p style="color:#666; margin-bottom:15px;">Official Luxury Store | Established 2026</p>
-        
-        <div class="social-links" style="font-size: 1.5rem; margin-bottom: 25px;">
-            <i class="fab fa-instagram" style="color:white; margin:0 12px; cursor:pointer;"></i>
-            <i class="fab fa-facebook" style="color:white; margin:0 12px; cursor:pointer;"></i>
-        </div>
-
-        <p style="color:#888;">For inquiries & orders:</p>
-        <a href="mailto:hello@sherenvogue.com" class="contact-email">hello@sherenvogue.com</a>
-
-        <p style="color: #444; font-size: 0.8rem; margin-top: 40px;">&copy; 2026 SherenVogue. All Rights Reserved.</p>
-    </footer>
-
-    <script>
-        // Search
-        function searchProducts() {
-            let input = document.getElementById('searchInput').value.toUpperCase();
-            let grid = document.getElementById('productGrid');
-            let cards = grid.getElementsByClassName('card');
-
-            for (let i = 0; i < cards.length; i++) {
-                let title = cards[i].getElementsByClassName('card-title')[0];
-                if (title) {
-                    let txtValue = title.textContent || title.innerText;
-                    if (txtValue.toUpperCase().indexOf(input) > -1) {
-                        cards[i].style.display = "";
-                    } else {
-                        cards[i].style.display = "none";
-                    }
-                }
-            }
-        }
-
-        // Modal Logic
-        function openModal(imgId, title, price, desc) {
-            let imgSrc = document.getElementById(imgId).src;
-            document.getElementById('modalImg').src = imgSrc;
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalPrice').innerText = price;
-            document.getElementById('modalDesc').innerText = desc;
-            
-            let modal = document.getElementById('productModal');
-            modal.style.display = "flex";
-            document.body.style.overflow = "hidden"; 
-        }
-
-        function closeModal() {
-            document.getElementById('productModal').style.display = "none";
-            document.body.style.overflow = "auto"; 
-        }
-
-        window.onclick = function(event) {
-            let modal = document.getElementById('productModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
-        // --- NEW FEATURE: Order via Email ---
-        function orderViaEmail() {
-            // Get product details
-            const title = document.getElementById('modalTitle').innerText;
-            const price = document.getElementById('modalPrice').innerText;
-            
-            // Create email content
-            const subject = "Order Request: " + title;
-            const body = "Hi SherenVogue,\n\nI am interested in purchasing the following item:\n\n" + 
-                         "Product: " + title + "\n" + 
-                         "Price: " + price + "\n\n" +
-                         "Please let me know the payment and delivery details.\n\n" +
-                         "Thank you.";
-
-            // Open Mail Client
-            window.location.href = `mailto:hello@sherenvogue.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        }
-
-        // 3D Parallax
-        document.addEventListener('mousemove', (e) => {
-            if (window.innerWidth > 768) { 
-                const x = (window.innerWidth / 2 - e.pageX) / 40;
-                const y = (window.innerHeight / 2 - e.pageY) / 40;
-                
-                const heroText = document.querySelector('.hero-content h1');
-                if(heroText) heroText.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-
-                const bg = document.getElementById('heroBg');
-                if(bg) bg.style.transform = `scale(1.1) translateX(${-x}px) translateY(${-y}px)`;
-            }
-        });
-    </script>
-</body>
-</html>
