@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SherenVogue | International Luxury Fashion</title>
-    <meta name="description" content="SherenVogue - Official Store. Shop exclusive luxury bags, watches, and perfumes.">
     
+    <title>SherenVogue | Exclusive Luxury Fashion Store</title>
+    <meta name="description" content="SherenVogue - Official Store. Discover exclusive luxury bags, watches, perfumes, and accessories. Premium quality craftsmanship.">
+    <meta name="keywords" content="Luxury Fashion, SherenVogue, Premium Bags, Swiss Watches, BD Fashion, Brand">
+    <meta name="author" content="SherenVogue">
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "Store",
       "name": "SherenVogue",
       "url": "https://sherenvogue.com",
-      "logo": "https://sherenvogue.com/logo.png"
+      "image": "https://sherenvogue.com/logo.png",
+      "description": "International Luxury Fashion Brand based in Bangladesh."
     }
     </script>
 
@@ -20,15 +24,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- LUXURY THEME VARIABLES --- */
+        /* --- কালার এবং ফন্ট সেটিংস (এখানে কালার চেঞ্জ করতে পারবেন) --- */
         :root {
-            --gold: #D4AF37;
+            --gold: #D4AF37; /* সোনালী কালার */
             --gold-gradient: linear-gradient(45deg, #D4AF37, #F2D06B, #D4AF37);
-            --black: #050505;
-            --rich-black: #0f0f0f;
+            --black: #050505; /* কালো ব্যাকগ্রাউন্ড */
             --white: #ffffff;
             --font-heading: 'Cinzel', serif;
-            --font-sub: 'Playfair Display', serif;
             --font-body: 'Lato', sans-serif;
             --font-bangla: 'Noto Serif Bengali', serif;
         }
@@ -40,21 +42,16 @@
             color: var(--white);
             font-family: var(--font-body);
             overflow-x: hidden;
-            -webkit-tap-highlight-color: transparent; /* Removes blue highlight on mobile tap */
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--black); }
-        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
-
-        /* --- NAVIGATION --- */
+        /* --- মেনু বার (Navigation) --- */
         nav {
             position: fixed; top: 0; width: 100%;
             padding: 15px 50px;
             display: flex; justify-content: space-between; align-items: center;
             background: rgba(5, 5, 5, 0.95);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
             transition: top 0.4s ease-in-out;
@@ -67,10 +64,10 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 700;
-            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
+        /* সার্চ বার ডিজাইন */
         .search-container {
             position: relative;
             margin: 0 20px;
@@ -85,51 +82,22 @@
             border: 1px solid var(--gold);
             color: var(--white);
             border-radius: 30px;
-            font-family: var(--font-body);
             transition: 0.3s;
         }
-        
-        .search-input:focus { outline: none; background: rgba(0,0,0,0.9); box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
-        
-        .search-icon {
-            position: absolute; right: 15px; top: 50%;
-            transform: translateY(-50%);
-            color: var(--gold);
-        }
+        .search-input:focus { outline: none; background: rgba(0,0,0,0.9); box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); }
+        .search-icon { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--gold); }
 
-        .nav-buttons {
-            display: flex; align-items: center; gap: 20px;
-        }
-
-        .nav-text-btn {
-            color: var(--gold);
-            text-decoration: none;
-            font-family: var(--font-heading);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid transparent;
-            transition: 0.3s;
-        }
-        
+        .nav-buttons { display: flex; align-items: center; gap: 20px; }
+        .nav-text-btn { color: var(--gold); text-decoration: none; font-family: var(--font-heading); text-transform: uppercase; border-bottom: 1px solid transparent; transition: 0.3s; }
         .nav-text-btn:hover { border-bottom: 1px solid var(--gold); color: var(--white); }
 
-        .nav-icon {
-            color: var(--gold);
-            font-size: 1.2rem;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        /* --- HERO SECTION --- */
+        /* --- হিরো সেকশন (বড় ব্যানার) --- */
         header {
             height: 100vh;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center;
             position: relative;
             overflow: hidden;
-            background: #000;
-            perspective: 1000px; 
         }
 
         .hero-bg {
@@ -140,34 +108,23 @@
             opacity: 0.5;
             transform: scale(1.1);
             transition: transform 0.2s ease-out; 
-            z-index: 0;
-            filter: contrast(1.2) brightness(0.7);
+            filter: contrast(1.2) brightness(0.6);
         }
 
-        .hero-content {
-            z-index: 2;
-            padding: 20px;
-            transform-style: preserve-3d;
-        }
+        .hero-content { z-index: 2; padding: 20px; }
 
         h1 {
             font-family: var(--font-heading);
-            font-size: 4.5rem;
-            color: var(--gold);
-            letter-spacing: 10px;
-            text-transform: uppercase;
+            font-size: 4rem; color: var(--gold);
+            letter-spacing: 8px; text-transform: uppercase;
             text-shadow: 0 10px 30px rgba(0,0,0,0.9);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             animation: fadeInUp 1.5s ease-out forwards;
         }
 
         .subtitle {
-            font-family: var(--font-sub);
-            font-size: 1.2rem; color: #ddd;
-            font-style: italic;
-            letter-spacing: 3px;
-            animation: fadeInUp 1.5s ease-out 0.5s forwards;
-            opacity: 0;
+            font-family: var(--font-heading); font-size: 1.2rem; color: #ddd; letter-spacing: 3px;
+            animation: fadeInUp 1.5s ease-out 0.5s forwards; opacity: 0;
         }
 
         @keyframes fadeInUp {
@@ -175,46 +132,45 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- SECTIONS --- */
-        .philosophy-section {
-            padding: 80px 10%; 
-            background:#080808; 
-            text-align:center;
-        }
+        /* --- দর্শন (Philosophy) --- */
+        .philosophy-section { padding: 80px 10%; background:#080808; text-align:center; }
 
-        .products { padding: 80px 5%; background: var(--black); }
-        
-        .section-header { text-align: center; margin-bottom: 50px; }
+        /* --- প্রোডাক্ট গ্রিড ডিজাইন --- */
+        .products { padding: 60px 5%; background: var(--black); }
         .section-title {
             font-family: var(--font-heading); font-size: 2.5rem; color: var(--gold);
             border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 10px;
+            text-align: center; margin-bottom: 40px;
         }
 
+        /* ডেস্কটপ গ্রিড (সাধারণত ৪টা বা ৩টা করে দেখাবে) */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
         }
 
+        /* প্রোডাক্ট কার্ড */
         .card {
             background: #0f0f0f;
             border: 1px solid #222;
             position: relative;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
             cursor: pointer;
             border-radius: 4px;
         }
 
+        /* কার্ডের 3D এফেক্ট এবং হোভার */
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15); /* গোল্ডেন শ্যাডো */
             border-color: var(--gold);
         }
 
         .image-wrapper {
             position: relative;
-            height: 350px;
+            height: 320px; /* ছবির হাইট */
             overflow: hidden;
             background-color: #1a1a1a;
         }
@@ -230,49 +186,46 @@
         .brand-watermark {
             position: absolute; bottom: 10px; right: 10px;
             font-family: var(--font-heading); color: var(--gold);
-            font-size: 0.7rem; letter-spacing: 1px;
-            background: rgba(0,0,0,0.7); padding: 4px 8px;
+            font-size: 0.6rem; letter-spacing: 1px;
+            background: rgba(0,0,0,0.8); padding: 4px 8px;
             border: 1px solid var(--gold);
         }
 
-        .card-info { padding: 20px; text-align: center; }
-        .card-title { color: var(--white); font-family: var(--font-heading); font-size: 1.1rem; margin-bottom: 5px; }
-        .card-price { color: var(--gold); font-size: 1rem; font-weight: bold; }
+        .card-info { padding: 15px; text-align: center; }
+        .card-title { color: var(--white); font-family: var(--font-heading); font-size: 1rem; margin-bottom: 5px; }
         
+        /* দামের বদলে ভিউ বাটন */
         .view-btn {
-            margin-top: 12px;
-            padding: 8px 25px;
+            margin-top: 5px;
+            padding: 5px 15px;
             background: transparent;
-            border: 1px solid #333;
+            border: 1px solid #444;
             color: #888;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             transition: 0.3s;
-            cursor: pointer;
         }
         .card:hover .view-btn { border-color: var(--gold); color: var(--gold); }
 
-        /* --- MODAL --- */
+        /* --- পপ-আপ মডাল (Product Details) --- */
         .modal {
             display: none; position: fixed; z-index: 2000;
             left: 0; top: 0; width: 100%; height: 100%;
             background-color: rgba(0,0,0,0.95);
-            backdrop-filter: blur(5px);
-            overflow-y: auto; 
-            align-items: center; justify-content: center;
+            backdrop-filter: blur(8px);
+            overflow-y: auto; align-items: center; justify-content: center;
         }
 
         .modal-content {
             background-color: #0a0a0a;
-            margin: auto; padding: 0;
             border: 1px solid var(--gold);
             width: 80%; max-width: 900px;
             display: flex; flex-wrap: wrap;
-            box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
             position: relative;
             animation: zoomIn 0.3s ease;
+            margin: auto;
         }
-
         @keyframes zoomIn { from {transform: scale(0.9); opacity: 0;} to {transform: scale(1); opacity: 1;} }
 
         .modal-img { flex: 1 1 400px; height: 500px; object-fit: cover; }
@@ -293,45 +246,36 @@
         }
         .buy-btn:hover { background: var(--white); color: var(--black); }
 
-        /* --- FOOTER --- */
-        footer {
-            padding: 60px 5%; background: #020202; text-align: center; border-top: 1px solid #1a1a1a;
-        }
-        .contact-email { 
-            color: var(--gold); text-decoration: none; font-size: 1.2rem; 
-            border-bottom: 1px solid transparent; transition:0.3s;
-            display: inline-block; margin-top: 10px;
-        }
+        /* --- ফুটার (Footer) --- */
+        footer { padding: 60px 5%; background: #020202; text-align: center; border-top: 1px solid #1a1a1a; }
+        .contact-email { color: var(--gold); text-decoration: none; font-size: 1.2rem; border-bottom: 1px solid transparent; transition:0.3s; display: inline-block; margin-top: 10px; }
         .contact-email:hover { border-bottom: 1px solid var(--gold); }
 
-        /* --- MOBILE & RESPONSIVE TWEAKS (The Logic for Mobile) --- */
+        /* --- মোবাইল এবং রেসপন্সিভ ডিজাইন --- */
         @media (max-width: 768px) {
-            nav {
-                padding: 15px 20px;
-                flex-direction: column;
-                gap: 15px;
-            }
-            .search-container {
-                width: 100%; margin: 0; max-width: 100%;
-            }
-            .nav-buttons {
-                width: 100%; justify-content: center; gap: 30px;
-            }
-            h1 { font-size: 2.8rem; letter-spacing: 5px; }
-            .subtitle { font-size: 1rem; }
-            .products { padding: 60px 20px; }
-            .grid { grid-template-columns: 1fr; gap: 40px; }
+            nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
+            .search-container { width: 100%; margin: 0; }
+            .nav-buttons { width: 100%; justify-content: center; }
+            h1 { font-size: 2.5rem; letter-spacing: 4px; }
+            .products { padding: 40px 15px; }
             
-            /* Modal Adjustments for Mobile */
-            .modal { align-items: flex-start; padding-top: 20px; }
-            .modal-content { 
-                width: 90%; 
-                flex-direction: column; 
-                margin-bottom: 50px; 
+            /* মোবাইলে এক লাইনে ২টা প্রোডাক্ট দেখানোর লজিক */
+            .grid {
+                grid-template-columns: repeat(2, 1fr); /* ২ কলাম */
+                gap: 15px; /* মাঝখানের গ্যাপ কমানো হয়েছে */
             }
+            
+            /* মোবাইলে কার্ডের সাইজ ছোট করা */
+            .image-wrapper { height: 180px; }
+            .card-info { padding: 10px; }
+            .card-title { font-size: 0.8rem; }
+            .view-btn { font-size: 0.6rem; padding: 4px 10px; }
+
+            /* মডাল রেসপন্সিভ */
+            .modal { align-items: flex-start; padding-top: 20px; }
+            .modal-content { width: 90%; flex-direction: column; margin-bottom: 50px; }
             .modal-img { height: 300px; width: 100%; }
-            .modal-details { padding: 25px; }
-            .close-btn { top: 10px; right: 10px; }
+            .modal-details { padding: 20px; }
         }
     </style>
 </head>
@@ -341,15 +285,13 @@
         <div class="logo">SherenVogue</div>
         
         <div class="search-container">
-            <input type="text" id="searchInput" class="search-input" placeholder="Search products..." oninput="searchProducts()">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search collection..." oninput="searchProducts()">
             <i class="fas fa-search search-icon"></i>
         </div>
 
         <div class="nav-buttons">
-            <a href="philosophy.html" class="nav-text-btn">Philosophy</a>
-            <a href="#collection" class="nav-icon">
-                <i class="fas fa-shopping-bag"></i>
-            </a>
+            <a href="#" class="nav-text-btn">Philosophy</a>
+            <a href="#collection" class="nav-text-btn"><i class="fas fa-shopping-bag"></i></a>
         </div>
     </nav>
 
@@ -364,91 +306,192 @@
     <section class="philosophy-section">
         <h2 style="color:var(--gold); font-family:var(--font-heading); margin-bottom:20px; font-size:1.8rem;">আমাদের দর্শন</h2>
         <div style="width: 50px; height: 2px; background: var(--gold); margin: 0 auto 30px;"></div>
-        <p style="font-family:var(--font-bangla); font-size:1.1rem; line-height:2; color:#ccc; max-width:800px; margin:0 auto;">
+        <p style="font-family:var(--font-bangla); font-size:1.1rem; line-height:1.8; color:#ccc; max-width:800px; margin:0 auto;">
             <span style="color:var(--gold); font-weight:bold;">শেরেনভোগ (SherenVogue)</span> শুধু একটি ব্র্যান্ড নয়, এটি আভিজাত্যের প্রতীক। 
             আমরা বিশ্বাস করি প্রতিটি পণ্যের নিজস্ব একটি গল্প থাকে। আমাদের আন্তর্জাতিক মানের কালেকশন আপনার ব্যক্তিত্বকে করে তুলবে আরও উজ্জ্বল।
-            <br><br>
-            "বিলাসিতা আপনার অধিকার, আর তা পৌঁছে দেওয়াই আমাদের অঙ্গীকার।"
         </p>
     </section>
 
     <section id="collection" class="products">
-        <div class="section-header">
-            <h2 class="section-title">New Arrivals</h2>
-            <p style="color:#666; margin-top:10px;">Exclusive Collection 2026</p>
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h2 class="section-title">Exclusive Collection</h2>
         </div>
 
         <div class="grid" id="productGrid">
             
-            <div class="card" onclick="openModal('img1', 'The Empress Tote', '$450', 'HISTORY: Inspired by the grandeur of ancient royalty, The Empress Tote is handcrafted in Florence. It takes over 40 hours of artisanal work to perfect the stitching of its genuine Italian leather. The 24k gold-plated hardware symbolizes power and elegance.')">
+            <div class="card" onclick="openModal('img1', 'The Empress Tote', 'Handcrafted in Florence from genuine Italian leather. Takes over 40 hours of artisanal work. Featuring 24k gold-plated hardware.')">
                 <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img1" alt="Luxury Bag" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop" class="card-img" id="img1" alt="Bag" loading="lazy">
                     <div class="brand-watermark">SherenVogue</div>
                 </div>
                 <div class="card-info">
                     <h3 class="card-title">The Empress Tote</h3>
-                    <p class="card-price">$450</p>
-                    <button class="view-btn">View History</button>
+                    <button class="view-btn">View Details</button>
                 </div>
             </div>
 
-            <div class="card" onclick="openModal('img2', 'Midnight Chrono', '$1,200', 'HISTORY: The Midnight Chrono pays homage to the golden age of aviation. Engineered with Swiss precision, this timepiece features a sapphire crystal face that is virtually scratch-proof. A limited edition design for those who value every second.')">
+            <div class="card" onclick="openModal('img2', 'Midnight Chrono', 'Swiss precision engineering meets modern aviation aesthetics. Features a scratch-proof sapphire crystal face and automatic movement.')">
                 <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img2" alt="Luxury Watch" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=800&auto=format&fit=crop" class="card-img" id="img2" alt="Watch" loading="lazy">
                     <div class="brand-watermark">SherenVogue</div>
                 </div>
                 <div class="card-info">
                     <h3 class="card-title">Midnight Chrono</h3>
-                    <p class="card-price">$1,200</p>
-                    <button class="view-btn">View History</button>
+                    <button class="view-btn">View Details</button>
                 </div>
             </div>
 
-            <div class="card" onclick="openModal('img3', 'Velvet Rose Parfum', '$180', 'HISTORY: A scent cultivated from rare Bulgarian roses harvested only at dawn. Blended with deep Oud and Vanilla notes, this fragrance was designed in Grasse, France—the perfume capital of the world. It tells a story of mystery and allure.')">
+            <div class="card" onclick="openModal('img3', 'Velvet Rose Parfum', 'A rare blend of Bulgarian roses and Oud wood. Distilled in Grasse, France. A scent that lingers with mystery and elegance.')">
                 <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1594035910387-fea4779426e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img3" alt="Perfume" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1594035910387-fea4779426e9?q=80&w=800&auto=format&fit=crop" class="card-img" id="img3" alt="Perfume" loading="lazy">
                     <div class="brand-watermark">SherenVogue</div>
                 </div>
                 <div class="card-info">
                     <h3 class="card-title">Velvet Rose Parfum</h3>
-                    <p class="card-price">$180</p>
-                    <button class="view-btn">View History</button>
+                    <button class="view-btn">View Details</button>
                 </div>
             </div>
 
-            <div class="card" onclick="openModal('img4', 'Golden Waist Belt', '$95', 'HISTORY: Minimalist yet bold, this belt is a symbol of strength. The leather is ethically sourced and tanned using traditional vegetable methods to ensure durability. The signature gold buckle is polished by hand for a mirror-like finish.')">
+            <div class="card" onclick="openModal('img4', 'Golden Waist Belt', 'Vegetable-tanned leather with a polished brass buckle. Minimalist yet bold, designed to accentuate any evening attire.')">
                 <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img4" alt="Belt" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?q=80&w=800&auto=format&fit=crop" class="card-img" id="img4" alt="Belt" loading="lazy">
                     <div class="brand-watermark">SherenVogue</div>
                 </div>
                 <div class="card-info">
                     <h3 class="card-title">Golden Waist Belt</h3>
-                    <p class="card-price">$95</p>
-                    <button class="view-btn">View History</button>
+                    <button class="view-btn">View Details</button>
                 </div>
             </div>
 
-            <div class="card" onclick="openModal('img5', 'Riviera Shades', '$210', 'HISTORY: Inspired by the sunny coastlines of the French Riviera. These sunglasses feature UV400 protection lenses encased in a handcrafted acetate frame. Designed for the modern traveler who seeks both protection and style.')">
+            <div class="card" onclick="openModal('img5', 'Riviera Shades', 'Hand-polished acetate frames with UV400 protection. Inspired by the golden era of the French Riviera.')">
                 <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img5" alt="Sunglasses" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=800&auto=format&fit=crop" class="card-img" id="img5" alt="Sunglasses" loading="lazy">
                     <div class="brand-watermark">SherenVogue</div>
                 </div>
                 <div class="card-info">
                     <h3 class="card-title">Riviera Shades</h3>
-                    <p class="card-price">$210</p>
-                    <button class="view-btn">View History</button>
+                    <button class="view-btn">View Details</button>
                 </div>
             </div>
 
-            <div class="card" onclick="openModal('img6', 'Noir Classic Wallet', '$150', 'HISTORY: Small in size but rich in heritage. This wallet is stitched from full-grain leather that ages beautifully over time. It features RFID protection technology, blending classic aesthetics with modern security.')">
+            <div class="card" onclick="openModal('img6', 'Noir Classic Wallet', 'Full-grain leather with RFID blocking technology. Slim profile but spacious enough for all essentials. Ages beautifully.')">
                 <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1627123424574-18bd03641580?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img6" alt="Wallet" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1627123424574-18bd03641580?q=80&w=800&auto=format&fit=crop" class="card-img" id="img6" alt="Wallet" loading="lazy">
                     <div class="brand-watermark">SherenVogue</div>
                 </div>
                 <div class="card-info">
                     <h3 class="card-title">Noir Classic Wallet</h3>
-                    <p class="card-price">$150</p>
-                    <button class="view-btn">View History</button>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img7', 'Royal Silk Tie', '100% Mulberry silk, woven in Italy. The deep navy pattern adds a touch of sophistication to any formal suit.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1589756823695-278bc35616b5?q=80&w=800&auto=format&fit=crop" class="card-img" id="img7" alt="Tie" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Royal Silk Tie</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img8', 'Onyx Cufflinks', 'Black Onyx stone set in sterling silver. The perfect finishing touch for a gentleman’s tuxedo.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1617117833203-c91b0600451e?q=80&w=800&auto=format&fit=crop" class="card-img" id="img8" alt="Cufflinks" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Onyx Cufflinks</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img9', 'Chelsea Leather Boots', 'Hand-stitched leather sole. These boots combine rugged durability with high-fashion sleekness.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=800&auto=format&fit=crop" class="card-img" id="img9" alt="Boots" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Chelsea Leather Boots</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img10', 'Evening Clutch', 'Encased in velvet with a gold chain strap. Compact yet stunning, perfect for red carpet events.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?q=80&w=800&auto=format&fit=crop" class="card-img" id="img10" alt="Clutch" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Evening Clutch</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img11', 'Platinum Solitaire', 'A single, flawless diamond set in pure platinum. A symbol of eternal love and unmatched luxury.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800&auto=format&fit=crop" class="card-img" id="img11" alt="Ring" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Platinum Solitaire</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img12', 'Signature Fountain Pen', '18k gold nib with a black lacquer finish. Writes with effortless precision. A collector’s item.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1583247363234-5aa7c4230462?q=80&w=800&auto=format&fit=crop" class="card-img" id="img12" alt="Pen" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Signature Fountain Pen</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img13', 'Vintage Fedora', 'Made from premium wool felt. A classic silhouette that never goes out of style.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1572307480813-5b0aa701b0f7?q=80&w=800&auto=format&fit=crop" class="card-img" id="img13" alt="Hat" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Vintage Fedora</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img14', 'Biker Leather Jacket', 'Soft lambskin leather with heavy-duty silver zippers. Edgy, rebellious, and undeniably luxurious.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1551028919-ac66e6a39b51?q=80&w=800&auto=format&fit=crop" class="card-img" id="img14" alt="Jacket" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Biker Leather Jacket</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img15', 'Crystal Brooch', 'Swarovski crystals arranged in a floral pattern. Adds a sparkling statement to any coat or dress.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1615655406736-b37c4d898e69?q=80&w=800&auto=format&fit=crop" class="card-img" id="img15" alt="Brooch" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Crystal Brooch</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img16', 'Grand Travel Bag', 'Spacious weekender bag made from durable canvas and leather trims. Travel in style.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop" class="card-img" id="img16" alt="Travel Bag" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Grand Travel Bag</h3>
+                    <button class="view-btn">View Details</button>
                 </div>
             </div>
 
@@ -460,11 +503,12 @@
             <span class="close-btn" onclick="closeModal()">&times;</span>
             <img src="" id="modalImg" class="modal-img">
             <div class="modal-details">
-                <h2 id="modalTitle" style="font-family: var(--font-heading); color: var(--gold); margin-bottom: 10px; font-size: 1.8rem;"></h2>
-                <h3 id="modalPrice" style="color: white; margin-bottom: 20px; font-size: 1.4rem;"></h3>
-                <div style="width: 100%; height: 1px; background: #333; margin-bottom: 20px;"></div>
+                <h2 id="modalTitle" style="font-family: var(--font-heading); color: var(--gold); margin-bottom: 20px; font-size: 1.8rem;"></h2>
+                
                 <p id="modalDesc" style="color: #ccc; line-height: 1.8; margin-bottom: 30px; font-style: italic;"></p>
-                <button class="buy-btn" onclick="orderViaEmail()">Add to Bag & Order</button>
+                
+                <p style="color:white; margin-bottom:10px;">Price available upon request.</p>
+                <button class="buy-btn" onclick="orderViaEmail()">Request Price & Order</button>
             </div>
         </div>
     </div>
@@ -485,7 +529,7 @@
     </footer>
 
     <script>
-        // --- 1. SEARCH FUNCTION ---
+        // --- ১. সার্চ ফাংশন (Search Logic) ---
         function searchProducts() {
             let input = document.getElementById('searchInput').value.toUpperCase();
             let grid = document.getElementById('productGrid');
@@ -504,31 +548,31 @@
             }
         }
 
-        // --- 2. HIDE NAVBAR ON SCROLL ---
+        // --- ২. স্ক্রল করলে মেনু হাইড হবে (Navbar Hide) ---
         let lastScrollTop = 0;
         const navbar = document.getElementById('navbar');
 
         window.addEventListener('scroll', function() {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             if (scrollTop > lastScrollTop && scrollTop > 100) {
-                navbar.style.top = "-100px"; // Hide navbar
+                navbar.style.top = "-100px"; // হাইড হবে
             } else {
-                navbar.style.top = "0"; // Show navbar
+                navbar.style.top = "0"; // শো করবে
             }
             lastScrollTop = scrollTop;
         });
 
-        // --- 3. MODAL LOGIC ---
-        function openModal(imgId, title, price, desc) {
+        // --- ৩. মডাল ওপেন/ক্লোজ (Pop-up Logic) ---
+        // লক্ষ্য করুন: এখানে এখন আর 'Price' নেই
+        function openModal(imgId, title, desc) {
             let imgSrc = document.getElementById(imgId).src;
             document.getElementById('modalImg').src = imgSrc;
             document.getElementById('modalTitle').innerText = title;
-            document.getElementById('modalPrice').innerText = price;
             document.getElementById('modalDesc').innerText = desc;
             
             let modal = document.getElementById('productModal');
             modal.style.display = "flex";
-            document.body.style.overflow = "hidden"; 
+            document.body.style.overflow = "hidden"; // স্ক্রল বন্ধ করা
         }
 
         function closeModal() {
@@ -536,6 +580,7 @@
             document.body.style.overflow = "auto"; 
         }
 
+        // মডালের বাইরে ক্লিক করলে বন্ধ হবে
         window.onclick = function(event) {
             let modal = document.getElementById('productModal');
             if (event.target == modal) {
@@ -543,23 +588,31 @@
             }
         }
 
-        // --- 4. EMAIL ORDER FUNCTION ---
+        // --- ৪. অর্ডার ফাংশন (Gmail Fix Included) ---
         function orderViaEmail() {
             const title = document.getElementById('modalTitle').innerText;
-            const price = document.getElementById('modalPrice').innerText;
+            // দাম সরানো হয়েছে, তাই এখানে দামের ভেরিয়েবল নেই
             
-            const subject = "Order Request: " + title;
-            const body = "Hi SherenVogue,\n\nI am interested in purchasing the following item:\n\n" + 
-                         "Product: " + title + "\n" + 
-                         "Price: " + price + "\n\n" +
-                         "Please let me know the payment and delivery details.\n\n" +
+            const subject = "Price Request: " + title;
+            const body = "Hi SherenVogue,\n\nI am interested in this item:\n\n" + 
+                         "Product: " + title + "\n\n" + 
+                         "Could you please let me know the price and delivery details?\n\n" +
                          "Thank you.";
 
-            window.location.href = `mailto:hello@sherenvogue.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            // মোবাইল নাকি কম্পিউটার চেক করা হচ্ছে
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+            if (isMobile) {
+                // মোবাইলে অ্যাপ ওপেন হবে
+                window.location.href = `mailto:hello@sherenvogue.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            } else {
+                // পিসিতে ব্রাউজারে জিমেইল ওপেন হবে
+                const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=hello@sherenvogue.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                window.open(gmailLink, '_blank');
+            }
         }
 
-        // --- 5. 3D PARALLAX EFFECT (PC ONLY) ---
-        // This ensures the effect doesn't break on mobile
+        // --- ৫. 3D এফেক্ট (শুধুমাত্র কম্পিউটারের জন্য) ---
         document.addEventListener('mousemove', (e) => {
             if (window.innerWidth > 768) { 
                 const x = (window.innerWidth / 2 - e.pageX) / 40;
