@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Heritage | SherenVogue</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root { --gold: #D4AF37; --black: #050505; --white: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--black); color: var(--white); font-family: 'Lato', sans-serif; overflow-x: hidden; }
+        
+        /* Navigation */
+        nav { padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212, 175, 55, 0.3); background: rgba(0,0,0,0.9); position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .logo { font-family: 'Cinzel', serif; font-size: 24px; color: var(--gold); text-decoration: none; font-weight: bold; }
+        .back-btn { color: var(--white); text-decoration: none; font-size: 0.9rem; border: 1px solid var(--gold); padding: 8px 20px; transition: 0.3s; }
+        .back-btn:hover { background: var(--gold); color: var(--black); }
+
+        /* Header */
+        header { margin-top: 100px; text-align: center; padding: 40px 20px; }
+        h1 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 3rem; margin-bottom: 10px; }
+        p.sub { color: #888; font-style: italic; font-family: 'Playfair Display', serif; }
+
+        /* Gallery Grid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px 5%;
+        }
+
+        .item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid #222;
+            transition: 0.3s;
+            height: 400px;
+        }
+
+        .item:hover { border-color: var(--gold); transform: scale(1.02); z-index: 2; }
+
+        .item img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: 0.5s ease;
+            filter: grayscale(100%);
+        }
+
+        .item:hover img { filter: grayscale(0%); transform: scale(1.1); }
+
+        .overlay {
+            position: absolute; bottom: 0; left: 0; width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: 0.3s;
+        }
+
+        .item:hover .overlay { transform: translateY(0); }
+        .item-title { color: var(--gold); font-family: 'Cinzel', serif; font-size: 1.2rem; }
+        .click-hint { color: #fff; font-size: 0.8rem; margin-top: 5px; }
+
+        /* Modal */
+        .modal {
+            display: none; position: fixed; z-index: 2000;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            backdrop-filter: blur(8px);
+            align-items: center; justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: #111; border: 1px solid var(--gold);
+            max-width: 600px; width: 100%; text-align: center;
+            padding: 40px; position: relative;
+            animation: fadeIn 0.4s;
+        }
+
+        @keyframes fadeIn { from {opacity:0; transform:translateY(-20px);} to {opacity:1; transform:translateY(0);} }
+
+        .modal h2 { color: var(--gold); font-family: 'Cinzel', serif; margin-bottom: 20px; font-size: 2rem; }
+        .modal p { color: #ccc; line-height: 1.8; font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+        .close-btn {
+            position: absolute; top: 15px; right: 20px;
+            color: var(--gold); font-size: 30px; cursor: pointer;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+            h1 { font-size: 2rem; }
+            .item { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">SherenVogue</a>
+        <a href="index.html" class="back-btn">Back to Home</a>
+    </nav>
+
+    <header>
+        <h1>The Archive</h1>
+        <p class="sub">Click on an image to reveal its history</p>
+    </header>
+
+    <div class="gallery">
+        
+        <div class="item" onclick="showHistory('The First Sketch', 'In 2024, the first sketch of SherenVogue was drawn on a napkin in a small cafe in Dhaka. It represented a vision to merge local heritage with international luxury.')">
+            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800" alt="Bag">
+            <div class="overlay">
+                <div class="item-title">The First Sketch</div>
+                <div class="click-hint">View History</div>
+            </div>
+        </div>
+
+        <div class="item" onclick="showHistory('The Golden Stitch', 'Every SherenVogue belt features exactly 1,200 stitches. This standard was set to ensure durability that lasts a lifetime, symbolizing unbreakable strength.')">
+            <img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=800" alt="Belt">
+            <div class="overlay">
+                <div class="item-title">The Golden Stitch</div>
+                <div class="click-hint">View History</div>
+            </div>
+        </div>
+
+        <div class="item" onclick="showHistory('Essence of Rose', 'Our signature perfume was created after testing 50 different rose varieties. We finally chose the midnight-blooming rose for its mysterious and lasting scent.')">
+            <img src="https://images.unsplash.com/photo-1594035910387-fea4779426e9?w=800" alt="Perfume">
+            <div class="overlay">
+                <div class="item-title">Essence of Rose</div>
+                <div class="click-hint">View History</div>
+            </div>
+        </div>
+
+        <div class="item" onclick="showHistory('The Timeless Watch', 'Inspired by the 1950s aviators, this watch design focuses on precision. It reminds the wearer that time is the only true luxury one possesses.')">
+            <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=800" alt="Watch">
+            <div class="overlay">
+                <div class="item-title">The Timeless Watch</div>
+                <div class="click-hint">View History</div>
+            </div>
+        </div>
+
+        <div class="item" onclick="showHistory('Royal Silk Scarf', 'Woven from the finest Mulberry silk, this scarf design pays homage to the royal gardens of Europe. It is soft as a whisper but vibrant as a dream.')">
+            <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?w=800" alt="Scarf">
+            <div class="overlay">
+                <div class="item-title">Royal Silk Scarf</div>
+                <div class="click-hint">View History</div>
+            </div>
+        </div>
+
+        <div class="item" onclick="showHistory('The Black Diamond', 'A rare collection piece. This jewelry represents the night sky. It is designed for those who shine brightest in the dark.')">
+            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=800" alt="Jewelry">
+            <div class="overlay">
+                <div class="item-title">The Black Diamond</div>
+                <div class="click-hint">View History</div>
+            </div>
+        </div>
+
+        <div class="item" onclick="showHistory('Vintage Leather Wallet', 'Crafted from leather that ages beautifully. The more you use it, the more unique it becomes, telling the story of your own journey.')">
+            <img src="https://images.unsplash.com/photo-1627123424574-18bd03641580?w=800" alt="Wallet">
+            <div class="overlay">
+                <div class="item-title">Vintage Leather</div>
+                <div class="click-hint">View History</div>
+            </div>
+        </div>
+
+        <div class="item" onclick="showHistory('The Riviera View', 'These sunglasses were designed on a yacht in the Mediterranean. They offer not just UV protection, but a new perspective on the world.')">
+            <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800" alt="Sunglasses">
+            <div class="overlay">
+                <div class="item-title">The Riviera View</div>
+                <div class="click-hint">View History</div>
+            </div>
+        </div>
+
+        <div class="item" onclick="showHistory('Step of Confidence', 'Our heel collection is engineered for comfort and style. The philosophy is simple: When you walk with confidence, the world moves out of your way.')">
+            <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=800" alt="Heels">
+            <div class="overlay">
+                <div class="item-title">Step of Confidence</div>
+                <div class="click-hint">View History</div>
+            </div>
+        </div>
+
+        <div class="item" onclick="showHistory('The Creator’s Pen', 'Every great design starts with a pen. This limited edition fountain pen honors the designers and dreamers who build the future.')">
+            <img src="https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=800" alt="Pen">
+            <div class="overlay">
+                <div class="item-title">The Creator’s Pen</div>
+                <div class="click-hint">View History</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="historyModal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content">
+            <span class="close-btn" onclick="document.getElementById('historyModal').style.display='none'">&times;</span>
+            <h2 id="histTitle">Title</h2>
+            <div style="width: 50px; height: 2px; background: var(--gold); margin: 0 auto 20px;"></div>
+            <p id="histDesc">Description goes here...</p>
+        </div>
+    </div>
+
+    <script>
+        function showHistory(title, desc) {
+            document.getElementById('histTitle').innerText = title;
+            document.getElementById('histDesc').innerText = desc;
+            document.getElementById('historyModal').style.display = 'flex';
+        }
+
+        function closeModal(e) {
+            if (e.target.id === 'historyModal') {
+                e.target.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
