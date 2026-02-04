@@ -48,16 +48,16 @@
         ::-webkit-scrollbar-track { background: var(--black); }
         ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
 
-        /* --- NAVIGATION --- */
+        /* --- NAVIGATION (UPDATED FOR SCROLL HIDE) --- */
         nav {
             position: fixed; top: 0; width: 100%;
             padding: 15px 50px;
             display: flex; justify-content: space-between; align-items: center;
-            background: rgba(5, 5, 5, 0.9);
+            background: rgba(5, 5, 5, 0.95); /* Slightly darker for better visibility */
             backdrop-filter: blur(12px);
             z-index: 1000;
             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-            transition: all 0.3s ease;
+            transition: top 0.4s ease-in-out; /* Smooth transition for hiding/showing */
         }
 
         .logo {
@@ -104,7 +104,6 @@
             gap: 20px;
         }
 
-        /* Philosophy Text Button Style */
         .nav-text-btn {
             color: var(--gold);
             text-decoration: none;
@@ -333,7 +332,6 @@
                 margin: 0;
                 max-width: 100%;
             }
-            /* Align Buttons Horizontally on Mobile */
             .nav-buttons {
                 width: 100%;
                 justify-content: center;
@@ -357,11 +355,11 @@
 </head>
 <body>
 
-    <nav>
+    <nav id="navbar">
         <div class="logo">SherenVogue</div>
         
         <div class="search-container">
-            <input type="text" id="searchInput" class="search-input" placeholder="Search products..." onkeyup="searchProducts()">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search products..." oninput="searchProducts()">
             <i class="fas fa-search search-icon"></i>
         </div>
 
@@ -577,6 +575,7 @@
     </footer>
 
     <script>
+        // --- 1. SEARCH FUNCTION ---
         function searchProducts() {
             let input = document.getElementById('searchInput').value.toUpperCase();
             let grid = document.getElementById('productGrid');
@@ -595,6 +594,21 @@
             }
         }
 
+        // --- 2. HIDE NAVBAR ON SCROLL ---
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                navbar.style.top = "-100px"; // Hide navbar
+            } else {
+                navbar.style.top = "0"; // Show navbar
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        // --- 3. MODAL LOGIC ---
         function openModal(imgId, title, price, desc) {
             let imgSrc = document.getElementById(imgId).src;
             document.getElementById('modalImg').src = imgSrc;
@@ -619,6 +633,7 @@
             }
         }
 
+        // --- 4. EMAIL ORDER FUNCTION ---
         function orderViaEmail() {
             const title = document.getElementById('modalTitle').innerText;
             const price = document.getElementById('modalPrice').innerText;
@@ -633,6 +648,7 @@
             window.location.href = `mailto:hello@sherenvogue.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }
 
+        // --- 5. 3D PARALLAX EFFECT ---
         document.addEventListener('mousemove', (e) => {
             if (window.innerWidth > 768) { 
                 const x = (window.innerWidth / 2 - e.pageX) / 40;
