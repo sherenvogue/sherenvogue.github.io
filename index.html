@@ -24,11 +24,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- কালার এবং ফন্ট সেটিংস (এখানে কালার চেঞ্জ করতে পারবেন) --- */
+        /* --- কালার এবং ফন্ট সেটিংস --- */
         :root {
-            --gold: #D4AF37; /* সোনালী কালার */
+            --gold: #D4AF37;
             --gold-gradient: linear-gradient(45deg, #D4AF37, #F2D06B, #D4AF37);
-            --black: #050505; /* কালো ব্যাকগ্রাউন্ড */
+            --black: #050505;
             --white: #ffffff;
             --font-heading: 'Cinzel', serif;
             --font-body: 'Lato', sans-serif;
@@ -43,6 +43,7 @@
             font-family: var(--font-body);
             overflow-x: hidden;
             -webkit-tap-highlight-color: transparent;
+            scroll-behavior: smooth; /* পেজ স্মুথলি স্ক্রল করার জন্য */
         }
 
         /* --- মেনু বার (Navigation) --- */
@@ -91,7 +92,7 @@
         .nav-text-btn { color: var(--gold); text-decoration: none; font-family: var(--font-heading); text-transform: uppercase; border-bottom: 1px solid transparent; transition: 0.3s; }
         .nav-text-btn:hover { border-bottom: 1px solid var(--gold); color: var(--white); }
 
-        /* --- হিরো সেকশন (বড় ব্যানার) --- */
+        /* --- হিরো সেকশন --- */
         header {
             height: 100vh;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -143,14 +144,12 @@
             text-align: center; margin-bottom: 40px;
         }
 
-        /* ডেস্কটপ গ্রিড (সাধারণত ৪টা বা ৩টা করে দেখাবে) */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
         }
 
-        /* প্রোডাক্ট কার্ড */
         .card {
             background: #0f0f0f;
             border: 1px solid #222;
@@ -161,16 +160,15 @@
             border-radius: 4px;
         }
 
-        /* কার্ডের 3D এফেক্ট এবং হোভার */
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15); /* গোল্ডেন শ্যাডো */
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15);
             border-color: var(--gold);
         }
 
         .image-wrapper {
             position: relative;
-            height: 320px; /* ছবির হাইট */
+            height: 320px;
             overflow: hidden;
             background-color: #1a1a1a;
         }
@@ -194,7 +192,6 @@
         .card-info { padding: 15px; text-align: center; }
         .card-title { color: var(--white); font-family: var(--font-heading); font-size: 1rem; margin-bottom: 5px; }
         
-        /* দামের বদলে ভিউ বাটন */
         .view-btn {
             margin-top: 5px;
             padding: 5px 15px;
@@ -207,7 +204,7 @@
         }
         .card:hover .view-btn { border-color: var(--gold); color: var(--gold); }
 
-        /* --- পপ-আপ মডাল (Product Details) --- */
+        /* --- পপ-আপ মডাল --- */
         .modal {
             display: none; position: fixed; z-index: 2000;
             left: 0; top: 0; width: 100%; height: 100%;
@@ -246,12 +243,12 @@
         }
         .buy-btn:hover { background: var(--white); color: var(--black); }
 
-        /* --- ফুটার (Footer) --- */
+        /* --- ফুটার --- */
         footer { padding: 60px 5%; background: #020202; text-align: center; border-top: 1px solid #1a1a1a; }
         .contact-email { color: var(--gold); text-decoration: none; font-size: 1.2rem; border-bottom: 1px solid transparent; transition:0.3s; display: inline-block; margin-top: 10px; }
         .contact-email:hover { border-bottom: 1px solid var(--gold); }
 
-        /* --- মোবাইল এবং রেসপন্সিভ ডিজাইন --- */
+        /* --- মোবাইল রেসপন্সিভ --- */
         @media (max-width: 768px) {
             nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
             .search-container { width: 100%; margin: 0; }
@@ -259,19 +256,16 @@
             h1 { font-size: 2.5rem; letter-spacing: 4px; }
             .products { padding: 40px 15px; }
             
-            /* মোবাইলে এক লাইনে ২টা প্রোডাক্ট দেখানোর লজিক */
             .grid {
-                grid-template-columns: repeat(2, 1fr); /* ২ কলাম */
-                gap: 15px; /* মাঝখানের গ্যাপ কমানো হয়েছে */
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 15px; 
             }
             
-            /* মোবাইলে কার্ডের সাইজ ছোট করা */
             .image-wrapper { height: 180px; }
             .card-info { padding: 10px; }
             .card-title { font-size: 0.8rem; }
             .view-btn { font-size: 0.6rem; padding: 4px 10px; }
 
-            /* মডাল রেসপন্সিভ */
             .modal { align-items: flex-start; padding-top: 20px; }
             .modal-content { width: 90%; flex-direction: column; margin-bottom: 50px; }
             .modal-img { height: 300px; width: 100%; }
@@ -290,7 +284,7 @@
         </div>
 
         <div class="nav-buttons">
-            <a href="#" class="nav-text-btn">Philosophy</a>
+            <a href="#philosophy" class="nav-text-btn">Philosophy</a>
             <a href="#collection" class="nav-text-btn"><i class="fas fa-shopping-bag"></i></a>
         </div>
     </nav>
@@ -303,7 +297,7 @@
         </div>
     </header>
 
-    <section class="philosophy-section">
+    <section id="philosophy" class="philosophy-section">
         <h2 style="color:var(--gold); font-family:var(--font-heading); margin-bottom:20px; font-size:1.8rem;">আমাদের দর্শন</h2>
         <div style="width: 50px; height: 2px; background: var(--gold); margin: 0 auto 30px;"></div>
         <p style="font-family:var(--font-bangla); font-size:1.1rem; line-height:1.8; color:#ccc; max-width:800px; margin:0 auto;">
@@ -529,7 +523,6 @@
     </footer>
 
     <script>
-        // --- ১. সার্চ ফাংশন (Search Logic) ---
         function searchProducts() {
             let input = document.getElementById('searchInput').value.toUpperCase();
             let grid = document.getElementById('productGrid');
@@ -548,22 +541,19 @@
             }
         }
 
-        // --- ২. স্ক্রল করলে মেনু হাইড হবে (Navbar Hide) ---
         let lastScrollTop = 0;
         const navbar = document.getElementById('navbar');
 
         window.addEventListener('scroll', function() {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             if (scrollTop > lastScrollTop && scrollTop > 100) {
-                navbar.style.top = "-100px"; // হাইড হবে
+                navbar.style.top = "-100px"; 
             } else {
-                navbar.style.top = "0"; // শো করবে
+                navbar.style.top = "0"; 
             }
             lastScrollTop = scrollTop;
         });
 
-        // --- ৩. মডাল ওপেন/ক্লোজ (Pop-up Logic) ---
-        // লক্ষ্য করুন: এখানে এখন আর 'Price' নেই
         function openModal(imgId, title, desc) {
             let imgSrc = document.getElementById(imgId).src;
             document.getElementById('modalImg').src = imgSrc;
@@ -572,7 +562,7 @@
             
             let modal = document.getElementById('productModal');
             modal.style.display = "flex";
-            document.body.style.overflow = "hidden"; // স্ক্রল বন্ধ করা
+            document.body.style.overflow = "hidden"; 
         }
 
         function closeModal() {
@@ -580,7 +570,6 @@
             document.body.style.overflow = "auto"; 
         }
 
-        // মডালের বাইরে ক্লিক করলে বন্ধ হবে
         window.onclick = function(event) {
             let modal = document.getElementById('productModal');
             if (event.target == modal) {
@@ -588,10 +577,8 @@
             }
         }
 
-        // --- ৪. অর্ডার ফাংশন (Gmail Fix Included) ---
         function orderViaEmail() {
             const title = document.getElementById('modalTitle').innerText;
-            // দাম সরানো হয়েছে, তাই এখানে দামের ভেরিয়েবল নেই
             
             const subject = "Price Request: " + title;
             const body = "Hi SherenVogue,\n\nI am interested in this item:\n\n" + 
@@ -599,20 +586,16 @@
                          "Could you please let me know the price and delivery details?\n\n" +
                          "Thank you.";
 
-            // মোবাইল নাকি কম্পিউটার চেক করা হচ্ছে
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
             if (isMobile) {
-                // মোবাইলে অ্যাপ ওপেন হবে
                 window.location.href = `mailto:hello@sherenvogue.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             } else {
-                // পিসিতে ব্রাউজারে জিমেইল ওপেন হবে
                 const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=hello@sherenvogue.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                 window.open(gmailLink, '_blank');
             }
         }
 
-        // --- ৫. 3D এফেক্ট (শুধুমাত্র কম্পিউটারের জন্য) ---
         document.addEventListener('mousemove', (e) => {
             if (window.innerWidth > 768) { 
                 const x = (window.innerWidth / 2 - e.pageX) / 40;
