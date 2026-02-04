@@ -1,4 +1,9 @@
-
+অবশ্যই! আমি ১২টি প্রোডাক্ট সহ কোডটির সাথে Philosophy বাটনটি যুক্ত করে দিচ্ছি।
+এখন আপনার ওয়েবসাইটে:
+ * মোট ১২টি লাক্সারি প্রোডাক্ট থাকবে।
+ * উপরে শপিং ব্যাগের পাশে Philosophy বাটন থাকবে, যা ক্লিক করলে philosophy.html পেজে নিয়ে যাবে।
+নিচের পুরো কোডটি কপি করে GitHub-এর index.html ফাইলে পেস্ট করুন:
+Complete Index Code (12 Products + Philosophy Button)
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +49,6 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* --- SCROLLBAR --- */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: var(--black); }
         ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
@@ -96,6 +100,30 @@
             position: absolute; right: 15px; top: 50%;
             transform: translateY(-50%);
             color: var(--gold);
+        }
+
+        /* Nav Buttons Container */
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Philosophy Text Button Style */
+        .nav-text-btn {
+            color: var(--gold);
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid transparent;
+            transition: 0.3s;
+        }
+        
+        .nav-text-btn:hover {
+            border-bottom: 1px solid var(--gold);
+            color: var(--white);
         }
 
         .nav-icon {
@@ -310,6 +338,12 @@
                 margin: 0;
                 max-width: 100%;
             }
+            /* Align Buttons Horizontally on Mobile */
+            .nav-buttons {
+                width: 100%;
+                justify-content: center;
+                gap: 30px;
+            }
             h1 { font-size: 2.8rem; letter-spacing: 5px; }
             .subtitle { font-size: 1rem; }
             .products { padding: 60px 20px; }
@@ -336,9 +370,12 @@
             <i class="fas fa-search search-icon"></i>
         </div>
 
-        <a href="#collection" class="nav-icon">
-            <i class="fas fa-shopping-bag"></i>
-        </a>
+        <div class="nav-buttons">
+            <a href="philosophy.html" class="nav-text-btn">Philosophy</a>
+            <a href="#collection" class="nav-icon">
+                <i class="fas fa-shopping-bag"></i>
+            </a>
+        </div>
     </nav>
 
     <header id="home">
@@ -362,7 +399,7 @@
 
     <section id="collection" class="products">
         <div class="section-header">
-            <h2 class="section-title"> Upcoming New Arrivals</h2>
+            <h2 class="section-title">New Arrivals</h2>
             <p style="color:#666; margin-top:10px;">Exclusive Collection 2026</p>
         </div>
 
@@ -464,6 +501,54 @@
                 </div>
             </div>
 
+            <div class="card" onclick="openModal('img9', 'Royal Velvet Heels', '$320', 'HISTORY: Handcrafted in Milan using the finest black velvet. These heels feature a signature red sole and a gold-plated heel arch for maximum stability and elegance. Perfect for gala nights.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img9" alt="Heels">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Royal Velvet Heels</h3>
+                    <p class="card-price">$320</p>
+                    <button class="view-btn">View History</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img10', 'Obsidian Aviators', '$250', 'HISTORY: Classic aviator style reinvented with a 24k gold frame and polarized obsidian lenses. Offers 100% UV protection while maintaining a mysterious, high-fashion look.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img10" alt="Sunglasses">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Obsidian Aviators</h3>
+                    <p class="card-price">$250</p>
+                    <button class="view-btn">View History</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img11', 'Infinity Diamond Necklace', '$2,500', 'HISTORY: A masterpiece of jewelry design. This necklace features a cascade of VS1 clarity diamonds set in platinum. It represents eternal beauty and infinite luxury.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1599643478518-17488fbbcd75?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img11" alt="Necklace">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Infinity Diamond Necklace</h3>
+                    <p class="card-price">$2,500</p>
+                    <button class="view-btn">View History</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img12', 'Heritage Leather Gloves', '$180', 'HISTORY: Soft, supple lambskin leather gloves lined with pure cashmere for warmth. Finished with a small gold SherenVogue emblem button. A winter essential.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1520206637777-6c825700858e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img12" alt="Gloves">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Heritage Leather Gloves</h3>
+                    <p class="card-price">$180</p>
+                    <button class="view-btn">View History</button>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -475,9 +560,7 @@
                 <h2 id="modalTitle" style="font-family: var(--font-heading); color: var(--gold); margin-bottom: 10px; font-size: 1.8rem;"></h2>
                 <h3 id="modalPrice" style="color: white; margin-bottom: 20px; font-size: 1.4rem;"></h3>
                 <div style="width: 100%; height: 1px; background: #333; margin-bottom: 20px;"></div>
-                
                 <p id="modalDesc" style="color: #ccc; line-height: 1.8; margin-bottom: 30px; font-style: italic;"></p>
-                
                 <button class="buy-btn" onclick="orderViaEmail()">Add to Bag & Order</button>
             </div>
         </div>
@@ -499,7 +582,6 @@
     </footer>
 
     <script>
-        // Search
         function searchProducts() {
             let input = document.getElementById('searchInput').value.toUpperCase();
             let grid = document.getElementById('productGrid');
@@ -518,7 +600,6 @@
             }
         }
 
-        // Modal Logic
         function openModal(imgId, title, price, desc) {
             let imgSrc = document.getElementById(imgId).src;
             document.getElementById('modalImg').src = imgSrc;
@@ -543,7 +624,6 @@
             }
         }
 
-        // --- FIXED: UNIVERSAL EMAIL FUNCTION (Mobile & PC) ---
         function orderViaEmail() {
             const title = document.getElementById('modalTitle').innerText;
             const price = document.getElementById('modalPrice').innerText;
@@ -555,11 +635,9 @@
                          "Please let me know the payment and delivery details.\n\n" +
                          "Thank you.";
 
-            // Universal mailto
             window.location.href = `mailto:hello@sherenvogue.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }
 
-        // 3D Parallax
         document.addEventListener('mousemove', (e) => {
             if (window.innerWidth > 768) { 
                 const x = (window.innerWidth / 2 - e.pageX) / 40;
@@ -576,4 +654,3 @@
 </body>
 </html>
 
-```
