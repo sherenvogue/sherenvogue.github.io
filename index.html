@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SherenVogue | International Luxury Fashion</title>
-    <meta name="description" content="SherenVogue - Official Store. Shop exclusive luxury bags, watches, and perfumes. Worldwide shipping available.">
+    <meta name="description" content="SherenVogue - Official Store. Shop exclusive luxury bags, watches, and perfumes.">
     
     <script type="application/ld+json">
     {
@@ -41,23 +40,24 @@
             color: var(--white);
             font-family: var(--font-body);
             overflow-x: hidden;
-            -webkit-tap-highlight-color: transparent;
+            -webkit-tap-highlight-color: transparent; /* Removes blue highlight on mobile tap */
         }
 
+        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: var(--black); }
         ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
 
-        /* --- NAVIGATION (UPDATED FOR SCROLL HIDE) --- */
+        /* --- NAVIGATION --- */
         nav {
             position: fixed; top: 0; width: 100%;
             padding: 15px 50px;
             display: flex; justify-content: space-between; align-items: center;
-            background: rgba(5, 5, 5, 0.95); /* Slightly darker for better visibility */
+            background: rgba(5, 5, 5, 0.95);
             backdrop-filter: blur(12px);
             z-index: 1000;
             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-            transition: top 0.4s ease-in-out; /* Smooth transition for hiding/showing */
+            transition: top 0.4s ease-in-out;
         }
 
         .logo {
@@ -97,11 +97,8 @@
             color: var(--gold);
         }
 
-        /* Nav Buttons Container */
         .nav-buttons {
-            display: flex;
-            align-items: center;
-            gap: 20px;
+            display: flex; align-items: center; gap: 20px;
         }
 
         .nav-text-btn {
@@ -115,10 +112,7 @@
             transition: 0.3s;
         }
         
-        .nav-text-btn:hover {
-            border-bottom: 1px solid var(--gold);
-            color: var(--white);
-        }
+        .nav-text-btn:hover { border-bottom: 1px solid var(--gold); color: var(--white); }
 
         .nav-icon {
             color: var(--gold);
@@ -127,7 +121,7 @@
             text-decoration: none;
         }
 
-        /* --- 3D HERO SECTION --- */
+        /* --- HERO SECTION --- */
         header {
             height: 100vh;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -181,14 +175,13 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- PHILOSOPHY --- */
+        /* --- SECTIONS --- */
         .philosophy-section {
             padding: 80px 10%; 
             background:#080808; 
             text-align:center;
         }
 
-        /* --- PRODUCTS GRID --- */
         .products { padding: 80px 5%; background: var(--black); }
         
         .section-header { text-align: center; margin-bottom: 50px; }
@@ -259,7 +252,7 @@
         }
         .card:hover .view-btn { border-color: var(--gold); color: var(--gold); }
 
-        /* --- PRODUCT MODAL --- */
+        /* --- MODAL --- */
         .modal {
             display: none; position: fixed; z-index: 2000;
             left: 0; top: 0; width: 100%; height: 100%;
@@ -292,22 +285,13 @@
         }
 
         .buy-btn {
-            margin-top: 25px;
-            padding: 15px 30px;
-            background: var(--gold);
-            color: var(--black);
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            width: 100%;
-            transition: 0.3s;
+            margin-top: 25px; padding: 15px 30px;
+            background: var(--gold); color: var(--black);
+            font-weight: 700; border: none; cursor: pointer;
+            text-transform: uppercase; letter-spacing: 2px;
+            width: 100%; transition: 0.3s;
         }
-        .buy-btn:hover {
-            background: var(--white);
-            color: var(--black);
-        }
+        .buy-btn:hover { background: var(--white); color: var(--black); }
 
         /* --- FOOTER --- */
         footer {
@@ -320,7 +304,7 @@
         }
         .contact-email:hover { border-bottom: 1px solid var(--gold); }
 
-        /* --- MOBILE & RESPONSIVE TWEAKS --- */
+        /* --- MOBILE & RESPONSIVE TWEAKS (The Logic for Mobile) --- */
         @media (max-width: 768px) {
             nav {
                 padding: 15px 20px;
@@ -328,19 +312,17 @@
                 gap: 15px;
             }
             .search-container {
-                width: 100%;
-                margin: 0;
-                max-width: 100%;
+                width: 100%; margin: 0; max-width: 100%;
             }
             .nav-buttons {
-                width: 100%;
-                justify-content: center;
-                gap: 30px;
+                width: 100%; justify-content: center; gap: 30px;
             }
             h1 { font-size: 2.8rem; letter-spacing: 5px; }
             .subtitle { font-size: 1rem; }
             .products { padding: 60px 20px; }
             .grid { grid-template-columns: 1fr; gap: 40px; }
+            
+            /* Modal Adjustments for Mobile */
             .modal { align-items: flex-start; padding-top: 20px; }
             .modal-content { 
                 width: 90%; 
@@ -400,7 +382,7 @@
             
             <div class="card" onclick="openModal('img1', 'The Empress Tote', '$450', 'HISTORY: Inspired by the grandeur of ancient royalty, The Empress Tote is handcrafted in Florence. It takes over 40 hours of artisanal work to perfect the stitching of its genuine Italian leather. The 24k gold-plated hardware symbolizes power and elegance.')">
                 <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img1" alt="Luxury Bag">
+                    <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img1" alt="Luxury Bag" loading="lazy">
                     <div class="brand-watermark">SherenVogue</div>
                 </div>
                 <div class="card-info">
@@ -412,7 +394,7 @@
 
             <div class="card" onclick="openModal('img2', 'Midnight Chrono', '$1,200', 'HISTORY: The Midnight Chrono pays homage to the golden age of aviation. Engineered with Swiss precision, this timepiece features a sapphire crystal face that is virtually scratch-proof. A limited edition design for those who value every second.')">
                 <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img2" alt="Luxury Watch">
+                    <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img2" alt="Luxury Watch" loading="lazy">
                     <div class="brand-watermark">SherenVogue</div>
                 </div>
                 <div class="card-info">
@@ -424,7 +406,7 @@
 
             <div class="card" onclick="openModal('img3', 'Velvet Rose Parfum', '$180', 'HISTORY: A scent cultivated from rare Bulgarian roses harvested only at dawn. Blended with deep Oud and Vanilla notes, this fragrance was designed in Grasse, France—the perfume capital of the world. It tells a story of mystery and allure.')">
                 <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1594035910387-fea4779426e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img3" alt="Perfume">
+                    <img src="https://images.unsplash.com/photo-1594035910387-fea4779426e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img3" alt="Perfume" loading="lazy">
                     <div class="brand-watermark">SherenVogue</div>
                 </div>
                 <div class="card-info">
@@ -436,7 +418,7 @@
 
             <div class="card" onclick="openModal('img4', 'Golden Waist Belt', '$95', 'HISTORY: Minimalist yet bold, this belt is a symbol of strength. The leather is ethically sourced and tanned using traditional vegetable methods to ensure durability. The signature gold buckle is polished by hand for a mirror-like finish.')">
                 <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img4" alt="Belt">
+                    <img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img4" alt="Belt" loading="lazy">
                     <div class="brand-watermark">SherenVogue</div>
                 </div>
                 <div class="card-info">
@@ -448,7 +430,7 @@
 
             <div class="card" onclick="openModal('img5', 'Riviera Shades', '$210', 'HISTORY: Inspired by the sunny coastlines of the French Riviera. These sunglasses feature UV400 protection lenses encased in a handcrafted acetate frame. Designed for the modern traveler who seeks both protection and style.')">
                 <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img5" alt="Sunglasses">
+                    <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img5" alt="Sunglasses" loading="lazy">
                     <div class="brand-watermark">SherenVogue</div>
                 </div>
                 <div class="card-info">
@@ -460,84 +442,12 @@
 
             <div class="card" onclick="openModal('img6', 'Noir Classic Wallet', '$150', 'HISTORY: Small in size but rich in heritage. This wallet is stitched from full-grain leather that ages beautifully over time. It features RFID protection technology, blending classic aesthetics with modern security.')">
                 <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1627123424574-18bd03641580?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img6" alt="Wallet">
+                    <img src="https://images.unsplash.com/photo-1627123424574-18bd03641580?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img6" alt="Wallet" loading="lazy">
                     <div class="brand-watermark">SherenVogue</div>
                 </div>
                 <div class="card-info">
                     <h3 class="card-title">Noir Classic Wallet</h3>
                     <p class="card-price">$150</p>
-                    <button class="view-btn">View History</button>
-                </div>
-            </div>
-
-            <div class="card" onclick="openModal('img7', 'Royal Silk Scarf', '$120', 'HISTORY: Woven from 100% Mulberry silk, this scarf features a hand-painted design inspired by Victorian gardens. Soft to the touch and vibrant in color, it is a versatile accessory for any season.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img7" alt="Scarf">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info">
-                    <h3 class="card-title">Royal Silk Scarf</h3>
-                    <p class="card-price">$120</p>
-                    <button class="view-btn">View History</button>
-                </div>
-            </div>
-
-             <div class="card" onclick="openModal('img8', 'Aurora Diamond Studs', '$850', 'HISTORY: Capturing the brilliance of the northern lights, these studs feature ethically sourced diamonds set in 18k white gold. A timeless piece of jewelry that adds a touch of sparkle to any evening attire.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img8" alt="Earrings">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info">
-                    <h3 class="card-title">Aurora Diamond Studs</h3>
-                    <p class="card-price">$850</p>
-                    <button class="view-btn">View History</button>
-                </div>
-            </div>
-
-            <div class="card" onclick="openModal('img9', 'Royal Velvet Heels', '$320', 'HISTORY: Handcrafted in Milan using the finest black velvet. These heels feature a signature red sole and a gold-plated heel arch for maximum stability and elegance. Perfect for gala nights.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img9" alt="Heels">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info">
-                    <h3 class="card-title">Royal Velvet Heels</h3>
-                    <p class="card-price">$320</p>
-                    <button class="view-btn">View History</button>
-                </div>
-            </div>
-
-            <div class="card" onclick="openModal('img10', 'Obsidian Aviators', '$250', 'HISTORY: Classic aviator style reinvented with a 24k gold frame and polarized obsidian lenses. Offers 100% UV protection while maintaining a mysterious, high-fashion look.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img10" alt="Sunglasses">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info">
-                    <h3 class="card-title">Obsidian Aviators</h3>
-                    <p class="card-price">$250</p>
-                    <button class="view-btn">View History</button>
-                </div>
-            </div>
-
-            <div class="card" onclick="openModal('img11', 'Infinity Diamond Necklace', '$2,500', 'HISTORY: A masterpiece of jewelry design. This necklace features a cascade of VS1 clarity diamonds set in platinum. It represents eternal beauty and infinite luxury.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1599643478518-17488fbbcd75?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img11" alt="Necklace">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info">
-                    <h3 class="card-title">Infinity Diamond Necklace</h3>
-                    <p class="card-price">$2,500</p>
-                    <button class="view-btn">View History</button>
-                </div>
-            </div>
-
-            <div class="card" onclick="openModal('img12', 'Heritage Leather Gloves', '$180', 'HISTORY: Soft, supple lambskin leather gloves lined with pure cashmere for warmth. Finished with a small gold SherenVogue emblem button. A winter essential.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1520206637777-6c825700858e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="card-img" id="img12" alt="Gloves">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info">
-                    <h3 class="card-title">Heritage Leather Gloves</h3>
-                    <p class="card-price">$180</p>
                     <button class="view-btn">View History</button>
                 </div>
             </div>
@@ -648,7 +558,8 @@
             window.location.href = `mailto:hello@sherenvogue.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }
 
-        // --- 5. 3D PARALLAX EFFECT ---
+        // --- 5. 3D PARALLAX EFFECT (PC ONLY) ---
+        // This ensures the effect doesn't break on mobile
         document.addEventListener('mousemove', (e) => {
             if (window.innerWidth > 768) { 
                 const x = (window.innerWidth / 2 - e.pageX) / 40;
@@ -664,4 +575,3 @@
     </script>
 </body>
 </html>
-
