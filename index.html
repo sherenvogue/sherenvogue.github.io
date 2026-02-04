@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SherenVogue | Exclusive Luxury Fashion</title>
-    <meta name="description" content="SherenVogue - Official Store. Discover exclusive luxury bags, watches, perfumes, and accessories.">
+    
+    <title>SherenVogue | Exclusive Luxury Fashion Store</title>
+    <meta name="description" content="SherenVogue - Official Store. Discover exclusive luxury bags, watches, perfumes, and accessories. Premium quality craftsmanship.">
+    <meta name="keywords" content="Luxury Fashion, SherenVogue, Premium Bags, Swiss Watches, BD Fashion, Brand">
+    <meta name="author" content="SherenVogue">
 
     <script type="application/ld+json">
     {
@@ -12,7 +15,8 @@
       "@type": "Store",
       "name": "SherenVogue",
       "url": "https://sherenvogue.com",
-      "image": "https://sherenvogue.com/logo.png"
+      "image": "https://sherenvogue.com/logo.png",
+      "description": "International Luxury Fashion Brand based in Bangladesh."
     }
     </script>
 
@@ -20,11 +24,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- কালার সেটিংস --- */
+        /* --- কালার এবং ফন্ট সেটিংস (এখানে কালার চেঞ্জ করতে পারবেন) --- */
         :root {
-            --gold: #D4AF37;
+            --gold: #D4AF37; /* সোনালী কালার */
             --gold-gradient: linear-gradient(45deg, #D4AF37, #F2D06B, #D4AF37);
-            --black: #050505;
+            --black: #050505; /* কালো ব্যাকগ্রাউন্ড */
             --white: #ffffff;
             --font-heading: 'Cinzel', serif;
             --font-body: 'Lato', sans-serif;
@@ -41,7 +45,7 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* --- মেনু বার --- */
+        /* --- মেনু বার (Navigation) --- */
         nav {
             position: fixed; top: 0; width: 100%;
             padding: 15px 50px;
@@ -63,11 +67,22 @@
             text-transform: uppercase;
         }
 
-        .search-container { position: relative; margin: 0 20px; flex-grow: 1; max-width: 400px; }
+        /* সার্চ বার ডিজাইন */
+        .search-container {
+            position: relative;
+            margin: 0 20px;
+            flex-grow: 1;
+            max-width: 400px;
+        }
+
         .search-input {
-            width: 100%; padding: 10px 40px 10px 15px;
-            background: rgba(255, 255, 255, 0.05); border: 1px solid var(--gold);
-            color: var(--white); border-radius: 30px; transition: 0.3s;
+            width: 100%;
+            padding: 10px 40px 10px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--gold);
+            color: var(--white);
+            border-radius: 30px;
+            transition: 0.3s;
         }
         .search-input:focus { outline: none; background: rgba(0,0,0,0.9); box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); }
         .search-icon { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--gold); }
@@ -76,33 +91,51 @@
         .nav-text-btn { color: var(--gold); text-decoration: none; font-family: var(--font-heading); text-transform: uppercase; border-bottom: 1px solid transparent; transition: 0.3s; }
         .nav-text-btn:hover { border-bottom: 1px solid var(--gold); color: var(--white); }
 
-        /* --- হিরো সেকশন --- */
+        /* --- হিরো সেকশন (বড় ব্যানার) --- */
         header {
-            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; position: relative; overflow: hidden;
+            height: 100vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+
         .hero-bg {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1504198458649-3128b932f49e?auto=format&fit=crop&w=1920&q=80'); /* নতুন ব্যানার ইমেজ */
-            background-size: cover; background-position: center; opacity: 0.5;
-            transform: scale(1.1); transition: transform 0.2s ease-out; filter: contrast(1.2) brightness(0.6);
+            background-image: url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); 
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+            transform: scale(1.1);
+            transition: transform 0.2s ease-out; 
+            filter: contrast(1.2) brightness(0.6);
         }
+
         .hero-content { z-index: 2; padding: 20px; }
+
         h1 {
-            font-family: var(--font-heading); font-size: 4rem; color: var(--gold);
-            letter-spacing: 8px; text-transform: uppercase; margin-bottom: 10px;
+            font-family: var(--font-heading);
+            font-size: 4rem; color: var(--gold);
+            letter-spacing: 8px; text-transform: uppercase;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.9);
+            margin-bottom: 10px;
             animation: fadeInUp 1.5s ease-out forwards;
         }
+
         .subtitle {
             font-family: var(--font-heading); font-size: 1.2rem; color: #ddd; letter-spacing: 3px;
             animation: fadeInUp 1.5s ease-out 0.5s forwards; opacity: 0;
         }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- দর্শন --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- দর্শন (Philosophy) --- */
         .philosophy-section { padding: 80px 10%; background:#080808; text-align:center; }
 
-        /* --- প্রোডাক্ট গ্রিড --- */
+        /* --- প্রোডাক্ট গ্রিড ডিজাইন --- */
         .products { padding: 60px 5%; background: var(--black); }
         .section-title {
             font-family: var(--font-heading); font-size: 2.5rem; color: var(--gold);
@@ -110,80 +143,135 @@
             text-align: center; margin-bottom: 40px;
         }
 
+        /* ডেস্কটপ গ্রিড (সাধারণত ৪টা বা ৩টা করে দেখাবে) */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
         }
 
+        /* প্রোডাক্ট কার্ড */
         .card {
-            background: #0f0f0f; border: 1px solid #222; position: relative; overflow: hidden;
-            transition: all 0.3s ease; cursor: pointer; border-radius: 4px;
+            background: #0f0f0f;
+            border: 1px solid #222;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-radius: 4px;
         }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15); border-color: var(--gold); }
 
-        .image-wrapper { position: relative; height: 320px; overflow: hidden; background-color: #1a1a1a; }
-        .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; opacity: 0.9; }
+        /* কার্ডের 3D এফেক্ট এবং হোভার */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15); /* গোল্ডেন শ্যাডো */
+            border-color: var(--gold);
+        }
+
+        .image-wrapper {
+            position: relative;
+            height: 320px; /* ছবির হাইট */
+            overflow: hidden;
+            background-color: #1a1a1a;
+        }
+
+        .card-img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s ease;
+            opacity: 0.9;
+        }
+
         .card:hover .card-img { transform: scale(1.1); opacity: 1; }
 
         .brand-watermark {
-            position: absolute; bottom: 10px; right: 10px; font-family: var(--font-heading);
-            color: var(--gold); font-size: 0.6rem; letter-spacing: 1px;
-            background: rgba(0,0,0,0.8); padding: 4px 8px; border: 1px solid var(--gold);
+            position: absolute; bottom: 10px; right: 10px;
+            font-family: var(--font-heading); color: var(--gold);
+            font-size: 0.6rem; letter-spacing: 1px;
+            background: rgba(0,0,0,0.8); padding: 4px 8px;
+            border: 1px solid var(--gold);
         }
 
         .card-info { padding: 15px; text-align: center; }
         .card-title { color: var(--white); font-family: var(--font-heading); font-size: 1rem; margin-bottom: 5px; }
+        
+        /* দামের বদলে ভিউ বাটন */
         .view-btn {
-            margin-top: 5px; padding: 5px 15px; background: transparent; border: 1px solid #444;
-            color: #888; font-size: 0.7rem; text-transform: uppercase; transition: 0.3s;
+            margin-top: 5px;
+            padding: 5px 15px;
+            background: transparent;
+            border: 1px solid #444;
+            color: #888;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            transition: 0.3s;
         }
         .card:hover .view-btn { border-color: var(--gold); color: var(--gold); }
 
-        /* --- মডাল --- */
+        /* --- পপ-আপ মডাল (Product Details) --- */
         .modal {
-            display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.95); backdrop-filter: blur(8px);
+            display: none; position: fixed; z-index: 2000;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            backdrop-filter: blur(8px);
             overflow-y: auto; align-items: center; justify-content: center;
         }
+
         .modal-content {
-            background-color: #0a0a0a; border: 1px solid var(--gold); width: 80%; max-width: 900px;
-            display: flex; flex-wrap: wrap; box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
-            position: relative; animation: zoomIn 0.3s ease; margin: auto;
+            background-color: #0a0a0a;
+            border: 1px solid var(--gold);
+            width: 80%; max-width: 900px;
+            display: flex; flex-wrap: wrap;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
+            position: relative;
+            animation: zoomIn 0.3s ease;
+            margin: auto;
         }
         @keyframes zoomIn { from {transform: scale(0.9); opacity: 0;} to {transform: scale(1); opacity: 1;} }
+
         .modal-img { flex: 1 1 400px; height: 500px; object-fit: cover; }
         .modal-details { flex: 1 1 350px; padding: 40px; display: flex; flex-direction: column; justify-content: center; }
         
         .close-btn {
-            position: absolute; top: 10px; right: 15px; color: var(--gold); font-size: 30px;
-            cursor: pointer; z-index: 10; background: rgba(0,0,0,0.5); width: 40px; height: 40px;
-            text-align: center; line-height: 40px; border-radius: 50%;
+            position: absolute; top: 10px; right: 15px;
+            color: var(--gold); font-size: 30px; cursor: pointer;
+            z-index: 10; background: rgba(0,0,0,0.5); width: 40px; height: 40px; text-align: center; line-height: 40px; border-radius: 50%;
         }
+
         .buy-btn {
-            margin-top: 25px; padding: 15px 30px; background: var(--gold); color: var(--black);
-            font-weight: 700; border: none; cursor: pointer; text-transform: uppercase;
-            letter-spacing: 2px; width: 100%; transition: 0.3s;
+            margin-top: 25px; padding: 15px 30px;
+            background: var(--gold); color: var(--black);
+            font-weight: 700; border: none; cursor: pointer;
+            text-transform: uppercase; letter-spacing: 2px;
+            width: 100%; transition: 0.3s;
         }
         .buy-btn:hover { background: var(--white); color: var(--black); }
 
-        /* --- ফুটার --- */
+        /* --- ফুটার (Footer) --- */
         footer { padding: 60px 5%; background: #020202; text-align: center; border-top: 1px solid #1a1a1a; }
         .contact-email { color: var(--gold); text-decoration: none; font-size: 1.2rem; border-bottom: 1px solid transparent; transition:0.3s; display: inline-block; margin-top: 10px; }
         .contact-email:hover { border-bottom: 1px solid var(--gold); }
 
-        /* --- মোবাইল রেসপন্সিভ (২ কলাম) --- */
+        /* --- মোবাইল এবং রেসপন্সিভ ডিজাইন --- */
         @media (max-width: 768px) {
             nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
             .search-container { width: 100%; margin: 0; }
             .nav-buttons { width: 100%; justify-content: center; }
             h1 { font-size: 2.5rem; letter-spacing: 4px; }
             .products { padding: 40px 15px; }
-            .grid { grid-template-columns: repeat(2, 1fr); gap: 15px; } /* মোবাইলে ২টা করে প্রোডাক্ট */
+            
+            /* মোবাইলে এক লাইনে ২টা প্রোডাক্ট দেখানোর লজিক */
+            .grid {
+                grid-template-columns: repeat(2, 1fr); /* ২ কলাম */
+                gap: 15px; /* মাঝখানের গ্যাপ কমানো হয়েছে */
+            }
+            
+            /* মোবাইলে কার্ডের সাইজ ছোট করা */
             .image-wrapper { height: 180px; }
             .card-info { padding: 10px; }
             .card-title { font-size: 0.8rem; }
             .view-btn { font-size: 0.6rem; padding: 4px 10px; }
+
+            /* মডাল রেসপন্সিভ */
             .modal { align-items: flex-start; padding-top: 20px; }
             .modal-content { width: 90%; flex-direction: column; margin-bottom: 50px; }
             .modal-img { height: 300px; width: 100%; }
@@ -195,10 +283,12 @@
 
     <nav id="navbar">
         <div class="logo">SherenVogue</div>
+        
         <div class="search-container">
-            <input type="text" id="searchInput" class="search-input" placeholder="Search..." oninput="searchProducts()">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search collection..." oninput="searchProducts()">
             <i class="fas fa-search search-icon"></i>
         </div>
+
         <div class="nav-buttons">
             <a href="#" class="nav-text-btn">Philosophy</a>
             <a href="#collection" class="nav-text-btn"><i class="fas fa-shopping-bag"></i></a>
@@ -218,7 +308,7 @@
         <div style="width: 50px; height: 2px; background: var(--gold); margin: 0 auto 30px;"></div>
         <p style="font-family:var(--font-bangla); font-size:1.1rem; line-height:1.8; color:#ccc; max-width:800px; margin:0 auto;">
             <span style="color:var(--gold); font-weight:bold;">শেরেনভোগ (SherenVogue)</span> শুধু একটি ব্র্যান্ড নয়, এটি আভিজাত্যের প্রতীক। 
-            আমাদের প্রতিটি পণ্যের ডিজাইন এবং গুণমান আন্তর্জাতিক মানের।
+            আমরা বিশ্বাস করি প্রতিটি পণ্যের নিজস্ব একটি গল্প থাকে। আমাদের আন্তর্জাতিক মানের কালেকশন আপনার ব্যক্তিত্বকে করে তুলবে আরও উজ্জ্বল।
         </p>
     </section>
 
@@ -228,134 +318,183 @@
         </div>
 
         <div class="grid" id="productGrid">
-            <div class="card" onclick="openModal('img1', 'The Empress Tote', 'Handcrafted leather tote. A masterpiece of design.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1590874103328-3b7f3a44d473?auto=format&fit=crop&w=800&q=80" class="card-img" id="img1" alt="Bag" loading="lazy">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info"><h3 class="card-title">The Empress Tote</h3><button class="view-btn">View Details</button></div>
-            </div>
-
-            <div class="card" onclick="openModal('img2', 'Midnight Chrono', 'Swiss precision engineering meets modern aviation aesthetics.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=800&q=80" class="card-img" id="img2" alt="Watch" loading="lazy">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info"><h3 class="card-title">Midnight Chrono</h3><button class="view-btn">View Details</button></div>
-            </div>
-
-            <div class="card" onclick="openModal('img3', 'Velvet Rose Parfum', 'A rare blend of Bulgarian roses and Oud wood.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=800&q=80" class="card-img" id="img3" alt="Perfume" loading="lazy">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info"><h3 class="card-title">Velvet Rose Parfum</h3><button class="view-btn">View Details</button></div>
-            </div>
-
-            <div class="card" onclick="openModal('img4', 'Golden Waist Belt', 'Vegetable-tanned leather with a polished brass buckle.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1553984658-d5843472097e?auto=format&fit=crop&w=800&q=80" class="card-img" id="img4" alt="Belt" loading="lazy">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info"><h3 class="card-title">Golden Waist Belt</h3><button class="view-btn">View Details</button></div>
-            </div>
-
-            <div class="card" onclick="openModal('img5', 'Riviera Shades', 'Hand-polished acetate frames with UV400 protection.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80" class="card-img" id="img5" alt="Sunglasses" loading="lazy">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info"><h3 class="card-title">Riviera Shades</h3><button class="view-btn">View Details</button></div>
-            </div>
-
-            <div class="card" onclick="openModal('img6', 'Noir Classic Wallet', 'Full-grain leather with RFID blocking technology.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1627123424574-18bd03641580?auto=format&fit=crop&w=800&q=80" class="card-img" id="img6" alt="Wallet" loading="lazy">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info"><h3 class="card-title">Noir Classic Wallet</h3><button class="view-btn">View Details</button></div>
-            </div>
-
-            <div class="card" onclick="openModal('img7', 'Royal Silk Tie', '100% Mulberry silk, woven in Italy.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1589756823695-278bc35616b5?auto=format&fit=crop&w=800&q=80" class="card-img" id="img7" alt="Tie" loading="lazy">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info"><h3 class="card-title">Royal Silk Tie</h3><button class="view-btn">View Details</button></div>
-            </div>
-
-            <div class="card" onclick="openModal('img8', 'Onyx Cufflinks', 'Black Onyx stone set in sterling silver.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1617117833203-c91b0600451e?auto=format&fit=crop&w=800&q=80" class="card-img" id="img8" alt="Cufflinks" loading="lazy">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info"><h3 class="card-title">Onyx Cufflinks</h3><button class="view-btn">View Details</button></div>
-            </div>
-
-            <div class="card" onclick="openModal('img9', 'Chelsea Leather Boots', 'Hand-stitched leather sole with rugged durability.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=800&q=80" class="card-img" id="img9" alt="Boots" loading="lazy">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info"><h3 class="card-title">Chelsea Leather Boots</h3><button class="view-btn">View Details</button></div>
-            </div>
-
-            <div class="card" onclick="openModal('img10', 'Evening Clutch', 'Encased in velvet with a gold chain strap.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=800&q=80" class="card-img" id="img10" alt="Clutch" loading="lazy">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info"><h3 class="card-title">Evening Clutch</h3><button class="view-btn">View Details</button></div>
-            </div>
-
-            <div class="card" onclick="openModal('img11', 'Platinum Solitaire', 'A single, flawless diamond set in pure platinum.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=80" class="card-img" id="img11" alt="Ring" loading="lazy">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info"><h3 class="card-title">Platinum Solitaire</h3><button class="view-btn">View Details</button></div>
-            </div>
-
-            <div class="card" onclick="openModal('img12', 'Signature Fountain Pen', '18k gold nib with a black lacquer finish.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1583247363234-5aa7c4230462?auto=format&fit=crop&w=800&q=80" class="card-img" id="img12" alt="Pen" loading="lazy">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info"><h3 class="card-title">Signature Fountain Pen</h3><button class="view-btn">View Details</button></div>
-            </div>
-
-            <div class="card" onclick="openModal('img13', 'Vintage Fedora', 'Made from premium wool felt. A classic silhouette.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1572307480813-5b0aa701b0f7?auto=format&fit=crop&w=800&q=80" class="card-img" id="img13" alt="Hat" loading="lazy">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info"><h3 class="card-title">Vintage Fedora</h3><button class="view-btn">View Details</button></div>
-            </div>
-
-            <div class="card" onclick="openModal('img14', 'Biker Leather Jacket', 'Soft lambskin leather with heavy-duty silver zippers.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1551028919-ac66e6a39b51?auto=format&fit=crop&w=800&q=80" class="card-img" id="img14" alt="Jacket" loading="lazy">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info"><h3 class="card-title">Biker Leather Jacket</h3><button class="view-btn">View Details</button></div>
-            </div>
-
-            <div class="card" onclick="openModal('img15', 'Crystal Brooch', 'Swarovski crystals arranged in a floral pattern.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1615655406736-b37c4d898e69?auto=format&fit=crop&w=800&q=80" class="card-img" id="img15" alt="Brooch" loading="lazy">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info"><h3 class="card-title">Crystal Brooch</h3><button class="view-btn">View Details</button></div>
-            </div>
-
-            <div class="card" onclick="openModal('img16', 'Grand Travel Bag', 'Spacious weekender bag made from durable canvas.')">
-                <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80" class="card-img" id="img16" alt="Travel Bag" loading="lazy">
-                    <div class="brand-watermark">SherenVogue</div>
-                </div>
-                <div class="card-info"><h3 class="card-title">Grand Travel Bag</h3><button class="view-btn">View Details</button></div>
-            </div>
             
+            <div class="card" onclick="openModal('img1', 'The Empress Tote', 'Handcrafted in Florence from genuine Italian leather. Takes over 40 hours of artisanal work. Featuring 24k gold-plated hardware.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop" class="card-img" id="img1" alt="Bag" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">The Empress Tote</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img2', 'Midnight Chrono', 'Swiss precision engineering meets modern aviation aesthetics. Features a scratch-proof sapphire crystal face and automatic movement.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=800&auto=format&fit=crop" class="card-img" id="img2" alt="Watch" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Midnight Chrono</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img3', 'Velvet Rose Parfum', 'A rare blend of Bulgarian roses and Oud wood. Distilled in Grasse, France. A scent that lingers with mystery and elegance.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1594035910387-fea4779426e9?q=80&w=800&auto=format&fit=crop" class="card-img" id="img3" alt="Perfume" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Velvet Rose Parfum</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img4', 'Golden Waist Belt', 'Vegetable-tanned leather with a polished brass buckle. Minimalist yet bold, designed to accentuate any evening attire.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?q=80&w=800&auto=format&fit=crop" class="card-img" id="img4" alt="Belt" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Golden Waist Belt</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img5', 'Riviera Shades', 'Hand-polished acetate frames with UV400 protection. Inspired by the golden era of the French Riviera.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=800&auto=format&fit=crop" class="card-img" id="img5" alt="Sunglasses" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Riviera Shades</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img6', 'Noir Classic Wallet', 'Full-grain leather with RFID blocking technology. Slim profile but spacious enough for all essentials. Ages beautifully.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1627123424574-18bd03641580?q=80&w=800&auto=format&fit=crop" class="card-img" id="img6" alt="Wallet" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Noir Classic Wallet</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img7', 'Royal Silk Tie', '100% Mulberry silk, woven in Italy. The deep navy pattern adds a touch of sophistication to any formal suit.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1589756823695-278bc35616b5?q=80&w=800&auto=format&fit=crop" class="card-img" id="img7" alt="Tie" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Royal Silk Tie</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img8', 'Onyx Cufflinks', 'Black Onyx stone set in sterling silver. The perfect finishing touch for a gentleman’s tuxedo.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1617117833203-c91b0600451e?q=80&w=800&auto=format&fit=crop" class="card-img" id="img8" alt="Cufflinks" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Onyx Cufflinks</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img9', 'Chelsea Leather Boots', 'Hand-stitched leather sole. These boots combine rugged durability with high-fashion sleekness.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1608256246200-53e635b5b65f?q=80&w=800&auto=format&fit=crop" class="card-img" id="img9" alt="Boots" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Chelsea Leather Boots</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img10', 'Evening Clutch', 'Encased in velvet with a gold chain strap. Compact yet stunning, perfect for red carpet events.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?q=80&w=800&auto=format&fit=crop" class="card-img" id="img10" alt="Clutch" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Evening Clutch</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img11', 'Platinum Solitaire', 'A single, flawless diamond set in pure platinum. A symbol of eternal love and unmatched luxury.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=800&auto=format&fit=crop" class="card-img" id="img11" alt="Ring" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Platinum Solitaire</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img12', 'Signature Fountain Pen', '18k gold nib with a black lacquer finish. Writes with effortless precision. A collector’s item.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1583247363234-5aa7c4230462?q=80&w=800&auto=format&fit=crop" class="card-img" id="img12" alt="Pen" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Signature Fountain Pen</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img13', 'Vintage Fedora', 'Made from premium wool felt. A classic silhouette that never goes out of style.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1572307480813-5b0aa701b0f7?q=80&w=800&auto=format&fit=crop" class="card-img" id="img13" alt="Hat" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Vintage Fedora</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img14', 'Biker Leather Jacket', 'Soft lambskin leather with heavy-duty silver zippers. Edgy, rebellious, and undeniably luxurious.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1551028919-ac66e6a39b51?q=80&w=800&auto=format&fit=crop" class="card-img" id="img14" alt="Jacket" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Biker Leather Jacket</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img15', 'Crystal Brooch', 'Swarovski crystals arranged in a floral pattern. Adds a sparkling statement to any coat or dress.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1615655406736-b37c4d898e69?q=80&w=800&auto=format&fit=crop" class="card-img" id="img15" alt="Brooch" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Crystal Brooch</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="openModal('img16', 'Grand Travel Bag', 'Spacious weekender bag made from durable canvas and leather trims. Travel in style.')">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop" class="card-img" id="img16" alt="Travel Bag" loading="lazy">
+                    <div class="brand-watermark">SherenVogue</div>
+                </div>
+                <div class="card-info">
+                    <h3 class="card-title">Grand Travel Bag</h3>
+                    <button class="view-btn">View Details</button>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -365,7 +504,9 @@
             <img src="" id="modalImg" class="modal-img">
             <div class="modal-details">
                 <h2 id="modalTitle" style="font-family: var(--font-heading); color: var(--gold); margin-bottom: 20px; font-size: 1.8rem;"></h2>
+                
                 <p id="modalDesc" style="color: #ccc; line-height: 1.8; margin-bottom: 30px; font-style: italic;"></p>
+                
                 <p style="color:white; margin-bottom:10px;">Price available upon request.</p>
                 <button class="buy-btn" onclick="orderViaEmail()">Request Price & Order</button>
             </div>
@@ -375,75 +516,111 @@
     <footer id="contact">
         <h2 class="logo" style="margin-bottom: 20px;">SherenVogue</h2>
         <p style="color:#666; margin-bottom:15px;">Official Luxury Store | Established 2026</p>
+        
         <div class="social-links" style="font-size: 1.5rem; margin-bottom: 25px;">
             <i class="fab fa-instagram" style="color:white; margin:0 12px; cursor:pointer;"></i>
             <i class="fab fa-facebook" style="color:white; margin:0 12px; cursor:pointer;"></i>
         </div>
+
         <p style="color:#888;">For inquiries & orders:</p>
         <a href="mailto:hello@sherenvogue.com" class="contact-email">hello@sherenvogue.com</a>
+
         <p style="color: #444; font-size: 0.8rem; margin-top: 40px;">&copy; 2026 SherenVogue. All Rights Reserved.</p>
     </footer>
 
     <script>
+        // --- ১. সার্চ ফাংশন (Search Logic) ---
         function searchProducts() {
             let input = document.getElementById('searchInput').value.toUpperCase();
-            let cards = document.getElementsByClassName('card');
+            let grid = document.getElementById('productGrid');
+            let cards = grid.getElementsByClassName('card');
+
             for (let i = 0; i < cards.length; i++) {
                 let title = cards[i].getElementsByClassName('card-title')[0];
                 if (title) {
                     let txtValue = title.textContent || title.innerText;
-                    cards[i].style.display = txtValue.toUpperCase().indexOf(input) > -1 ? "" : "none";
+                    if (txtValue.toUpperCase().indexOf(input) > -1) {
+                        cards[i].style.display = "";
+                    } else {
+                        cards[i].style.display = "none";
+                    }
                 }
             }
         }
 
+        // --- ২. স্ক্রল করলে মেনু হাইড হবে (Navbar Hide) ---
         let lastScrollTop = 0;
         const navbar = document.getElementById('navbar');
+
         window.addEventListener('scroll', function() {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop > lastScrollTop && scrollTop > 100) { navbar.style.top = "-100px"; } 
-            else { navbar.style.top = "0"; }
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                navbar.style.top = "-100px"; // হাইড হবে
+            } else {
+                navbar.style.top = "0"; // শো করবে
+            }
             lastScrollTop = scrollTop;
         });
 
+        // --- ৩. মডাল ওপেন/ক্লোজ (Pop-up Logic) ---
+        // লক্ষ্য করুন: এখানে এখন আর 'Price' নেই
         function openModal(imgId, title, desc) {
             let imgSrc = document.getElementById(imgId).src;
             document.getElementById('modalImg').src = imgSrc;
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalDesc').innerText = desc;
+            
             let modal = document.getElementById('productModal');
             modal.style.display = "flex";
-            document.body.style.overflow = "hidden"; 
+            document.body.style.overflow = "hidden"; // স্ক্রল বন্ধ করা
         }
 
         function closeModal() {
             document.getElementById('productModal').style.display = "none";
             document.body.style.overflow = "auto"; 
         }
+
+        // মডালের বাইরে ক্লিক করলে বন্ধ হবে
         window.onclick = function(event) {
-            if (event.target == document.getElementById('productModal')) closeModal();
+            let modal = document.getElementById('productModal');
+            if (event.target == modal) {
+                closeModal();
+            }
         }
 
+        // --- ৪. অর্ডার ফাংশন (Gmail Fix Included) ---
         function orderViaEmail() {
             const title = document.getElementById('modalTitle').innerText;
+            // দাম সরানো হয়েছে, তাই এখানে দামের ভেরিয়েবল নেই
+            
             const subject = "Price Request: " + title;
-            const body = "Hi SherenVogue,\n\nI am interested in this item:\n\n" + "Product: " + title + "\n\n" + "Please send details.\n\nThank you.";
+            const body = "Hi SherenVogue,\n\nI am interested in this item:\n\n" + 
+                         "Product: " + title + "\n\n" + 
+                         "Could you please let me know the price and delivery details?\n\n" +
+                         "Thank you.";
+
+            // মোবাইল নাকি কম্পিউটার চেক করা হচ্ছে
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
             if (isMobile) {
+                // মোবাইলে অ্যাপ ওপেন হবে
                 window.location.href = `mailto:hello@sherenvogue.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             } else {
+                // পিসিতে ব্রাউজারে জিমেইল ওপেন হবে
                 const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=hello@sherenvogue.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                 window.open(gmailLink, '_blank');
             }
         }
 
+        // --- ৫. 3D এফেক্ট (শুধুমাত্র কম্পিউটারের জন্য) ---
         document.addEventListener('mousemove', (e) => {
             if (window.innerWidth > 768) { 
                 const x = (window.innerWidth / 2 - e.pageX) / 40;
                 const y = (window.innerHeight / 2 - e.pageY) / 40;
+                
                 const heroText = document.querySelector('.hero-content h1');
                 if(heroText) heroText.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+
                 const bg = document.getElementById('heroBg');
                 if(bg) bg.style.transform = `scale(1.1) translateX(${-x}px) translateY(${-y}px)`;
             }
