@@ -21,6 +21,9 @@ SherenVogue brings elegance and sophistication through premium fashion accessori
 - [Home](https://shervogue.github.io)
 - [Philosophy](https://shervogue.github.io/philosophy.html)
 
+## Live Website
+Visit our official store at: [https://sherenvogue.com](https://sherenvogue.com)
+
 ## Contact
 For business inquiries or collaborations, feel free to reach out.
 
