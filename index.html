@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SherenVogue - E-Commerce</title>
+    <title>SherenVogue - Exclusive Luxury</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Icon এর জন্য FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Top Bar / Header -->
     <header class="header">
-        <div class="logo"></div>
+        <div class="logo" style="font-weight: 700; font-size: 20px; color: #332822;">SherenVogue</div>
         <div class="icons">
             <div class="icon-bg"><i class="fas fa-search"></i></div>
             <div class="icon-bg"><i class="far fa-heart"></i></div>
@@ -25,9 +24,9 @@
     <!-- Hero Banner -->
     <section class="hero" id="hero-banner">
         <div class="hero-content">
-            <p class="subtitle">NEW COLLECTION 2025</p>
+            <p class="subtitle">NEW COLLECTION 2026</p>
             <h1>Timeless<br>Elegance</h1>
-            <a href="#" class="shop-btn">Shop Now <i class="fas fa-arrow-right"></i></a>
+            <a href="#categories" class="shop-btn">Shop Now <i class="fas fa-arrow-right"></i></a>
         </div>
     </section>
 
@@ -43,7 +42,7 @@
         </div>
         <div class="stat-item">
             <h3>2K+</h3>
-            <p>Happy Clients</p>
+            <p>Clients</p>
         </div>
         <div class="stat-item">
             <h3>12</h3>
@@ -52,33 +51,39 @@
     </section>
 
     <!-- Categories Section -->
-    <section class="categories">
+    <section class="categories" id="categories">
         <h2 class="section-title">Shop by Category</h2>
         <div class="category-grid">
             
-            <!-- Left Large Card -->
-            <div class="category-card large" id="cat-bag">
-                <div class="cat-info">
-                    <h3>Ladies Bags</h3>
-                    <p>15 styles</p>
+            <!-- Left Large Card (Clickable) -->
+            <a href="product-1.html" class="category-link large">
+                <div class="category-card large" id="cat-bag">
+                    <div class="cat-info">
+                        <h3>Ladies Bags</h3>
+                        <p>15 styles</p>
+                    </div>
                 </div>
-            </div>
+            </a>
 
-            <!-- Right Top Card -->
-            <div class="category-card small" id="cat-watch-w">
-                <div class="cat-info">
-                    <h3>Women's Watches</h3>
-                    <p>10 styles</p>
+            <!-- Right Top Card (Clickable) -->
+            <a href="product-1.html" class="category-link small">
+                <div class="category-card small" id="cat-watch-w">
+                    <div class="cat-info">
+                        <h3>Women's Watches</h3>
+                        <p>10 styles</p>
+                    </div>
                 </div>
-            </div>
+            </a>
 
-            <!-- Right Bottom Card -->
-            <div class="category-card small" id="cat-watch-m">
-                <div class="cat-info">
-                    <h3>Men's Watches</h3>
-                    <p>5 styles</p>
+            <!-- Right Bottom Card (Clickable) -->
+            <a href="product-1.html" class="category-link small">
+                <div class="category-card small" id="cat-watch-m">
+                    <div class="cat-info">
+                        <h3>Men's Watches</h3>
+                        <p>5 styles</p>
+                    </div>
                 </div>
-            </div>
+            </a>
 
         </div>
     </section>
