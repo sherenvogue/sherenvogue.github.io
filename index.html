@@ -1,54 +1,545 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SherenVogue - Luxury Accessories</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Nunito+Sans:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; }
+    body { font-family: 'Nunito Sans', sans-serif; }
+    .font-display { font-family: 'Playfair Display', serif; }
+    .fade-in { animation: fadeIn 0.6s ease forwards; opacity: 0; }
+    @keyframes fadeIn { to { opacity: 1; } }
+    .slide-up { animation: slideUp 0.5s ease forwards; opacity: 0; transform: translateY(20px); }
+    @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+    .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+    .product-card { transition: all 0.3s ease; }
+    .nav-link { position: relative; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #1a1a1a; transition: width 0.3s; }
+    .nav-link:hover::after { width: 100%; }
+    .cart-badge { animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+    .toast { animation: toastIn 0.4s ease, toastOut 0.4s ease 2.6s forwards; }
+    @keyframes toastIn { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes toastOut { from { opacity: 1; } to { opacity: 0; } }
+    .modal-overlay { animation: fadeIn 0.3s ease; }
+    .modal-content { animation: slideUp 0.3s ease; }
+    .hero-gradient { background: linear-gradient(135deg, #f8f4f0 0%, #ede4db 50%, #e8ddd4 100%); }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+ </head>
+ <body class="h-full bg-white text-gray-900 overflow-auto">
+  <div id="app" class="w-full h-full"><!-- Promo Banner -->
+   <div id="promo-banner" class="bg-gray-900 text-white text-center py-2 text-sm tracking-wide"><span id="promo-text">✨ Free Shipping on Orders Over ৳3000 | Use Code: SHEREN20 ✨</span>
+   </div><!-- Navigation -->
+   <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 px-4 md:px-8 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between"><a href="#" onclick="showPage('home')" class="font-display text-2xl md:text-3xl font-bold tracking-tight">SherenVogue</a>
+     <div class="hidden md:flex items-center gap-8"><a href="#" onclick="showPage('home')" class="nav-link text-sm font-semibold uppercase tracking-wider">Home</a> <a href="#" onclick="showPage('shop')" class="nav-link text-sm font-semibold uppercase tracking-wider">Shop</a> <a href="#" onclick="filterCategory('bags')" class="nav-link text-sm font-semibold uppercase tracking-wider">Bags</a> <a href="#" onclick="filterCategory('watches')" class="nav-link text-sm font-semibold uppercase tracking-wider">Watches</a> <a href="#" onclick="filterCategory('belts')" class="nav-link text-sm font-semibold uppercase tracking-wider">Belts</a> <a href="#" onclick="showPage('contact')" class="nav-link text-sm font-semibold uppercase tracking-wider">Contact</a>
+     </div>
+     <div class="flex items-center gap-4"><button onclick="showPage('cart')" class="relative p-2"> <i data-lucide="shopping-bag" class="w-5 h-5"></i> <span id="cart-count" class="cart-badge absolute -top-1 -right-1 bg-gray-900 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center hidden">0</span> </button> <button onclick="toggleMobileMenu()" class="md:hidden p-2"> <i data-lucide="menu" class="w-5 h-5"></i> </button>
+     </div>
+    </div><!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-100 pt-4">
+     <div class="flex flex-col gap-3"><a href="#" onclick="showPage('home'); toggleMobileMenu()" class="text-sm font-semibold uppercase tracking-wider py-2">Home</a> <a href="#" onclick="showPage('shop'); toggleMobileMenu()" class="text-sm font-semibold uppercase tracking-wider py-2">Shop</a> <a href="#" onclick="filterCategory('bags'); toggleMobileMenu()" class="text-sm font-semibold uppercase tracking-wider py-2">Bags</a> <a href="#" onclick="filterCategory('watches'); toggleMobileMenu()" class="text-sm font-semibold uppercase tracking-wider py-2">Watches</a> <a href="#" onclick="filterCategory('belts'); toggleMobileMenu()" class="text-sm font-semibold uppercase tracking-wider py-2">Belts</a> <a href="#" onclick="showPage('contact'); toggleMobileMenu()" class="text-sm font-semibold uppercase tracking-wider py-2">Contact</a>
+     </div>
+    </div>
+   </nav><!-- Pages Container -->
+   <main id="pages-container" class="w-full"><!-- HOME PAGE -->
+    <div id="page-home" class="page"><!-- Hero -->
+     <section class="hero-gradient px-4 md:px-8 py-16 md:py-24">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+       <div class="fade-in">
+        <p class="text-sm uppercase tracking-[0.3em] text-gray-500 mb-4">New Collection 2024</p>
+        <h1 id="hero-title" class="font-display text-4xl md:text-6xl font-bold leading-tight mb-6">Elegance Meets Modern Style</h1>
+        <p id="hero-subtitle" class="text-gray-600 text-lg mb-8 max-w-md">Discover handcrafted luxury accessories that define your unique style. Premium quality, timeless design.</p><button onclick="showPage('shop')" class="bg-gray-900 text-white px-8 py-4 text-sm uppercase tracking-wider font-semibold hover:bg-gray-800 transition-colors">Shop Now</button>
+       </div>
+       <div class="fade-in flex justify-center" style="animation-delay: 0.3s">
+        <div class="w-72 h-72 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center shadow-2xl">
+         <svg viewbox="0 0 120 120" class="w-48 h-48 md:w-64 md:h-64">
+          <path d="M30 80 C30 80 35 40 60 35 C85 40 90 80 90 80 L85 82 L35 82 Z" fill="#8B6F47" opacity="0.9" /><path d="M40 80 C40 65 50 45 60 43 C70 45 80 65 80 80" fill="none" stroke="#6B4F2F" stroke-width="2" /><ellipse cx="60" cy="82" rx="28" ry="5" fill="#6B4F2F" opacity="0.3" /><path d="M42 40 C42 25 60 20 60 20 C60 20 78 25 78 40" fill="none" stroke="#8B6F47" stroke-width="3" stroke-linecap="round" /><circle cx="60" cy="20" r="3" fill="#D4A574" />
+         </svg>
+        </div>
+       </div>
+      </div>
+     </section><!-- Categories -->
+     <section class="px-4 md:px-8 py-16">
+      <div class="max-w-7xl mx-auto">
+       <h2 class="font-display text-3xl font-bold text-center mb-12">Shop by Category</h2>
+       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div onclick="filterCategory('bags')" class="cursor-pointer group">
+         <div class="aspect-square bg-gradient-to-br from-rose-50 to-rose-100 rounded-2xl flex items-center justify-center mb-3 group-hover:shadow-lg transition-all">
+          <svg viewbox="0 0 80 80" class="w-16 h-16">
+           <path d="M20 55 C20 55 22 30 40 27 C58 30 60 55 60 55 L58 57 L22 57 Z" fill="#C17B5A" /><path d="M28 27 C28 18 40 14 40 14 C40 14 52 18 52 27" fill="none" stroke="#C17B5A" stroke-width="2.5" stroke-linecap="round" />
+          </svg>
+         </div>
+         <p class="text-center font-semibold text-sm uppercase tracking-wider">Bags</p>
+        </div>
+        <div onclick="filterCategory('watches')" class="cursor-pointer group">
+         <div class="aspect-square bg-gradient-to-br from-sky-50 to-sky-100 rounded-2xl flex items-center justify-center mb-3 group-hover:shadow-lg transition-all">
+          <svg viewbox="0 0 80 80" class="w-16 h-16">
+           <circle cx="40" cy="40" r="18" fill="none" stroke="#4A7C8A" stroke-width="3" /><circle cx="40" cy="40" r="14" fill="#E8F4F8" /><line x1="40" y1="40" x2="40" y2="30" stroke="#4A7C8A" stroke-width="2" stroke-linecap="round" /><line x1="40" y1="40" x2="48" y2="40" stroke="#4A7C8A" stroke-width="1.5" stroke-linecap="round" /><rect x="37" y="18" width="6" height="6" rx="1" fill="#4A7C8A" /><rect x="37" y="56" width="6" height="6" rx="1" fill="#4A7C8A" />
+          </svg>
+         </div>
+         <p class="text-center font-semibold text-sm uppercase tracking-wider">Watches</p>
+        </div>
+        <div onclick="filterCategory('belts')" class="cursor-pointer group">
+         <div class="aspect-square bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl flex items-center justify-center mb-3 group-hover:shadow-lg transition-all">
+          <svg viewbox="0 0 80 80" class="w-16 h-16">
+           <rect x="10" y="35" width="60" height="10" rx="2" fill="#8B6F47" /><rect x="34" y="32" width="12" height="16" rx="2" fill="none" stroke="#6B4F2F" stroke-width="2" /><circle cx="40" cy="40" r="2" fill="#6B4F2F" />
+          </svg>
+         </div>
+         <p class="text-center font-semibold text-sm uppercase tracking-wider">Belts</p>
+        </div>
+        <div onclick="filterCategory('moneybags')" class="cursor-pointer group">
+         <div class="aspect-square bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl flex items-center justify-center mb-3 group-hover:shadow-lg transition-all">
+          <svg viewbox="0 0 80 80" class="w-16 h-16">
+           <rect x="20" y="30" width="40" height="28" rx="4" fill="#5B8A6F" /><rect x="24" y="34" width="32" height="20" rx="2" fill="#7BAF8F" /><circle cx="40" cy="44" r="6" fill="none" stroke="#3D6B4F" stroke-width="2" /><rect x="30" y="26" width="20" height="6" rx="2" fill="#5B8A6F" />
+          </svg>
+         </div>
+         <p class="text-center font-semibold text-sm uppercase tracking-wider">Money Bags</p>
+        </div>
+       </div>
+      </div>
+     </section><!-- Featured Products -->
+     <section class="px-4 md:px-8 py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto">
+       <h2 class="font-display text-3xl font-bold text-center mb-4">Featured Products</h2>
+       <p class="text-gray-500 text-center mb-12">Our most loved pieces this season</p>
+       <div id="featured-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+      </div>
+     </section><!-- Why Choose Us -->
+     <section class="px-4 md:px-8 py-16">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+       <div class="slide-up" style="animation-delay: 0.1s">
+        <div class="w-14 h-14 bg-gray-900 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="truck" class="w-6 h-6 text-white"></i>
+        </div>
+        <h3 class="font-semibold mb-2">Free Shipping</h3>
+        <p class="text-gray-500 text-sm">On orders above ৳3000</p>
+       </div>
+       <div class="slide-up" style="animation-delay: 0.2s">
+        <div class="w-14 h-14 bg-gray-900 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="shield-check" class="w-6 h-6 text-white"></i>
+        </div>
+        <h3 class="font-semibold mb-2">Authentic Quality</h3>
+        <p class="text-gray-500 text-sm">100% genuine products</p>
+       </div>
+       <div class="slide-up" style="animation-delay: 0.3s">
+        <div class="w-14 h-14 bg-gray-900 rounded-full flex items-center justify-center mx-auto mb-4"><i data-lucide="refresh-cw" class="w-6 h-6 text-white"></i>
+        </div>
+        <h3 class="font-semibold mb-2">Easy Returns</h3>
+        <p class="text-gray-500 text-sm">7-day return policy</p>
+       </div>
+      </div>
+     </section>
+    </div><!-- SHOP PAGE -->
+    <div id="page-shop" class="page hidden">
+     <section class="px-4 md:px-8 py-12">
+      <div class="max-w-7xl mx-auto">
+       <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+        <h1 class="font-display text-3xl font-bold">Shop All</h1>
+        <div class="flex gap-2 flex-wrap"><button onclick="filterCategory('all')" class="filter-btn px-4 py-2 text-sm border border-gray-300 rounded-full hover:bg-gray-900 hover:text-white transition-colors" data-cat="all">All</button> <button onclick="filterCategory('bags')" class="filter-btn px-4 py-2 text-sm border border-gray-300 rounded-full hover:bg-gray-900 hover:text-white transition-colors" data-cat="bags">Bags</button> <button onclick="filterCategory('watches')" class="filter-btn px-4 py-2 text-sm border border-gray-300 rounded-full hover:bg-gray-900 hover:text-white transition-colors" data-cat="watches">Watches</button> <button onclick="filterCategory('belts')" class="filter-btn px-4 py-2 text-sm border border-gray-300 rounded-full hover:bg-gray-900 hover:text-white transition-colors" data-cat="belts">Belts</button> <button onclick="filterCategory('moneybags')" class="filter-btn px-4 py-2 text-sm border border-gray-300 rounded-full hover:bg-gray-900 hover:text-white transition-colors" data-cat="moneybags">Money Bags</button>
+        </div>
+       </div>
+       <div id="shop-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
+      </div>
+     </section>
+    </div><!-- CART PAGE -->
+    <div id="page-cart" class="page hidden">
+     <section class="px-4 md:px-8 py-12">
+      <div class="max-w-4xl mx-auto">
+       <h1 class="font-display text-3xl font-bold mb-8">Shopping Cart</h1>
+       <div id="cart-items" class="space-y-4"></div>
+       <div id="cart-empty" class="text-center py-16 hidden"><i data-lucide="shopping-bag" class="w-16 h-16 mx-auto text-gray-300 mb-4"></i>
+        <p class="text-gray-500 text-lg">Your cart is empty</p><button onclick="showPage('shop')" class="mt-4 bg-gray-900 text-white px-6 py-3 text-sm uppercase tracking-wider hover:bg-gray-800 transition-colors">Continue Shopping</button>
+       </div>
+       <div id="cart-summary" class="mt-8 border-t border-gray-200 pt-6 hidden">
+        <div class="flex justify-between items-center mb-4"><span class="text-lg font-semibold">Total:</span> <span id="cart-total" class="text-2xl font-bold font-display">৳0</span>
+        </div><button onclick="showPage('checkout')" class="w-full bg-gray-900 text-white py-4 text-sm uppercase tracking-wider font-semibold hover:bg-gray-800 transition-colors">Proceed to Checkout</button>
+       </div>
+      </div>
+     </section>
+    </div><!-- CHECKOUT PAGE -->
+    <div id="page-checkout" class="page hidden">
+     <section class="px-4 md:px-8 py-12">
+      <div class="max-w-2xl mx-auto">
+       <h1 class="font-display text-3xl font-bold mb-8">Checkout</h1>
+       <form id="checkout-form" class="space-y-6">
+        <div><label for="cust-name" class="block text-sm font-semibold mb-2">Full Name *</label> <input type="text" id="cust-name" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 transition-colors">
+        </div>
+        <div><label for="cust-email" class="block text-sm font-semibold mb-2">Email *</label> <input type="email" id="cust-email" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 transition-colors">
+        </div>
+        <div><label for="cust-phone" class="block text-sm font-semibold mb-2">Phone *</label> <input type="tel" id="cust-phone" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 transition-colors">
+        </div>
+        <div><label for="cust-address" class="block text-sm font-semibold mb-2">Delivery Address *</label> <textarea id="cust-address" required rows="3" class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900 transition-colors"></textarea>
+        </div>
+        <div class="bg-gray-50 p-4 rounded-lg">
+         <h3 class="font-semibold mb-2">Payment Method</h3>
+         <p class="text-sm text-gray-600">💰 Cash on Delivery (COD)</p>
+        </div>
+        <div id="order-summary-checkout" class="bg-gray-50 p-4 rounded-lg"></div><button type="submit" id="place-order-btn" class="w-full bg-gray-900 text-white py-4 text-sm uppercase tracking-wider font-semibold hover:bg-gray-800 transition-colors">Place Order</button>
+       </form>
+      </div>
+     </section>
+    </div><!-- ORDER SUCCESS PAGE -->
+    <div id="page-success" class="page hidden">
+     <section class="px-4 md:px-8 py-16 text-center">
+      <div class="max-w-lg mx-auto fade-in">
+       <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"><i data-lucide="check" class="w-10 h-10 text-green-600"></i>
+       </div>
+       <h1 class="font-display text-3xl font-bold mb-4">Order Placed Successfully!</h1>
+       <p class="text-gray-500 mb-8">Thank you for shopping with SherenVogue. We'll contact you shortly to confirm your order.</p><button onclick="showPage('home')" class="bg-gray-900 text-white px-8 py-4 text-sm uppercase tracking-wider font-semibold hover:bg-gray-800 transition-colors">Continue Shopping</button>
+      </div>
+     </section>
+    </div><!-- CONTACT PAGE -->
+    <div id="page-contact" class="page hidden">
+     <section class="px-4 md:px-8 py-12">
+      <div class="max-w-4xl mx-auto">
+       <h1 class="font-display text-3xl font-bold mb-8 text-center">Contact Us</h1>
+       <div class="grid md:grid-cols-2 gap-12">
+        <div>
+         <div class="space-y-6">
+          <div class="flex items-start gap-4">
+           <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0"><i data-lucide="mail" class="w-5 h-5"></i>
+           </div>
+           <div>
+            <h3 class="font-semibold">Email</h3>
+            <p class="text-gray-500">hello@sherenvogue.com</p>
+           </div>
+          </div>
+          <div class="flex items-start gap-4">
+           <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0"><i data-lucide="globe" class="w-5 h-5"></i>
+           </div>
+           <div>
+            <h3 class="font-semibold">Website</h3>
+            <p class="text-gray-500">sherenvogue.com</p>
+           </div>
+          </div>
+          <div class="flex items-start gap-4">
+           <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center flex-shrink-0"><i data-lucide="clock" class="w-5 h-5"></i>
+           </div>
+           <div>
+            <h3 class="font-semibold">Business Hours</h3>
+            <p class="text-gray-500">Sat - Thu: 10am - 8pm</p>
+           </div>
+          </div>
+         </div>
+         <div class="mt-8 flex gap-4"><a href="#" class="w-10 h-10 bg-gray-900 rounded-full flex items-center justify-center text-white hover:bg-gray-700 transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i></a> <a href="#" class="w-10 h-10 bg-gray-900 rounded-full flex items-center justify-center text-white hover:bg-gray-700 transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+         </div>
+        </div>
+        <div>
+         <form id="contact-form" class="space-y-4">
+          <div><label for="contact-name" class="block text-sm font-semibold mb-2">Name</label> <input type="text" id="contact-name" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900">
+          </div>
+          <div><label for="contact-email" class="block text-sm font-semibold mb-2">Email</label> <input type="email" id="contact-email" required class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900">
+          </div>
+          <div><label for="contact-msg" class="block text-sm font-semibold mb-2">Message</label> <textarea id="contact-msg" required rows="4" class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:outline-none focus:border-gray-900"></textarea>
+          </div><button type="submit" class="w-full bg-gray-900 text-white py-3 text-sm uppercase tracking-wider font-semibold hover:bg-gray-800 transition-colors">Send Message</button>
+         </form>
+         <div id="contact-success" class="hidden mt-4 bg-green-50 text-green-700 p-4 rounded-lg text-center">
+          Message sent! We'll get back to you soon.
+         </div>
+        </div>
+       </div>
+      </div>
+     </section>
+    </div>
+   </main><!-- Footer -->
+   <footer class="bg-gray-900 text-white px-4 md:px-8 py-12 mt-16">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+     <div>
+      <h3 class="font-display text-xl font-bold mb-4">SherenVogue</h3>
+      <p class="text-gray-400 text-sm leading-relaxed">Premium luxury accessories for the modern woman. Quality craftsmanship, timeless elegance.</p>
+     </div>
+     <div>
+      <h4 class="font-semibold mb-4">Quick Links</h4>
+      <div class="space-y-2 text-sm text-gray-400"><a href="#" onclick="showPage('shop')" class="block hover:text-white transition-colors">Shop</a> <a href="#" onclick="showPage('contact')" class="block hover:text-white transition-colors">Contact</a>
+      </div>
+     </div>
+     <div>
+      <h4 class="font-semibold mb-4">Contact</h4>
+      <p class="text-sm text-gray-400">hello@sherenvogue.com</p>
+      <p class="text-sm text-gray-400 mt-1">sherenvogue.com</p>
+     </div>
+    </div>
+    <div class="max-w-7xl mx-auto border-t border-gray-800 mt-8 pt-6 text-center text-sm text-gray-500">
+     © 2024 SherenVogue. All rights reserved.
+    </div>
+   </footer><!-- Toast -->
+   <div id="toast-container" class="fixed bottom-6 right-6 z-50"></div>
+  </div>
+  <script>
+  // Products data
+  const products = [
+    { id: 'bag-1', name: 'Classic Tote Bag', category: 'bags', price: 2500, color: '#C17B5A', desc: 'Genuine leather tote' },
+    { id: 'bag-2', name: 'Crossbody Sling', category: 'bags', price: 1800, color: '#A0522D', desc: 'Compact & stylish' },
+    { id: 'bag-3', name: 'Shoulder Handbag', category: 'bags', price: 3200, color: '#8B4513', desc: 'Elegant everyday bag' },
+    { id: 'watch-1', name: 'Rose Gold Watch', category: 'watches', price: 4500, color: '#B87A5E', desc: 'Minimal dial design' },
+    { id: 'watch-2', name: 'Silver Chain Watch', category: 'watches', price: 3800, color: '#7B8FA2', desc: 'Sophisticated finish' },
+    { id: 'watch-3', name: 'Leather Strap Watch', category: 'watches', price: 2900, color: '#6B4E3D', desc: 'Classic analog style' },
+    { id: 'belt-1', name: 'Leather Waist Belt', category: 'belts', price: 1200, color: '#8B6F47', desc: 'Gold buckle accent' },
+    { id: 'belt-2', name: 'Slim Fashion Belt', category: 'belts', price: 950, color: '#5C4033', desc: 'Minimalist design' },
+    { id: 'mb-1', name: 'Zip Wallet', category: 'moneybags', price: 1500, color: '#5B8A6F', desc: 'Multiple card slots' },
+    { id: 'mb-2', name: 'Bi-fold Purse', category: 'moneybags', price: 1800, color: '#4A6B5A', desc: 'Premium leather finish' },
+    { id: 'mb-3', name: 'Card Holder', category: 'moneybags', price: 800, color: '#6B8F7A', desc: 'Slim & compact' },
+  ];
 
-    <!-- Primary SEO -->
-    <title>SherenVogue — Premium Ladies Bags, Watches, Belts & Wallets</title>
-    <meta name="description" content="SherenVogue offers premium fashion accessories — ladies bags, luxury watches for men and women, stylish belts and wallets. Shop 40+ curated products with fast delivery." />
-    <meta name="keywords" content="ladies bags, women bags, men watches, women watches, luxury belts, leather wallets, fashion accessories, SherenVogue" />
-    <meta name="author" content="SherenVogue" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://sherenvogue.replit.app/" />
+  let cart = [];
+  let orders = [];
+  let currentFilter = 'all';
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://sherenvogue.replit.app/" />
-    <meta property="og:title" content="SherenVogue — Premium Fashion Accessories" />
-    <meta property="og:description" content="Discover curated ladies bags, luxury watches, stylish belts and wallets at SherenVogue. Premium quality, modern style." />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=1200&q=80" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="SherenVogue" />
+  // Page navigation
+  function showPage(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+    document.getElementById('page-' + page).classList.remove('hidden');
+    window.scrollTo(0, 0);
+    if (page === 'cart') renderCart();
+    if (page === 'checkout') renderCheckoutSummary();
+    if (page === 'shop') renderShopProducts();
+    lucide.createIcons();
+  }
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="SherenVogue — Premium Fashion Accessories" />
-    <meta name="twitter:description" content="Shop ladies bags, luxury watches, belts and wallets at SherenVogue." />
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=1200&q=80" />
+  function toggleMobileMenu() {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  }
 
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Store",
-      "name": "SherenVogue",
-      "description": "Premium fashion accessories — ladies bags, luxury watches, stylish belts and wallets",
-      "url": "https://sherenvogue.replit.app",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://sherenvogue.replit.app/shop?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+  function filterCategory(cat) {
+    currentFilter = cat;
+    showPage('shop');
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.toggle('bg-gray-900', b.dataset.cat === cat);
+      b.classList.toggle('text-white', b.dataset.cat === cat);
+    });
+    renderShopProducts();
+  }
+
+  // Product card SVG based on category
+  function getProductSVG(product) {
+    const c = product.color;
+    if (product.category === 'bags') return `<svg viewBox="0 0 100 100" class="w-24 h-24"><path d="M25 70 C25 70 28 35 50 32 C72 35 75 70 75 70 L72 72 L28 72 Z" fill="${c}"/><path d="M35 32 C35 20 50 16 50 16 C50 16 65 20 65 32" fill="none" stroke="${c}" stroke-width="3" stroke-linecap="round"/></svg>`;
+    if (product.category === 'watches') return `<svg viewBox="0 0 100 100" class="w-24 h-24"><circle cx="50" cy="50" r="22" fill="none" stroke="${c}" stroke-width="3"/><circle cx="50" cy="50" r="17" fill="#f8f8f8"/><line x1="50" y1="50" x2="50" y2="36" stroke="${c}" stroke-width="2.5" stroke-linecap="round"/><line x1="50" y1="50" x2="60" y2="50" stroke="${c}" stroke-width="2" stroke-linecap="round"/><rect x="47" y="24" width="6" height="6" rx="1" fill="${c}"/><rect x="47" y="70" width="6" height="6" rx="1" fill="${c}"/></svg>`;
+    if (product.category === 'belts') return `<svg viewBox="0 0 100 100" class="w-24 h-24"><rect x="10" y="42" width="80" height="16" rx="3" fill="${c}"/><rect x="42" y="38" width="16" height="24" rx="3" fill="none" stroke="#3d3020" stroke-width="2.5"/><circle cx="50" cy="50" r="3" fill="#3d3020"/></svg>`;
+    return `<svg viewBox="0 0 100 100" class="w-24 h-24"><rect x="25" y="35" width="50" height="35" rx="5" fill="${c}"/><rect x="30" y="40" width="40" height="25" rx="3" fill="#fff" opacity="0.3"/><circle cx="50" cy="52" r="5" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.6"/><rect x="35" y="28" width="30" height="9" rx="3" fill="${c}"/></svg>`;
+  }
+
+  function renderProductCard(product) {
+    return `<div class="product-card bg-white rounded-2xl overflow-hidden border border-gray-100 cursor-pointer" onclick="addToCart('${product.id}')">
+      <div class="aspect-square bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6">
+        ${getProductSVG(product)}
+      </div>
+      <div class="p-4">
+        <p class="text-xs text-gray-400 uppercase tracking-wider mb-1">${product.category}</p>
+        <h3 class="font-semibold text-sm mb-1">${product.name}</h3>
+        <p class="text-xs text-gray-500 mb-2">${product.desc}</p>
+        <div class="flex items-center justify-between">
+          <span class="font-bold">৳${product.price.toLocaleString()}</span>
+          <span class="text-xs bg-gray-900 text-white px-3 py-1 rounded-full">Add to Cart</span>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  function renderFeaturedProducts() {
+    const featured = products.slice(0, 4);
+    document.getElementById('featured-products').innerHTML = featured.map(renderProductCard).join('');
+  }
+
+  function renderShopProducts() {
+    const filtered = currentFilter === 'all' ? products : products.filter(p => p.category === currentFilter);
+    document.getElementById('shop-products').innerHTML = filtered.map(renderProductCard).join('');
+  }
+
+  // Cart
+  function addToCart(productId) {
+    const existing = cart.find(c => c.id === productId);
+    if (existing) { existing.qty++; }
+    else { cart.push({ id: productId, qty: 1 }); }
+    updateCartBadge();
+    showToast('Added to cart!');
+  }
+
+  function removeFromCart(productId) {
+    cart = cart.filter(c => c.id !== productId);
+    updateCartBadge();
+    renderCart();
+  }
+
+  function updateCartBadge() {
+    const count = cart.reduce((s, c) => s + c.qty, 0);
+    const badge = document.getElementById('cart-count');
+    if (count > 0) { badge.textContent = count; badge.classList.remove('hidden'); }
+    else { badge.classList.add('hidden'); }
+  }
+
+  function getCartTotal() {
+    return cart.reduce((s, c) => { const p = products.find(pr => pr.id === c.id); return s + (p ? p.price * c.qty : 0); }, 0);
+  }
+
+  function renderCart() {
+    const container = document.getElementById('cart-items');
+    const empty = document.getElementById('cart-empty');
+    const summary = document.getElementById('cart-summary');
+    if (cart.length === 0) { container.innerHTML = ''; empty.classList.remove('hidden'); summary.classList.add('hidden'); return; }
+    empty.classList.add('hidden'); summary.classList.remove('hidden');
+    container.innerHTML = cart.map(c => {
+      const p = products.find(pr => pr.id === c.id);
+      if (!p) return '';
+      return `<div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
+        <div class="w-16 h-16 bg-white rounded-lg flex items-center justify-center flex-shrink-0">${getProductSVG(p)}</div>
+        <div class="flex-1 min-w-0">
+          <h4 class="font-semibold text-sm">${p.name}</h4>
+          <p class="text-gray-500 text-xs">৳${p.price.toLocaleString()} × ${c.qty}</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="updateQty('${p.id}',-1)" class="w-8 h-8 border rounded-full flex items-center justify-center hover:bg-gray-200">-</button>
+          <span class="text-sm font-semibold w-6 text-center">${c.qty}</span>
+          <button onclick="updateQty('${p.id}',1)" class="w-8 h-8 border rounded-full flex items-center justify-center hover:bg-gray-200">+</button>
+          <button onclick="removeFromCart('${p.id}')" class="ml-2 text-red-400 hover:text-red-600"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+        </div>
+      </div>`;
+    }).join('');
+    document.getElementById('cart-total').textContent = '৳' + getCartTotal().toLocaleString();
+    lucide.createIcons();
+  }
+
+  function updateQty(id, delta) {
+    const item = cart.find(c => c.id === id);
+    if (item) { item.qty += delta; if (item.qty <= 0) removeFromCart(id); else { updateCartBadge(); renderCart(); } }
+  }
+
+  function renderCheckoutSummary() {
+    const el = document.getElementById('order-summary-checkout');
+    el.innerHTML = `<h3 class="font-semibold mb-2">Order Summary</h3>` + cart.map(c => {
+      const p = products.find(pr => pr.id === c.id);
+      return p ? `<div class="flex justify-between text-sm text-gray-600"><span>${p.name} × ${c.qty}</span><span>৳${(p.price * c.qty).toLocaleString()}</span></div>` : '';
+    }).join('') + `<div class="border-t mt-2 pt-2 flex justify-between font-bold"><span>Total</span><span>৳${getCartTotal().toLocaleString()}</span></div>`;
+  }
+
+  // Checkout
+  document.getElementById('checkout-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('place-order-btn');
+    btn.disabled = true; btn.textContent = 'Processing...';
+
+    const name = document.getElementById('cust-name').value;
+    const email = document.getElementById('cust-email').value;
+    const phone = document.getElementById('cust-phone').value;
+    const address = document.getElementById('cust-address').value;
+
+    for (const item of cart) {
+      const p = products.find(pr => pr.id === item.id);
+      if (!p) continue;
+      if (orders.length >= 999) { showToast('Order limit reached'); break; }
+      const result = await window.dataSdk.create({
+        product_id: p.id,
+        product_name: p.name,
+        quantity: item.qty,
+        price: p.price * item.qty,
+        customer_name: name,
+        customer_email: email,
+        customer_phone: phone,
+        customer_address: address,
+        order_date: new Date().toISOString(),
+        status: 'pending'
+      });
+      if (result.isError) { showToast('Error placing order'); btn.disabled = false; btn.textContent = 'Place Order'; return; }
     }
-    </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    cart = [];
+    updateCartBadge();
+    btn.disabled = false; btn.textContent = 'Place Order';
+    this.reset();
+    showPage('success');
+  });
+
+  // Contact form
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('contact-success').classList.remove('hidden');
+    this.reset();
+    setTimeout(() => document.getElementById('contact-success').classList.add('hidden'), 3000);
+  });
+
+  // Toast
+  function showToast(msg) {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = 'toast bg-gray-900 text-white px-5 py-3 rounded-lg shadow-lg text-sm mb-2';
+    toast.textContent = msg;
+    container.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+  }
+
+  // Data SDK
+  const dataHandler = {
+    onDataChanged(data) {
+      orders = data;
+    }
+  };
+
+  // Element SDK
+  const defaultConfig = {
+    hero_title: 'Elegance Meets Modern Style',
+    hero_subtitle: 'Discover handcrafted luxury accessories that define your unique style. Premium quality, timeless design.',
+    promo_text: '✨ Free Shipping on Orders Over ৳3000 | Use Code: SHEREN20 ✨',
+    background_color: '#ffffff',
+    surface_color: '#f9fafb',
+    text_color: '#111827',
+    primary_action_color: '#111827',
+    secondary_action_color: '#6b7280',
+    font_family: 'Playfair Display',
+    font_size: 16
+  };
+
+  async function onConfigChange(config) {
+    const el = (id) => document.getElementById(id);
+    el('hero-title').textContent = config.hero_title || defaultConfig.hero_title;
+    el('hero-subtitle').textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+    el('promo-text').textContent = config.promo_text || defaultConfig.promo_text;
+
+    const fontFamily = config.font_family || defaultConfig.font_family;
+    document.querySelectorAll('.font-display').forEach(e => e.style.fontFamily = `${fontFamily}, serif`);
+
+    const baseSize = config.font_size || defaultConfig.font_size;
+    document.querySelectorAll('h1').forEach(e => e.style.fontSize = `${baseSize * 2.2}px`);
+    document.querySelectorAll('h2').forEach(e => e.style.fontSize = `${baseSize * 1.8}px`);
+    document.querySelectorAll('p, span, a').forEach(e => { if (!e.closest('button') && !e.classList.contains('cart-badge')) e.style.fontSize = `${baseSize}px`; });
+  }
+
+  window.elementSdk.init({
+    defaultConfig,
+    onConfigChange,
+    mapToCapabilities: (config) => ({
+      recolorables: [
+        { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+        { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
+        { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+        { get: () => config.primary_action_color || defaultConfig.primary_action_color, set: (v) => { config.primary_action_color = v; window.elementSdk.setConfig({ primary_action_color: v }); } },
+        { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { config.secondary_action_color = v; window.elementSdk.setConfig({ secondary_action_color: v }); } },
+      ],
+      borderables: [],
+      fontEditable: { get: () => config.font_family || defaultConfig.font_family, set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); } },
+      fontSizeable: { get: () => config.font_size || defaultConfig.font_size, set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); } }
+    }),
+    mapToEditPanelValues: (config) => new Map([
+      ['hero_title', config.hero_title || defaultConfig.hero_title],
+      ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
+      ['promo_text', config.promo_text || defaultConfig.promo_text],
+    ])
+  });
+
+  // Init
+  (async () => {
+    const result = await window.dataSdk.init(dataHandler);
+    if (result.isError) console.error('Data SDK init failed');
+    renderFeaturedProducts();
+    renderShopProducts();
+    lucide.createIcons();
+  })();
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9fc1c6e6b7ca33d3',t:'MTc3ODg0NDI3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
