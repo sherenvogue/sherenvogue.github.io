@@ -36,7 +36,7 @@
  </head>
  <body class="h-full bg-white text-gray-900 overflow-auto">
   <div id="app" class="w-full h-full"><!-- Promo Banner -->
-   <div id="promo-banner" class="bg-gray-900 text-white text-center py-2 text-sm tracking-wide"><span id="promo-text">✨ Free Shipping on Orders Over ৳3000 | Use Code: SHEREN20 ✨</span>
+   <div id="promo-banner" class="bg-gray-900 text-white text-center py-3 text-sm tracking-wide font-semibold shadow-sm"><span id="promo-text">✨ Free Shipping on Orders Over ৳3000 | Use Code: SHEREN20 ✨</span>
    </div><!-- Navigation -->
    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 px-4 md:px-8 py-4">
     <div class="max-w-7xl mx-auto flex items-center justify-between"><a href="#" onclick="showPage('home')" class="font-display text-2xl md:text-3xl font-bold tracking-tight">SherenVogue</a>
@@ -270,22 +270,65 @@
      © 2024 SherenVogue. All rights reserved.
     </div>
    </footer><!-- Toast -->
-   <div id="toast-container" class="fixed bottom-6 right-6 z-50"></div>
+   <div id="toast-container" class="fixed bottom-6 right-6 z-50"></div><!-- Product Detail Modal -->
+   <div id="product-modal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 modal-overlay">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-96 overflow-y-auto modal-content">
+     <div class="sticky top-0 bg-white flex items-center justify-between p-6 border-b">
+      <h2 id="modal-title" class="font-display text-2xl font-bold"></h2><button onclick="closeProductModal()" class="p-2 hover:bg-gray-100 rounded-full"><i data-lucide="x" class="w-5 h-5"></i></button>
+     </div>
+     <div class="p-6 space-y-4">
+      <div class="w-full h-40 bg-gradient-to-br rounded-xl flex items-center justify-center" id="modal-product-svg"></div>
+      <div class="grid grid-cols-2 gap-4 text-sm">
+       <div>
+        <p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Material</p>
+        <p id="modal-material" class="font-semibold">-</p>
+       </div>
+       <div>
+        <p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Price</p>
+        <p id="modal-price" class="font-bold text-lg">৳0</p>
+       </div>
+       <div>
+        <p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Size/Dimensions</p>
+        <p id="modal-size" class="font-semibold">-</p>
+       </div>
+       <div>
+        <p class="text-gray-500 text-xs uppercase tracking-wider mb-1">Weight</p>
+        <p id="modal-weight" class="font-semibold">-</p>
+       </div>
+      </div>
+      <div>
+       <p class="text-gray-500 text-xs uppercase tracking-wider mb-2">Features</p>
+       <p id="modal-features" class="text-sm leading-relaxed text-gray-700">-</p>
+      </div>
+      <div>
+       <p class="text-gray-500 text-xs uppercase tracking-wider mb-2">Care Instructions</p>
+       <p id="modal-care" class="text-sm leading-relaxed text-gray-700">-</p>
+      </div>
+      <div class="pt-4 border-t flex gap-3">
+       <button id="modal-add-btn" onclick="addFromModal()" class="flex-1 bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800">Add to Cart</button> <button onclick="closeProductModal()" class="flex-1 border border-gray-300 py-3 rounded-lg font-semibold hover:bg-gray-50">Close</button>
+      </div>
+     </div>
+    </div>
+   </div>
   </div>
   <script>
   // Products data
   const products = [
-    { id: 'bag-1', name: 'Classic Tote Bag', category: 'bags', price: 2500, color: '#C17B5A', desc: 'Genuine leather tote' },
-    { id: 'bag-2', name: 'Crossbody Sling', category: 'bags', price: 1800, color: '#A0522D', desc: 'Compact & stylish' },
-    { id: 'bag-3', name: 'Shoulder Handbag', category: 'bags', price: 3200, color: '#8B4513', desc: 'Elegant everyday bag' },
-    { id: 'watch-1', name: 'Rose Gold Watch', category: 'watches', price: 4500, color: '#B87A5E', desc: 'Minimal dial design' },
-    { id: 'watch-2', name: 'Silver Chain Watch', category: 'watches', price: 3800, color: '#7B8FA2', desc: 'Sophisticated finish' },
-    { id: 'watch-3', name: 'Leather Strap Watch', category: 'watches', price: 2900, color: '#6B4E3D', desc: 'Classic analog style' },
-    { id: 'belt-1', name: 'Leather Waist Belt', category: 'belts', price: 1200, color: '#8B6F47', desc: 'Gold buckle accent' },
-    { id: 'belt-2', name: 'Slim Fashion Belt', category: 'belts', price: 950, color: '#5C4033', desc: 'Minimalist design' },
-    { id: 'mb-1', name: 'Zip Wallet', category: 'moneybags', price: 1500, color: '#5B8A6F', desc: 'Multiple card slots' },
-    { id: 'mb-2', name: 'Bi-fold Purse', category: 'moneybags', price: 1800, color: '#4A6B5A', desc: 'Premium leather finish' },
-    { id: 'mb-3', name: 'Card Holder', category: 'moneybags', price: 800, color: '#6B8F7A', desc: 'Slim & compact' },
+    { id: 'bag-1', name: 'Italian Cognac Tote', category: 'bags', price: 5200, color: '#B8724F', desc: 'Full grain leather', material: 'Italian Full Grain Leather', size: '35×28×14 cm', weight: '850g', features: 'Magnetic closure, internal pockets, shoulder straps', care: 'Wipe with soft cloth, condition quarterly' },
+    { id: 'bag-2', name: 'Burgundy Crossbody', category: 'bags', price: 3500, color: '#8B3A3A', desc: 'Premium leather sling', material: 'Genuine Leather', size: '25×20×8 cm', weight: '480g', features: 'Adjustable strap, RFID protection, interior organizer', care: 'Hand clean, air dry naturally' },
+    { id: 'bag-3', name: 'Caramel Shoulder Bag', category: 'bags', price: 4800, color: '#C4915A', desc: 'Elegant everyday bag', material: 'Nubuck Leather', size: '32×26×12 cm', weight: '720g', features: 'Top zipper closure, interior document slot, brass hardware', care: 'Use suede brush, professional cleaning recommended' },
+    { id: 'bag-4', name: 'Midnight Black Clutch', category: 'bags', price: 2800, color: '#1A1A1A', desc: 'Sleek evening piece', material: 'Vegetable Tanned Leather', size: '28×16×5 cm', weight: '320g', features: 'Gold chain strap, silk lining, card slots inside', care: 'Dry clean recommended' },
+    { id: 'watch-1', name: 'Vintage Bronze Analog', category: 'watches', price: 5800, color: '#A0522D', desc: 'Timeless classic', material: 'Leather Strap (Full Grain)', diameter: '40mm', thickness: '10mm', features: 'Precision quartz, water resistant 30m, minimalist dial', battery: '2 years', care: 'Avoid extreme water exposure' },
+    { id: 'watch-2', name: 'Pearl White Dress Watch', category: 'watches', price: 6500, color: '#F5F5DC', desc: 'Sophisticated elegance', material: 'Premium Leather Band', diameter: '36mm', thickness: '8mm', features: 'Japanese movement, date window, sapphire crystal', battery: '3 years', care: 'Change battery every 2 years' },
+    { id: 'watch-3', name: 'Chocolate Brown Sport', category: 'watches', price: 4200, color: '#6B4423', desc: 'Versatile daily wear', material: 'Tan Leather Strap', diameter: '42mm', thickness: '12mm', features: 'Chronograph function, water resistant 50m, luminous hands', battery: '2 years', care: 'Rinse with fresh water after sea exposure' },
+    { id: 'watch-4', name: 'Rose Gold Elegant', category: 'watches', price: 7200, color: '#B76E79', desc: 'Premium dress watch', material: 'Genuine Leather (Alligator Pattern)', diameter: '34mm', thickness: '9mm', features: 'Genuine leather band, sapphire glass, anti-reflective coating', battery: '3 years', care: 'Professional servicing recommended' },
+    { id: 'belt-1', name: 'Genuine Leather Waist Belt', category: 'belts', price: 2200, color: '#6B5344', desc: 'Classic leather belt', material: 'Full Grain Leather', width: '3.8cm', length: 'Adjustable 90-110cm', buckle: 'Brass plated metal', features: 'Hand-stitched edges, natural patina develops over time', care: 'Wipe with damp cloth, condition regularly' },
+    { id: 'belt-2', name: 'Tan Slim Fashion Belt', category: 'belts', price: 1800, color: '#D4A574', desc: 'Elegant thin belt', material: 'Vegetable Tanned Leather', width: '2.5cm', length: 'Adjustable 85-105cm', buckle: 'Antique gold buckle', features: 'Minimal design, perfect for dresses & casual wear', care: 'Hand clean only' },
+    { id: 'belt-3', name: 'Black Premium Belt', category: 'belts', price: 2600, color: '#1C1C1C', desc: 'Formal occasion belt', material: 'Nubuck Leather', width: '3.5cm', length: 'Adjustable 92-112cm', buckle: 'Polished steel buckle', features: 'Luxury finish, perfect for formal attire', care: 'Professional dry clean' },
+    { id: 'mb-1', name: 'Cognac Zip Wallet', category: 'moneybags', price: 2800, color: '#9B6F47', desc: 'Premium leather wallet', material: 'Italian Leather', compartments: '8 card slots, coin pocket, bill section', dimensions: '19×10×2 cm', weight: '180g', features: 'RFID blocking, dual zip closure, handcrafted edges', care: 'Condition monthly with leather balm' },
+    { id: 'mb-2', name: 'Burgundy Bi-fold Purse', category: 'moneybags', price: 3200, color: '#8B2E2E', desc: 'Sophisticated bi-fold', material: 'Genuine Leather', compartments: '6 card slots, hidden pocket, large bill compartment', dimensions: '18×10×2.5 cm', weight: '200g', features: 'Snap closure, interior ID window, protective leather covering', care: 'Avoid harsh chemicals' },
+    { id: 'mb-3', name: 'Minimal Card Holder', category: 'moneybags', price: 1500, color: '#7A9B8E', desc: 'Slim card organizer', material: 'Vegetable Tanned Leather', compartments: '4 card slots, 1 cash pocket', dimensions: '11×8×0.8 cm', weight: '80g', features: 'Ultra-slim design, elastic band closure, natural aging', care: 'Light cleaning only' },
+    { id: 'mb-4', name: 'Caramel Money Bag', category: 'moneybags', price: 3600, color: '#C9A961', desc: 'Luxury storage bag', material: 'Full Grain Leather', compartments: '12 card slots, coin purse, phone pocket, bill organizer', dimensions: '22×12×3 cm', weight: '280g', features: 'Double zipper, wrist strap, multiple sections', care: 'Regular conditioning recommended' },
   ];
 
   let cart = [];
@@ -327,7 +370,7 @@
   }
 
   function renderProductCard(product) {
-    return `<div class="product-card bg-white rounded-2xl overflow-hidden border border-gray-100 cursor-pointer" onclick="addToCart('${product.id}')">
+    return `<div class="product-card bg-white rounded-2xl overflow-hidden border border-gray-100 cursor-pointer" onclick="showProductDetails('${product.id}')">
       <div class="aspect-square bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-6">
         ${getProductSVG(product)}
       </div>
@@ -337,7 +380,7 @@
         <p class="text-xs text-gray-500 mb-2">${product.desc}</p>
         <div class="flex items-center justify-between">
           <span class="font-bold">৳${product.price.toLocaleString()}</span>
-          <span class="text-xs bg-gray-900 text-white px-3 py-1 rounded-full">Add to Cart</span>
+          <span class="text-xs bg-gray-900 text-white px-3 py-1 rounded-full">View Details</span>
         </div>
       </div>
     </div>`;
@@ -474,6 +517,38 @@
     setTimeout(() => toast.remove(), 3000);
   }
 
+  // Product Details Modal
+  function showProductDetails(productId) {
+    const product = products.find(p => p.id === productId);
+    if (!product) return;
+
+    document.getElementById('modal-title').textContent = product.name;
+    document.getElementById('modal-material').textContent = product.material;
+    document.getElementById('modal-price').textContent = '৳' + product.price.toLocaleString();
+    document.getElementById('modal-size').textContent = product.size;
+    document.getElementById('modal-weight').textContent = product.weight;
+    document.getElementById('modal-features').textContent = product.features;
+    document.getElementById('modal-care').textContent = product.care;
+    
+    const svgContainer = document.getElementById('modal-product-svg');
+    svgContainer.innerHTML = getProductSVG(product);
+    svgContainer.style.background = `linear-gradient(135deg, ${product.color}20 0%, ${product.color}10 100%)`;
+    
+    document.getElementById('modal-add-btn').dataset.productId = productId;
+    document.getElementById('product-modal').classList.remove('hidden');
+    lucide.createIcons();
+  }
+
+  function closeProductModal() {
+    document.getElementById('product-modal').classList.add('hidden');
+  }
+
+  function addFromModal() {
+    const productId = document.getElementById('modal-add-btn').dataset.productId;
+    addToCart(productId);
+    closeProductModal();
+  }
+
   // Data SDK
   const dataHandler = {
     onDataChanged(data) {
@@ -541,5 +616,5 @@
     lucide.createIcons();
   })();
 </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9fc1c6e6b7ca33d3',t:'MTc3ODg0NDI3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9fc1d53a93e733d3',t:'MTc3ODg0NDg2MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
