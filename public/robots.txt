@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://sherenvogue.replit.app/sitemap.xml
