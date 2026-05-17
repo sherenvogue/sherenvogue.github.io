@@ -5,25 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SherenVogue | Artisan Luxury Accessories</title>
   
-  <!-- SEO & Branding -->
   <meta name="description" content="SherenVogue - International Luxury Fashion & Accessories. Handcrafted bags, watches, and belts.">
   <meta name="keywords" content="SherenVogue, Luxury Fashion, Leather Bags, Premium Watches, Fashion Designer">
   <meta name="author" content="Md. Rafiul Islam">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="logo.png">
 
-  <!-- Open Graph -->
   <meta property="og:title" content="SherenVogue | Artisan Luxury">
   <meta property="og:description" content="Discover handcrafted luxury accessories that define your unique style.">
   <meta property="og:url" content="https://sherenvogue.com">
   <meta property="og:type" content="website">
 
-  <!-- TailWind & Fonts -->
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+     (function(){
+        // আপনার EmailJS Account থেকে Public Key-টি এখানে বসাবেন
+        emailjs.init("YOUR_PUBLIC_KEY"); 
+     })();
+  </script>
+
   <style>
     :root {
       --gold: #C5A059;
@@ -55,22 +59,18 @@
 <body class="h-full overflow-x-hidden">
   <div id="app" class="flex flex-col min-h-screen">
     
-    <!-- Premium Top Bar -->
     <div class="bg-[#1A1A1A] text-[#E2C68E] text-[10px] uppercase tracking-[0.3em] py-2.5 text-center font-medium">
       Complimentary Worldwide Shipping on Orders Over ৳5000
     </div>
 
-    <!-- Minimal Modern Navigation Bar -->
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
       <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
         
-        <!-- Left Links -->
         <div class="hidden md:flex gap-8 items-center">
           <a href="#" onclick="showPage('shop'); filterCategory('all');" class="text-[11px] uppercase tracking-widest hover:text-[#C5A059] transition-colors">Collections</a>
           <a href="#" onclick="showPage('shop'); filterCategory('bags');" class="text-[11px] uppercase tracking-widest hover:text-[#C5A059] transition-colors">Bespoke Bags</a>
         </div>
 
-        <!-- Center Brand Identity -->
         <a href="#" onclick="showPage('home')" class="flex items-center gap-3 group">
           <div class="flex flex-col text-center md:text-left">
             <span class="font-display text-xl md:text-2xl font-bold tracking-tight leading-none">
@@ -80,7 +80,6 @@
           </div>
         </a>
 
-        <!-- Right Icons -->
         <div class="flex items-center gap-6">
           <button onclick="showPage('shop')" class="hover:text-[#C5A059] transition-colors"><i data-lucide="search" class="w-4 h-4"></i></button>
           <button onclick="showPage('cart')" class="relative hover:text-[#C5A059] transition-colors">
@@ -91,7 +90,6 @@
         </div>
       </div>
 
-      <!-- Mobile Menu Links Drawer -->
       <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 px-6 py-4 space-y-3">
         <a href="#" onclick="showPage('home'); toggleMobileMenu();" class="block text-xs uppercase tracking-widest text-gray-700 py-1">Home</a>
         <a href="#" onclick="showPage('shop'); filterCategory('all'); toggleMobileMenu();" class="block text-xs uppercase tracking-widest text-gray-700 py-1">All Archive</a>
@@ -102,10 +100,8 @@
       </div>
     </nav>
 
-    <!-- Main Content Wrapper -->
     <main id="pages-container" class="flex-grow">
       
-      <!-- 1. HOME PAGE VIEW -->
       <div id="page-home" class="page-view">
         <section class="relative h-[75vh] flex items-center justify-center overflow-hidden bg-[#F2EDE4]">
           <div class="absolute inset-0 opacity-20">
@@ -123,7 +119,6 @@
           </div>
         </section>
 
-        <!-- LUXURY CORNERSTONES -->
         <section class="py-16 bg-white border-y border-gray-50">
           <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10">
             <div class="text-center">
@@ -145,7 +140,6 @@
           </div>
         </section>
 
-        <!-- FEATURED SHOWCASE GRID -->
         <section class="py-20 max-w-7xl mx-auto px-6">
           <div class="flex justify-between items-end mb-12">
             <div>
@@ -155,12 +149,10 @@
             <a href="#" onclick="showPage('shop')" class="text-[11px] uppercase tracking-widest border-b border-[#C5A059] pb-1 hover:text-[#C5A059] transition-colors">View All</a>
           </div>
           <div id="featured-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <!-- Dynamic Injection -->
-          </div>
+            </div>
         </section>
       </div>
       
-      <!-- 2. ARCHIVE/SHOP PAGE VIEW -->
       <div id="page-shop" class="page-view hidden">
         <div class="py-12 bg-white text-center border-b border-gray-100">
             <h1 class="font-display text-4xl mb-4">The Complete Archive</h1>
@@ -173,22 +165,18 @@
         </div>
         <div class="max-w-7xl mx-auto px-6 py-16">
             <div id="shop-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-               <!-- Dynamic Injection -->
-            </div>
+               </div>
         </div>
       </div>
 
-      <!-- 3. SHOPPING CART PAGE VIEW -->
       <div id="page-cart" class="page-view hidden">
         <div class="max-w-4xl mx-auto px-6 py-16">
           <h1 class="font-display text-4xl mb-10 text-center">Your Atelier Bag</h1>
           <div id="cart-container" class="bg-white border border-gray-100 p-8 shadow-sm">
-            <!-- Dynamic Cart Items injected here -->
-          </div>
+            </div>
         </div>
       </div>
 
-      <!-- 4. CHECKOUT SCREEN PAGE VIEW -->
       <div id="page-checkout" class="page-view hidden">
         <div class="max-w-2xl mx-auto px-6 py-16">
           <h1 class="font-display text-4xl mb-4 text-center">Maison Shipping</h1>
@@ -228,7 +216,6 @@
         </div>
       </div>
 
-      <!-- 5. SUCCESS PAGE VIEW -->
       <div id="page-success" class="page-view hidden">
         <div class="max-w-md mx-auto px-6 py-24 text-center">
           <div class="w-16 h-16 bg-[#F9F7F2] border border-[#C5A059] rounded-full flex items-center justify-center mx-auto mb-6 text-[#C5A059]">
@@ -244,15 +231,13 @@
 
     </main>
 
-    <!-- INTERACTIVE QUICK VIEW MODAL DOCK -->
     <div id="product-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center hidden p-4">
       <div class="bg-white max-w-3xl w-full max-h-[90vh] overflow-y-auto relative border border-gray-100 flex flex-col md:flex-row">
         <button onclick="closeProductModal()" class="absolute top-4 right-4 z-10 text-gray-400 hover:text-black">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
         <div id="modal-img-container" class="w-full md:w-1/2 bg-[#F5F5F5] flex items-center justify-center p-12 min-h-[300px]">
-          <!-- Target Product SVG Graphic -->
-        </div>
+          </div>
         <div class="w-full md:w-1/2 p-8 md:p-10 flex flex-col justify-between">
           <div>
             <p id="modal-product-cat" class="text-[9px] uppercase tracking-[0.3em] text-[#C5A059] mb-2 font-bold"></p>
@@ -274,7 +259,6 @@
       </div>
     </div>
 
-    <!-- PREMIUM ATELIER FOOTER -->
     <footer class="bg-[#1A1A1A] text-white pt-20 pb-10">
       <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 border-b border-white/5 pb-12">
         <div class="col-span-1 md:col-span-2">
@@ -405,17 +389,13 @@
       const featuredContainer = document.getElementById('featured-products');
       const shopContainer = document.getElementById('shop-products');
       
-      // Clear Nodes
       if(featuredContainer) featuredContainer.innerHTML = "";
       if(shopContainer) shopContainer.innerHTML = "";
 
       products.forEach(product => {
-        // Render Featured items on Home Grid
         if (product.featured && featuredContainer) {
           featuredContainer.insertAdjacentHTML('beforeend', buildCardMarkup(product));
         }
-        
-        // Render Filtering items on Shop Grid
         if (shopContainer) {
           if (currentCategory === 'all' || product.category === currentCategory) {
             shopContainer.insertAdjacentHTML('beforeend', buildCardMarkup(product));
@@ -428,7 +408,6 @@
     function filterCategory(category) {
       currentCategory = category;
       
-      // Active Style Swapping UI Controls
       document.querySelectorAll('#category-filters button').forEach(btn => {
         btn.classList.remove('border-[#C5A059]', 'text-[#C5A059]');
         btn.classList.add('border-transparent', 'text-gray-400');
@@ -483,6 +462,7 @@
       synchronizeCartUI();
     }
 
+    // Adjust Quantity Functionality
     function adjustQuantity(productId, amount) {
       const cartItem = cart.find(item => item.product.id === productId);
       if (!cartItem) return;
@@ -494,6 +474,7 @@
       synchronizeCartUI();
     }
 
+    // Drop Cart Item Completely
     function dropCartItem(productId) {
       cart = cart.filter(item => item.product.id !== productId);
       synchronizeCartUI();
@@ -501,14 +482,11 @@
 
     // Update Global Cart UI Displays counters and state containers
     function synchronizeCartUI() {
-      // Counter Badge Update
       const totalUnits = cart.reduce((acc, item) => acc + item.quantity, 0);
       document.getElementById('cart-count').innerText = totalUnits;
 
-      // Calculate Subtotals
       const grandTotal = cart.reduce((acc, item) => acc + (item.product.price * item.quantity), 0);
 
-      // Render Basket Page Markup Display
       const cartContainer = document.getElementById('cart-container');
       if(!cartContainer) return;
 
@@ -567,14 +545,43 @@
       lucide.createIcons();
     }
 
-    // Checkout Transitions
     function openCheckout() {
       showPage('checkout');
     }
 
+    // Process Checkout and Submit Orders via EmailJS
     function processCheckout(event) {
       event.preventDefault();
-      // Reset State variables on complete
+      
+      const name = event.target.querySelectorAll('input')[0].value;
+      const address = event.target.querySelector('textarea').value;
+      const phone = event.target.querySelectorAll('input')[1].value;
+      const payment = event.target.querySelector('select').value;
+      
+      const grandTotal = cart.reduce((acc, item) => acc + (item.product.price * item.quantity), 0);
+      let productDetails = cart.map(item => `${item.product.name} (Qty: ${item.quantity}) - ৳${(item.product.price * item.quantity).toLocaleString()}`).join('\n');
+
+      // EmailJS parameters mapping object
+      const templateParams = {
+        to_email: 'hello@sherenvogue.com',
+        customer_name: name,
+        customer_phone: phone,
+        customer_address: address,
+        payment_method: payment,
+        total_price: `৳${grandTotal.toLocaleString()}`,
+        products_ordered: productDetails
+      };
+
+      // EmailJS Transmission Sequence
+      // Note: 'YOUR_SERVICE_ID' এবং 'YOUR_TEMPLATE_ID' পরিবর্তন করে আপনার নিজস্ব আইডি বসাবেন
+      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        .then(function(response) {
+           console.log('EMAIL SENT SUCCESS!', response.status, response.text);
+        }, function(error) {
+           console.log('EMAIL SEND FAILED...', error);
+        });
+
+      // Clear State variables on complete
       cart = [];
       synchronizeCartUI();
       document.getElementById('checkout-form').reset();
