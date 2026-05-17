@@ -1,30 +1,25 @@
 <!doctype html>
 <html lang="en" class="h-full">
 <head>
-
-<!-- SEO & Branding -->
-<meta name="description" content="SherenVogue - International Luxury Fashion & Accessories. Handcrafted bags, watches, and belts.">
-<meta name="keywords" content="SherenVogue, Luxury Fashion, Leather Bags, Premium Watches, Fashion Designer">
-<meta name="author" content="Md. Rafiul Islam">
-
-<!-- Favicon (Browser Icon) -->
-<link rel="icon" type="image/png" href="logo.png">
-
-<!-- Open Graph (For Social Media Sharing) -->
-<meta property="og:title" content="SherenVogue | Artisan Luxury">
-<meta property="og:description" content="Discover handcrafted luxury accessories that define your unique style.">
-<meta property="og:url" content="https://sherenvogue.com">
-<meta property="og:type" content="website">
-
-
-
-
-
-
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SherenVogue | Artisan Luxury Accessories</title>
+  
+  <!-- SEO & Branding -->
+  <meta name="description" content="SherenVogue - International Luxury Fashion & Accessories. Handcrafted bags, watches, and belts.">
+  <meta name="keywords" content="SherenVogue, Luxury Fashion, Leather Bags, Premium Watches, Fashion Designer">
+  <meta name="author" content="Md. Rafiul Islam">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SherenVogue | Artisan Luxury">
+  <meta property="og:description" content="Discover handcrafted luxury accessories that define your unique style.">
+  <meta property="og:url" content="https://sherenvogue.com">
+  <meta property="og:type" content="website">
+
+  <!-- TailWind & Fonts -->
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -38,7 +33,6 @@
     body { font-family: 'Inter', sans-serif; background-color: var(--soft-cream); color: var(--charcoal); }
     .font-display { font-family: 'Playfair Display', serif; }
     
-    /* Luxury Animations */
     .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1); }
     .reveal.active { opacity: 1; transform: translateY(0); }
 
@@ -52,12 +46,6 @@
       transform: translateY(-10px);
       box-shadow: 0 20px 40px rgba(0,0,0,0.05);
     }
-
-    .gold-gradient {
-      background: linear-gradient(135deg, #C5A059 0%, #E2C68E 100%);
-    }
-
-    /* Custom Scrollbar */
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: #f1f1f1; }
     ::-webkit-scrollbar-thumb { background: var(--gold); }
@@ -65,209 +53,549 @@
 </head>
 
 <body class="h-full overflow-x-hidden">
-  <div id="app">
+  <div id="app" class="flex flex-col min-h-screen">
+    
     <!-- Premium Top Bar -->
     <div class="bg-[#1A1A1A] text-[#E2C68E] text-[10px] uppercase tracking-[0.3em] py-2.5 text-center font-medium">
       Complimentary Worldwide Shipping on Orders Over ৳5000
     </div>
 
-    <!-- Minimal Navigation -->
-    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-      <div class="max-w-7xl mx-auto px-6 md:px-12 py-5 flex items-center justify-between">
-        <div class="flex gap-8 items-center hidden md:flex">
-          <a href="#" onclick="showPage('shop')" class="text-[11px] uppercase tracking-widest hover:text-[#C5A059] transition-colors">Collections</a>
-          <a href="#" onclick="filterCategory('bags')" class="text-[11px] uppercase tracking-widest hover:text-[#C5A059] transition-colors">Bespoke</a>
+    <!-- Minimal Modern Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+      <div class="max-w-7xl mx-auto px-6 md:px-12 py-4 flex items-center justify-between">
+        
+        <!-- Left Links -->
+        <div class="hidden md:flex gap-8 items-center">
+          <a href="#" onclick="showPage('shop'); filterCategory('all');" class="text-[11px] uppercase tracking-widest hover:text-[#C5A059] transition-colors">Collections</a>
+          <a href="#" onclick="showPage('shop'); filterCategory('bags');" class="text-[11px] uppercase tracking-widest hover:text-[#C5A059] transition-colors">Bespoke Bags</a>
         </div>
 
-        <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-  <div class="max-w-7xl mx-auto px-6 md:px-12 py-5 flex items-center justify-between">
-    
-    <div class="flex gap-8 items-center hidden md:flex">
-      <a href="#" onclick="showPage('shop')" class="text-[11px] uppercase tracking-widest hover:text-[#C5A059] transition-colors">Collections</a>
-      <a href="#" onclick="filterCategory('bags')" class="text-[11px] uppercase tracking-widest hover:text-[#C5A059] transition-colors">Bespoke</a>
-    </div>
+        <!-- Center Brand Identity -->
+        <a href="#" onclick="showPage('home')" class="flex items-center gap-3 group">
+          <div class="flex flex-col text-center md:text-left">
+            <span class="font-display text-xl md:text-2xl font-bold tracking-tight leading-none">
+              SHEREN<span class="italic font-light text-[#C5A059]">Vogue</span>
+            </span>
+            <span class="text-[7px] tracking-[0.5em] uppercase text-gray-400 mt-1 block">Haute Couture</span>
+          </div>
+        </a>
 
-    <a href="#" onclick="showPage('home')" class="flex items-center gap-4 group">
-      <img src="logo.png" alt="SherenVogue Logo" class="h-12 md:h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-105">
-      <div class="flex flex-col justify-center">
-        <span class="font-display text-xl md:text-2xl font-bold tracking-tighter leading-none">
-          SHEREN<span class="italic font-light text-[#C5A059]">Vogue</span>
-        </span>
-        <span class="text-[8px] tracking-[0.4em] uppercase text-gray-400 mt-1">Haute Couture</span>
-      </div>
-    </a>
-
-    <div class="flex items-center gap-6">
-      <button class="hover:text-[#C5A059] transition-colors"><i data-lucide="search" class="w-4 h-4"></i></button>
-      <button onclick="showPage('cart')" class="relative">
-        <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-        <span id="cart-count" class="absolute -top-2 -right-2 bg-[#C5A059] text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
-      </button>
-      <button onclick="toggleMobileMenu()" class="md:hidden"><i data-lucide="menu" class="w-5 h-5"></i></button>
-    </div>
-    
-  </div>
-</nav>
-
+        <!-- Right Icons -->
         <div class="flex items-center gap-6">
-          <button class="hover:text-[#C5A059] transition-colors"><i data-lucide="search" class="w-4 h-4"></i></button>
-          <button onclick="showPage('cart')" class="relative">
+          <button onclick="showPage('shop')" class="hover:text-[#C5A059] transition-colors"><i data-lucide="search" class="w-4 h-4"></i></button>
+          <button onclick="showPage('cart')" class="relative hover:text-[#C5A059] transition-colors">
             <i data-lucide="shopping-bag" class="w-4 h-4"></i>
-            <span id="cart-count" class="absolute -top-2 -right-2 bg-[#C5A059] text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center hidden">0</span>
+            <span id="cart-count" class="absolute -top-2 -right-2 bg-[#C5A059] text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
           </button>
-          <button onclick="toggleMobileMenu()" class="md:hidden"><i data-lucide="menu" class="w-5 h-5"></i></button>
+          <button onclick="toggleMobileMenu()" class="md:hidden hover:text-[#C5A059]"><i data-lucide="menu" class="w-5 h-5"></i></button>
         </div>
+      </div>
+
+      <!-- Mobile Menu Links Drawer -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 px-6 py-4 space-y-3">
+        <a href="#" onclick="showPage('home'); toggleMobileMenu();" class="block text-xs uppercase tracking-widest text-gray-700 py-1">Home</a>
+        <a href="#" onclick="showPage('shop'); filterCategory('all'); toggleMobileMenu();" class="block text-xs uppercase tracking-widest text-gray-700 py-1">All Archive</a>
+        <a href="#" onclick="showPage('shop'); filterCategory('bags'); toggleMobileMenu();" class="block text-xs uppercase tracking-widest text-gray-700 py-1">Leather Bags</a>
+        <a href="#" onclick="showPage('shop'); filterCategory('watches'); toggleMobileMenu();" class="block text-xs uppercase tracking-widest text-gray-700 py-1">Timepieces</a>
+        <a href="#" onclick="showPage('shop'); filterCategory('belts'); toggleMobileMenu();" class="block text-xs uppercase tracking-widest text-gray-700 py-1">Accessories</a>
+        <a href="#" onclick="showPage('cart'); toggleMobileMenu();" class="block text-xs uppercase tracking-widest text-gray-700 py-1 font-bold text-[#C5A059]">My Cart Bag</a>
       </div>
     </nav>
 
-    <main id="pages-container">
-      <!-- HERO SECTION -->
-      <div id="page-home" class="page">
-        <section class="relative h-[80vh] flex items-center justify-center overflow-hidden bg-[#F2EDE4]">
+    <!-- Main Content Wrapper -->
+    <main id="pages-container" class="flex-grow">
+      
+      <!-- 1. HOME PAGE VIEW -->
+      <div id="page-home" class="page-view">
+        <section class="relative h-[75vh] flex items-center justify-center overflow-hidden bg-[#F2EDE4]">
           <div class="absolute inset-0 opacity-20">
-            <!-- Subtle pattern overlay -->
             <div class="absolute inset-0" style="background-image: url('https://www.transparenttextures.com/patterns/cubes.png');"></div>
           </div>
           
           <div class="relative z-10 text-center px-4 reveal active">
-            <span class="text-[12px] uppercase tracking-[0.5em] text-gray-500 mb-6 block">Est. 2024 — Artisan Made</span>
-            <h1 class="font-display text-5xl md:text-8xl mb-8 leading-tight">Define Your <br><span class="italic text-[#C5A059]">Signature</span> Style</h1>
-            <div class="flex flex-col md:flex-row gap-4 justify-center items-center mt-10">
-              <button onclick="showPage('shop')" class="bg-[#1A1A1A] text-white px-10 py-4 text-[11px] uppercase tracking-[0.2em] hover:bg-[#C5A059] transition-all duration-500">
-                Explore Collection
-              </button>
-              <button class="border-b border-[#1A1A1A] py-2 text-[11px] uppercase tracking-[0.2em] hover:text-[#C5A059] hover:border-[#C5A059] transition-all">
-                The Lookbook
+            <span class="text-[12px] uppercase tracking-[0.5em] text-gray-500 mb-5 block">Est. 2024 — Artisan Made</span>
+            <h1 class="font-display text-5xl md:text-7xl mb-6 leading-tight">Define Your <br><span class="italic text-[#C5A059]">Signature</span> Style</h1>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+              <button onclick="showPage('shop')" class="bg-[#1A1A1A] text-white px-10 py-4 text-[11px] uppercase tracking-[0.2em] hover:bg-[#C5A059] transition-all duration-500 font-medium">
+                Explore Archive
               </button>
             </div>
           </div>
         </section>
 
-        <!-- LUXURY STATS -->
-        <section class="py-20 bg-white border-y border-gray-50">
-          <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-12">
-            <div class="text-center reveal active">
-              <p class="font-display text-3xl mb-2 text-[#C5A059]">100%</p>
-              <p class="text-[10px] uppercase tracking-widest text-gray-400">Genuine Leather</p>
+        <!-- LUXURY CORNERSTONES -->
+        <section class="py-16 bg-white border-y border-gray-50">
+          <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10">
+            <div class="text-center">
+              <p class="font-display text-2xl mb-1 text-[#C5A059]">100%</p>
+              <p class="text-[9px] uppercase tracking-widest text-gray-400 font-medium">Genuine Calfskin</p>
             </div>
-            <div class="text-center reveal active" style="transition-delay: 0.1s">
-              <p class="font-display text-3xl mb-2 text-[#C5A059]">Handmade</p>
-              <p class="text-[10px] uppercase tracking-widest text-gray-400">Craftsmanship</p>
+            <div class="text-center">
+              <p class="font-display text-2xl mb-1 text-[#C5A059]">Handmade</p>
+              <p class="text-[9px] uppercase tracking-widest text-gray-400 font-medium">Master Craftsmanship</p>
             </div>
-            <div class="text-center reveal active" style="transition-delay: 0.2s">
-              <p class="font-display text-3xl mb-2 text-[#C5A059]">Limited</p>
-              <p class="text-[10px] uppercase tracking-widest text-gray-400">Editions</p>
+            <div class="text-center">
+              <p class="font-display text-2xl mb-1 text-[#C5A059]">Limited</p>
+              <p class="text-[9px] uppercase tracking-widest text-gray-400 font-medium">Atelier Batches</p>
             </div>
-            <div class="text-center reveal active" style="transition-delay: 0.3s">
-              <p class="font-display text-3xl mb-2 text-[#C5A059]">Global</p>
-              <p class="text-[10px] uppercase tracking-widest text-gray-400">Shipping</p>
+            <div class="text-center">
+              <p class="font-display text-2xl mb-1 text-[#C5A059]">Global</p>
+              <p class="text-[9px] uppercase tracking-widest text-gray-400 font-medium">Premium Shipping</p>
             </div>
           </div>
         </section>
 
-        <!-- FEATURED GRID -->
-        <section class="py-24 max-w-7xl mx-auto px-6">
-          <div class="flex justify-between items-end mb-16">
+        <!-- FEATURED SHOWCASE GRID -->
+        <section class="py-20 max-w-7xl mx-auto px-6">
+          <div class="flex justify-between items-end mb-12">
             <div>
-              <h2 class="font-display text-4xl mb-2 text-[#1A1A1A]">Must Haves</h2>
-              <p class="text-gray-400 text-sm">Selected pieces from our latest runway.</p>
+              <h2 class="font-display text-3xl mb-1 text-[#1A1A1A]">Curated Highlights</h2>
+              <p class="text-gray-400 text-xs">Selected masterpieces from our current atelier runway.</p>
             </div>
-            <a href="#" class="text-[11px] uppercase tracking-widest border-b border-[#C5A059] pb-1 hover:text-[#C5A059]">View All</a>
+            <a href="#" onclick="showPage('shop')" class="text-[11px] uppercase tracking-widest border-b border-[#C5A059] pb-1 hover:text-[#C5A059] transition-colors">View All</a>
           </div>
-          <div id="featured-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-            <!-- Products will be injected here -->
+          <div id="featured-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Dynamic Injection -->
           </div>
         </section>
       </div>
       
-      <!-- SHOP PAGE -->
-      <div id="page-shop" class="page hidden">
-        <!-- Minimal Filter Bar -->
-        <div class="py-12 bg-white text-center">
-            <h1 class="font-display text-5xl mb-6">Our Archive</h1>
-            <div class="flex justify-center gap-8 flex-wrap">
-                <button onclick="filterCategory('all')" class="text-[10px] uppercase tracking-[0.2em] opacity-50 hover:opacity-100 transition-opacity pb-2 border-b-2 border-transparent hover:border-[#C5A059]">Everything</button>
-                <button onclick="filterCategory('bags')" class="text-[10px] uppercase tracking-[0.2em] opacity-50 hover:opacity-100 transition-opacity pb-2 border-b-2 border-transparent hover:border-[#C5A059]">Leather Bags</button>
-                <button onclick="filterCategory('watches')" class="text-[10px] uppercase tracking-[0.2em] opacity-50 hover:opacity-100 transition-opacity pb-2 border-b-2 border-transparent hover:border-[#C5A059]">Timepieces</button>
-                <button onclick="filterCategory('belts')" class="text-[10px] uppercase tracking-[0.2em] opacity-50 hover:opacity-100 transition-opacity pb-2 border-b-2 border-transparent hover:border-[#C5A059]">Accessories</button>
+      <!-- 2. ARCHIVE/SHOP PAGE VIEW -->
+      <div id="page-shop" class="page-view hidden">
+        <div class="py-12 bg-white text-center border-b border-gray-100">
+            <h1 class="font-display text-4xl mb-4">The Complete Archive</h1>
+            <div id="category-filters" class="flex justify-center gap-6 flex-wrap mt-4 px-4">
+                <button onclick="filterCategory('all')" id="filter-all" class="text-[10px] uppercase tracking-[0.2em] font-semibold pb-1 border-b-2 border-[#C5A059] text-[#C5A059] transition-all">Everything</button>
+                <button onclick="filterCategory('bags')" id="filter-bags" class="text-[10px] uppercase tracking-[0.2em] font-semibold pb-1 border-b-2 border-transparent text-gray-400 hover:text-[#1A1A1A] transition-all">Leather Bags</button>
+                <button onclick="filterCategory('watches')" id="filter-watches" class="text-[10px] uppercase tracking-[0.2em] font-semibold pb-1 border-b-2 border-transparent text-gray-400 hover:text-[#1A1A1A] transition-all">Timepieces</button>
+                <button onclick="filterCategory('belts')" id="filter-belts" class="text-[10px] uppercase tracking-[0.2em] font-semibold pb-1 border-b-2 border-transparent text-gray-400 hover:text-[#1A1A1A] transition-all">Luxury Accessories</button>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-6 pb-24">
-            <div id="shop-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10"></div>
+        <div class="max-w-7xl mx-auto px-6 py-16">
+            <div id="shop-products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+               <!-- Dynamic Injection -->
+            </div>
         </div>
       </div>
 
-      <!-- Add other pages similarly (Cart, Success, etc.) -->
-    </main>
-
-    <!-- PREMIUM FOOTER -->
-    <footer class="bg-[#1A1A1A] text-white pt-24 pb-12">
-      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 border-b border-white/5 pb-16">
-        <div class="col-span-1 md:col-span-2">
-          <h3 class="font-display text-3xl mb-6 tracking-widest underline decoration-[#C5A059]">SHERENVOGUE</h3>
-          <p class="text-gray-400 max-w-sm text-sm leading-loose">
-            Crafting luxury experiences through artisan craftsmanship. Each piece is a testament to timeless elegance and modern sophistication.
-          </p>
-        </div>
-        <div>
-          <h4 class="text-[11px] uppercase tracking-[0.3em] mb-6 text-[#C5A059]">Maison</h4>
-          <ul class="text-gray-400 text-sm space-y-4">
-            <li><a href="#" class="hover:text-white transition-colors">Our Story</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">Sustainability</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">Artisans</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-[11px] uppercase tracking-[0.3em] mb-6 text-[#C5A059]">Newsletter</h4>
-          <div class="flex border-b border-white/20 pb-2">
-            <input type="email" placeholder="Email address" class="bg-transparent text-sm w-full outline-none">
-            <button class="text-[10px] uppercase tracking-widest hover:text-[#C5A059]">Join</button>
+      <!-- 3. SHOPPING CART PAGE VIEW -->
+      <div id="page-cart" class="page-view hidden">
+        <div class="max-w-4xl mx-auto px-6 py-16">
+          <h1 class="font-display text-4xl mb-10 text-center">Your Atelier Bag</h1>
+          <div id="cart-container" class="bg-white border border-gray-100 p-8 shadow-sm">
+            <!-- Dynamic Cart Items injected here -->
           </div>
         </div>
       </div>
-      <div class="text-center pt-10 text-[10px] tracking-[0.2em] text-gray-500">
-        &copy; 2024 SHERENVOGUE ATELIER. ALL RIGHTS RESERVED.
+
+      <!-- 4. CHECKOUT SCREEN PAGE VIEW -->
+      <div id="page-checkout" class="page-view hidden">
+        <div class="max-w-2xl mx-auto px-6 py-16">
+          <h1 class="font-display text-4xl mb-4 text-center">Maison Shipping</h1>
+          <p class="text-xs text-gray-400 uppercase tracking-widest text-center mb-10">Complete your luxury procurement order</p>
+          <form id="checkout-form" onsubmit="processCheckout(event)" class="bg-white border border-gray-100 p-8 space-y-6">
+            <div>
+              <label class="block text-[10px] uppercase tracking-widest text-gray-400 mb-2 font-medium">Full Name</label>
+              <input type="text" required class="w-full border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#C5A059]">
+            </div>
+            <div>
+              <label class="block text-[10px] uppercase tracking-widest text-gray-400 mb-2 font-medium">Delivery Address</label>
+              <textarea required rows="3" class="w-full border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#C5A059]"></textarea>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-[10px] uppercase tracking-widest text-gray-400 mb-2 font-medium">Phone Number</label>
+                <input type="tel" required class="w-full border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#C5A059]">
+              </div>
+              <div>
+                <label class="block text-[10px] uppercase tracking-widest text-gray-400 mb-2 font-medium">Preferred Payment</label>
+                <select class="w-full border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#C5A059] bg-white">
+                  <option>Cash On Delivery (COD)</option>
+                  <option>Premium Card Booking</option>
+                </select>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-gray-100 flex justify-between items-center">
+              <div>
+                <p class="text-xs text-gray-400 uppercase tracking-wider">Total Payable</p>
+                <p id="checkout-total-price" class="text-xl font-semibold text-[#1A1A1A]">৳0</p>
+              </div>
+              <button type="submit" class="bg-[#1A1A1A] text-white px-8 py-3.5 text-[11px] uppercase tracking-[0.2em] hover:bg-[#C5A059] transition-all">
+                Place Secure Order
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- 5. SUCCESS PAGE VIEW -->
+      <div id="page-success" class="page-view hidden">
+        <div class="max-w-md mx-auto px-6 py-24 text-center">
+          <div class="w-16 h-16 bg-[#F9F7F2] border border-[#C5A059] rounded-full flex items-center justify-center mx-auto mb-6 text-[#C5A059]">
+            <i data-lucide="check" class="w-6 h-6"></i>
+          </div>
+          <h1 class="font-display text-4xl mb-3">Order Confirmed</h1>
+          <p class="text-gray-500 text-sm leading-relaxed mb-8">Thank you for your procurement. Your artisan request has been safely received. Our concierge team will reach out shortly.</p>
+          <button onclick="showPage('home')" class="bg-[#1A1A1A] text-white px-8 py-3.5 text-[10px] uppercase tracking-widest hover:bg-[#C5A059] transition-all font-semibold">
+            Return to Main Entry
+          </button>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- INTERACTIVE QUICK VIEW MODAL DOCK -->
+    <div id="product-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center hidden p-4">
+      <div class="bg-white max-w-3xl w-full max-h-[90vh] overflow-y-auto relative border border-gray-100 flex flex-col md:flex-row">
+        <button onclick="closeProductModal()" class="absolute top-4 right-4 z-10 text-gray-400 hover:text-black">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+        <div id="modal-img-container" class="w-full md:w-1/2 bg-[#F5F5F5] flex items-center justify-center p-12 min-h-[300px]">
+          <!-- Target Product SVG Graphic -->
+        </div>
+        <div class="w-full md:w-1/2 p-8 md:p-10 flex flex-col justify-between">
+          <div>
+            <p id="modal-product-cat" class="text-[9px] uppercase tracking-[0.3em] text-[#C5A059] mb-2 font-bold"></p>
+            <h2 id="modal-product-name" class="font-display text-2xl md:text-3xl mb-3 text-[#1A1A1A]"></h2>
+            <p id="modal-product-price" class="font-semibold text-lg text-gray-800 mb-4"></p>
+            <hr class="border-gray-100 my-4">
+            <p id="modal-product-desc" class="text-gray-500 text-xs leading-relaxed mb-6"></p>
+            <ul class="text-[10px] text-gray-400 space-y-2 uppercase tracking-wider font-medium">
+              <li>• Limited Atelier Masterpiece Run</li>
+              <li>• Certified Serial Authenticity Label</li>
+            </ul>
+          </div>
+          <div class="pt-8">
+            <button id="modal-add-btn" class="w-full bg-[#1A1A1A] text-white py-4 text-[11px] uppercase tracking-widest font-semibold hover:bg-[#C5A059] transition-all duration-300">
+              Procure and Add to Bag
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREMIUM ATELIER FOOTER -->
+    <footer class="bg-[#1A1A1A] text-white pt-20 pb-10">
+      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 border-b border-white/5 pb-12">
+        <div class="col-span-1 md:col-span-2">
+          <h3 class="font-display text-2xl mb-4 tracking-widest text-[#E2C68E]">SHERENVOGUE</h3>
+          <p class="text-gray-400 max-w-sm text-xs leading-relaxed">
+            Crafting luxury sensory experiences through premium artisan leatherwork and high-complication horology. Each release reflects modern poise.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-[10px] uppercase tracking-[0.3em] mb-4 text-[#C5A059] font-bold">Maison Pages</h4>
+          <ul class="text-gray-400 text-xs space-y-2.5">
+            <li><a href="#" onclick="showPage('home')" class="hover:text-white transition-colors">Atelier Front</a></li>
+            <li><a href="#" onclick="showPage('shop')" class="hover:text-white transition-colors">The Collections</a></li>
+            <li><a href="#" onclick="showPage('cart')" class="hover:text-white transition-colors">Procured Bag</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-[10px] uppercase tracking-[0.3em] mb-4 text-[#C5A059] font-bold">Newsletter Guild</h4>
+          <div class="flex border-b border-white/20 pb-2">
+            <input type="email" placeholder="Enter luxurious dispatch email" class="bg-transparent text-xs w-full outline-none text-white placeholder-gray-500">
+            <button class="text-[10px] uppercase tracking-widest text-[#C5A059] font-bold ml-2">Join</button>
+          </div>
+        </div>
+      </div>
+      <div class="text-center pt-8 text-[9px] tracking-[0.2em] text-gray-500">
+        &copy; 2026 SHERENVOGUE ATELIER. ALL RIGHTS RESERVED. HANDCRAFTED DESIGN BY MD. RAFIUL ISLAM.
       </div>
     </footer>
   </div>
 
   <script>
-    // Enhanced Product Card Rendering
-    function renderProductCard(product) {
+    // 20 Luxury SherenVogue Products Data Model Architecture
+    const products = [
+      { id: "sv-101", name: "Aurelia Calfskin Tote", category: "bags", price: 18500, featured: true, desc: "Hand-stitched structural tote constructed from graded full-grain calfskin with luxury micro-suede inner linings." },
+      { id: "sv-102", name: "Monarch Chronograph Gold", category: "watches", price: 24500, featured: true, desc: "Mechanical masterpiece item built with premium self-winding custom mechanisms, sapphire face guard, and genuine alligator skin strap." },
+      { id: "sv-103", name: "Classic Saffiano Premium Belt", category: "belts", price: 4500, featured: true, desc: "Textured Saffiano genuine leather dress accessory complete with custom polished gold-tone brass premium hardware buckle." },
+      { id: "sv-104", name: "Sovereign Heritage Satchel", category: "bags", price: 22000, featured: true, desc: "Timeless top-handle accessory bag highlighting an elegant architectural structure and secure customized brass clasp lock." },
+      { id: "sv-105", name: "Equinox Minimalist Slate Watch", category: "watches", price: 19800, featured: false, desc: "Ultra-thin luxury profile featuring clean brushed slate gray dials and premium surgical grade stainless steel deployment straps." },
+      { id: "sv-106", name: "Signature H-Embossed Belt", category: "belts", price: 5200, featured: false, desc: "Finely embossed luxury full-grain belt displaying artisan pattern lines paired with a brushed nickel statement loop buckle." },
+      { id: "sv-107", name: "Opulence Crocodile Motif Clutch", category: "bags", price: 16000, featured: false, desc: "Gilded evening clutch featuring a beautiful crocodile texture skin shell, tailored drop-in gold chain link strap." },
+      { id: "sv-108", name: "Vanguard Automatic Rose Gold", category: "watches", price: 27500, featured: false, desc: "High-complication internal caliber mechanics displaying open caseback views, finished meticulously in 18k rose-gold plating lines." },
+      { id: "sv-109", name: "Braided Calfskin Designer Belt", category: "belts", price: 4800, featured: false, desc: "Artisanal hand-woven design piece configured using premium oiled harness leather strips for curated weekend configurations." },
+      { id: "sv-110", name: "Riviera Weekend Grand Duffle", category: "bags", price: 26000, featured: false, desc: "Spacious luxury travel companion duffle featuring heavy brass industrial support zips and reinforced leather base points." },
+      { id: "sv-111", name: "Serenade Guilloché Moonphase", category: "watches", price: 23200, featured: false, desc: "Captivating astronomical tracking dial showcasing complex dynamic moon phase sub-registers and fine guilloché detailing." },
+      { id: "sv-112", name: "Premium French Suede Luxury Belt", category: "belts", price: 4200, featured: false, desc: "Silky soft-nap premium French suede leather lining matched with an elegant tapered silhouette tip structure." },
+      { id: "sv-113", name: "Luminary Micro-Crossbody Pochette", category: "bags", price: 14500, featured: false, desc: "Dainty architectural statement micro-bag for modern daily absolute essentials. Magnetic flap close system." },
+      { id: "sv-114", name: "Obsidian Stealth Edition Watch", category: "watches", price: 21000, featured: false, desc: "Monochromatic black matte architecture piece housing a premium Japanese movement core and custom luminous pointers." },
+      { id: "sv-115", name: "Artisan Reversible Dual-Tone Belt", category: "belts", price: 5800, featured: false, desc: "Clever twist-and-lock buckle mechanism configuration offering premium black and rich tan calfskin wearable profiles." },
+      { id: "sv-116", name: "Elysian Half-Moon Shoulder Bag", category: "bags", price: 19500, featured: false, desc: "Curved sleek mid-century silhouette profile highlighting luxury minimalist piping and an adjustable strap." },
+      { id: "sv-117", name: "Marquis Executive Gold Watch", category: "watches", price: 25500, featured: false, desc: "Refined heritage dress timepiece showing clean Roman numeral arrays and a custom fluted bezel construction frame." },
+      { id: "sv-118", name: "Vogue Premium Sculptural Corset Belt", category: "belts", price: 6500, featured: false, desc: "Avante-garde waist contouring statement piece built from exceptionally supple high-grade artisanal hide cuts." },
+      { id: "sv-119", name: "Prestige Monogram Attache Briefcase", category: "bags", price: 28000, featured: false, desc: "Elite corporate companion briefcase showcasing internal laptop sleeves and a premium dual combination lock setup." },
+      { id: "sv-120", name: "Legacy Mechanical Pocket Watch", category: "watches", price: 18000, featured: false, desc: "Vintage-inspired bespoke pocket watch unit pairing open skeleton gears and a luxury weighted fob chain." }
+    ];
+
+    // Basket Global App State Tracker
+    let cart = [];
+    let currentCategory = 'all';
+
+    // Premium Client Side Router Engine
+    function showPage(pageId) {
+      document.querySelectorAll('.page-view').forEach(p => p.classList.add('hidden'));
+      const activePage = document.getElementById(`page-${pageId}`);
+      if(activePage) {
+        activePage.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // Toggle Mobile Navigation Drawer Menu
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // Custom Inline Luxury Product Dynamic Visual SVGs Generator
+    function getProductSVG(product) {
+      if (product.category === 'bags') {
+        return `<svg viewBox="0 0 100 100" class="w-24 h-24 stroke-[#1A1A1A] fill-none stroke-[1.5] transition-transform duration-700 group-hover:scale-110">
+                  <path d="M30,40 C30,15 70,15 70,40" stroke="#C5A059" stroke-width="2"/>
+                  <rect x="20" y="40" width="60" height="45" rx="4"/>
+                  <path d="M20,55 L80,55" stroke-dasharray="2 2"/>
+                  <circle cx="50" cy="55" r="3" fill="#C5A059"/>
+                </svg>`;
+      } else if (product.category === 'watches') {
+        return `<svg viewBox="0 0 100 100" class="w-24 h-24 stroke-[#1A1A1A] fill-none stroke-[1.5] transition-transform duration-700 group-hover:scale-110">
+                  <rect x="38" y="15" width="24" height="70" rx="3" stroke="#C5A059" stroke-dasharray="3 1"/>
+                  <circle cx="50" cy="50" r="22" fill="white"/>
+                  <circle cx="50" cy="50" r="18"/>
+                  <line x1="50" y1="50" x2="50" y2="38" stroke-width="2"/>
+                  <line x1="50" y1="50" x2="60" y2="50"/>
+                </svg>`;
+      } else {
+        return `<svg viewBox="0 0 100 100" class="w-24 h-24 stroke-[#1A1A1A] fill-none stroke-[1.5] transition-transform duration-700 group-hover:scale-110">
+                  <path d="M10,50 L70,50" stroke-width="6" stroke-linecap="round"/>
+                  <path d="M10,50 L70,50" stroke="#C5A059" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 2"/>
+                  <rect x="70" y="42" width="18" height="16" rx="2" stroke-width="2"/>
+                  <circle cx="40" cy="50" r="1.5" fill="white"/>
+                  <circle cx="50" cy="50" r="1.5" fill="white"/>
+                </svg>`;
+      }
+    }
+
+    // Enhanced HTML Template Generator For Product Items
+    function buildCardMarkup(product) {
       return `
-        <div class="product-card group relative overflow-hidden" onclick="showProductDetails('${product.id}')">
-          <div class="aspect-[3/4] bg-[#F5F5F5] flex items-center justify-center p-12 transition-all duration-700 group-hover:bg-[#EFEAE2]">
+        <div class="product-card group relative overflow-hidden flex flex-col bg-white p-4 cursor-pointer" onclick="openProductModal('${product.id}')">
+          <div class="aspect-[3/4] bg-[#F9F7F2] flex items-center justify-center relative p-8 transition-all duration-700 group-hover:bg-[#EFEAE2]">
             ${getProductSVG(product)}
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-all"></div>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/[0.02] transition-all"></div>
             <div class="absolute bottom-4 left-4 right-4 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-              <button class="w-full bg-[#1A1A1A] text-white py-3 text-[10px] uppercase tracking-widest font-semibold">
-                Quick View
+              <button class="w-full bg-[#1A1A1A] text-white py-3 text-[9px] uppercase tracking-widest font-bold">
+                Quick Look
               </button>
             </div>
           </div>
-          <div class="pt-6 text-center">
-            <p class="text-[9px] uppercase tracking-[0.3em] text-[#C5A059] mb-2">${product.category}</p>
-            <h3 class="font-display text-lg mb-1 group-hover:text-[#C5A059] transition-colors">${product.name}</h3>
-            <p class="font-medium text-sm">৳${product.price.toLocaleString()}</p>
+          <div class="pt-5 text-center mt-auto">
+            <p class="text-[8px] uppercase tracking-[0.3em] text-[#C5A059] mb-1.5 font-bold">${product.category}</p>
+            <h3 class="font-display text-base mb-1 text-gray-800 group-hover:text-[#C5A059] transition-colors line-clamp-1">${product.name}</h3>
+            <p class="font-semibold text-xs text-gray-900">৳${product.price.toLocaleString()}</p>
           </div>
         </div>
       `;
     }
 
-    // Initialize Lucide Icons
-    lucide.createIcons();
+    // Render Pipeline Logic
+    function renderProductGrids() {
+      const featuredContainer = document.getElementById('featured-products');
+      const shopContainer = document.getElementById('shop-products');
+      
+      // Clear Nodes
+      if(featuredContainer) featuredContainer.innerHTML = "";
+      if(shopContainer) shopContainer.innerHTML = "";
 
-    // Scroll Reveal Logic
+      products.forEach(product => {
+        // Render Featured items on Home Grid
+        if (product.featured && featuredContainer) {
+          featuredContainer.insertAdjacentHTML('beforeend', buildCardMarkup(product));
+        }
+        
+        // Render Filtering items on Shop Grid
+        if (shopContainer) {
+          if (currentCategory === 'all' || product.category === currentCategory) {
+            shopContainer.insertAdjacentHTML('beforeend', buildCardMarkup(product));
+          }
+        }
+      });
+    }
+
+    // Category Filter View Updates Actions
+    function filterCategory(category) {
+      currentCategory = category;
+      
+      // Active Style Swapping UI Controls
+      document.querySelectorAll('#category-filters button').forEach(btn => {
+        btn.classList.remove('border-[#C5A059]', 'text-[#C5A059]');
+        btn.classList.add('border-transparent', 'text-gray-400');
+      });
+
+      const targetBtn = document.getElementById(`filter-${category}`);
+      if(targetBtn) {
+        targetBtn.classList.remove('border-transparent', 'text-gray-400');
+        targetBtn.classList.add('border-[#C5A059]', 'text-[#C5A059]');
+      }
+
+      renderProductGrids();
+    }
+
+    // Modal Operations View Details System
+    function openProductModal(productId) {
+      const product = products.find(p => p.id === productId);
+      if(!product) return;
+
+      document.getElementById('modal-product-name').innerText = product.name;
+      document.getElementById('modal-product-cat').innerText = product.category;
+      document.getElementById('modal-product-price').innerText = `৳${product.price.toLocaleString()}`;
+      document.getElementById('modal-product-desc').innerText = product.desc;
+      document.getElementById('modal-img-container').innerHTML = getProductSVG(product);
+
+      const addBtn = document.getElementById('modal-add-btn');
+      addBtn.onclick = () => {
+        executeAddToCart(product.id);
+        closeProductModal();
+      };
+
+      document.getElementById('product-modal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeProductModal() {
+      document.getElementById('product-modal').classList.add('hidden');
+    }
+
+    // Cart Management Core Operations
+    function executeAddToCart(productId) {
+      const product = products.find(p => p.id === productId);
+      if(!product) return;
+
+      const cartItem = cart.find(item => item.product.id === productId);
+      if (cartItem) {
+        cartItem.quantity += 1;
+      } else {
+        cart.push({ product, quantity: 1 });
+      }
+
+      synchronizeCartUI();
+    }
+
+    function adjustQuantity(productId, amount) {
+      const cartItem = cart.find(item => item.product.id === productId);
+      if (!cartItem) return;
+
+      cartItem.quantity += amount;
+      if (cartItem.quantity <= 0) {
+        cart = cart.filter(item => item.product.id !== productId);
+      }
+      synchronizeCartUI();
+    }
+
+    function dropCartItem(productId) {
+      cart = cart.filter(item => item.product.id !== productId);
+      synchronizeCartUI();
+    }
+
+    // Update Global Cart UI Displays counters and state containers
+    function synchronizeCartUI() {
+      // Counter Badge Update
+      const totalUnits = cart.reduce((acc, item) => acc + item.quantity, 0);
+      document.getElementById('cart-count').innerText = totalUnits;
+
+      // Calculate Subtotals
+      const grandTotal = cart.reduce((acc, item) => acc + (item.product.price * item.quantity), 0);
+
+      // Render Basket Page Markup Display
+      const cartContainer = document.getElementById('cart-container');
+      if(!cartContainer) return;
+
+      if(cart.length === 0) {
+        cartContainer.innerHTML = `
+          <div class="text-center py-12">
+            <p class="text-gray-400 text-sm mb-6">Your shopping bag is currently vacant.</p>
+            <button onclick="showPage('shop')" class="bg-[#1A1A1A] text-white px-6 py-3 text-[10px] uppercase tracking-widest font-semibold hover:bg-[#C5A059] transition-all">Shop Archive</button>
+          </div>
+        `;
+        return;
+      }
+
+      let innerContent = `<div class="space-y-6">`;
+      cart.forEach(item => {
+        innerContent += `
+          <div class="flex flex-col sm:flex-row items-center justify-between border-b border-gray-100 pb-6 gap-4">
+            <div class="flex items-center gap-4 w-full sm:w-auto">
+              <div class="w-16 h-20 bg-gray-50 flex items-center justify-center p-2 border border-gray-100">
+                ${getProductSVG(item.product)}
+              </div>
+              <div>
+                <h4 class="font-display text-base text-gray-800">${item.product.name}</h4>
+                <p class="text-xs text-gray-400 uppercase tracking-widest mt-0.5">৳${item.product.price.toLocaleString()}</p>
+              </div>
+            </div>
+            <div class="flex items-center justify-between sm:justify-end gap-8 w-full sm:w-auto">
+              <div class="flex items-center border border-gray-200 bg-white">
+                <button onclick="adjustQuantity('${item.product.id}', -1)" class="px-3 py-1 text-gray-500 hover:bg-gray-50 font-bold">-</button>
+                <span class="px-3 text-xs font-semibold text-gray-800">${item.quantity}</span>
+                <button onclick="adjustQuantity('${item.product.id}', 1)" class="px-3 py-1 text-gray-500 hover:bg-gray-50 font-bold">+</button>
+              </div>
+              <p class="font-semibold text-sm w-20 text-right text-gray-800">৳${(item.product.price * item.quantity).toLocaleString()}</p>
+              <button onclick="dropCartItem('${item.product.id}')" class="text-gray-400 hover:text-red-500 transition-colors">
+                <i data-lucide="trash-2" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+        `;
+      });
+
+      innerContent += `
+        <div class="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div>
+            <p class="text-xs text-gray-400 uppercase tracking-widest font-medium">Order Subtotal</p>
+            <p class="text-2xl font-bold font-display text-gray-900 mt-1">৳${grandTotal.toLocaleString()}</p>
+          </div>
+          <button onclick="openCheckout()" class="w-full sm:w-auto bg-[#1A1A1A] text-white px-10 py-4 text-[11px] uppercase tracking-[0.2em] font-semibold hover:bg-[#C5A059] transition-all">
+            Proceed to Checkout
+          </button>
+        </div>
+      </div>`;
+
+      cartContainer.innerHTML = innerContent;
+      document.getElementById('checkout-total-price').innerText = `৳${grandTotal.toLocaleString()}`;
+      lucide.createIcons();
+    }
+
+    // Checkout Transitions
+    function openCheckout() {
+      showPage('checkout');
+    }
+
+    function processCheckout(event) {
+      event.preventDefault();
+      // Reset State variables on complete
+      cart = [];
+      synchronizeCartUI();
+      document.getElementById('checkout-form').reset();
+      showPage('success');
+    }
+
+    // Initial Bootstrap Core Sequence
+    window.addEventListener('DOMContentLoaded', () => {
+      renderProductGrids();
+      synchronizeCartUI();
+      lucide.createIcons();
+    });
+
+    // Simple Scroll Interceptor for Reveal Animation Hooks
     window.addEventListener('scroll', () => {
       document.querySelectorAll('.reveal').forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+        if (el.getBoundingClientRect().top < window.innerHeight - 80) {
           el.classList.add('active');
         }
       });
     });
-
-    // Reuse your previous logic for data handling, navigation, and cart here
-    // ...
   </script>
 </body>
 </html>
