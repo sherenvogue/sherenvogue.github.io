@@ -6,7 +6,7 @@
   <title>SherenVogue | Artisan Luxury Accessories</title>
   
   <meta name="description" content="SherenVogue - International Luxury Fashion & Accessories. Handcrafted bags, watches, and belts.">
-  <meta name="keywords" content="SherenVogue, Luxury Fashion, Leather Bags, Premium Watches, Fashion Designer">
+  <meta name="keywords" content="SherenVogue, Luxury Fashion, Leather Bags, Premium Watches, Fashion Designer, CEO Rafiul Islam">
   <meta name="author" content="Md. Rafiul Islam">
 
   <link rel="icon" type="image/png" href="logo.png">
@@ -178,22 +178,28 @@
           <h1 class="font-display text-4xl mb-4 text-center">Maison Shipping</h1>
           <p class="text-xs text-gray-400 uppercase tracking-widest text-center mb-10">Complete your luxury procurement order</p>
           <form id="checkout-form" onsubmit="processCheckout(event)" class="bg-white border border-gray-100 p-8 space-y-6">
-            <div>
-              <label class="block text-[10px] uppercase tracking-widest text-gray-400 mb-2 font-medium">Full Name</label>
-              <input type="text" required class="w-full border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#C5A059]">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-[10px] uppercase tracking-widest text-gray-400 mb-2 font-medium">Full Name</label>
+                <input type="text" id="cust-name" required class="w-full border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#C5A059]">
+              </div>
+              <div>
+                <label class="block text-[10px] uppercase tracking-widest text-gray-400 mb-2 font-medium">Email Address (Gmail)</label>
+                <input type="email" id="cust-email" required class="w-full border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#C5A059]">
+              </div>
             </div>
             <div>
               <label class="block text-[10px] uppercase tracking-widest text-gray-400 mb-2 font-medium">Delivery Address</label>
-              <textarea required rows="3" class="w-full border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#C5A059]"></textarea>
+              <textarea id="cust-address" required rows="3" class="w-full border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#C5A059]"></textarea>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label class="block text-[10px] uppercase tracking-widest text-gray-400 mb-2 font-medium">Phone Number</label>
-                <input type="tel" required class="w-full border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#C5A059]">
+                <input type="tel" id="cust-phone" required class="w-full border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#C5A059]">
               </div>
               <div>
                 <label class="block text-[10px] uppercase tracking-widest text-gray-400 mb-2 font-medium">Preferred Payment</label>
-                <select class="w-full border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#C5A059] bg-white">
+                <select id="cust-payment" class="w-full border border-gray-200 px-4 py-3 text-sm focus:outline-none focus:border-[#C5A059] bg-white">
                   <option>Cash On Delivery (COD)</option>
                   <option>Premium Card Booking</option>
                 </select>
@@ -279,8 +285,9 @@
           </div>
         </div>
       </div>
-      <div class="text-center pt-8 text-[9px] tracking-[0.2em] text-gray-500">
-        &copy; 2026 SHERENVOGUE ATELIER. ALL RIGHTS RESERVED. HANDCRAFTED DESIGN BY MD. RAFIUL ISLAM.
+      
+      <div class="text-center pt-8 text-[9px] tracking-[0.2em] text-gray-500 uppercase">
+        &copy; 2026 SHERENVOGUE ATELIER. ALL RIGHTS RESERVED. FOUNDER & CEO: MD. RAFIUL ISLAM.
       </div>
     </footer>
   </div>
@@ -521,20 +528,25 @@
     function processCheckout(event) {
       event.preventDefault();
       
-      const name = event.target.querySelectorAll('input')[0].value;
-      const address = event.target.querySelector('textarea').value;
-      const phone = event.target.querySelectorAll('input')[1].value;
-      const payment = event.target.querySelector('select').value;
+      const name = document.getElementById('cust-name').value;
+      const email = document.getElementById('cust-email').value;
+      const address = document.getElementById('cust-address').value;
+      const phone = document.getElementById('cust-phone').value;
+      const payment = document.getElementById('cust-payment').value;
       
       const grandTotal = cart.reduce((acc, item) => acc + (item.product.price * item.quantity), 0);
       let productDetails = cart.map(item => `${item.product.name} (Qty: ${item.quantity}) - ৳${(item.product.price * item.quantity).toLocaleString()}`).join('\n');
 
       // Web3Forms Payload Structure
       const formData = new FormData();
-      formData.append("access_key", "140b2d00-51ed-40d4-bc25-72bbcf4d92a9"); // আপনার স্ক্রিনশটের আসল কী
+      formData.append("access_key", "140b2d00-51ed-40d4-bc25-72bbcf4d92a9"); // আপনার অ্যাক্সেস কী
       formData.append("subject", `New Luxury Order From: ${name}`);
       formData.append("from_name", "SherenVogue Boutique");
+      
+      formData.append("email", email); 
+      
       formData.append("Customer Name", name);
+      formData.append("Customer Email", email);
       formData.append("Phone Number", phone);
       formData.append("Delivery Address", address);
       formData.append("Payment Method", payment);
