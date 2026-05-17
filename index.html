@@ -6,8 +6,28 @@
   <title>SherenVogue | Haute Couture Artisan Maison</title>
   
   <meta name="description" content="SherenVogue - International Luxury Fashion & Accessories. Handcrafted bags, watches, and belts by CEO Md. Rafiul Islam.">
-  <meta name="keywords" content="SherenVogue, Luxury Fashion, Leather Bags, Premium Watches, Fashion Designer, CEO Rafiul Islam">
+  <meta name="keywords" content="SherenVogue, Luxury Fashion, Leather Bags, Premium Watches, Fashion Designer, CEO Rafiul Islam, Rafiul Islam SherenVogue">
   <meta name="author" content="Md. Rafiul Islam">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "SherenVogue",
+    "url": "https://sherenvogue.com",
+    "logo": "https://sherenvogue.com/logo.png",
+    "founder": {
+      "@type": "Person",
+      "name": "Md. Rafiul Islam",
+      "jobTitle": "Founder & CEO"
+    },
+    "ceo": {
+      "@type": "Person",
+      "name": "Md. Rafiul Islam"
+    },
+    "description": "SherenVogue is an international luxury fashion and lifestyle brand founded and led by CEO Md. Rafiul Islam."
+  }
+  </script>
 
   <link rel="icon" type="image/png" href="logo.png">
 
@@ -18,7 +38,7 @@
 
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -246,6 +266,7 @@
           </div>
           <h1 class="font-display text-3xl font-bold mb-2 text-[#231F20]">Order Confirmed</h1>
           <p class="text-gray-400 text-xs leading-relaxed mb-6">Thank you for your procurement. Your artisan request has been safely received. Our concierge team will reach out shortly via email.</p>
+          <p class="text-[#C5A059] text-[10px] uppercase tracking-widest font-bold mb-6">Maison Signature: Md. Rafiul Islam</p>
           <button onclick="showPage('home')" class="bg-[#231F20] text-white px-6 py-3.5 text-[9px] uppercase tracking-widest hover:bg-[#C5A059] transition-all font-bold rounded-xl shadow-sm">
             Return to Main Entry
           </button>
@@ -321,7 +342,7 @@
       </div>
       
       <div class="text-center pt-6 text-[8px] tracking-[0.25em] text-neutral-600 uppercase font-bold">
-        &copy; 2026 SHERENVOGUE ATELIER. ALL RIGHTS RESERVED. FOUNDER & CEO: MD. RAFIUL ISLAM.
+        &copy; 2026 SHERENVOGUE. ALL RIGHTS RESERVED. FOUNDER & CEO: MD. RAFIUL ISLAM.
       </div>
     </footer>
   </div>
@@ -404,7 +425,7 @@
       return `
         <div class="product-card group relative overflow-hidden flex flex-col bg-white p-3 rounded-2xl border border-neutral-100 cursor-pointer shadow-xs" onclick="openProductModal('${product.id}')">
           <div class="aspect-[3/4] bg-[#F9F7F2] rounded-xl flex items-center justify-center relative overflow-hidden img-zoom-container">
-            <img src="${product.img}" alt="${product.name}" class="w-full h-full object-cover">
+            <img src="${product.img}" alt="${product.name}" class="w-full h-full object-cover" loading="lazy">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/[0.02] transition-all"></div>
           </div>
           <div class="pt-3 text-center mt-auto">
@@ -474,6 +495,7 @@
       document.getElementById('product-modal').classList.add('hidden');
     }
 
+    // Cart Core Engine
     function executeAddToCart(productId) {
       const product = products.find(p => p.id === productId);
       if(!product) return;
@@ -565,7 +587,7 @@
       lucide.createIcons();
     }
 
-    // Submit Web3Forms Hook
+    // Process Checkout via Web3Forms API
     function processCheckout(event) {
       event.preventDefault();
       
