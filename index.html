@@ -19,14 +19,6 @@
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script type="text/javascript">
-     (function(){
-        // আপনার EmailJS Account থেকে Public Key-টি এখানে বসাবেন
-        emailjs.init("YOUR_PUBLIC_KEY"); 
-     })();
-  </script>
 
   <style>
     :root {
@@ -53,6 +45,10 @@
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: #f1f1f1; }
     ::-webkit-scrollbar-thumb { background: var(--gold); }
+
+    .img-zoom-container { overflow: hidden; }
+    .img-zoom-container img { transition: transform 0.7s ease; }
+    .product-card:hover .img-zoom-container img { transform: scale(1.05); }
   </style>
 </head>
 
@@ -236,7 +232,7 @@
         <button onclick="closeProductModal()" class="absolute top-4 right-4 z-10 text-gray-400 hover:text-black">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
-        <div id="modal-img-container" class="w-full md:w-1/2 bg-[#F5F5F5] flex items-center justify-center p-12 min-h-[300px]">
+        <div id="modal-img-container" class="w-full md:w-1/2 bg-[#F5F5F5] flex items-center justify-center p-8 min-h-[300px]">
           </div>
         <div class="w-full md:w-1/2 p-8 md:p-10 flex flex-col justify-between">
           <div>
@@ -290,28 +286,28 @@
   </div>
 
   <script>
-    // 20 Luxury SherenVogue Products Data Model Architecture
+    // 20 Luxury SherenVogue Products Data Model Architecture (ফটো সহ)
     const products = [
-      { id: "sv-101", name: "Aurelia Calfskin Tote", category: "bags", price: 18500, featured: true, desc: "Hand-stitched structural tote constructed from graded full-grain calfskin with luxury micro-suede inner linings." },
-      { id: "sv-102", name: "Monarch Chronograph Gold", category: "watches", price: 24500, featured: true, desc: "Mechanical masterpiece item built with premium self-winding custom mechanisms, sapphire face guard, and genuine alligator skin strap." },
-      { id: "sv-103", name: "Classic Saffiano Premium Belt", category: "belts", price: 4500, featured: true, desc: "Textured Saffiano genuine leather dress accessory complete with custom polished gold-tone brass premium hardware buckle." },
-      { id: "sv-104", name: "Sovereign Heritage Satchel", category: "bags", price: 22000, featured: true, desc: "Timeless top-handle accessory bag highlighting an elegant architectural structure and secure customized brass clasp lock." },
-      { id: "sv-105", name: "Equinox Minimalist Slate Watch", category: "watches", price: 19800, featured: false, desc: "Ultra-thin luxury profile featuring clean brushed slate gray dials and premium surgical grade stainless steel deployment straps." },
-      { id: "sv-106", name: "Signature H-Embossed Belt", category: "belts", price: 5200, featured: false, desc: "Finely embossed luxury full-grain belt displaying artisan pattern lines paired with a brushed nickel statement loop buckle." },
-      { id: "sv-107", name: "Opulence Crocodile Motif Clutch", category: "bags", price: 16000, featured: false, desc: "Gilded evening clutch featuring a beautiful crocodile texture skin shell, tailored drop-in gold chain link strap." },
-      { id: "sv-108", name: "Vanguard Automatic Rose Gold", category: "watches", price: 27500, featured: false, desc: "High-complication internal caliber mechanics displaying open caseback views, finished meticulously in 18k rose-gold plating lines." },
-      { id: "sv-109", name: "Braided Calfskin Designer Belt", category: "belts", price: 4800, featured: false, desc: "Artisanal hand-woven design piece configured using premium oiled harness leather strips for curated weekend configurations." },
-      { id: "sv-110", name: "Riviera Weekend Grand Duffle", category: "bags", price: 26000, featured: false, desc: "Spacious luxury travel companion duffle featuring heavy brass industrial support zips and reinforced leather base points." },
-      { id: "sv-111", name: "Serenade Guilloché Moonphase", category: "watches", price: 23200, featured: false, desc: "Captivating astronomical tracking dial showcasing complex dynamic moon phase sub-registers and fine guilloché detailing." },
-      { id: "sv-112", name: "Premium French Suede Luxury Belt", category: "belts", price: 4200, featured: false, desc: "Silky soft-nap premium French suede leather lining matched with an elegant tapered silhouette tip structure." },
-      { id: "sv-113", name: "Luminary Micro-Crossbody Pochette", category: "bags", price: 14500, featured: false, desc: "Dainty architectural statement micro-bag for modern daily absolute essentials. Magnetic flap close system." },
-      { id: "sv-114", name: "Obsidian Stealth Edition Watch", category: "watches", price: 21000, featured: false, desc: "Monochromatic black matte architecture piece housing a premium Japanese movement core and custom luminous pointers." },
-      { id: "sv-115", name: "Artisan Reversible Dual-Tone Belt", category: "belts", price: 5800, featured: false, desc: "Clever twist-and-lock buckle mechanism configuration offering premium black and rich tan calfskin wearable profiles." },
-      { id: "sv-116", name: "Elysian Half-Moon Shoulder Bag", category: "bags", price: 19500, featured: false, desc: "Curved sleek mid-century silhouette profile highlighting luxury minimalist piping and an adjustable strap." },
-      { id: "sv-117", name: "Marquis Executive Gold Watch", category: "watches", price: 25500, featured: false, desc: "Refined heritage dress timepiece showing clean Roman numeral arrays and a custom fluted bezel construction frame." },
-      { id: "sv-118", name: "Vogue Premium Sculptural Corset Belt", category: "belts", price: 6500, featured: false, desc: "Avante-garde waist contouring statement piece built from exceptionally supple high-grade artisanal hide cuts." },
-      { id: "sv-119", name: "Prestige Monogram Attache Briefcase", category: "bags", price: 28000, featured: false, desc: "Elite corporate companion briefcase showcasing internal laptop sleeves and a premium dual combination lock setup." },
-      { id: "sv-120", name: "Legacy Mechanical Pocket Watch", category: "watches", price: 18000, featured: false, desc: "Vintage-inspired bespoke pocket watch unit pairing open skeleton gears and a luxury weighted fob chain." }
+      { id: "sv-101", name: "Aurelia Calfskin Tote", category: "bags", price: 18500, featured: true, desc: "Hand-stitched structural tote constructed from graded full-grain calfskin.", img: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800&auto=format&fit=crop" },
+      { id: "sv-102", name: "Monarch Chronograph Gold", category: "watches", price: 24500, featured: true, desc: "Mechanical masterpiece built with premium mechanisms, sapphire shield.", img: "https://images.unsplash.com/photo-1619229666797-b5578991188c?q=80&w=800&auto=format&fit=crop" },
+      { id: "sv-103", name: "Classic Saffiano Premium Belt", category: "belts", price: 4500, featured: true, desc: "Textured Saffiano genuine leather dress accessory complete with gold hardware.", img: "https://images.unsplash.com/photo-1624222247344-550fb84058d1?q=80&w=800&auto=format&fit=crop" },
+      { id: "sv-104", name: "Sovereign Heritage Satchel", category: "bags", price: 22000, featured: true, desc: "Timeless top-handle satchel highlighting an architectural structure.", img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop" },
+      { id: "sv-105", name: "Equinox Minimalist Slate Watch", category: "watches", price: 19800, featured: false, desc: "Ultra-thin luxury profile featuring clean brushed slate gray dials.", img: "https://images.unsplash.com/photo-1522312384551-017a2b97192f?q=80&w=800&auto=format&fit=crop" },
+      { id: "sv-106", name: "Signature H-Embossed Belt", category: "belts", price: 5200, featured: false, desc: "Finely embossed luxury full-grain belt with brushed nickel statement buckle.", img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop" },
+      { id: "sv-107", name: "Opulence Crocodile Motif Clutch", category: "bags", price: 16000, featured: false, desc: "Gilded evening clutch featuring a beautiful crocodile texture skin shell.", img: "https://images.unsplash.com/photo-1594223274512-ad4803739b7c?q=80&w=800&auto=format&fit=crop" },
+      { id: "sv-108", name: "Vanguard Automatic Rose Gold", category: "watches", price: 27500, featured: false, desc: "High-complication internal caliber mechanics displaying open caseback.", img: "https://images.unsplash.com/photo-1618311003460-6b63394879ba?q=80&w=800&auto=format&fit=crop" },
+      { id: "sv-109", name: "Braided Calfskin Designer Belt", category: "belts", price: 4800, featured: false, desc: "Artisanal hand-woven design configured using premium oiled hide.", img: "https://images.unsplash.com/photo-1627138372605-e46059d6f3e0?q=80&w=800&auto=format&fit=crop" },
+      { id: "sv-110", name: "Riviera Weekend Grand Duffle", category: "bags", price: 26000, featured: false, desc: "Spacious luxury travel companion duffle featuring heavy brass supports.", img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=800&auto=format&fit=crop" },
+      { id: "sv-111", name: "Serenade Guilloché Moonphase", category: "watches", price: 23200, featured: false, desc: "Captivating astronomical dial showcasing dynamic moon registers.", img: "https://images.unsplash.com/photo-1639014166299-808947e45263?q=80&w=800&auto=format&fit=crop" },
+      { id: "sv-112", name: "Premium French Suede Luxury Belt", category: "belts", price: 4200, featured: false, desc: "Silky soft-nap French suede lining matched with an elegant tapered silhouett.", img: "https://images.unsplash.com/photo-1614165939023-e2213192e21b?q=80&w=800&auto=format&fit=crop" },
+      { id: "sv-113", name: "Luminary Micro-Crossbody Pochette", category: "bags", price: 14500, featured: false, desc: "Dainty sculptural statement micro-bag for absolute essentials.", img: "https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?q=80&w=800&auto=format&fit=crop" },
+      { id: "sv-114", name: "Obsidian Stealth Edition Watch", category: "watches", price: 21000, featured: false, desc: "Monochromatic black matte architecture piece housing Japanese movement.", img: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=800&auto=format&fit=crop" },
+      { id: "sv-115", name: "Artisan Reversible Dual-Tone Belt", category: "belts", price: 5800, featured: false, desc: "Clever twist-and-lock buckle configuration with black and rich tan wearable sides.", img: "https://images.unsplash.com/photo-1617114967396-f94d930438c7?q=80&w=800&auto=format&fit=crop" },
+      { id: "sv-116", name: "Elysian Half-Moon Shoulder Bag", category: "bags", price: 19500, featured: false, desc: "Curved sleek half-moon silhouette profile highlighting luxury minimalist piping.", img: "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?q=80&w=800&auto=format&fit=crop" },
+      { id: "sv-117", name: "Marquis Executive Gold Watch", category: "watches", price: 25500, featured: false, desc: "Refined heritage dress timepiece with clean Roman numeral arrays.", img: "https://images.unsplash.com/photo-1619229666797-b5578991188c?q=80&w=800&auto=format&fit=crop" },
+      { id: "sv-118", name: "Vogue Sculptural Corset Belt", category: "belts", price: 6500, featured: false, desc: "Avante-garde waist contouring statement piece built from supphide cortes.", img: "https://images.unsplash.com/photo-1589139818817-488663806873?q=80&w=800&auto=format&fit=crop" },
+      { id: "sv-119", name: "Prestige Monogram Attache Briefcase", category: "bags", price: 28000, featured: false, desc: "Elite corporate briefcase showcasing monogram patterns and dual combination locks.", img: "https://images.unsplash.com/photo-1549497538-303791108f94?q=80&w=800&auto=format&fit=crop" },
+      { id: "sv-120", name: "Legacy Mechanical Pocket Watch", category: "watches", price: 18000, featured: false, desc: "Vintage-inspired bespoke pocket watch pairing skeleton gears and a weighted fob chain.", img: "https://images.unsplash.com/photo-1509048196587-2f3b92d8ccbe?q=80&w=800&auto=format&fit=crop" }
     ];
 
     // Basket Global App State Tracker
@@ -334,40 +330,12 @@
       menu.classList.toggle('hidden');
     }
 
-    // Custom Inline Luxury Product Dynamic Visual SVGs Generator
-    function getProductSVG(product) {
-      if (product.category === 'bags') {
-        return `<svg viewBox="0 0 100 100" class="w-24 h-24 stroke-[#1A1A1A] fill-none stroke-[1.5] transition-transform duration-700 group-hover:scale-110">
-                  <path d="M30,40 C30,15 70,15 70,40" stroke="#C5A059" stroke-width="2"/>
-                  <rect x="20" y="40" width="60" height="45" rx="4"/>
-                  <path d="M20,55 L80,55" stroke-dasharray="2 2"/>
-                  <circle cx="50" cy="55" r="3" fill="#C5A059"/>
-                </svg>`;
-      } else if (product.category === 'watches') {
-        return `<svg viewBox="0 0 100 100" class="w-24 h-24 stroke-[#1A1A1A] fill-none stroke-[1.5] transition-transform duration-700 group-hover:scale-110">
-                  <rect x="38" y="15" width="24" height="70" rx="3" stroke="#C5A059" stroke-dasharray="3 1"/>
-                  <circle cx="50" cy="50" r="22" fill="white"/>
-                  <circle cx="50" cy="50" r="18"/>
-                  <line x1="50" y1="50" x2="50" y2="38" stroke-width="2"/>
-                  <line x1="50" y1="50" x2="60" y2="50"/>
-                </svg>`;
-      } else {
-        return `<svg viewBox="0 0 100 100" class="w-24 h-24 stroke-[#1A1A1A] fill-none stroke-[1.5] transition-transform duration-700 group-hover:scale-110">
-                  <path d="M10,50 L70,50" stroke-width="6" stroke-linecap="round"/>
-                  <path d="M10,50 L70,50" stroke="#C5A059" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 2"/>
-                  <rect x="70" y="42" width="18" height="16" rx="2" stroke-width="2"/>
-                  <circle cx="40" cy="50" r="1.5" fill="white"/>
-                  <circle cx="50" cy="50" r="1.5" fill="white"/>
-                </svg>`;
-      }
-    }
-
     // Enhanced HTML Template Generator For Product Items
     function buildCardMarkup(product) {
       return `
         <div class="product-card group relative overflow-hidden flex flex-col bg-white p-4 cursor-pointer" onclick="openProductModal('${product.id}')">
-          <div class="aspect-[3/4] bg-[#F9F7F2] flex items-center justify-center relative p-8 transition-all duration-700 group-hover:bg-[#EFEAE2]">
-            ${getProductSVG(product)}
+          <div class="aspect-[3/4] bg-[#F9F7F2] flex items-center justify-center relative transition-all duration-700 group-hover:bg-[#EFEAE2] img-zoom-container">
+            <img src="${product.img}" alt="${product.name}" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/0 group-hover:bg-black/[0.02] transition-all"></div>
             <div class="absolute bottom-4 left-4 right-4 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
               <button class="w-full bg-[#1A1A1A] text-white py-3 text-[9px] uppercase tracking-widest font-bold">
@@ -431,7 +399,7 @@
       document.getElementById('modal-product-cat').innerText = product.category;
       document.getElementById('modal-product-price').innerText = `৳${product.price.toLocaleString()}`;
       document.getElementById('modal-product-desc').innerText = product.desc;
-      document.getElementById('modal-img-container').innerHTML = getProductSVG(product);
+      document.getElementById('modal-img-container').innerHTML = `<img src="${product.img}" alt="${product.name}" class="max-w-full max-h-full object-contain">`;
 
       const addBtn = document.getElementById('modal-add-btn');
       addBtn.onclick = () => {
@@ -505,8 +473,8 @@
         innerContent += `
           <div class="flex flex-col sm:flex-row items-center justify-between border-b border-gray-100 pb-6 gap-4">
             <div class="flex items-center gap-4 w-full sm:w-auto">
-              <div class="w-16 h-20 bg-gray-50 flex items-center justify-center p-2 border border-gray-100">
-                ${getProductSVG(item.product)}
+              <div class="w-16 h-20 bg-gray-50 flex items-center justify-center border border-gray-100 img-zoom-container">
+                 <img src="${item.product.img}" alt="${item.product.name}" class="w-full h-full object-cover">
               </div>
               <div>
                 <h4 class="font-display text-base text-gray-800">${item.product.name}</h4>
@@ -549,7 +517,7 @@
       showPage('checkout');
     }
 
-    // Process Checkout and Submit Orders via EmailJS
+    // Process Checkout via Web3Forms API
     function processCheckout(event) {
       event.preventDefault();
       
@@ -561,25 +529,30 @@
       const grandTotal = cart.reduce((acc, item) => acc + (item.product.price * item.quantity), 0);
       let productDetails = cart.map(item => `${item.product.name} (Qty: ${item.quantity}) - ৳${(item.product.price * item.quantity).toLocaleString()}`).join('\n');
 
-      // EmailJS parameters mapping object
-      const templateParams = {
-        to_email: 'hello@sherenvogue.com',
-        customer_name: name,
-        customer_phone: phone,
-        customer_address: address,
-        payment_method: payment,
-        total_price: `৳${grandTotal.toLocaleString()}`,
-        products_ordered: productDetails
-      };
+      // Web3Forms Payload Structure
+      const formData = new FormData();
+      formData.append("access_key", "140b2d00-51ed-40d4-bc25-72bbcf4d92a9"); // আপনার স্ক্রিনশটের আসল কী
+      formData.append("subject", `New Luxury Order From: ${name}`);
+      formData.append("from_name", "SherenVogue Boutique");
+      formData.append("Customer Name", name);
+      formData.append("Phone Number", phone);
+      formData.append("Delivery Address", address);
+      formData.append("Payment Method", payment);
+      formData.append("Total Price", `৳${grandTotal.toLocaleString()}`);
+      formData.append("Products Ordered", productDetails);
 
-      // EmailJS Transmission Sequence
-      // Note: 'YOUR_SERVICE_ID' এবং 'YOUR_TEMPLATE_ID' পরিবর্তন করে আপনার নিজস্ব আইডি বসাবেন
-      emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-        .then(function(response) {
-           console.log('EMAIL SENT SUCCESS!', response.status, response.text);
-        }, function(error) {
-           console.log('EMAIL SEND FAILED...', error);
-        });
+      // Web3Forms Live Transmission Request
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+         console.log("Web3Forms Success Response:", data);
+      })
+      .catch(error => {
+         console.error("Web3Forms Error Log:", error);
+      });
 
       // Clear State variables on complete
       cart = [];
