@@ -20,4 +20,4 @@
 - `CNAME`: Custom domain configuration.
 
 ---
-© 2026 SherenVogue. Directed by Md. Rafiul Islam.
+© FOUNDER & CEO: MD. RAFIUL ISLAM
