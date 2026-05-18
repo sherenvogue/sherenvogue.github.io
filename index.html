@@ -38,7 +38,7 @@
 
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -74,14 +74,14 @@
   </style>
 </head>
 
-<body class="h-full overflow-x-hidden pb-20 md:pb-0">
+<body class="h-full overflow-x-hidden pb-16 md:pb-0">
   <div id="app" class="flex flex-col min-h-screen">
     
-    <div class="bg-[#1A1A1A] text-[#E2C68E] text-[9px] uppercase tracking-[0.35em] py-2.5 text-center font-medium px-4">
+    <div class="bg-[#1A1A1A] text-[#E2C68E] text-[9px] uppercase tracking-[0.35em] py-2 text-center font-medium">
       Complimentary Worldwide Shipping on Orders Over ৳5000
     </div>
 
-    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 px-4 md:px-12 py-3.5 md:py-4">
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 px-4 md:px-12 py-4">
       <div class="max-w-7xl mx-auto flex items-center justify-between">
         
         <div class="hidden md:flex gap-8 items-center">
@@ -90,17 +90,17 @@
         </div>
 
         <a href="#" onclick="showPage('home')" class="flex flex-col text-center group">
-          <span class="font-display text-xl md:text-2xl font-bold tracking-tight leading-none text-[#231F20]">
+          <span class="font-display text-2xl font-bold tracking-tight leading-none text-[#231F20]">
             SHEREN<span class="italic font-light text-[#C5A059]">Vogue</span>
           </span>
-          <span class="text-[6px] md:text-[7px] tracking-[0.6em] uppercase text-gray-400 mt-1 block font-medium">Haute Couture</span>
+          <span class="text-[7px] tracking-[0.6em] uppercase text-gray-400 mt-1 block font-medium">Haute Couture</span>
         </a>
 
-        <div class="flex items-center gap-4 md:gap-5">
-          <button onclick="showPage('shop')" class="p-1 text-gray-700 hover:text-[#C5A059] transition-colors"><i data-lucide="search" class="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]"></i></button>
-          <button onclick="showPage('shop')" class="p-1 text-gray-700 hover:text-[#C5A059] transition-colors"><i data-lucide="heart" class="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]"></i></button>
+        <div class="flex items-center gap-5">
+          <button onclick="showPage('shop')" class="p-1 text-gray-700 hover:text-[#C5A059] transition-colors"><i data-lucide="search" class="w-5 h-5 stroke-[1.5]"></i></button>
+          <button onclick="showPage('shop')" class="p-1 text-gray-700 hover:text-[#C5A059] transition-colors"><i data-lucide="heart" class="w-5 h-5 stroke-[1.5]"></i></button>
           <button onclick="showPage('cart')" class="relative p-1 text-gray-700 hover:text-[#C5A059] transition-colors">
-            <i data-lucide="shopping-bag" class="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]"></i>
+            <i data-lucide="shopping-bag" class="w-5 h-5 stroke-[1.5]"></i>
             <span id="cart-count" class="absolute -top-1 -right-1 bg-[#C5A059] text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
           </button>
         </div>
@@ -110,7 +110,7 @@
     <main id="pages-container" class="flex-grow">
       
       <div id="page-home" class="page-view">
-        <div class="max-w-5xl mx-auto px-4 pt-4 md:pt-6">
+        <div class="max-w-5xl mx-auto px-4 pt-6">
           
           <div class="relative rounded-3xl overflow-hidden shadow-sm bg-[#E3DCDB] aspect-[16/10] md:aspect-[21/9] flex items-center">
             <div class="absolute inset-0 z-0">
@@ -118,59 +118,59 @@
               <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent"></div>
             </div>
             
-            <div class="relative z-10 pl-5 md:pl-16 text-white max-w-xs md:max-w-md">
-              <p class="text-[8px] md:text-[11px] uppercase tracking-[0.4em] text-[#E2C68E] mb-1 md:mb-2 font-semibold">New Collection 2026</p>
-              <h1 class="font-display text-2xl md:text-5xl font-bold leading-tight tracking-tight mb-3 md:mb-4 text-white">Timeless <br>Elegance</h1>
-              <button onclick="showPage('shop')" class="inline-flex items-center gap-2 text-[10px] md:text-xs uppercase tracking-widest font-semibold border-b-2 border-white pb-0.5 hover:text-[#E2C68E] hover:border-[#E2C68E] transition-all">
+            <div class="relative z-10 pl-6 md:pl-16 text-white max-w-md">
+              <p class="text-[9px] md:text-[11px] uppercase tracking-[0.4em] text-[#E2C68E] mb-2 font-semibold">New Collection 2026</p>
+              <h1 class="font-display text-3xl md:text-5xl font-bold leading-tight tracking-tight mb-4 text-white">Timeless <br>Elegance</h1>
+              <button onclick="showPage('shop')" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold border-b-2 border-white pb-1 hover:text-[#E2C68E] hover:border-[#E2C68E] transition-all">
                 Shop Now <i data-lucide="arrow-right" class="w-3 h-3"></i>
               </button>
             </div>
           </div>
 
-          <div class="bg-[#231F20] rounded-2xl my-6 md:my-8 p-4 md:p-5 grid grid-cols-4 text-center divide-x divide-neutral-800 text-white shadow-md">
+          <div class="bg-[#231F20] rounded-2xl my-8 p-5 grid grid-cols-4 text-center divide-x divide-neutral-800 text-white shadow-md">
             <div>
-              <p class="font-display text-base md:text-2xl font-bold text-[#E2C68E]">50+</p>
+              <p class="font-display text-lg md:text-2xl font-bold text-[#E2C68E]">50+</p>
               <p class="text-[7px] md:text-[9px] text-neutral-400 uppercase tracking-widest mt-0.5">Products</p>
             </div>
             <div>
-              <p class="font-display text-base md:text-2xl font-bold text-[#E2C68E]">1</p>
+              <p class="font-display text-lg md:text-2xl font-bold text-[#E2C68E]">1</p>
               <p class="text-[7px] md:text-[9px] text-neutral-400 uppercase tracking-widest mt-0.5">Maison</p>
             </div>
             <div>
-              <p class="font-display text-base md:text-2xl font-bold text-[#E2C68E]">2K+</p>
+              <p class="font-display text-lg md:text-2xl font-bold text-[#E2C68E]">2K+</p>
               <p class="text-[7px] md:text-[9px] text-neutral-400 uppercase tracking-widest mt-0.5">Clients</p>
             </div>
             <div>
-              <p class="font-display text-base md:text-2xl font-bold text-[#E2C68E]">12</p>
+              <p class="font-display text-lg md:text-2xl font-bold text-[#E2C68E]">12</p>
               <p class="text-[7px] md:text-[9px] text-neutral-400 uppercase tracking-widest mt-0.5">Countries</p>
             </div>
           </div>
 
-          <section class="my-8 md:my-10">
-            <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-[#231F20] mb-4">Shop by Category</h2>
-            <div class="grid grid-cols-2 gap-3 md:gap-5">
+          <section class="my-10">
+            <h2 class="text-xs uppercase tracking-[0.3em] font-bold text-[#231F20] mb-5">Shop by Category</h2>
+            <div class="grid grid-cols-2 gap-4">
               
-              <div onclick="showPage('shop'); filterCategory('bags');" class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100">
-                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Ladies Bags">
-                <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6">
-                  <h3 class="text-white font-display text-sm md:text-xl font-bold">Ladies Bags</h3>
-                  <p class="text-[8px] md:text-[10px] text-neutral-300 uppercase tracking-wider mt-0.5">20 Styles</p>
+              <div onclick="showPage('shop'); filterCategory('bags');" class="relative rounded-2xl overflow-hidden aspect-[4/5] cursor-pointer group shadow-sm bg-stone-200">
+                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-4">
+                  <h3 class="text-white font-display text-base md:text-xl font-bold">Ladies Bags</h3>
+                  <p class="text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">20 Styles</p>
                 </div>
               </div>
 
-              <div class="grid grid-rows-2 gap-3 md:gap-4">
-                <div onclick="showPage('shop'); filterCategory('watches');" class="relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm bg-stone-100">
-                  <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Women's Watches">
-                  <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-4">
-                    <h3 class="text-white font-display text-sm md:text-lg font-bold">Women's Watches</h3>
-                    <p class="text-[8px] md:text-[10px] text-neutral-300 uppercase tracking-wider mt-0.5">15 Styles</p>
+              <div class="flex flex-col gap-4">
+                <div onclick="showPage('shop'); filterCategory('watches');" class="relative rounded-2xl overflow-hidden flex-1 cursor-pointer group shadow-sm bg-stone-200 aspect-[4/2.3]">
+                  <img src="https://images.unsplash.com/photo-1619229666797-b5578991188c?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                  <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-4">
+                    <h3 class="text-white font-display text-base md:text-lg font-bold">Women's Watches</h3>
+                    <p class="text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">15 Styles</p>
                   </div>
                 </div>
-                <div onclick="showPage('shop'); filterCategory('watches');" class="relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm bg-stone-100">
-                  <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Men's Watches">
-                  <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-4">
-                    <h3 class="text-white font-display text-sm md:text-lg font-bold">Men's Watches</h3>
-                    <p class="text-[8px] md:text-[10px] text-neutral-300 uppercase tracking-wider mt-0.5">15 Styles</p>
+                <div onclick="showPage('shop'); filterCategory('watches');" class="relative rounded-2xl overflow-hidden flex-1 cursor-pointer group shadow-sm bg-stone-200 aspect-[4/2.3]">
+                  <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                  <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-4">
+                    <h3 class="text-white font-display text-base md:text-lg font-bold">Men's Watches</h3>
+                    <p class="text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">15 Styles</p>
                   </div>
                 </div>
               </div>
@@ -178,12 +178,12 @@
             </div>
           </section>
 
-          <section class="my-10 md:my-12">
-            <div class="flex justify-between items-center mb-5">
-              <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-[#231F20]">Featured Masterpieces</h2>
-              <button onclick="showPage('shop')" class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-[#C5A059] border-b border-[#C5A059] pb-0.5">See All</button>
+          <section class="my-12">
+            <div class="flex justify-between items-center mb-6">
+              <h2 class="text-xs uppercase tracking-[0.3em] font-bold text-[#231F20]">Featured Masterpieces</h2>
+              <button onclick="showPage('shop')" class="text-[10px] uppercase tracking-widest font-bold text-[#C5A059] border-b border-[#C5A059] pb-0.5">See All</button>
             </div>
-            <div id="featured-products" class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            <div id="featured-products" class="grid grid-cols-2 md:grid-cols-4 gap-4">
               </div>
           </section>
 
@@ -191,56 +191,56 @@
       </div>
       
       <div id="page-shop" class="page-view hidden">
-        <div class="py-6 md:py-8 bg-white text-center border-b border-gray-100">
-            <h1 class="font-display text-2xl md:text-3xl mb-2 font-bold text-[#231F20]">Maison Collection</h1>
-            <div id="category-filters" class="flex justify-center gap-4 md:gap-5 flex-wrap mt-2 px-4">
-                <button onclick="filterCategory('all')" id="filter-all" class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-[#C5A059] text-[#C5A059]">Everything</button>
-                <button onclick="filterCategory('bags')" id="filter-bags" class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-transparent text-gray-400">Bags</button>
-                <button onclick="filterCategory('watches')" id="filter-watches" class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-transparent text-gray-400">Timepieces</button>
-                <button onclick="filterCategory('belts')" id="filter-belts" class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-transparent text-gray-400">Accessories</button>
+        <div class="py-8 bg-white text-center border-b border-gray-100">
+            <h1 class="font-display text-3xl mb-3 font-bold text-[#231F20]">Maison Collection</h1>
+            <div id="category-filters" class="flex justify-center gap-5 flex-wrap mt-2 px-4">
+                <button onclick="filterCategory('all')" id="filter-all" class="text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-[#C5A059] text-[#C5A059]">Everything</button>
+                <button onclick="filterCategory('bags')" id="filter-bags" class="text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-transparent text-gray-400">Bags</button>
+                <button onclick="filterCategory('watches')" id="filter-watches" class="text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-transparent text-gray-400">Timepieces</button>
+                <button onclick="filterCategory('belts')" id="filter-belts" class="text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-transparent text-gray-400">Accessories</button>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-3 md:px-4 py-6 md:py-8">
-            <div id="shop-products" class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+        <div class="max-w-7xl mx-auto px-4 py-8">
+            <div id="shop-products" class="grid grid-cols-2 md:grid-cols-4 gap-4">
                </div>
         </div>
       </div>
 
       <div id="page-cart" class="page-view hidden">
-        <div class="max-w-2xl mx-auto px-4 py-8 md:py-10">
-          <h1 class="font-display text-2xl md:text-3xl mb-6 md:mb-8 font-bold text-center text-[#231F20]">Your Atelier Bag</h1>
-          <div id="cart-container" class="bg-white rounded-2xl border border-gray-100 p-5 md:p-6 shadow-sm">
+        <div class="max-w-2xl mx-auto px-4 py-10">
+          <h1 class="font-display text-3xl mb-8 font-bold text-center text-[#231F20]">Your Atelier Bag</h1>
+          <div id="cart-container" class="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
             </div>
         </div>
       </div>
 
       <div id="page-checkout" class="page-view hidden">
-        <div class="max-w-xl mx-auto px-4 py-8 md:py-10">
-          <h1 class="font-display text-2xl md:text-3xl mb-2 font-bold text-center text-[#231F20]">Maison Shipping</h1>
-          <p class="text-[9px] md:text-[10px] text-gray-400 uppercase tracking-widest text-center mb-6 md:mb-8">Complete your luxury procurement order</p>
-          <form id="checkout-form" onsubmit="processCheckout(event)" class="bg-white rounded-2xl border border-gray-100 p-5 md:p-6 space-y-4 md:space-y-5 shadow-sm">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="max-w-xl mx-auto px-4 py-10">
+          <h1 class="font-display text-3xl mb-2 font-bold text-center text-[#231F20]">Maison Shipping</h1>
+          <p class="text-[10px] text-gray-400 uppercase tracking-widest text-center mb-8">Complete your luxury procurement order</p>
+          <form id="checkout-form" onsubmit="processCheckout(event)" class="bg-white rounded-2xl border border-gray-100 p-6 space-y-5 shadow-sm">
+            <div class="grid grid-cols-1 gap-4">
               <div>
                 <label class="block text-[9px] uppercase tracking-widest text-gray-400 mb-1.5 font-bold">Full Name</label>
-                <input type="text" id="cust-name" required class="w-full border border-gray-200 rounded-xl px-4 py-2.5 md:py-3 text-sm focus:outline-none focus:border-[#C5A059] bg-stone-50/50">
+                <input type="text" id="cust-name" required class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#C5A059] bg-stone-50/50">
               </div>
               <div>
-                <label class="block text-[9px] uppercase tracking-widest text-gray-400 mb-1.5 font-bold">Email Address</label>
-                <input type="email" id="cust-email" required class="w-full border border-gray-200 rounded-xl px-4 py-2.5 md:py-3 text-sm focus:outline-none focus:border-[#C5A059] bg-stone-50/50">
+                <label class="block text-[9px] uppercase tracking-widest text-gray-400 mb-1.5 font-bold">Email Address (Gmail/Zoho)</label>
+                <input type="email" id="cust-email" required class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#C5A059] bg-stone-50/50">
               </div>
             </div>
             <div>
               <label class="block text-[9px] uppercase tracking-widest text-gray-400 mb-1.5 font-bold">Delivery Address</label>
-              <textarea id="cust-address" required rows="3" class="w-full border border-gray-200 rounded-xl px-4 py-2.5 md:py-3 text-sm focus:outline-none focus:border-[#C5A059] bg-stone-50/50"></textarea>
+              <textarea id="cust-address" required rows="3" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#C5A059] bg-stone-50/50"></textarea>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label class="block text-[9px] uppercase tracking-widest text-gray-400 mb-1.5 font-bold">Phone Number</label>
-                <input type="tel" id="cust-phone" required class="w-full border border-gray-200 rounded-xl px-4 py-2.5 md:py-3 text-sm focus:outline-none focus:border-[#C5A059] bg-stone-50/50">
+                <input type="tel" id="cust-phone" required class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#C5A059] bg-stone-50/50">
               </div>
               <div>
                 <label class="block text-[9px] uppercase tracking-widest text-gray-400 mb-1.5 font-bold">Preferred Payment</label>
-                <select id="cust-payment" class="w-full border border-gray-200 rounded-xl px-4 py-2.5 md:py-3 text-sm focus:outline-none focus:border-[#C5A059] bg-white">
+                <select id="cust-payment" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#C5A059] bg-white">
                   <option>Cash On Delivery (COD)</option>
                   <option>Premium Card Booking</option>
                 </select>
@@ -248,10 +248,10 @@
             </div>
             <div class="pt-4 border-t border-gray-100 flex justify-between items-center">
               <div>
-                <p class="text-[9px] md:text-[10px] text-gray-400 uppercase tracking-wider font-bold">Total Payable</p>
-                <p id="checkout-total-price" class="text-lg md:text-xl font-bold text-[#231F20]">৳0</p>
+                <p class="text-[10px] text-gray-400 uppercase tracking-wider font-bold">Total Payable</p>
+                <p id="checkout-total-price" class="text-xl font-bold text-[#231F20]">৳0</p>
               </div>
-              <button type="submit" class="bg-[#231F20] text-white px-5 py-3 text-[10px] uppercase tracking-widest font-bold rounded-xl hover:bg-[#C5A059] transition-all shadow-sm">
+              <button type="submit" class="bg-[#231F20] text-white px-6 py-3.5 text-[10px] uppercase tracking-widest font-bold rounded-xl hover:bg-[#C5A059] transition-all shadow-sm">
                 Place Secure Order
               </button>
             </div>
@@ -260,13 +260,12 @@
       </div>
 
       <div id="page-success" class="page-view hidden">
-        <div class="max-w-md mx-auto px-4 py-16 md:py-20 text-center">
+        <div class="max-w-md mx-auto px-4 py-20 text-center">
           <div class="w-14 h-14 bg-white border border-[#C5A059] rounded-full flex items-center justify-center mx-auto mb-5 text-[#C5A059] shadow-sm">
             <i data-lucide="check" class="w-5 h-5 stroke-[2.5]"></i>
           </div>
-          <h1 class="font-display text-2xl md:text-3xl font-bold mb-2 text-[#231F20]">Order Confirmed</h1>
-          <p class="text-gray-400 text-xs leading-relaxed mb-5 px-2">Thank you for your procurement. Your artisan request has been safely received. Our concierge team will reach out shortly via email.</p>
-          <p class="text-[#C5A059] text-[10px] uppercase tracking-widest font-bold mb-6">Maison Signature: Md. Rafiul Islam</p>
+          <h1 class="font-display text-3xl font-bold mb-2 text-[#231F20]">Order Confirmed</h1>
+          <p class="text-gray-400 text-xs leading-relaxed mb-6">Thank you for your procurement. Your artisan request has been safely received. Our concierge team will reach out shortly via email.</p>
           <button onclick="showPage('home')" class="bg-[#231F20] text-white px-6 py-3.5 text-[9px] uppercase tracking-widest hover:bg-[#C5A059] transition-all font-bold rounded-xl shadow-sm">
             Return to Main Entry
           </button>
@@ -297,20 +296,20 @@
       </div>
     </div>
 
-    <div class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-neutral-100 py-3 px-6 flex justify-between items-center md:hidden shadow-lg rounded-t-2xl">
-      <button onclick="showPage('home')" class="flex flex-col items-center gap-1 text-gray-400 hover:text-[#C5A059] transition-colors focus:text-[#C5A059]">
+    <div class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-neutral-100 py-2.5 px-6 flex justify-between items-center md:hidden shadow-lg">
+      <button onclick="showPage('home')" class="flex flex-col items-center gap-0.5 text-gray-400 hover:text-[#C5A059] transition-colors focus:text-[#C5A059]">
         <i data-lucide="home" class="w-5 h-5 stroke-[1.5]"></i>
         <span class="text-[8px] font-bold tracking-wider">Home</span>
       </button>
-      <button onclick="showPage('shop'); filterCategory('all');" class="flex flex-col items-center gap-1 text-gray-400 hover:text-[#C5A059] transition-colors focus:text-[#C5A059]">
+      <button onclick="showPage('shop'); filterCategory('all');" class="flex flex-col items-center gap-0.5 text-gray-400 hover:text-[#C5A059] transition-colors focus:text-[#C5A059]">
         <i data-lucide="grid" class="w-5 h-5 stroke-[1.5]"></i>
         <span class="text-[8px] font-bold tracking-wider">Shop</span>
       </button>
-      <button onclick="showPage('cart')" class="flex flex-col items-center gap-1 text-gray-400 hover:text-[#C5A059] transition-colors focus:text-[#C5A059]">
+      <button onclick="showPage('cart')" class="flex flex-col items-center gap-0.5 text-gray-400 hover:text-[#C5A059] transition-colors focus:text-[#C5A059]">
         <i data-lucide="shopping-cart" class="w-5 h-5 stroke-[1.5]"></i>
         <span class="text-[8px] font-bold tracking-wider">Cart</span>
       </button>
-      <button onclick="showPage('shop')" class="flex flex-col items-center gap-1 text-gray-400 hover:text-[#C5A059] transition-colors focus:text-[#C5A059]">
+      <button onclick="showPage('shop')" class="flex flex-col items-center gap-0.5 text-gray-400 hover:text-[#C5A059] transition-colors focus:text-[#C5A059]">
         <i data-lucide="heart" class="w-5 h-5 stroke-[1.5]"></i>
         <span class="text-[8px] font-bold tracking-wider">Wishlist</span>
       </button>
@@ -334,21 +333,22 @@
         </div>
         <div>
           <h4 class="text-[9px] uppercase tracking-[0.3em] mb-4 text-[#C5A059] font-bold">Newsletter Guild</h4>
-          <div class="flex border-b border-white/20 pb-1.5">
-            <input type="email" placeholder="Enter dispatch email" class="bg-transparent text-xs w-full outline-none text-white placeholder-neutral-600">
-            <button class="text-[9px] uppercase tracking-widest text-[#C5A059] font-bold ml-2">Join</button>
-          </div>
+          <form id="newsletter-form" onsubmit="processNewsletter(event)" class="flex border-b border-white/20 pb-1.5">
+            <input type="email" id="news-email" required placeholder="Enter dispatch email" class="bg-transparent text-xs w-full outline-none text-white placeholder-neutral-600">
+            <button type="submit" class="text-[9px] uppercase tracking-widest text-[#C5A059] font-bold ml-2">Join</button>
+          </form>
+          <p id="news-success" class="text-[10px] text-[#C5A059] mt-2 hidden">✓ Welcome to the Maison Guild!</p>
         </div>
       </div>
       
       <div class="text-center pt-6 text-[8px] tracking-[0.25em] text-neutral-600 uppercase font-bold">
-        &copy; 2026 SHERENVOGUE. ALL RIGHTS RESERVED. FOUNDER & CEO: MD. RAFIUL ISLAM.
+        &copy; 2026 SHERENVOGUE ATELIER. ALL RIGHTS RESERVED. FOUNDER & CEO: MD. RAFIUL ISLAM.
       </div>
     </footer>
   </div>
 
   <script>
-    // 50 Luxury SherenVogue Products Data Model Architecture (HD Photos Included)
+    // 50 Luxury SherenVogue Products Data Model Architecture
     const products = [
       // CATEGORY: BAGS (20 items)
       { id: "sv-101", name: "Aurelia Calfskin Tote", category: "bags", price: 18500, featured: true, desc: "Hand-stitched structural tote constructed from graded full-grain calfskin.", img: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800&auto=format&fit=crop" },
@@ -410,7 +410,7 @@
     let cart = [];
     let currentCategory = 'all';
 
-    // Router
+    // Router Engine
     function showPage(pageId) {
       document.querySelectorAll('.page-view').forEach(p => p.classList.add('hidden'));
       const activePage = document.getElementById(`page-${pageId}`);
@@ -621,6 +621,34 @@
       synchronizeCartUI();
       document.getElementById('checkout-form').reset();
       showPage('success');
+    }
+
+    // 🌟 Process Newsletter API Dynamic Transmission Hook
+    function processNewsletter(event) {
+      event.preventDefault();
+      const newsEmail = document.getElementById('news-email').value;
+
+      const formData = new FormData();
+      formData.append("access_key", "140b2d00-51ed-40d4-bc25-72bbcf4d92a9"); // আপনার অ্যাক্সেস কী
+      formData.append("subject", "New Newsletter Subscriber Alert!");
+      formData.append("from_name", "SherenVogue Newsletter Guild");
+      formData.append("Subscriber Email Address", newsEmail);
+
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if(data.success) {
+          document.getElementById('newsletter-form').reset();
+          const successMsg = document.getElementById('news-success');
+          successMsg.classList.remove('hidden');
+          setTimeout(() => {
+            successMsg.classList.add('hidden');
+          }, 4000);
+        }
+      });
     }
 
     window.addEventListener('DOMContentLoaded', () => {
