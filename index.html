@@ -9,6 +9,14 @@
   <meta name="keywords" content="SherenVogue, Luxury Fashion, Leather Bags, Premium Watches, Fashion Designer, CEO Rafiul Islam, Rafiul Islam SherenVogue">
   <meta name="author" content="Md. Rafiul Islam">
 
+  <!-- SPEED OPTIMIZATION: DNS Prefetching & Preconnect to CDN/Image Servers -->
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="dns-prefetch" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -36,6 +44,7 @@
   <meta property="og:url" content="https://sherenvogue.com">
   <meta property="og:type" content="website">
 
+  <!-- Scripts remain responsive but network-preconnected above -->
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -358,7 +367,7 @@
       { id: "sv-113", name: "Luminary Micro-Crossbody Pochette", category: "bags", price: 14500, featured: false, desc: "Dainty sculptural statement micro-bag for absolute essentials.", img: "https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?q=80&w=800&auto=format&fit=crop" },
       { id: "sv-116", name: "Elysian Half-Moon Shoulder Bag", category: "bags", price: 19500, featured: false, desc: "Curved sleek half-moon silhouette profile highlighting luxury minimalist piping.", img: "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?q=80&w=800&auto=format&fit=crop" },
       { id: "sv-119", name: "Prestige Monogram Attache Briefcase", category: "bags", price: 28000, featured: false, desc: "Elite corporate briefcase showcasing monogram patterns and dual combination locks.", img: "https://images.unsplash.com/photo-1549497538-303791108f94?q=80&w=800&auto=format&fit=crop" },
-      { id: "sv-121", name: "Seraphina Suede Hobo Bag", category: "bags", price: 17200, featured: false, desc: "Slouchy elegant premium hobo layout cut from top-grade earth-toned suede.", img: "https://images.unsplash.com/photo-1600857062241-98e5dba7f214?q=80&w=800&auto=format&fit=crop" },
+      { id: "sv-121", name: "Seraphina Suede Hobo Bag", category: "bags", price: 17200, featured: false, desc: "Slouchy elegant premium hobo layout cut from top-grade earth-toned suede.", img: "https://images.unsplash.com/photo-1600857062241-985dba7f214?q=80&w=800&auto=format&fit=crop" },
       { id: "sv-122", name: "Amour Quilted Chain Bag", category: "bags", price: 21500, featured: false, desc: "Meticulously quilted lambskin featuring iconic interlaced premium gold chain layout.", img: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800&auto=format&fit=crop" },
       { id: "sv-123", name: "Valerie Structured Doctor Bag", category: "bags", price: 24000, featured: false, desc: "Bespoke vintage framing meeting elite modern lines in rich dark oxblood leather.", img: "https://images.unsplash.com/photo-1605733513597-a8f8d410fe3c?q=80&w=800&auto=format&fit=crop" },
       { id: "sv-124", name: "Monogram Canvas Explorer Duffle", category: "bags", price: 29500, featured: true, desc: "Water-resistant elite travel canvas duffle lined with premium hand-burnished vachetta.", img: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800&auto=format&fit=crop" },
@@ -410,13 +419,18 @@
     let cart = [];
     let currentCategory = 'all';
 
-    // Router
+    // ROUTER MODIFICATION: Trigger layout redraw & forced scroll event to fix lazy-loading in hidden tabs
     function showPage(pageId) {
       document.querySelectorAll('.page-view').forEach(p => p.classList.add('hidden'));
       const activePage = document.getElementById(`page-${pageId}`);
       if(activePage) {
         activePage.classList.remove('hidden');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // Dynamic visibility force: ensures the browser instantly renders lazy images upon tab entry
+        setTimeout(() => {
+          window.dispatchEvent(new Event('scroll'));
+        }, 80);
       }
     }
 
@@ -469,6 +483,9 @@
         targetBtn.classList.add('border-[#C5A059]', 'text-[#C5A059]');
       }
       renderProductGrids();
+      
+      // Instantly wake up lazy-loader after category re-render
+      setTimeout(() => { window.dispatchEvent(new Event('scroll')); }, 50);
     }
 
     function openProductModal(productId) {
