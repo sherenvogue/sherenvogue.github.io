@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Opora's Shop - Fast & Secure E-Commerce</title>
-    <meta name="description" content="Buy the best products online with fast delivery and easy order cancellation.">
-    <meta name="keywords" content="online shop, e-commerce, buy products, fast delivery, opora shop">
+    <title>SherenVogue - Premium Online Shopping</title>
+    <meta name="description" content="Shop the latest fashion and lifestyle trends at SherenVogue. Fast shipping, easy checkout, and seamless order management.">
+    <meta name="keywords" content="SherenVogue, online shopping, fashion shop, buy products online, sherenvogue.com, bangladesh ecommerce">
     <meta name="robots" content="index, follow">
-    <meta name="author" content="Opora">
+    <meta name="author" content="SherenVogue">
+    
+    <link rel="canonical" href="https://sherenvogue.com/">
     
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Opora's Shop - Fast & Secure E-Commerce">
-    <meta property="og:description" content="Buy the best products online with easy order tracking.">
+    <meta property="og:title" content="SherenVogue - Premium Online Shopping">
+    <meta property="og:description" content="Explore top-quality products on SherenVogue with fast delivery and hassle-free return/cancel options.">
+    <meta property="og:url" content="https://sherenvogue.com/">
+    <meta property="og:site_name" content="SherenVogue">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -24,21 +28,21 @@
         })();
     </script>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-gray-50 font-sans">
 
-    <header class="bg-blue-600 text-white p-4 sticky top-0 z-50 shadow-md">
+    <header class="bg-slate-900 text-white p-4 sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-            <h1 class="text-2xl font-bold tracking-wide">Opora's Shop</h1>
+            <a href="https://sherenvogue.com" class="text-2xl font-extrabold tracking-wider text-amber-400">SherenVogue</a>
             
             <div class="relative w-full md:w-1/2">
-                <input type="text" id="searchBar" placeholder="প্রোডাক্ট খুঁজুন (যেমন: Phone, Laptop...)" class="w-full p-2 pl-4 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <input type="text" id="searchBar" placeholder="প্রোডাক্ট খুঁজুন (যেমন: Phone, Laptop, Dress...)" class="w-full p-2 pl-4 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-amber-400">
             </div>
             
             <div class="flex gap-4">
-                <button onclick="scrollToSection('cart-section')" class="bg-blue-700 px-4 py-2 rounded-lg hover:bg-blue-800 transition">
-                    কার্ট (<span id="cartCount">0</span>)
+                <button onclick="scrollToSection('cart-section')" class="bg-slate-800 px-4 py-2 rounded-lg border border-amber-400 hover:bg-slate-700 transition">
+                    কার্ট (<span id="cartCount" class="text-amber-400">0</span>)
                 </button>
-                <button onclick="scrollToSection('order-section')" class="bg-green-600 px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                <button onclick="scrollToSection('order-section')" class="bg-amber-500 text-slate-950 font-bold px-4 py-2 rounded-lg hover:bg-amber-400 transition">
                     অর্ডার ট্র্যাক (<span id="orderCount">0</span>)
                 </button>
             </div>
@@ -48,31 +52,31 @@
     <main class="container mx-auto p-4 grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         <section class="lg:col-span-2">
-            <h2 class="text-xl font-bold mb-4 text-gray-700">আমাদের প্রোডাক্টসমূহ</h2>
+            <h2 class="text-xl font-bold mb-4 text-slate-800 border-l-4 border-amber-500 pl-2">আমাদের এক্সক্লুসিভ কালেকশন</h2>
             <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 </div>
         </section>
 
         <aside class="space-y-6">
             
-            <div id="cart-section" class="bg-white p-4 rounded-xl shadow-md border border-gray-200">
-                <h2 class="text-xl font-bold mb-4 text-gray-800 border-b pb-2">শপিং কার্ট</h2>
+            <div id="cart-section" class="bg-white p-4 rounded-xl shadow-md border border-gray-100">
+                <h2 class="text-xl font-bold mb-4 text-slate-800 border-b pb-2">শপিং কার্ট</h2>
                 <div id="cartItems" class="space-y-3 max-h-60 overflow-y-auto mb-4">
-                    <p class="text-gray-500 text-center">কার্ট খালি আছে</p>
+                    <p class="text-gray-400 text-center py-4">আপনার কার্টটি এখন খালি আছে</p>
                 </div>
                 <div class="flex justify-between font-bold text-lg mb-4 border-t pt-2">
-                    <span>মোট দাম:</span>
-                    <span>৳<span id="cartTotal">0</span></span>
+                    <span>সর্বমোট মূল্য:</span>
+                    <span class="text-amber-600">৳<span id="cartTotal">0</span></span>
                 </div>
-                <button id="checkoutBtn" onclick="confirmOrder()" class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                <button id="checkoutBtn" onclick="confirmOrder()" class="w-full bg-slate-900 text-amber-400 py-3 rounded-lg font-bold hover:bg-slate-800 transition disabled:opacity-50 disabled:cursor-not-allowed" disabled>
                     অর্ডার কনফার্ম করুন
                 </button>
             </div>
 
-            <div id="order-section" class="bg-white p-4 rounded-xl shadow-md border border-gray-200">
-                <h2 class="text-xl font-bold mb-4 text-green-600 border-b pb-2">আপনার কনফার্মড অর্ডার</h2>
+            <div id="order-section" class="bg-white p-4 rounded-xl shadow-md border border-gray-100">
+                <h2 class="text-xl font-bold mb-4 text-emerald-600 border-b pb-2">আপনার কনফার্মড অর্ডার</h2>
                 <div id="orderStatusList" class="space-y-4">
-                    <p class="text-gray-500 text-center">এখনো কোনো অর্ডার করা হয়নি</p>
+                    <p class="text-gray-400 text-center py-4">এখনো কোনো অর্ডার প্লেস করা হয়নি</p>
                 </div>
             </div>
 
@@ -80,36 +84,36 @@
     </main>
 
     <script>
-        // ডামি প্রোডাক্ট ডাটা (এখানে আপনি আপনার প্রোডাক্ট যোগ করতে পারেন)
+        // প্রোডাক্ট ডাটাবেস (আপনার ইচ্ছেমতো নাম ও দাম পরিবর্তন করতে পারেন)
         const products = [
-            { id: 1, name: "Smart Phone Pro", price: 25000, category: "phone", img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300" },
-            { id: 2, name: "Wireless Headphones", price: 3500, category: "audio", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300" },
-            { id: 3, name: "Sleek Laptop Core i5", price: 55000, category: "laptop", img: "https://images.unsplash.com/photo-1496181130204-755241524eab?w=300" },
-            { id: 4, name: "Smart Watch Series 7", price: 4500, category: "watch", img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300" }
+            { id: 1, name: "Premium Smart Phone", price: 25000, category: "electronics", img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300" },
+            { id: 2, name: "Luxury Wireless Headphones", price: 3500, category: "audio", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300" },
+            { id: 3, name: "Sleek Ultrabook Laptop", price: 55000, category: "electronics", img: "https://images.unsplash.com/photo-1496181130204-755241524eab?w=300" },
+            { id: 4, name: "Vogue Edition Smart Watch", price: 4500, category: "accessories", img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300" }
         ];
 
         let cart = [];
         let orders = [];
 
-        // ১. প্রোডাক্ট রেন্ডার এবং সার্চ বার ফাংশন (Search Bar Working)
+        // ১. প্রোডাক্ট রেন্ডার এবং ইনস্ট্যান্ট সার্চবার ওয়ার্কিং
         function displayProducts(productsToRender) {
             const productGrid = document.getElementById('productGrid');
             productGrid.innerHTML = "";
             
             if(productsToRender.length === 0) {
-                productGrid.innerHTML = `<p class="text-gray-500 col-span-2 text-center py-8">কোনো প্রোডাক্ট পাওয়া যায়নি!</p>`;
+                productGrid.innerHTML = `<p class="text-gray-500 col-span-2 text-center py-8">দুঃখিত, কোনো প্রোডাক্ট খুঁজে পাওয়া যায়নি!</p>`;
                 return;
             }
 
             productsToRender.forEach(product => {
                 productGrid.innerHTML += `
-                    <div class="bg-white p-4 rounded-xl shadow hover:shadow-lg transition flex flex-col justify-between border">
-                        <img src="${product.img}" alt="${product.name}" class="w-full h-40 object-cover rounded-lg mb-3">
+                    <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition flex flex-col justify-between border border-gray-100">
+                        <img src="${product.img}" alt="${product.name}" class="w-full h-44 object-cover rounded-lg mb-3">
                         <div>
-                            <h3 class="font-bold text-lg text-gray-800">${product.name}</h3>
-                            <p class="text-blue-600 font-semibold mt-1">৳${product.price}</p>
+                            <h3 class="font-bold text-lg text-slate-800">${product.name}</h3>
+                            <p class="text-amber-600 font-bold mt-1 text-xl">৳${product.price}</p>
                         </div>
-                        <button onclick="addToCart(${product.id})" class="mt-3 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-md transition text-sm font-medium">
+                        <button onclick="addToCart(${product.id})" class="mt-4 w-full bg-slate-900 hover:bg-slate-800 text-amber-400 py-2.5 rounded-md transition text-sm font-bold tracking-wide">
                             কার্টে যোগ করুন
                         </button>
                     </div>
@@ -117,7 +121,7 @@
             });
         }
 
-        // রিয়েল-টাইম সার্চ ইনপুট লিসেনার
+        // রিয়েল-টাইম সার্চ লিসেনার
         document.getElementById('searchBar').addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
             const filteredProducts = products.filter(product => 
@@ -126,7 +130,7 @@
             displayProducts(filteredProducts);
         });
 
-        // ২. কার্ট ফাংশনালিটি (Add, Remove, Update)
+        // ২. কার্ট হ্যান্ডলিং
         function addToCart(id) {
             const product = products.find(p => p.id === id);
             const cartItem = cart.find(item => item.id === id);
@@ -155,7 +159,7 @@
             let count = 0;
 
             if (cart.length === 0) {
-                cartItemsContainer.innerHTML = `<p class="text-gray-500 text-center">কার্ট খালি আছে</p>`;
+                cartItemsContainer.innerHTML = `<p class="text-gray-400 text-center py-4">আপনার কার্টটি এখন খালি আছে</p>`;
                 checkoutBtn.disabled = true;
             } else {
                 checkoutBtn.disabled = false;
@@ -163,12 +167,12 @@
                     total += item.price * item.quantity;
                     count += item.quantity;
                     cartItemsContainer.innerHTML += `
-                        <div class="flex justify-between items-center bg-gray-50 p-2 rounded-lg border text-sm">
+                        <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg border border-gray-100 text-sm">
                             <div class="flex-1">
-                                <h4 class="font-semibold text-gray-800">${item.name}</h4>
-                                <p class="text-gray-600">৳${item.price} x ${item.quantity}</p>
+                                <h4 class="font-bold text-slate-800">${item.name}</h4>
+                                <p class="text-gray-500 font-medium">৳${item.price} x ${item.quantity}</p>
                             </div>
-                            <button onclick="removeFromCart(${item.id})" class="text-red-500 hover:text-red-700 ml-2 font-bold">✕</button>
+                            <button onclick="removeFromCart(${item.id})" class="text-rose-500 hover:text-rose-700 ml-2 font-bold p-1">✕</button>
                         </div>
                     `;
                 });
@@ -178,11 +182,11 @@
             cartTotal.innerText = total;
         }
 
-        // ৩. অর্ডার কনফার্মেশন (User Order View & Email Alert)
+        // ৩. অর্ডার কনফার্মেশন এবং মেইল অ্যালার্ট
         function confirmOrder() {
             if (cart.length === 0) return;
 
-            const orderId = '#ORD' + Math.floor(100000 + Math.random() * 900000);
+            const orderId = '#SV' + Math.floor(100000 + Math.random() * 900000);
             const currentOrder = {
                 id: orderId,
                 items: [...cart],
@@ -192,67 +196,67 @@
 
             orders.push(currentOrder);
             
-            // মেইল ডাটা তৈরি (আপনার মেইলে যাবে)
+            // মেইল ডাটা প্রিপারেশন
             let productDetails = cart.map(item => `${item.name} (${item.quantity}টি) - ৳${item.price * item.quantity}`).join(', ');
             
             sendEmailNotification(
-                "নতুন অর্ডার এসেছে! 🎉", 
-                `অর্ডার আইডি: ${orderId}\nপ্রোডাক্টসমূহ: ${productDetails}\nসর্বমোট মূল্য: ৳${currentOrder.total}\nসময়: ${currentOrder.date}`
+                "নতুন অর্ডার এসেছে! 🎉 - SherenVogue", 
+                `অর্ডার আইডি: ${orderId}\nডোমেইন: sherenvogue.com\nপ্রোডাক্টসমূহ: ${productDetails}\nসর্বমোট মূল্য: ৳${currentOrder.total}\nঅর্ডারের সময়: ${currentOrder.date}`
             );
 
-            // কার্ট খালি করা
+            // কার্ট রিসেট
             cart = [];
             updateCartUI();
             updateOrderUI();
             
-            alert(`আপনার অর্ডার সফলভাবে কনফার্ম হয়েছে! অর্ডার আইডি: ${orderId}`);
+            alert(`ধন্যবাদ! আপনার অর্ডারটি সফল হয়েছে। অর্ডার আইডি: ${orderId}`);
         }
 
-        // ৪. অর্ডার ক্যানসেল অপশন (Cancel Option & Email Alert)
+        // ৪. অর্ডার বাতিল করার অপশন ও ইমেইল নোটিফিকেশন
         function cancelOrder(orderId) {
             const orderToCancel = orders.find(o => o.id === orderId);
             if (!orderToCancel) return;
 
-            if (confirm("আপনি কি নিশ্চিত যে এই অর্ডারটি বাতিল করতে চান?")) {
+            if (confirm("আপনি কি নিশ্চিত যে SherenVogue-এর এই অর্ডারটি বাতিল করতে চান?")) {
                 orders = orders.filter(o => o.id !== orderId);
                 
                 // ক্যানসেল মেইল নোটিফিকেশন
                 sendEmailNotification(
-                    "অর্ডার বাতিল করা হয়েছে! ❌", 
-                    `অর্ডার আইডি: ${orderId} ক্যানসেল করা হয়েছে।\nমোট মূল্য ছিল: ৳${orderToCancel.total}`
+                    "অর্ডার বাতিল করা হয়েছে! ❌ - SherenVogue", 
+                    `অর্ডার আইডি: ${orderId} কাস্টমার দ্বারা ক্যানসেল করা হয়েছে।\nডোমেইন: sherenvogue.com\nবাতিলকৃত অর্ডারের মোট মূল্য ছিল: ৳${orderToCancel.total}`
                 );
 
                 updateOrderUI();
-                alert(`অর্ডার ${orderId} বাতিল করা হয়েছে।`);
+                alert(`অর্ডার ${orderId} সফলভাবে বাতিল করা হয়েছে।`);
             }
         }
 
-        // অর্ডার লিস্ট আপডেট UI
+        // অর্ডার লিস্ট ফ্রন্টএন্ড UI আপডেট
         function updateOrderUI() {
             const orderStatusList = document.getElementById('orderStatusList');
             document.getElementById('orderCount').innerText = orders.length;
 
             if (orders.length === 0) {
-                orderStatusList.innerHTML = `<p class="text-gray-500 text-center">এখনো কোনো সক্রিয় অর্ডার নেই</p>`;
+                orderStatusList.innerHTML = `<p class="text-gray-400 text-center py-4">এখনো কোনো সক্রিয় অর্ডার নেই</p>`;
                 return;
             }
 
             orderStatusList.innerHTML = "";
             orders.forEach(order => {
-                let itemsHtml = order.items.map(item => `<li>• ${item.name} (${item.quantity}টি)</li>`).join('');
+                let itemsHtml = order.items.map(item => `<li>• ${item.name} <span class="font-bold text-slate-700">(${item.quantity}টি)</span></li>`).join('');
                 
                 orderStatusList.innerHTML += `
-                    <div class="bg-green-50 p-3 rounded-lg border border-green-200 text-sm space-y-2">
-                        <div class="flex justify-between font-bold text-gray-800">
-                            <span>আইডি: ${order.id}</span>
-                            <span class="text-green-600">কনফার্মড</span>
+                    <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 text-sm space-y-3 shadow-sm">
+                        <div class="flex justify-between items-center font-bold text-slate-800">
+                            <span>আইডি: <span class="text-amber-600">${order.id}</span></span>
+                            <span class="bg-emerald-200 text-emerald-800 text-xs px-2 py-0.5 rounded-full">কনফার্মড</span>
                         </div>
-                        <ul class="text-gray-700 text-xs space-y-1">
+                        <ul class="text-slate-600 text-xs space-y-1 bg-white p-2 rounded-lg border border-emerald-100">
                             ${itemsHtml}
                         </ul>
-                        <div class="flex justify-between items-center pt-2 border-t border-green-200">
-                            <span class="font-semibold">মোট: ৳${order.total}</span>
-                            <button onclick="cancelOrder('${order.id}')" class="bg-red-500 hover:bg-red-600 text-white px-2 py-1 rounded text-xs transition">
+                        <div class="flex justify-between items-center pt-2 border-t border-emerald-200">
+                            <span class="font-bold text-slate-800">মোট: ৳${order.total}</span>
+                            <button onclick="cancelOrder('${order.id}')" class="bg-rose-500 hover:bg-rose-600 text-white px-3 py-1.5 rounded-md text-xs font-bold transition shadow-sm">
                                 অর্ডার বাতিল করুন
                             </button>
                         </div>
@@ -261,33 +265,31 @@
             });
         }
 
-        // ৫. EmailJS দিয়ে ইমেইল পাঠানোর ফাংশন
+        // ৫. EmailJS Integration
         function sendEmailNotification(subject, message) {
-            // Note: EmailJS এ আপনার তৈরি করা Service ID এবং Template ID নিচে বসাতে হবে।
             const templateParams = {
-                to_name: "Opora Admin", // আপনার নাম
+                to_name: "SherenVogue Admin",
                 subject: subject,
                 message: message
             };
 
-            // ইমেইল ট্রিপল চেক করার জন্য কনসোলেও প্রিন্ট হবে
-            console.log("Sending Email Data:", templateParams);
+            console.log("Email Notification Payload:", templateParams);
 
-            // ইমেইল পাঠানোর আসল কোড (সব সেট থাকলে কাজ করবে)
+            // EmailJS এর মাধ্যমে লাইভ মেইল যাবে (ক্রেডেনশিয়ালস সেট করার পর)
             emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
                 .then(function(response) {
                    console.log('ইমেইল সফলভাবে পাঠানো হয়েছে!', response.status, response.text);
                 }, function(error) {
-                   console.log('ইমেইল পাঠাতে সমস্যা হয়েছে...', error);
+                   console.log('ইমেইল ডেলিভারি ব্যর্থ হয়েছে...', error);
                 });
         }
 
-        // স্ক্রল করার সহজ ফাংশন
+        // স্মুথ স্ক্রলিং এফেক্ট
         function scrollToSection(id) {
             document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
         }
 
-        // পেজ লোড হলে প্রথমবার প্রোডাক্ট দেখাবে
+        // ইনিশিয়াল লোড
         window.onload = () => {
             displayProducts(products);
         };
