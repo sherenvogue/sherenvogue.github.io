@@ -1,299 +1,283 @@
-<!DOCTYPE html>
-<html lang="bn">
+<!doctype html>
+<html lang="en" class="h-full">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SherenVogue | Haute Couture Artisan Maison</title>
+  
+  <meta name="description" content="SherenVogue - International Luxury Fashion & Accessories. Handcrafted leather bags, premium complication watches, and artisan belts curated by Founder & CEO Md. Rafiul Islam.">
+  <meta name="keywords" content="SherenVogue, SherenVogue Bags, SherenVogue Watches, Luxury Fashion, Leather Bags, Premium Watches, Fashion Designer Bangladesh, CEO Rafiul Islam, Rafiul Islam SherenVogue, sherenvogue.com">
+  <meta name="author" content="Md. Rafiul Islam">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="googlebot" content="index, follow">
+  <link rel="canonical" href="https://sherenvogue.com/">
 
-    
-    <title>SherenVogue - Premium Online Shopping</title>
-    <meta name="description" content="Shop the latest fashion and lifestyle trends at SherenVogue. Fast shipping, easy checkout, and seamless order management.">
-    <meta name="keywords" content="SherenVogue, online shopping, fashion shop, buy products online, sherenvogue.com, bangladesh ecommerce">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="SherenVogue">
-    
-    <link rel="canonical" href="https://sherenvogue.com/">
-    
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="SherenVogue - Premium Online Shopping">
-    <meta property="og:description" content="Explore top-quality products on SherenVogue with fast delivery and hassle-free return/cancel options.">
-    <meta property="og:url" content="https://sherenvogue.com/">
-    <meta property="og:site_name" content="SherenVogue">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            // !!! এখানে আপনার EmailJS Public Key বসাবেন !!!
-            emailjs.init("YOUR_EMAILJS_PUBLIC_KEY"); 
-        })();
-    </script>
+  <meta property="og:title" content="SherenVogue | Artisan Luxury Collections">
+  <meta property="og:description" content="Discover handcrafted luxury garments and premium accessories engineered to define absolute prestige.">
+  <meta property="og:url" content="https://sherenvogue.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SherenVogue">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "SherenVogue",
+    "url": "https://sherenvogue.com",
+    "logo": "https://sherenvogue.com/logo.png",
+    "description": "SherenVogue is an international haute couture luxury maison founded and led by CEO Md. Rafiul Islam.",
+    "founder": {
+      "@type": "Person",
+      "name": "Md. Rafiul Islam",
+      "jobTitle": "Founder & CEO"
+    },
+    "priceRange": "৳10000-৳50000",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "BD",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnPeriod",
+      "merchantReturnDays": 7,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/FreeReturn"
+    }
+  }
+  </script>
+
+  <link rel="icon" type="image/png" href="logo.png">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #C5A059;
+      --charcoal: #1A1A1A;
+      --luxury-cream: #FAF8F5;
+      --app-dark: #231F20;
+    }
+    body { font-family: 'Inter', sans-serif; background-color: var(--luxury-cream); color: var(--charcoal); }
+    .font-display { font-family: 'Playfair Display', serif; }
+    .product-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .product-card:hover { transform: translateY(-6px); }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #f5f5f5; }
+    ::-webkit-scrollbar-thumb { background: var(--gold); }
+    .img-zoom-container { overflow: hidden; position: relative; }
+    .img-zoom-container img { transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+    .product-card:hover .img-zoom-container img { transform: scale(1.06); }
+    .category-blur-box { background: linear-gradient(to top, rgba(35, 31, 32, 0.85) 0%, rgba(35, 31, 32, 0) 100%); }
+  </style>
 </head>
-<body class="bg-gray-50 font-sans">
 
-    <header class="bg-slate-900 text-white p-4 sticky top-0 z-50 shadow-lg">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-            <a href="https://sherenvogue.com" class="text-2xl font-extrabold tracking-wider text-amber-400">SherenVogue</a>
-            
-            <div class="relative w-full md:w-1/2">
-                <input type="text" id="searchBar" placeholder="প্রোডাক্ট খুঁজুন (যেমন: Phone, Laptop, Dress...)" class="w-full p-2 pl-4 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-amber-400">
+<body class="h-full overflow-x-hidden pb-20 md:pb-0">
+  <div id="app" class="flex flex-col min-h-screen">
+    
+    <div class="bg-[#1A1A1A] text-[#E2C68E] text-[9px] uppercase tracking-[0.35em] py-2.5 text-center font-medium px-4">
+      Complimentary Worldwide Shipping on Orders Over ৳5000
+    </div>
+
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 px-4 md:px-12 py-3.5 md:py-4">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        
+        <div class="hidden md:flex gap-8 items-center">
+          <a href="#" onclick="showPage('shop'); filterCategory('all');" class="text-[11px] uppercase tracking-widest font-medium hover:text-[#C5A059] transition-colors">Collections</a>
+          <a href="#" onclick="showPage('shop'); filterCategory('bags');" class="text-[11px] uppercase tracking-widest font-medium hover:text-[#C5A059] transition-colors">Bespoke Bags</a>
+        </div>
+
+        <a href="#" onclick="showPage('home')" class="flex flex-col text-center group">
+          <span class="font-display text-xl md:text-2xl font-bold tracking-tight leading-none text-[#231F20]">
+            SHEREN<span class="italic font-light text-[#C5A059]">Vogue</span>
+          </span>
+          <span class="text-[6px] md:text-[7px] tracking-[0.6em] uppercase text-gray-400 mt-1 block font-medium">Haute Couture</span>
+        </a>
+
+        <div class="flex items-center gap-4 md:gap-5">
+          <button onclick="showPage('shop')" class="p-1 text-gray-700 hover:text-[#C5A059] transition-colors"><i data-lucide="search" class="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]"></i></button>
+          <button onclick="showPage('shop')" class="p-1 text-gray-700 hover:text-[#C5A059] transition-colors"><i data-lucide="heart" class="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]"></i></button>
+          <button onclick="showPage('cart')" class="relative p-1 text-gray-700 hover:text-[#C5A059] transition-colors">
+            <i data-lucide="shopping-bag" class="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]"></i>
+            <span id="cart-count" class="absolute -top-1 -right-1 bg-[#C5A059] text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main id="pages-container" class="flex-grow">
+      
+      <div id="page-home" class="page-view">
+        <div class="max-w-5xl mx-auto px-4 pt-4 md:pt-6">
+          <div class="relative rounded-3xl overflow-hidden shadow-sm bg-[#E3DCDB] aspect-[16/10] md:aspect-[21/9] flex items-center">
+            <div class="absolute inset-0 z-0">
+              <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover object-center opacity-85 mix-blend-multiply filter contrast-105">
+              <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent"></div>
             </div>
+            <div class="relative z-10 pl-5 md:pl-16 text-white max-w-xs md:max-w-md">
+              <p class="text-[8px] md:text-[11px] uppercase tracking-[0.4em] text-[#E2C68E] mb-1 md:mb-2 font-semibold">New Collection 2026</p>
+              <h1 class="font-display text-2xl md:text-5xl font-bold leading-tight tracking-tight mb-3 md:mb-4 text-white">Timeless <br>Elegance</h1>
+              <button onclick="showPage('shop')" class="inline-flex items-center gap-2 text-[10px] md:text-xs uppercase tracking-widest font-semibold border-b-2 border-white pb-0.5 hover:text-[#E2C68E] hover:border-[#E2C68E] transition-all">
+                Shop Now <i data-lucide="arrow-right" class="w-3 h-3"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-[#231F20] rounded-2xl my-6 md:my-8 p-4 md:p-5 grid grid-cols-4 text-center divide-x divide-neutral-800 text-white shadow-md">
+            <div><p class="font-display text-base md:text-2xl font-bold text-[#E2C68E]">50+</p><p class="text-[7px] md:text-[9px] text-neutral-400 uppercase tracking-widest mt-0.5">Products</p></div>
+            <div><p class="font-display text-base md:text-2xl font-bold text-[#E2C68E]">1</p><p class="text-[7px] md:text-[9px] text-neutral-400 uppercase tracking-widest mt-0.5">Maison</p></div>
+            <div><p class="font-display text-base md:text-2xl font-bold text-[#E2C68E]">2K+</p><p class="text-[7px] md:text-[9px] text-neutral-400 uppercase tracking-widest mt-0.5">Clients</p></div>
+            <div><p class="font-display text-base md:text-2xl font-bold text-[#E2C68E]">12</p><p class="text-[7px] md:text-[9px] text-neutral-400 uppercase tracking-widest mt-0.5">Countries</p></div>
+          </div>
+
+          <section class="my-8 md:my-10">
+            <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-[#231F20] mb-4">Shop by Category</h2>
+            <div class="grid grid-cols-2 gap-3 md:gap-5">
+              <div onclick="showPage('shop'); filterCategory('bags');" class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100">
+                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Ladies Bags">
+                <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6">
+                  <h3 class="text-white font-display text-sm md:text-xl font-bold">Ladies Bags</h3>
+                  <p class="text-[8px] md:text-[10px] text-neutral-300 uppercase tracking-wider mt-0.5">Premium Leather</p>
+                </div>
+              </div>
+              <div class="grid grid-rows-2 gap-3 md:gap-4">
+                <div onclick="showPage('shop'); filterCategory('watches');" class="relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm bg-stone-100">
+                  <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Women's Watches">
+                  <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-4">
+                    <h3 class="text-white font-display text-sm md:text-lg font-bold">Women's Chronos</h3>
+                  </div>
+                </div>
+                <div onclick="showPage('shop'); filterCategory('watches');" class="relative rounded-2xl overflow-hidden cursor-pointer group shadow-sm bg-stone-100">
+                  <img src="https://images.unsplash.com/photo-1547996160-81dfa63595aa?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Men's Watches">
+                  <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-4">
+                    <h3 class="text-white font-display text-sm md:text-lg font-bold">Men's Timepieces</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="my-10 md:my-12">
+            <div class="flex justify-between items-center mb-5">
+              <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-[#231F20]">Featured Masterpieces</h2>
+              <button onclick="showPage('shop')" class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-[#C5A059] border-b border-[#C5A059] pb-0.5">See All</button>
+            </div>
+            <div id="featured-products" class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"></div>
+          </section>
+        </div>
+      </div>
+      
+      <div id="page-shop" class="page-view hidden">
+        <div class="py-6 md:py-8 bg-white text-center border-b border-gray-100">
+            <h1 class="font-display text-2xl md:text-3xl mb-2 font-bold text-[#231F20]">Maison Collection</h1>
             
-            <div class="flex gap-4">
-                <button onclick="scrollToSection('cart-section')" class="bg-slate-800 px-4 py-2 rounded-lg border border-amber-400 hover:bg-slate-700 transition">
-                    কার্ট (<span id="cartCount" class="text-amber-400">0</span>)
-                </button>
-                <button onclick="scrollToSection('order-section')" class="bg-amber-500 text-slate-950 font-bold px-4 py-2 rounded-lg hover:bg-amber-400 transition">
-                    অর্ডার ট্র্যাক (<span id="orderCount">0</span>)
-                </button>
+            <div class="max-w-md mx-auto px-4 mb-4 relative">
+              <span class="absolute inset-y-0 left-7 flex items-center pr-3 pointer-events-none text-gray-400">
+                <i data-lucide="search" class="w-4 h-4"></i>
+              </span>
+              <input type="text" id="product-search-input" onkeyup="executeLiveSearch()" placeholder="Search luxury products, bags, watches..." class="w-full border border-gray-200 rounded-xl pl-10 pr-4 py-2 text-xs focus:outline-none focus:border-[#C5A059] bg-stone-50">
+            </div>
+
+            <div id="category-filters" class="flex justify-center gap-4 md:gap-5 flex-wrap mt-2 px-4">
+                <button onclick="filterCategory('all')" id="filter-all" class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-[#C5A059] text-[#C5A059]">Everything</button>
+                <button onclick="filterCategory('bags')" id="filter-bags" class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-transparent text-gray-400">Bags</button>
+                <button onclick="filterCategory('watches')" id="filter-watches" class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-transparent text-gray-400">Timepieces</button>
+                <button onclick="filterCategory('belts')" id="filter-belts" class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-transparent text-gray-400">Belts</button>
             </div>
         </div>
-    </header>
+        <div class="max-w-7xl mx-auto px-3 md:px-4 py-6 md:py-8">
+            <div id="shop-products" class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"></div>
+        </div>
+      </div>
 
-    <main class="container mx-auto p-4 grid grid-cols-1 lg:grid-cols-3 gap-6">
-        
-        <section class="lg:col-span-2">
-            <h2 class="text-xl font-bold mb-4 text-slate-800 border-l-4 border-amber-500 pl-2">আমাদের এক্সক্লুসিভ কালেকশন</h2>
-            <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                </div>
-        </section>
+      <div id="page-cart" class="page-view hidden">
+        <div class="max-w-2xl mx-auto px-4 py-8 md:py-10">
+          <h1 class="font-display text-2xl md:text-3xl mb-6 md:mb-8 font-bold text-center text-[#231F20]">Your Atelier Bag</h1>
+          <div id="cart-container" class="bg-white rounded-2xl border border-gray-100 p-5 md:p-6 shadow-sm"></div>
+        </div>
+      </div>
 
-        <aside class="space-y-6">
-            
-            <div id="cart-section" class="bg-white p-4 rounded-xl shadow-md border border-gray-100">
-                <h2 class="text-xl font-bold mb-4 text-slate-800 border-b pb-2">শপিং কার্ট</h2>
-                <div id="cartItems" class="space-y-3 max-h-60 overflow-y-auto mb-4">
-                    <p class="text-gray-400 text-center py-4">আপনার কার্টটি এখন খালি আছে</p>
-                </div>
-                <div class="flex justify-between font-bold text-lg mb-4 border-t pt-2">
-                    <span>সর্বমোট মূল্য:</span>
-                    <span class="text-amber-600">৳<span id="cartTotal">0</span></span>
-                </div>
-                <button id="checkoutBtn" onclick="confirmOrder()" class="w-full bg-slate-900 text-amber-400 py-3 rounded-lg font-bold hover:bg-slate-800 transition disabled:opacity-50 disabled:cursor-not-allowed" disabled>
-                    অর্ডার কনফার্ম করুন
-                </button>
+      <div id="page-checkout" class="page-view hidden">
+        <div class="max-w-xl mx-auto px-4 py-8 md:py-10">
+          <h1 class="font-display text-2xl md:text-3xl mb-2 font-bold text-center text-[#231F20]">Maison Shipping</h1>
+          <p class="text-[9px] md:text-[10px] text-gray-400 uppercase tracking-widest text-center mb-6 md:mb-8">Complete your luxury procurement order</p>
+          
+          <form id="checkout-form" onsubmit="processCheckout(event)" class="bg-white rounded-2xl border border-gray-100 p-5 md:p-6 space-y-4 md:space-y-5 shadow-sm">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-[9px] uppercase tracking-widest text-gray-400 mb-1.5 font-bold">Full Name</label>
+                <input type="text" id="cust-name" required class="w-full border border-gray-200 rounded-xl px-4 py-2.5 md:py-3 text-sm focus:outline-none focus:border-[#C5A059] bg-stone-50/50">
+              </div>
+              <div>
+                <label class="block text-[9px] uppercase tracking-widest text-gray-400 mb-1.5 font-bold">Email Address</label>
+                <input type="email" id="cust-email" required class="w-full border border-gray-200 rounded-xl px-4 py-2.5 md:py-3 text-sm focus:outline-none focus:border-[#C5A059] bg-stone-50/50">
+              </div>
             </div>
-
-            <div id="order-section" class="bg-white p-4 rounded-xl shadow-md border border-gray-100">
-                <h2 class="text-xl font-bold mb-4 text-emerald-600 border-b pb-2">আপনার কনফার্মড অর্ডার</h2>
-                <div id="orderStatusList" class="space-y-4">
-                    <p class="text-gray-400 text-center py-4">এখনো কোনো অর্ডার প্লেস করা হয়নি</p>
-                </div>
+            <div>
+              <label class="block text-[9px] uppercase tracking-widest text-gray-400 mb-1.5 font-bold">Delivery Address</label>
+              <textarea id="cust-address" required rows="3" class="w-full border border-gray-200 rounded-xl px-4 py-2.5 md:py-3 text-sm focus:outline-none focus:border-[#C5A059] bg-stone-50/50"></textarea>
             </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-[9px] uppercase tracking-widest text-gray-400 mb-1.5 font-bold">Phone Number</label>
+                <input type="tel" id="cust-phone" required class="w-full border border-gray-200 rounded-xl px-4 py-2.5 md:py-3 text-sm focus:outline-none focus:border-[#C5A059] bg-stone-50/50">
+              </div>
+              <div>
+                <label class="block text-[9px] uppercase tracking-widest text-gray-400 mb-1.5 font-bold">Preferred Payment</label>
+                <select id="cust-payment" class="w-full border border-gray-200 rounded-xl px-4 py-2.5 md:py-3 text-sm focus:outline-none focus:border-[#C5A059] bg-white">
+                  <option>Cash On Delivery (COD)</option>
+                  <option>Premium Card Booking</option>
+                </select>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-gray-100 flex justify-between items-center">
+              <div>
+                <p class="text-[9px] md:text-[10px] text-gray-400 uppercase tracking-wider font-bold">Total Payable</p>
+                <p id="checkout-total-price" class="text-lg md:text-xl font-bold text-[#231F20]">৳0</p>
+              </div>
+              <button type="submit" class="bg-[#231F20] text-white px-5 py-3 text-[10px] uppercase tracking-widest font-bold rounded-xl hover:bg-[#C5A059] transition-all shadow-sm">
+                Place Secure Order
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
 
-        </aside>
+      <div id="page-success" class="page-view hidden">
+        <div class="max-w-lg mx-auto px-4 py-12 text-center">
+          <div class="w-14 h-14 bg-white border border-[#C5A059] rounded-full flex items-center justify-center mx-auto mb-5 text-[#C5A059] shadow-sm">
+            <i data-lucide="check" class="w-5 h-5 stroke-[2.5]"></i>
+          </div>
+          <h1 class="font-display text-2xl md:text-3xl font-bold mb-1 text-[#231F20]">Order Confirmed</h1>
+          <p class="text-gray-400 text-[11px] uppercase tracking-widest mb-6">Maison Signature ID: <span id="live-order-id" class="text-[#231F20] font-bold"></span></p>
+          
+          <div class="bg-white rounded-2xl border border-gray-100 p-5 text-left mb-6 shadow-xs max-h-60 overflow-y-auto">
+            <h3 class="text-[10px] uppercase tracking-widest font-bold text-[#C5A059] mb-3 pb-1.5 border-b border-gray-100">Ordered Masterpieces</h3>
+            <div id="success-manifest-list" class="space-y-3"></div>
+            <div class="pt-3 border-t border-gray-100 mt-3 flex justify-between font-bold text-sm text-[#231F20]">
+              <span>Total Value:</span>
+              <span id="success-manifest-total">৳0</span>
+            </div>
+          </div>
+
+          <div id="cancel-action-container" class="bg-red-50 border border-red-100 rounded-2xl p-4 mb-6">
+            <p class="text-xs text-red-700 mb-2.5">Made a mistake? You can revoke or cancel this procurement immediately below.</p>
+            <button onclick="revokeCurrentOrder()" class="bg-red-600 text-white px-4 py-2 rounded-xl text-[10px] uppercase tracking-widest font-bold hover:bg-red-700 transition-all">Cancel This Order</button>
+          </div>
+
+          <p class="text-neutral-400 text-xs mb-6">Our concierge team will reach out shortly. Signature: Md. Rafiul Islam</p>
+          <button onclick="showPage('home')" class="bg-[#231F20] text-white px-6 py-3.5 text-[9px] uppercase tracking-widest hover:bg-[#C5A059] transition-all font-bold rounded-xl shadow-sm">
+            Return to Main Entry
+          </button>
+        </div>
+      </div>
+
     </main>
 
-    <script>
-        // প্রোডাক্ট ডাটাবেস (আপনার ইচ্ছেমতো নাম ও দাম পরিবর্তন করতে পারেন)
-        const products = [
-            { id: 1, name: "Premium Smart Phone", price: 25000, category: "electronics", img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300" },
-            { id: 2, name: "Luxury Wireless Headphones", price: 3500, category: "audio", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300" },
-            { id: 3, name: "Sleek Ultrabook Laptop", price: 55000, category: "electronics", img: "https://images.unsplash.com/photo-1496181130204-755241524eab?w=300" },
-            { id: 4, name: "Vogue Edition Smart Watch", price: 4500, category: "accessories", img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300" }
-        ];
-
-        let cart = [];
-        let orders = [];
-
-        // ১. প্রোডাক্ট রেন্ডার এবং ইনস্ট্যান্ট সার্চবার ওয়ার্কিং
-        function displayProducts(productsToRender) {
-            const productGrid = document.getElementById('productGrid');
-            productGrid.innerHTML = "";
-            
-            if(productsToRender.length === 0) {
-                productGrid.innerHTML = `<p class="text-gray-500 col-span-2 text-center py-8">দুঃখিত, কোনো প্রোডাক্ট খুঁজে পাওয়া যায়নি!</p>`;
-                return;
-            }
-
-            productsToRender.forEach(product => {
-                productGrid.innerHTML += `
-                    <div class="bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition flex flex-col justify-between border border-gray-100">
-                        <img src="${product.img}" alt="${product.name}" class="w-full h-44 object-cover rounded-lg mb-3">
-                        <div>
-                            <h3 class="font-bold text-lg text-slate-800">${product.name}</h3>
-                            <p class="text-amber-600 font-bold mt-1 text-xl">৳${product.price}</p>
-                        </div>
-                        <button onclick="addToCart(${product.id})" class="mt-4 w-full bg-slate-900 hover:bg-slate-800 text-amber-400 py-2.5 rounded-md transition text-sm font-bold tracking-wide">
-                            কার্টে যোগ করুন
-                        </button>
-                    </div>
-                `;
-            });
-        }
-
-        // রিয়েল-টাইম সার্চ লিসেনার
-        document.getElementById('searchBar').addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            const filteredProducts = products.filter(product => 
-                product.name.toLowerCase().includes(searchTerm)
-            );
-            displayProducts(filteredProducts);
-        });
-
-        // ২. কার্ট হ্যান্ডলিং
-        function addToCart(id) {
-            const product = products.find(p => p.id === id);
-            const cartItem = cart.find(item => item.id === id);
-
-            if (cartItem) {
-                cartItem.quantity++;
-            } else {
-                cart.push({ ...product, quantity: 1 });
-            }
-            updateCartUI();
-        }
-
-        function removeFromCart(id) {
-            cart = cart.filter(item => item.id !== id);
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            const cartItemsContainer = document.getElementById('cartItems');
-            const cartCount = document.getElementById('cartCount');
-            const cartTotal = document.getElementById('cartTotal');
-            const checkoutBtn = document.getElementById('checkoutBtn');
-
-            cartItemsContainer.innerHTML = "";
-            let total = 0;
-            let count = 0;
-
-            if (cart.length === 0) {
-                cartItemsContainer.innerHTML = `<p class="text-gray-400 text-center py-4">আপনার কার্টটি এখন খালি আছে</p>`;
-                checkoutBtn.disabled = true;
-            } else {
-                checkoutBtn.disabled = false;
-                cart.forEach(item => {
-                    total += item.price * item.quantity;
-                    count += item.quantity;
-                    cartItemsContainer.innerHTML += `
-                        <div class="flex justify-between items-center bg-slate-50 p-3 rounded-lg border border-gray-100 text-sm">
-                            <div class="flex-1">
-                                <h4 class="font-bold text-slate-800">${item.name}</h4>
-                                <p class="text-gray-500 font-medium">৳${item.price} x ${item.quantity}</p>
-                            </div>
-                            <button onclick="removeFromCart(${item.id})" class="text-rose-500 hover:text-rose-700 ml-2 font-bold p-1">✕</button>
-                        </div>
-                    `;
-                });
-            }
-
-            cartCount.innerText = count;
-            cartTotal.innerText = total;
-        }
-
-        // ৩. অর্ডার কনফার্মেশন এবং মেইল অ্যালার্ট
-        function confirmOrder() {
-            if (cart.length === 0) return;
-
-            const orderId = '#SV' + Math.floor(100000 + Math.random() * 900000);
-            const currentOrder = {
-                id: orderId,
-                items: [...cart],
-                total: document.getElementById('cartTotal').innerText,
-                date: new Date().toLocaleString('bn-BD')
-            };
-
-            orders.push(currentOrder);
-            
-            // মেইল ডাটা প্রিপারেশন
-            let productDetails = cart.map(item => `${item.name} (${item.quantity}টি) - ৳${item.price * item.quantity}`).join(', ');
-            
-            sendEmailNotification(
-                "নতুন অর্ডার এসেছে! 🎉 - SherenVogue", 
-                `অর্ডার আইডি: ${orderId}\nডোমেইন: sherenvogue.com\nপ্রোডাক্টসমূহ: ${productDetails}\nসর্বমোট মূল্য: ৳${currentOrder.total}\nঅর্ডারের সময়: ${currentOrder.date}`
-            );
-
-            // কার্ট রিসেট
-            cart = [];
-            updateCartUI();
-            updateOrderUI();
-            
-            alert(`ধন্যবাদ! আপনার অর্ডারটি সফল হয়েছে। অর্ডার আইডি: ${orderId}`);
-        }
-
-        // ৪. অর্ডার বাতিল করার অপশন ও ইমেইল নোটিফিকেশন
-        function cancelOrder(orderId) {
-            const orderToCancel = orders.find(o => o.id === orderId);
-            if (!orderToCancel) return;
-
-            if (confirm("আপনি কি নিশ্চিত যে SherenVogue-এর এই অর্ডারটি বাতিল করতে চান?")) {
-                orders = orders.filter(o => o.id !== orderId);
-                
-                // ক্যানসেল মেইল নোটিফিকেশন
-                sendEmailNotification(
-                    "অর্ডার বাতিল করা হয়েছে! ❌ - SherenVogue", 
-                    `অর্ডার আইডি: ${orderId} কাস্টমার দ্বারা ক্যানসেল করা হয়েছে।\nডোমেইন: sherenvogue.com\nবাতিলকৃত অর্ডারের মোট মূল্য ছিল: ৳${orderToCancel.total}`
-                );
-
-                updateOrderUI();
-                alert(`অর্ডার ${orderId} সফলভাবে বাতিল করা হয়েছে।`);
-            }
-        }
-
-        // অর্ডার লিস্ট ফ্রন্টএন্ড UI আপডেট
-        function updateOrderUI() {
-            const orderStatusList = document.getElementById('orderStatusList');
-            document.getElementById('orderCount').innerText = orders.length;
-
-            if (orders.length === 0) {
-                orderStatusList.innerHTML = `<p class="text-gray-400 text-center py-4">এখনো কোনো সক্রিয় অর্ডার নেই</p>`;
-                return;
-            }
-
-            orderStatusList.innerHTML = "";
-            orders.forEach(order => {
-                let itemsHtml = order.items.map(item => `<li>• ${item.name} <span class="font-bold text-slate-700">(${item.quantity}টি)</span></li>`).join('');
-                
-                orderStatusList.innerHTML += `
-                    <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 text-sm space-y-3 shadow-sm">
-                        <div class="flex justify-between items-center font-bold text-slate-800">
-                            <span>আইডি: <span class="text-amber-600">${order.id}</span></span>
-                            <span class="bg-emerald-200 text-emerald-800 text-xs px-2 py-0.5 rounded-full">কনফার্মড</span>
-                        </div>
-                        <ul class="text-slate-600 text-xs space-y-1 bg-white p-2 rounded-lg border border-emerald-100">
-                            ${itemsHtml}
-                        </ul>
-                        <div class="flex justify-between items-center pt-2 border-t border-emerald-200">
-                            <span class="font-bold text-slate-800">মোট: ৳${order.total}</span>
-                            <button onclick="cancelOrder('${order.id}')" class="bg-rose-500 hover:bg-rose-600 text-white px-3 py-1.5 rounded-md text-xs font-bold transition shadow-sm">
-                                অর্ডার বাতিল করুন
-                            </button>
-                        </div>
-                    </div>
-                `;
-            });
-        }
-
-        // ৫. EmailJS Integration
-        function sendEmailNotification(subject, message) {
-            const templateParams = {
-                to_name: "SherenVogue Admin",
-                subject: subject,
-                message: message
-            };
-
-            console.log("Email Notification Payload:", templateParams);
-
-            // EmailJS এর মাধ্যমে লাইভ মেইল যাবে (ক্রেডেনশিয়ালস সেট করার পর)
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-                .then(function(response) {
-                   console.log('ইমেইল সফলভাবে পাঠানো হয়েছে!', response.status, response.text);
-                }, function(error) {
-                   console.log('ইমেইল ডেলিভারি ব্যর্থ হয়েছে...', error);
-                });
-        }
-
-        // স্মুথ স্ক্রলিং এফেক্ট
-        function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // ইনিশিয়াল লোড
-        window.onload = () => {
-            displayProducts(products);
-        };
-    </script>
-</body>
-</html>
+    <div id="product-modal" class="fixed inset-0 z-[100] bg-black/60 backdrop-blur-xs flex items-center justify-center hidden p-4">
+      <div class="bg-white max-w-2xl w-full max-h-[85vh] overflow-y-auto relative rounded-3xl border border-gray-100 flex flex-col md:flex-row shadow-xl">
+        <button onclick="closeProductModal()" class="absolute top-4 right-4 z-10 w-8 h-8 bg-white/80 rounded-full flex items-center justify-center text-gray-500 hover:text-black shadow-sm">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+        <div id="modal-img-container" class="w-full md:w-1/2 bg-stone-50 flex items-center justify-center p-4 aspect-square md:aspect-auto"></div>
+        <div class="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-between bg-white">
+          <div>
+            <p id="modal-product-cat" class
