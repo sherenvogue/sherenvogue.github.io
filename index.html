@@ -90,9 +90,11 @@
         </a>
 
         <div class="flex items-center gap-4 md:gap-5">
-          <button type="button" onclick="showPage('shop')" class="p-1 text-gray-700 hover:text-[#C5A059] transition-colors"><i data-lucide="search" class="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]"></i></button>
-          <button type="button" onclick="showPage('shop')" class="p-1 text-gray-700 hover:text-[#C5A059] transition-colors"><i data-lucide="heart" class="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]"></i></button>
-          <button type="button" onclick="showPage('cart')" class="relative p-1 text-gray-700 hover:text-[#C5A059] transition-colors">
+          <button type="button" onclick="showPage('shop')" class="p-1 text-gray-700 hover:text-[#C5A059] transition-colors" title="Search"><i data-lucide="search" class="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]"></i></button>
+          
+          <button type="button" onclick="showPage('history')" class="p-1 text-gray-700 hover:text-[#C5A059] transition-colors" title="Order History"><i data-lucide="clock" class="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]"></i></button>
+          
+          <button type="button" onclick="showPage('cart')" class="relative p-1 text-gray-700 hover:text-[#C5A059] transition-colors" title="Cart">
             <i data-lucide="shopping-bag" class="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]"></i>
             <span id="cart-count" class="absolute -top-1 -right-1 bg-[#C5A059] text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
           </button>
@@ -208,6 +210,14 @@
         </div>
       </div>
 
+      <div id="page-history" class="page-view hidden">
+        <div class="max-w-2xl mx-auto px-4 py-8 md:py-10">
+          <h1 class="font-display text-2xl md:text-3xl mb-6 md:mb-8 font-bold text-center text-[#231F20]">Order History</h1>
+          <div id="history-container" class="space-y-4">
+            </div>
+        </div>
+      </div>
+
       <div id="page-checkout" class="page-view hidden">
         <div class="max-w-xl mx-auto px-4 py-8 md:py-10">
           <h1 class="font-display text-2xl md:text-3xl mb-2 font-bold text-center text-[#231F20]">Maison Shipping</h1>
@@ -268,8 +278,8 @@
           </div>
 
           <div class="flex flex-col gap-3">
-            <button type="button" onclick="showPage('home')" class="bg-[#231F20] text-white px-6 py-3.5 text-[9px] uppercase tracking-widest hover:bg-[#C5A059] transition-all font-bold rounded-xl shadow-sm">
-              Return to Main Entry
+            <button type="button" onclick="showPage('history')" class="bg-[#231F20] text-white px-6 py-3.5 text-[9px] uppercase tracking-widest hover:bg-[#C5A059] transition-all font-bold rounded-xl shadow-sm">
+              View Order History
             </button>
             <button type="button" onclick="cancelOrder()" class="text-red-500 hover:text-red-600 text-[10px] uppercase tracking-widest font-bold underline transition-colors">
               Cancel This Order
@@ -315,9 +325,9 @@
         <i data-lucide="shopping-cart" class="w-5 h-5 stroke-[1.5]"></i>
         <span class="text-[8px] font-bold tracking-wider">Cart</span>
       </button>
-      <button type="button" onclick="showPage('shop')" class="flex flex-col items-center gap-1 text-gray-400 hover:text-[#C5A059] transition-colors focus:text-[#C5A059]">
-        <i data-lucide="heart" class="w-5 h-5 stroke-[1.5]"></i>
-        <span class="text-[8px] font-bold tracking-wider">Wishlist</span>
+      <button type="button" onclick="showPage('history')" class="flex flex-col items-center gap-1 text-gray-400 hover:text-[#C5A059] transition-colors focus:text-[#C5A059]">
+        <i data-lucide="clock" class="w-5 h-5 stroke-[1.5]"></i>
+        <span class="text-[8px] font-bold tracking-wider">History</span>
       </button>
     </div>
 
@@ -335,6 +345,7 @@
             <li><a href="javascript:void(0)" onclick="showPage('home')" class="hover:text-white transition-colors">Atelier Front</a></li>
             <li><a href="javascript:void(0)" onclick="showPage('shop')" class="hover:text-white transition-colors">The Collections</a></li>
             <li><a href="javascript:void(0)" onclick="showPage('cart')" class="hover:text-white transition-colors">Procured Bag</a></li>
+            <li><a href="javascript:void(0)" onclick="showPage('history')" class="hover:text-white transition-colors">Order History</a></li>
           </ul>
         </div>
         <div>
@@ -412,14 +423,18 @@
 
     // Safely parse Local Storage to prevent JavaScript freezing on offline/local files
     let cart = [];
+    let orderHistory = [];
+    
     try {
       const savedCart = localStorage.getItem('sv_cart');
-      if (savedCart) {
-        cart = JSON.parse(savedCart);
-      }
+      if (savedCart) cart = JSON.parse(savedCart);
+      
+      const savedHistory = localStorage.getItem('sv_order_history');
+      if (savedHistory) orderHistory = JSON.parse(savedHistory);
     } catch (error) {
       console.warn("Local storage is disabled or unavailable in this environment.");
       cart = [];
+      orderHistory = [];
     }
     
     let currentCategory = 'all';
@@ -429,9 +444,13 @@
     function saveCartToStorage() {
       try {
         localStorage.setItem('sv_cart', JSON.stringify(cart));
-      } catch (error) {
-        console.warn("Could not save to local storage.");
-      }
+      } catch (error) { console.warn("Could not save to local storage."); }
+    }
+
+    function saveOrderHistory() {
+      try {
+        localStorage.setItem('sv_order_history', JSON.stringify(orderHistory));
+      } catch (error) { console.warn("Could not save to local storage."); }
     }
 
     // Router function
@@ -636,6 +655,48 @@
       }
     }
 
+    // Render Order History
+    function renderOrderHistory() {
+      const container = document.getElementById('history-container');
+      if (!container) return;
+
+      if (orderHistory.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-10 bg-white rounded-2xl border border-gray-100 shadow-sm">
+            <p class="text-gray-400 text-xs mb-5">You haven't placed any orders yet.</p>
+            <button type="button" onclick="showPage('shop')" class="bg-[#231F20] text-white px-5 py-2.5 text-[9px] uppercase tracking-widest font-bold rounded-xl hover:bg-[#C5A059]">Start Shopping</button>
+          </div>`;
+        return;
+      }
+
+      let html = '';
+      orderHistory.forEach(order => {
+        let itemsHtml = order.items.map(i => `<p class="text-xs text-gray-500">${i.name} (x${i.qty}) - ৳${(i.price * i.qty).toLocaleString()}</p>`).join('');
+        
+        let statusColor = order.status === 'Cancelled' ? 'text-red-500 bg-red-50' : 'text-[#C5A059] bg-stone-100';
+
+        html += `
+          <div class="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm">
+            <div class="flex justify-between items-center border-b border-gray-100 pb-3 mb-3">
+              <div>
+                <p class="text-[9px] uppercase tracking-widest text-gray-400 font-bold">Order #${order.id}</p>
+                <p class="text-xs text-gray-800 font-medium mt-1">${order.date}</p>
+              </div>
+              <span class="${statusColor} px-3 py-1 rounded-full text-[9px] uppercase tracking-widest font-bold">${order.status}</span>
+            </div>
+            <div class="mb-4 space-y-1">
+              ${itemsHtml}
+            </div>
+            <div class="flex justify-between items-center border-t border-gray-100 pt-3">
+              <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Total Payable</p>
+              <p class="text-sm font-bold text-[#231F20]">৳${order.total.toLocaleString()}</p>
+            </div>
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+    }
+
     // Process Checkout
     function processCheckout(event) {
       event.preventDefault();
@@ -651,9 +712,24 @@
       // Save order details for cancellation feature
       lastOrderDetails = { name, email, grandTotal, productDetails };
 
+      // Generate Order for History
+      const orderDate = new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' });
+      const newOrder = {
+        id: 'SV' + Math.floor(Math.random() * 90000 + 10000), // Random 5 digit ID
+        date: orderDate,
+        total: grandTotal,
+        items: cart.map(item => ({ name: item.product.name, qty: item.quantity, price: item.product.price })),
+        status: 'Processing'
+      };
+      
+      // Add to beginning of history and save
+      orderHistory.unshift(newOrder);
+      saveOrderHistory();
+      renderOrderHistory();
+
       const formData = new FormData();
       formData.append("access_key", "140b2d00-51ed-40d4-bc25-72bbcf4d92a9");
-      formData.append("subject", `New Luxury Order From: ${name}`);
+      formData.append("subject", `New Luxury Order From: ${name} (ID: #${newOrder.id})`);
       formData.append("from_name", "SherenVogue Boutique");
       formData.append("email", email); 
       formData.append("Customer Name", name);
@@ -688,6 +764,14 @@
       
       const confirmCancel = confirm("Are you sure you want to cancel this order?");
       if(confirmCancel) {
+        
+        // Update history status to cancelled
+        if (orderHistory.length > 0) {
+          orderHistory[0].status = 'Cancelled';
+          saveOrderHistory();
+          renderOrderHistory();
+        }
+
         const formData = new FormData();
         formData.append("access_key", "140b2d00-51ed-40d4-bc25-72bbcf4d92a9");
         formData.append("subject", `CANCELLED ORDER: ${lastOrderDetails.name}`);
@@ -702,13 +786,14 @@
 
         alert("Your order has been cancelled successfully. A notification has been sent to our team.");
         lastOrderDetails = null;
-        showPage('home');
+        showPage('history'); // Take them directly to the history page to see the cancelled status
       }
     }
 
     window.addEventListener('DOMContentLoaded', () => {
       renderProductGrids();
       synchronizeCartUI();
+      renderOrderHistory(); // Load history on startup
       if (typeof lucide !== 'undefined') {
         lucide.createIcons();
       }
