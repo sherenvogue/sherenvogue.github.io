@@ -98,7 +98,7 @@
     <div id="page-home" class="page-view">
       <div class="max-w-5xl mx-auto px-4 pt-4 md:pt-6">
         
-        <!-- Banner (Keeping Unsplash for Banner as it looks professional) -->
+        <!-- Banner -->
         <div class="relative rounded-3xl overflow-hidden shadow-sm bg-stone-200 aspect-[16/10] md:aspect-[21/9] flex items-center">
           <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover object-center opacity-85 mix-blend-multiply filter contrast-105" alt="Banner">
@@ -154,13 +154,13 @@
           </div>
         </section>
 
-        <!-- Featured Masterpieces Section (Includes Facebook Sync Target) -->
+        <!-- Featured & Make.com Facebook Sync Section -->
         <section class="my-10 md:my-12">
           <div class="flex justify-between items-center mb-5">
-            <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-neutral-900">Featured & Latest (FB)</h2>
+            <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-neutral-900">Featured & Latest (FB Feed)</h2>
             <button type="button" onclick="showPage('shop')" class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-amber-600 border-b border-amber-600 pb-0.5">See All</button>
           </div>
-          <!-- Target Grid for Featured & Facebook Posts -->
+          <!-- Target Grid for Make.com / Facebook Sync -->
           <div id="featured-products" class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"></div>
         </section>
 
@@ -173,7 +173,7 @@
         <h1 class="font-display text-2xl md:text-3xl mb-2 font-bold text-neutral-900">Maison Collection</h1>
         <div class="max-w-md mx-auto px-4 mt-4 mb-3">
           <div class="relative">
-            <input type="text" id="shop-search" oninput="handleSearch(this.value)" placeholder="Search for bags, watches, rings..." class="w-full border border-gray-200 rounded-full px-4 py-2.5 text-xs focus:outline-none focus:border-amber-600 bg-stone-50">
+            <input type="text" id="shop-search" oninput="handleSearch(this.value)" placeholder="Search for bags, watches..." class="w-full border border-gray-200 rounded-full px-4 py-2.5 text-xs focus:outline-none focus:border-amber-600 bg-stone-50">
             <i data-lucide="search" class="absolute right-4 top-2.5 w-4 h-4 text-gray-400"></i>
           </div>
         </div>
@@ -301,7 +301,7 @@
     </div>
   </div>
 
-   <!-- Mobile Bottom Navigation -->
+  <!-- Mobile Bottom Navigation -->
   <div class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-neutral-100 py-3 px-6 flex justify-between items-center md:hidden shadow-lg rounded-t-2xl">
     <button type="button" onclick="showPage('home')" class="flex flex-col items-center gap-1 text-gray-400 hover:text-amber-600 transition-colors focus:text-amber-600">
       <i data-lucide="home" class="w-5 h-5 stroke-[1.5]"></i>
@@ -357,18 +357,18 @@
   <script>
     const WEB3FORMS_ACCESS_KEY = "140b2d00-51ed-40d4-bc25-72bbcf4d92a9";
 
-    // 1. PRODUCTS DATA (আপনার অরিজিনাল লোকাল ছবিগুলো ব্যবহার করা হয়েছে)
+    // 1. PRODUCTS DATA
     const products = [
-      { id: 101, name: "Wings Blush Ring Crossbody", category: "bags", rawPrice: 6800, price: "৳6,800", image: "1000068167.png", desc: "Blush pink luxury leather with polished metallic ring handle and signature SherenVogue gold winged emblem." },
-      { id: 102, name: "Wings Magenta Ring Crossbody", category: "bags", rawPrice: 6800, price: "৳6,800", image: "1000068169.png", desc: "Deep magenta textured leather featuring a circular top handle and gold winged emblem." },
-      { id: 103, name: "Imperial Emerald Paisley Trapeze", category: "bags", rawPrice: 8500, price: "৳8,500", image: "1000067126.png", desc: "Woven paisley brocade side panels with structured emerald green leather and crown clasp." },
-      { id: 104, name: "Imperial Burgundy Paisley Trapeze", category: "bags", rawPrice: 8500, price: "৳8,500", image: "1000067125.png", desc: "Woven paisley brocade side panels with rich burgundy leather and gold crown clasp." },
-      { id: 105, name: "Heritage Crest Leather Satchel", category: "bags", rawPrice: 7500, price: "৳7,500", image: "1000066948.png", desc: "Pebbled espresso brown leather with contrasting tan stitched trims and winged emblem." },
-      { id: 106, name: "Luminary Pearl Beige Watch", category: "watches", rawPrice: 5800, price: "৳5,800", image: "1000066019.png", desc: "Iridescent Mother-of-Pearl dial studded with crystal markers and premium beige leather strap." },
-      { id: 107, name: "Obsidian Sculptural Crossbody", category: "bags", rawPrice: 9200, price: "৳9,200", image: "1000024543.png", desc: "Structured matte black leather with metallic top handle, chain strap, and winged emblem." },
-      { id: 108, name: "Private Member Black Satchel", category: "bags", rawPrice: 8900, price: "৳8,900", image: "1000024538.png", desc: "Pebbled black genuine leather with luxury gold chain accent and winged crown crest." },
-      { id: 109, name: "Diamond Sovereign Horology Watch", category: "watches", rawPrice: 14500, price: "৳14,500", image: "1000024539.png", desc: "High-complication rose gold timepiece paved with crystal diamonds and mother-of-pearl dial." },
-      { id: 110, name: "Luminary Mesh Rose Gold Watch", category: "watches", rawPrice: 6500, price: "৳6,500", image: "1000024541.png", desc: "Sleek rose gold mesh strap watch with mother-of-pearl dial and crystal indices." }
+      { id: 101, name: "Wings Blush Ring Crossbody", category: "bags", rawPrice: 6800, price: "৳6,800", image: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=600&q=80", desc: "Blush pink luxury leather with polished metallic ring handle and signature SherenVogue gold winged emblem." },
+      { id: 102, name: "Wings Magenta Ring Crossbody", category: "bags", rawPrice: 6800, price: "৳6,800", image: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=600&q=80", desc: "Deep magenta textured leather featuring a circular top handle and gold winged emblem." },
+      { id: 103, name: "Imperial Emerald Paisley Trapeze", category: "bags", rawPrice: 8500, price: "৳8,500", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80", desc: "Woven paisley brocade side panels with structured emerald green leather and crown clasp." },
+      { id: 104, name: "Imperial Burgundy Paisley Trapeze", category: "bags", rawPrice: 8500, price: "৳8,500", image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80", desc: "Woven paisley brocade side panels with rich burgundy leather and gold crown clasp." },
+      { id: 105, name: "Heritage Crest Leather Satchel", category: "bags", rawPrice: 7500, price: "৳7,500", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=600&q=80", desc: "Pebbled espresso brown leather with contrasting tan stitched trims and winged emblem." },
+      { id: 106, name: "Luminary Pearl Beige Watch", category: "watches", rawPrice: 5800, price: "৳5,800", image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80", desc: "Iridescent Mother-of-Pearl dial studded with crystal markers and premium beige leather strap." },
+      { id: 107, name: "Obsidian Sculptural Crossbody", category: "bags", rawPrice: 9200, price: "৳9,200", image: "https://images.unsplash.com/photo-1594223274512-ad48027321b2?auto=format&fit=crop&w=600&q=80", desc: "Structured matte black leather with metallic top handle, chain strap, and winged emblem." },
+      { id: 108, name: "Private Member Black Satchel", category: "bags", rawPrice: 8900, price: "৳8,900", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80", desc: "Pebbled black genuine leather with luxury gold chain accent and winged crown crest." },
+      { id: 109, name: "Diamond Sovereign Horology Watch", category: "watches", rawPrice: 14500, price: "৳14,500", image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80", desc: "High-complication rose gold timepiece paved with crystal diamonds and mother-of-pearl dial." },
+      { id: 110, name: "Luminary Mesh Rose Gold Watch", category: "watches", rawPrice: 6500, price: "৳6,500", image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80", desc: "Sleek rose gold mesh strap watch with mother-of-pearl dial and crystal indices." }
     ];
 
     let cart = [];
@@ -403,8 +403,7 @@
         <div class="bg-white rounded-2xl border border-gray-100 p-3 shadow-sm group flex flex-col justify-between">
           <div>
             <div class="aspect-square rounded-xl overflow-hidden bg-stone-50 mb-3 cursor-pointer" onclick="openProductModal(${p.id})">
-              <!-- 'onerror' যোগ করা হয়েছে যাতে ছবি না পেলে অন্তত একটি ফলব্যাক ব্যানার দেখায় -->
-              <img src="${p.image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/600x600?text=SherenVogue+Logo'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
             <p class="text-[8px] uppercase tracking-[0.2em] text-amber-600 font-bold mb-0.5">${p.category}</p>
             <h3 class="font-display text-xs font-bold text-neutral-900 truncate cursor-pointer" onclick="openProductModal(${p.id})">${p.name}</h3>
@@ -448,7 +447,7 @@
       if (!p) return;
       selectedProductForModal = p;
 
-      document.getElementById('modal-img-container').innerHTML = `<img src="${p.image}" onerror="this.src='https://via.placeholder.com/600x600?text=SherenVogue+Logo'" class="max-h-64 w-full object-cover rounded-xl" alt="${p.name}" />`;
+      document.getElementById('modal-img-container').innerHTML = `<img src="${p.image}" class="max-h-64 w-full object-cover rounded-xl" alt="${p.name}" />`;
       document.getElementById('modal-product-cat').innerText = p.category;
       document.getElementById('modal-product-name').innerText = p.name;
       document.getElementById('modal-product-price').innerText = p.price;
@@ -507,7 +506,7 @@
         return `
           <div class="flex items-center justify-between border-b border-gray-100 py-3">
             <div class="flex items-center gap-3">
-              <img src="${item.image}" onerror="this.src='https://via.placeholder.com/600x600?text=SherenVogue+Logo'" class="w-12 h-12 rounded-lg object-cover bg-stone-50" alt="${item.name}">
+              <img src="${item.image}" class="w-12 h-12 rounded-lg object-cover bg-stone-50" alt="${item.name}">
               <div>
                 <h4 class="font-display text-xs font-bold text-neutral-900">${item.name}</h4>
                 <p class="text-[10px] text-gray-500">${item.price} × ${item.qty}</p>
@@ -551,7 +550,6 @@
       if (savedInfo.address) document.getElementById('cust-address').value = savedInfo.address;
     }
 
-
     async function processCheckout(event) {
       event.preventDefault();
       if (cart.length === 0) {
@@ -569,7 +567,6 @@
       const address = document.getElementById('cust-address').value;
       const payment = document.getElementById('cust-payment').value;
 
-      // Save user info for auto-fill
       const userInfo = { name, email, phone, address };
       localStorage.setItem('sheren_user_info', JSON.stringify(userInfo));
 
@@ -586,12 +583,10 @@
         customer: userInfo
       };
 
-      // Save to LocalStorage
       const existingOrders = JSON.parse(localStorage.getItem('sheren_orders') || '[]');
       existingOrders.unshift(newOrder);
       localStorage.setItem('sheren_orders', JSON.stringify(existingOrders));
 
-      // EMAIL DISPATCH VIA WEB3FORMS API
       const orderItemsText = cart.map(i => `- ${i.name} (x${i.qty}) = ৳${(i.rawPrice * i.qty).toLocaleString()}`).join('\n');
       const emailBody = `New Order Placed on SherenVogue!\n\nOrder ID: ${orderId}\nCustomer Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nAddress: ${address}\nPayment Method: ${payment}\nTotal Amount: ৳${grandTotal.toLocaleString()}\n\nProducts Ordered:\n${orderItemsText}`;
 
@@ -614,7 +609,6 @@
         console.error('Email dispatch error:', err);
       }
 
-      // Display Success Summary
       const summaryText = newOrder.items.map(i => `• ${i.name} (x${i.qty}) - ৳${(i.rawPrice * i.qty).toLocaleString()}`).join('\n');
       document.getElementById('success-order-summary').innerText = `Order ID: ${newOrder.orderId}\nPayment: ${payment}\n\nProducts:\n${summaryText}`;
       document.getElementById('success-total-price').innerText = `Total Amount: ৳${grandTotal.toLocaleString()}`;
@@ -683,7 +677,6 @@
       }).join('');
     }
 
-    // CANCEL ORDER FUNCTION
     function cancelOrder(orderId) {
       if (!confirm(`Are you sure you want to cancel order ${orderId}?`)) return;
 
@@ -698,19 +691,20 @@
       }
     }
 
-     // 8. AUTO FACEBOOK POST SYNC SCRIPT & INITIALIZATION
+    // 8. INITIALIZATION & MAKE.COM DYNAMIC FB POST SYNC
     document.addEventListener('DOMContentLoaded', function() {
       if (window.lucide) lucide.createIcons();
 
-      // প্রথমে লোকাল ৪টি প্রোডাক্ট রেন্ডার করা হলো
       const featuredGrid = document.getElementById('featured-products');
+      
+      // ডিফল্ট লোকাল ৪টি প্রোডাক্ট আগে লোড হবে
       if (featuredGrid) {
         const featuredItems = products.slice(0, 4);
         featuredGrid.innerHTML = featuredItems.map(p => `
           <div class="bg-white rounded-2xl border border-gray-100 p-3 shadow-sm group flex flex-col justify-between">
             <div>
               <div class="aspect-square rounded-xl overflow-hidden bg-stone-50 mb-3 cursor-pointer" onclick="openProductModal(${p.id})">
-                <img src="${p.image}" alt="${p.name}" onerror="this.src='https://via.placeholder.com/600x600?text=SherenVogue+Logo'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
               <p class="text-[8px] uppercase tracking-[0.2em] text-amber-600 font-bold mb-0.5">${p.category}</p>
               <h3 class="font-display text-xs font-bold text-neutral-900 truncate cursor-pointer" onclick="openProductModal(${p.id})">${p.name}</h3>
@@ -725,23 +719,22 @@
 
       renderShopProducts(products);
 
-      // ফেসবুক থেকে ডাইনামিক পোস্ট আনার কোড (posts.json থেকে)
+      // Make.com থেকে পোস্ট ফেচ করার সিস্টেম (posts.json)
       fetch('posts.json')
         .then(res => res.json())
         .then(data => {
-          // এটি একাধিক পোস্ট (Array) সাপোর্ট করে
           const postsArray = Array.isArray(data) ? data : [data];
           
           postsArray.forEach(post => {
             if (post && post.image) {
-              const postMsg = post.message ? post.message : 'New Arrival from FB';
+              const postMsg = post.message ? post.message : 'New Collection Update';
               const shortMsg = postMsg.length > 40 ? postMsg.substring(0, 40) + '...' : postMsg;
 
               const fbCardHTML = `
                 <div class="relative rounded-2xl overflow-hidden bg-amber-50/50 border border-amber-200/50 p-3 shadow-sm group transition-all duration-300 hover:shadow-md flex flex-col justify-between">
                   <div>
                     <div class="relative aspect-square w-full rounded-xl overflow-hidden bg-stone-50 mb-3">
-                      <img src="${post.image}" alt="Facebook Sync" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <img src="${post.image}" alt="Facebook Post" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                       <span class="absolute top-2 left-2 bg-blue-600/90 text-white text-[7px] uppercase font-bold tracking-widest px-2 py-1 rounded-full shadow-sm flex items-center gap-1">
                         <i data-lucide="facebook" class="w-2 h-2"></i> FB Post
                       </span>
@@ -755,7 +748,6 @@
                 </div>
               `;
 
-              // ফেসবুকের পোস্টগুলো ফিচারড গ্রিডের শুরুতে যোগ হবে
               if (featuredGrid) {
                 featuredGrid.insertAdjacentHTML('afterbegin', fbCardHTML);
                 if (window.lucide) lucide.createIcons();
@@ -763,7 +755,7 @@
             }
           });
         })
-        .catch(err => console.log('Facebook posts sync resting:', err));
+        .catch(err => console.log('Make.com feed sync active:', err));
     });
   </script>
 
