@@ -1,3 +1,7 @@
+const WEB3FORMS_ACCESS_KEY = "140b2d00-51ed-40d4-bc25-72bbcf4d92a9";
+
+
+
 // CANCEL ORDER FUNCTION WITH EMAIL ALERT
 async function cancelOrder(orderId) {
   if (!confirm(`Are you sure you want to cancel order ${orderId}?`)) return;
