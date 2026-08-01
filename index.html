@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -363,8 +364,11 @@
     </div>
   </footer>
 
-  <!-- MAIN JAVASCRIPT SYSTEM -->
+  <!-- MAIN JAVASCRIPT SYSTEM WITH CANCEL & EMAIL NOTIFICATION -->
   <script>
+    // Web3Forms Access Key (Get free key from https://web3forms.com by submitting your email: hello@sherenvogue.com)
+    const WEB3FORMS_ACCESS_KEY = "YOUR_WEB3FORMS_ACCESS_KEY_HERE";
+
     // 1. PRODUCTS DATA
     const products = [
       { id: 101, name: "Bespoke Royal Leather Bag", category: "bags", rawPrice: 18500, price: "৳18,500", image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop", desc: "Handcrafted artisan luxury genuine leather bag with gold hardware." },
@@ -488,7 +492,7 @@
       document.getElementById('product-modal').classList.add('hidden');
     }
 
-    // 5. CART & CHECKOUT MANAGEMENT
+    // 5. CART MANAGEMENT
     function addToCart(id) {
       const p = products.find(item => item.id === id);
       if (!p) return;
@@ -562,12 +566,11 @@
       renderCart();
     }
 
-    // AUTO-FILL & SAVE USER INFO (NO RE-TYPING)
+    // 6. CHECKOUT & EMAIL NOTIFICATION
     function prepareCheckout() {
       let grandTotal = cart.reduce((sum, item) => sum + (item.rawPrice * item.qty), 0);
       document.getElementById('checkout-total-price').innerText = '৳' + grandTotal.toLocaleString();
 
-      // Load saved user information from localStorage
       const savedInfo = JSON.parse(localStorage.getItem('sheren_user_info') || '{}');
       if (savedInfo.name) document.getElementById('cust-name').value = savedInfo.name;
       if (savedInfo.email) document.getElementById('cust-email').value = savedInfo.email;
@@ -575,7 +578,7 @@
       if (savedInfo.address) document.getElementById('cust-address').value = savedInfo.address;
     }
 
-    function processCheckout(event) {
+    async function processCheckout(event) {
       event.preventDefault();
       if (cart.length === 0) {
         alert("Your cart is empty!");
@@ -588,38 +591,60 @@
       const address = document.getElementById('cust-address').value;
       const payment = document.getElementById('cust-payment').value;
 
-      // 1. Save Customer Info for next time auto-fill
+      // Save user info for auto-fill
       const userInfo = { name, email, phone, address };
       localStorage.setItem('sheren_user_info', JSON.stringify(userInfo));
 
-      // 2. Generate & Save Order to History
       const grandTotal = cart.reduce((sum, item) => sum + (item.rawPrice * item.qty), 0);
+      const orderId = 'SV-' + Math.floor(100000 + Math.random() * 900000);
+
       const newOrder = {
-        orderId: 'SV-' + Math.floor(100000 + Math.random() * 900000),
+        orderId: orderId,
         date: new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }),
         items: [...cart],
         total: grandTotal,
         paymentMethod: payment,
+        status: 'Processing',
         customer: userInfo
       };
 
+      // Save to localStorage
       const existingOrders = JSON.parse(localStorage.getItem('sheren_orders') || '[]');
       existingOrders.unshift(newOrder);
       localStorage.setItem('sheren_orders', JSON.stringify(existingOrders));
 
-      // 3. Render Order Summary on Success Page
+      // SEND EMAIL TO hello@sherenvogue.com via Web3Forms
+      const emailBody = `New Order Placed on SherenVogue!\n\nOrder ID: ${orderId}\nCustomer: ${name}\nEmail: ${email}\nPhone: ${phone}\nAddress: ${address}\nPayment: ${payment}\nTotal Amount: ৳${grandTotal.toLocaleString()}\n\nOrdered Products:\n` + cart.map(i => `- ${i.name} (x${i.qty}) = ৳${(i.rawPrice * i.qty).toLocaleString()}`).join('\n');
+
+      if (WEB3FORMS_ACCESS_KEY !== "YOUR_WEB3FORMS_ACCESS_KEY_HERE") {
+        try {
+          await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              access_key: WEB3FORMS_ACCESS_KEY,
+              subject: `New Order Received: ${orderId}`,
+              from_name: "SherenVogue Storefront",
+              to_email: "hello@sherenvogue.com",
+              message: emailBody
+            })
+          });
+        } catch (err) {
+          console.log('Email dispatch error:', err);
+        }
+      }
+
+      // Display Success Summary
       const summaryText = newOrder.items.map(i => `• ${i.name} (x${i.qty}) - ৳${(i.rawPrice * i.qty).toLocaleString()}`).join('\n');
       document.getElementById('success-order-summary').innerText = `Order ID: ${newOrder.orderId}\nPayment: ${payment}\n\nProducts:\n${summaryText}`;
       document.getElementById('success-total-price').innerText = `Total Amount: ৳${grandTotal.toLocaleString()}`;
 
-      // 4. Reset Cart
       cart = [];
       updateCartBadge();
-
       showPage('success');
     }
 
-    // 6. ORDER HISTORY DISPLAY
+    // 7. ORDER HISTORY & CANCELLATION SYSTEM
     function renderHistory() {
       const container = document.getElementById('history-container');
       if (!container) return;
@@ -643,6 +668,17 @@
           </div>
         `).join('');
 
+        const isCancelled = order.status === 'Cancelled';
+        const statusBadge = isCancelled 
+          ? `<span class="bg-red-50 text-red-600 text-[8px] font-bold uppercase tracking-wider px-2 py-1 rounded-full">Cancelled</span>`
+          : `<span class="bg-green-50 text-green-700 text-[8px] font-bold uppercase tracking-wider px-2 py-1 rounded-full">Processing</span>`;
+
+        const cancelButtonHTML = isCancelled ? '' : `
+          <button onclick="cancelOrder('${order.orderId}')" class="text-[9px] uppercase tracking-widest text-red-500 hover:text-red-700 font-bold border border-red-200 px-3 py-1 rounded-lg hover:bg-red-50 transition-all">
+            Cancel Order
+          </button>
+        `;
+
         return `
           <div class="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm space-y-3">
             <div class="flex justify-between items-center border-b border-gray-100 pb-2">
@@ -650,7 +686,10 @@
                 <span class="text-[10px] uppercase font-bold text-[#C5A059] tracking-widest">${order.orderId}</span>
                 <p class="text-[9px] text-gray-400">${order.date}</p>
               </div>
-              <span class="bg-green-50 text-green-700 text-[8px] font-bold uppercase tracking-wider px-2 py-1 rounded-full">Processing</span>
+              <div class="flex items-center gap-2">
+                ${statusBadge}
+                ${cancelButtonHTML}
+              </div>
             </div>
             <div>${itemRows}</div>
             <div class="flex justify-between items-center pt-2 border-t border-gray-100">
@@ -662,14 +701,28 @@
       }).join('');
     }
 
-    // 7. AUTO FACEBOOK POST SYNC SCRIPT
+    // CANCEL ORDER FUNCTION
+    function cancelOrder(orderId) {
+      if (!confirm(`Are you sure you want to cancel order ${orderId}?`)) return;
+
+      let orders = JSON.parse(localStorage.getItem('sheren_orders') || '[]');
+      const orderIndex = orders.findIndex(o => o.orderId === orderId);
+
+      if (orderIndex !== -1) {
+        orders[orderIndex].status = 'Cancelled';
+        localStorage.setItem('sheren_orders', JSON.stringify(orders));
+        renderHistory();
+        alert(`Order ${orderId} has been successfully cancelled.`);
+      }
+    }
+
+    // 8. AUTO FACEBOOK POST SYNC SCRIPT
     document.addEventListener('DOMContentLoaded', function() {
       if (window.lucide) lucide.createIcons();
 
       renderFeaturedProducts();
       renderShopProducts(products);
 
-      // Auto Fetch posts.json from GitHub
       fetch('posts.json')
         .then(res => res.json())
         .then(data => {
@@ -699,7 +752,7 @@
             }
           }
         })
-        .catch(err => console.log('posts.json auto-sync status:', err));
+        .catch(err => console.log('posts.json status:', err));
     });
   </script>
 
