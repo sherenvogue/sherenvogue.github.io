@@ -60,7 +60,7 @@
 
 <body class="bg-stone-50 text-neutral-900 min-h-screen flex flex-col antialiased">
 
-  <!-- Luxury Toast Notification (Replaces Default Alert) -->
+  <!-- Luxury Toast Notification -->
   <div id="luxury-toast" class="fixed bottom-6 right-6 z-[200] transform translate-y-20 opacity-0 transition-all duration-500 bg-neutral-900 text-white px-5 py-4 rounded-2xl shadow-2xl border border-amber-500/30 flex items-center gap-3 pointer-events-none max-w-sm">
     <div class="w-8 h-8 rounded-full bg-amber-600/20 flex items-center justify-center text-amber-400 shrink-0">
       <i data-lucide="check" class="w-4 h-4"></i>
@@ -416,7 +416,7 @@
       const msg = document.getElementById('toast-message');
       if (!toast || !msg) return;
 
-      msg.innerText = `"${productName}" added to your bag.`;
+      msg.innerText = productName;
       toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
       toast.classList.add('translate-y-0', 'opacity-100');
 
@@ -530,7 +530,7 @@
       }
 
       updateCartBadge();
-      showLuxuryToast(p.name); // Replaced standard alert with luxury toast notification
+      showLuxuryToast(`"${p.name}" added to your bag.`);
     }
 
     function updateCartBadge() {
@@ -554,7 +554,7 @@
 
       let grandTotal = 0;
       const itemsHTML = cart.map((item, index) => {
-        const itemTotal = item.rawPrice * item.qty;
+        const itemTotal = (item.rawPrice || 0) * (item.qty || 1);
         grandTotal += itemTotal;
         return `
           <div class="flex items-center justify-between border-b border-gray-100 py-3">
@@ -593,7 +593,7 @@
 
     // 6. CHECKOUT & EMAIL DISPATCH SYSTEM
     function prepareCheckout() {
-      let grandTotal = cart.reduce((sum, item) => sum + (item.rawPrice * item.qty), 0);
+      let grandTotal = cart.reduce((sum, item) => sum + ((item.rawPrice || 0) * (item.qty || 1)), 0);
       document.getElementById('checkout-total-price').innerText = '৳' + grandTotal.toLocaleString();
 
       const savedInfo = JSON.parse(localStorage.getItem('sheren_user_info') || '{}');
@@ -623,7 +623,7 @@
       const userInfo = { name, email, phone, address };
       localStorage.setItem('sheren_user_info', JSON.stringify(userInfo));
 
-      const grandTotal = cart.reduce((sum, item) => sum + (item.rawPrice * item.qty), 0);
+      const grandTotal = cart.reduce((sum, item) => sum + ((item.rawPrice || 0) * (item.qty || 1)), 0);
       const orderId = 'SV-' + Math.floor(100000 + Math.random() * 900000);
 
       const newOrder = {
@@ -640,7 +640,7 @@
       existingOrders.unshift(newOrder);
       localStorage.setItem('sheren_orders', JSON.stringify(existingOrders));
 
-      const orderItemsText = cart.map(i => `- ${i.name} (x${i.qty}) = ৳${(i.rawPrice * i.qty).toLocaleString()}`).join('\n');
+      const orderItemsText = cart.map(i => `- ${i.name} (x${i.qty}) = ৳${((i.rawPrice || 0) * (i.qty || 1)).toLocaleString()}`).join('\n');
       const emailBody = `New Order Placed on SherenVogue!\n\nOrder ID: ${orderId}\nCustomer Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nAddress: ${address}\nPayment Method: ${payment}\nTotal Amount: ৳${grandTotal.toLocaleString()}\n\nProducts Ordered:\n${orderItemsText}`;
 
       try {
@@ -662,7 +662,7 @@
         console.error('Email dispatch error:', err);
       }
 
-      const summaryText = newOrder.items.map(i => `• ${i.name} (x${i.qty}) - ৳${(i.rawPrice * i.qty).toLocaleString()}`).join('\n');
+      const summaryText = newOrder.items.map(i => `• ${i.name} (x${i.qty}) - ৳${((i.rawPrice || 0) * (i.qty || 1)).toLocaleString()}`).join('\n');
       document.getElementById('success-order-summary').innerText = `Order ID: ${newOrder.orderId}\nPayment: ${payment}\n\nProducts:\n${summaryText}`;
       document.getElementById('success-total-price').innerText = `Total Amount: ৳${grandTotal.toLocaleString()}`;
 
@@ -673,7 +673,7 @@
       showPage('success');
     }
 
-    // 7. ORDER HISTORY & CANCELLATION SYSTEM
+    // 7. ORDER HISTORY & DELETE SYSTEM
     function renderHistory() {
       const container = document.getElementById('history-container');
       if (!container) return;
@@ -690,12 +690,23 @@
       }
 
       container.innerHTML = orders.map(order => {
-        const itemRows = order.items.map(i => `
-          <div class="flex justify-between text-xs py-1 border-b border-gray-50 text-gray-600 font-medium">
-            <span>${i.name} × ${i.qty}</span>
-            <span>৳${(i.rawPrice * i.qty).toLocaleString()}</span>
-          </div>
-        `).join('');
+        const orderId = order.orderId || 'SV-000000';
+        const orderDate = order.date || 'Recent';
+        const paymentMethod = order.paymentMethod || 'Cash On Delivery';
+        const orderTotal = typeof order.total === 'number' ? order.total : 0;
+        const items = Array.isArray(order.items) ? order.items : [];
+
+        const itemRows = items.map(i => {
+          const itemName = i.name || 'Luxury Item';
+          const itemQty = i.qty || 1;
+          const itemPrice = (i.rawPrice || 0) * itemQty;
+          return `
+            <div class="flex justify-between text-xs py-1 border-b border-gray-50 text-gray-600 font-medium">
+              <span>${itemName} × ${itemQty}</span>
+              <span>৳${itemPrice.toLocaleString()}</span>
+            </div>
+          `;
+        }).join('');
 
         const isCancelled = order.status === 'Cancelled';
         const statusBadge = isCancelled 
@@ -703,8 +714,8 @@
           : `<span class="bg-green-50 text-green-700 text-[8px] font-bold uppercase tracking-wider px-2 py-1 rounded-full">Processing</span>`;
 
         const cancelButtonHTML = isCancelled ? '' : `
-          <button onclick="cancelOrder('${order.orderId}')" class="text-[9px] uppercase tracking-widest text-red-500 hover:text-red-700 font-bold border border-red-200 px-3 py-1 rounded-lg hover:bg-red-50 transition-all">
-            Cancel Order
+          <button onclick="cancelOrder('${orderId}')" class="text-[9px] uppercase tracking-widest text-red-500 hover:text-red-700 font-bold border border-red-200 px-2.5 py-1 rounded-lg hover:bg-red-50 transition-all">
+            Cancel
           </button>
         `;
 
@@ -712,18 +723,21 @@
           <div class="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm space-y-3">
             <div class="flex justify-between items-center border-b border-gray-100 pb-2">
               <div>
-                <span class="text-[10px] uppercase font-bold text-amber-600 tracking-widest">${order.orderId}</span>
-                <p class="text-[9px] text-gray-400">${order.date}</p>
+                <span class="text-[10px] uppercase font-bold text-amber-600 tracking-widest">${orderId}</span>
+                <p class="text-[9px] text-gray-400">${orderDate}</p>
               </div>
               <div class="flex items-center gap-2">
                 ${statusBadge}
                 ${cancelButtonHTML}
+                <button onclick="deleteOrder('${orderId}')" class="text-[9px] uppercase tracking-widest text-neutral-400 hover:text-red-600 font-bold border border-gray-200 px-2.5 py-1 rounded-lg hover:bg-red-50 transition-all" title="Delete from History">
+                  Delete
+                </button>
               </div>
             </div>
             <div>${itemRows}</div>
             <div class="flex justify-between items-center pt-2 border-t border-gray-100">
-              <span class="text-[9px] uppercase font-bold text-gray-400">Payment: ${order.paymentMethod}</span>
-              <span class="text-sm font-bold text-neutral-900">৳${order.total.toLocaleString()}</span>
+              <span class="text-[9px] uppercase font-bold text-gray-400">Payment: ${paymentMethod}</span>
+              <span class="text-sm font-bold text-neutral-900">৳${orderTotal.toLocaleString()}</span>
             </div>
           </div>
         `;
@@ -740,8 +754,18 @@
         orders[orderIndex].status = 'Cancelled';
         localStorage.setItem('sheren_orders', JSON.stringify(orders));
         renderHistory();
-        alert(`Order ${orderId} has been successfully cancelled.`);
+        showLuxuryToast(`Order ${orderId} cancelled.`);
       }
+    }
+
+    function deleteOrder(orderId) {
+      if (!confirm(`Are you sure you want to delete order ${orderId} from your history?`)) return;
+
+      let orders = JSON.parse(localStorage.getItem('sheren_orders') || '[]');
+      orders = orders.filter(o => o.orderId !== orderId);
+      localStorage.setItem('sheren_orders', JSON.stringify(orders));
+      renderHistory();
+      showLuxuryToast(`Order ${orderId} deleted from history.`);
     }
 
     // 8. INITIALIZATION & MAKE.COM DYNAMIC FB POST SYNC
