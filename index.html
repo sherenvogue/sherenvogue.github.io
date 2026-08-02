@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -315,7 +314,7 @@
   <script>
     const WEB3FORMS_ACCESS_KEY = "140b2d00-51ed-40d4-bc25-72bbcf4d92a9";
 
-    // 1. PRODUCTS DATA (এখন সঠিক ব্যাগ ও ঘড়ির ছবি দেওয়া হয়েছে)
+    // 1. PRODUCTS DATA (সঠিক ব্যাগ ও লাক্সারি টাইমপিসের ইমেজ লিঙ্ক সেট করা হয়েছে)
     const products = [
       { 
         id: 101, 
@@ -323,7 +322,7 @@
         category: "bags", 
         rawPrice: 6800, 
         price: "৳6,800", 
-        image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=600&q=80", 
+        image: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=600&q=80", 
         desc: "Blush pink luxury leather with polished metallic ring handle and signature SherenVogue gold winged emblem." 
       },
       { 
@@ -332,7 +331,7 @@
         category: "bags", 
         rawPrice: 6800, 
         price: "৳6,800", 
-        image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80", 
+        image: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=600&q=80", 
         desc: "Deep magenta textured leather featuring a circular top handle and gold winged emblem." 
       },
       { 
@@ -341,7 +340,7 @@
         category: "bags", 
         rawPrice: 8500, 
         price: "৳8,500", 
-        image: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=600&q=80", 
+        image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80", 
         desc: "Woven paisley brocade side panels with structured emerald green leather and crown clasp." 
       },
       { 
@@ -350,7 +349,7 @@
         category: "bags", 
         rawPrice: 8500, 
         price: "৳8,500", 
-        image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80", 
+        image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80", 
         desc: "Woven paisley brocade side panels with rich burgundy leather and gold crown clasp." 
       },
       { 
@@ -368,7 +367,7 @@
         category: "watches", 
         rawPrice: 5800, 
         price: "৳5,800", 
-        image: "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?auto=format&fit=crop&w=600&q=80", 
+        image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80", 
         desc: "Iridescent Mother-of-Pearl dial studded with crystal markers and premium beige leather strap." 
       },
       { 
@@ -377,7 +376,7 @@
         category: "bags", 
         rawPrice: 9200, 
         price: "৳9,200", 
-        image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80", 
+        image: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=600&q=80", 
         desc: "Structured matte black leather with metallic top handle, chain strap, and winged emblem." 
       },
       { 
@@ -412,7 +411,7 @@
     let cart = [];
     let selectedProductForModal = null;
 
-    // 2. PAGE NAVIGATION
+    // 2. PAGE NAVIGATION SYSTEM
     function showPage(pageId) {
       document.querySelectorAll('.page-view').forEach(p => p.classList.add('hidden'));
       const targetPage = document.getElementById('page-' + pageId);
@@ -427,7 +426,7 @@
       if (window.lucide) lucide.createIcons();
     }
 
-    // 3. PRODUCT RENDER & SEARCH
+    // 3. PRODUCT RENDER & SEARCH SYSTEM
     function renderShopProducts(items) {
       const shopContainer = document.getElementById('shop-products');
       if (!shopContainer) return;
@@ -459,7 +458,7 @@
       if (!grid) return;
 
       const featuredItems = products.slice(0, 4);
-      const itemsHTML = featuredItems.map(p => `
+      grid.innerHTML = featuredItems.map(p => `
         <div class="bg-white rounded-2xl border border-gray-100 p-3 shadow-sm group flex flex-col justify-between">
           <div>
             <div class="aspect-square rounded-xl overflow-hidden bg-stone-50 mb-3 cursor-pointer" onclick="openProductModal(${p.id})">
@@ -474,8 +473,6 @@
           </button>
         </div>
       `).join('');
-
-      grid.innerHTML = itemsHTML;
     }
 
     function handleSearch(query) {
@@ -503,7 +500,7 @@
       else renderShopProducts(products.filter(p => p.category === cat));
     }
 
-    // 4. MODAL MANAGEMENT
+    // 4. PRODUCT MODAL SYSTEM
     function openProductModal(id) {
       const p = products.find(item => item.id === id);
       if (!p) return;
@@ -526,7 +523,7 @@
       document.getElementById('product-modal').classList.add('hidden');
     }
 
-    // 5. CART MANAGEMENT
+    // 5. CART MANAGEMENT SYSTEM
     function addToCart(id) {
       const p = products.find(item => item.id === id);
       if (!p) return;
@@ -600,7 +597,7 @@
       renderCart();
     }
 
-    // 6. CHECKOUT & EMAIL DISPATCH SYSTEM
+    // 6. CHECKOUT & EMAIL DISPATCH
     function prepareCheckout() {
       let grandTotal = cart.reduce((sum, item) => sum + (item.rawPrice * item.qty), 0);
       document.getElementById('checkout-total-price').innerText = '৳' + grandTotal.toLocaleString();
@@ -629,7 +626,6 @@
       const address = document.getElementById('cust-address').value;
       const payment = document.getElementById('cust-payment').value;
 
-      // Save user info for auto-fill
       const userInfo = { name, email, phone, address };
       localStorage.setItem('sheren_user_info', JSON.stringify(userInfo));
 
@@ -646,12 +642,10 @@
         customer: userInfo
       };
 
-      // Save to LocalStorage
       const existingOrders = JSON.parse(localStorage.getItem('sheren_orders') || '[]');
       existingOrders.unshift(newOrder);
       localStorage.setItem('sheren_orders', JSON.stringify(existingOrders));
 
-      // EMAIL DISPATCH VIA WEB3FORMS API
       const orderItemsText = cart.map(i => `- ${i.name} (x${i.qty}) = ৳${(i.rawPrice * i.qty).toLocaleString()}`).join('\n');
       const emailBody = `New Order Placed on SherenVogue!\n\nOrder ID: ${orderId}\nCustomer Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nAddress: ${address}\nPayment Method: ${payment}\nTotal Amount: ৳${grandTotal.toLocaleString()}\n\nProducts Ordered:\n${orderItemsText}`;
 
@@ -674,7 +668,6 @@
         console.error('Email dispatch error:', err);
       }
 
-      // Display Success Summary
       const summaryText = newOrder.items.map(i => `• ${i.name} (x${i.qty}) - ৳${(i.rawPrice * i.qty).toLocaleString()}`).join('\n');
       document.getElementById('success-order-summary').innerText = `Order ID: ${newOrder.orderId}\nPayment: ${payment}\n\nProducts:\n${summaryText}`;
       document.getElementById('success-total-price').innerText = `Total Amount: ৳${grandTotal.toLocaleString()}`;
@@ -686,7 +679,7 @@
       showPage('success');
     }
 
-    // 7. ORDER HISTORY & CANCELLATION SYSTEM
+    // 7. ORDER HISTORY & CANCELLATION
     function renderHistory() {
       const container = document.getElementById('history-container');
       if (!container) return;
@@ -743,7 +736,6 @@
       }).join('');
     }
 
-    // CANCEL ORDER FUNCTION
     function cancelOrder(orderId) {
       if (!confirm(`Are you sure you want to cancel order ${orderId}?`)) return;
 
@@ -758,7 +750,7 @@
       }
     }
 
-    // 8. AUTO FACEBOOK POST SYNC SCRIPT & INITIALIZATION
+    // 8. INITIALIZATION
     document.addEventListener('DOMContentLoaded', function() {
       if (window.lucide) lucide.createIcons();
 
