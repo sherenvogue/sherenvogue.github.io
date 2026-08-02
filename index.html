@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -102,7 +101,7 @@
                 <div class="relative z-10 text-center px-4 max-w-3xl">
                     <span class="text-gold uppercase tracking-[0.4em] text-xs sm:text-sm font-semibold mb-3 block">Autumn / Winter Edition</span>
                     <h1 class="font-cinzel text-4xl sm:text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">ELEGANCE REDEFINED</h1>
-                    <p class="text-gray-300 text-sm sm:text-base max-w-xl mx-auto mb-8 font-light">Discover handcrafted luxury timepieces and bespoke designer leather bags crafted for the modern connoisseur.</p>
+                    <p class="text-gray-300 text-sm sm:text-base max-w-xl mx-auto mb-8 font-light">Discover handcrafted luxury timepieces, bespoke designer leather bags, and exclusive accessories crafted for the modern connoisseur.</p>
                     <button onclick="showPage('shop')" class="bg-gold hover:bg-darkGold text-black font-semibold uppercase tracking-widest px-8 py-4 text-xs sm:text-sm transition duration-300 inline-flex items-center space-x-2">
                         <span>Explore Collection</span>
                         <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -135,7 +134,7 @@
             <!-- Categories Section -->
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                 <h2 class="font-cinzel text-2xl sm:text-3xl font-bold text-center text-white mb-12">Curated Categories</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Category 1 -->
                     <div onclick="filterCategoryAndGo('Bags')" class="group relative h-96 overflow-hidden rounded-lg cursor-pointer border border-gold/10">
                         <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80" alt="Bags" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
@@ -156,6 +155,16 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Category 3 -->
+                    <div onclick="filterCategoryAndGo('Accessories')" class="group relative h-96 overflow-hidden rounded-lg cursor-pointer border border-gold/10">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80" alt="Accessories" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-8">
+                            <div>
+                                <span class="text-gold uppercase tracking-widest text-xs font-semibold">Haute Accessories</span>
+                                <h3 class="font-cinzel text-3xl font-bold text-white mt-1">Accessories</h3>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -167,7 +176,7 @@
                         <h2 class="font-cinzel text-2xl sm:text-3xl font-bold text-white mt-1">Featured Artifacts</h2>
                     </div>
                     <button onclick="showPage('shop')" class="text-gold hover:underline text-sm font-medium flex items-center space-x-1">
-                        <span>View All</span>
+                        <span>View All (30)</span>
                         <i data-lucide="chevron-right" class="w-4 h-4"></i>
                     </button>
                 </div>
@@ -179,7 +188,7 @@
         <section id="page-shop" class="page-section hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="text-center mb-10">
                 <h1 class="font-cinzel text-3xl sm:text-4xl font-bold text-white mb-3">Our Collection</h1>
-                <p class="text-gray-400 text-sm max-w-md mx-auto">Explore luxury timepieces and haute couture bags.</p>
+                <p class="text-gray-400 text-sm max-w-md mx-auto">Explore 30 exclusive luxury timepieces, haute couture bags, and luxury accessories.</p>
             </div>
 
             <!-- Filters & Search -->
@@ -195,6 +204,7 @@
                     <button onclick="setCategory('All')" class="cat-btn bg-gold text-black font-semibold text-xs uppercase tracking-wider px-5 py-2 rounded transition" data-cat="All">All</button>
                     <button onclick="setCategory('Bags')" class="cat-btn bg-navyDark text-gray-300 hover:text-gold border border-gold/20 font-semibold text-xs uppercase tracking-wider px-5 py-2 rounded transition" data-cat="Bags">Bags</button>
                     <button onclick="setCategory('Watches')" class="cat-btn bg-navyDark text-gray-300 hover:text-gold border border-gold/20 font-semibold text-xs uppercase tracking-wider px-5 py-2 rounded transition" data-cat="Watches">Watches</button>
+                    <button onclick="setCategory('Accessories')" class="cat-btn bg-navyDark text-gray-300 hover:text-gold border border-gold/20 font-semibold text-xs uppercase tracking-wider px-5 py-2 rounded transition" data-cat="Accessories">Accessories</button>
                 </div>
             </div>
 
@@ -293,7 +303,7 @@
 
     </main>
 
-    <!-- Facebook Posts Section / Footer Integration -->
+    <!-- Facebook Posts Section -->
     <section class="border-t border-gold/10 bg-cardBg py-12 mt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-8">
@@ -338,7 +348,7 @@
 
     <!-- Application JavaScript Logic -->
     <script>
-        // --- Hardcoded 10 Products Data ---
+        // --- Hardcoded 30 Luxury Products Data ---
         const products = [
             { id: 1, name: "Regal Leather Tote", price: 450, category: "Bags", image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80", description: "Crafted from full-grain Italian leather with hand-stitched details and gold-plated hardware." },
             { id: 2, name: "Midnight Chronograph", price: 890, category: "Watches", image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80", description: "Precision automatic movement encapsulated in a sleek matte-black stainless steel casing." },
@@ -349,7 +359,27 @@
             { id: 7, name: "Artisan Crossbody Bag", price: 290, category: "Bags", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80", description: "Compact daily bag with magnetic closure and multi-compartment storage." },
             { id: 8, name: "Minimalist Silver Timepiece", price: 540, category: "Watches", image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=600&q=80", description: "Clean, understated luxury watch with scratch-resistant sapphire crystal glass." },
             { id: 9, name: "Python Embossed Handbag", price: 750, category: "Bags", image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80", description: "Statement handbag with exotic python-texture embossing and sturdy dual handles." },
-            { id: 10, name: "Chrono Tourbillon Special", price: 3400, category: "Watches", image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80", description: "Limited edition tourbillon watch designed for ultimate precision and elegance." }
+            { id: 10, name: "Chrono Tourbillon Special", price: 3400, category: "Watches", image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80", description: "Limited edition tourbillon watch designed for ultimate precision and elegance." },
+            { id: 11, name: "Executive Calfskin Briefcase", price: 820, category: "Bags", image: "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=600&q=80", description: "Sophisticated document bag tailored for business executives with modern laptop padding." },
+            { id: 12, name: "Rose Gold Stellar Watch", price: 1150, category: "Watches", image: "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?auto=format&fit=crop&w=600&q=80", description: "A radiant rose gold timepiece paired with a comfortable mesh stainless strap." },
+            { id: 13, name: "Suede Bucket Satchel", price: 390, category: "Bags", image: "https://images.unsplash.com/photo-1598532163257-ae3c6b2524b6?auto=format&fit=crop&w=600&q=80", description: "Soft suede bucket bag featuring adjustable drawstring cords and gold accents." },
+            { id: 14, name: "Titanium Dive Master", price: 980, category: "Watches", image: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=600&q=80", description: "300m water-resistant titanium diving watch with luminous dial markings." },
+            { id: 15, name: "Micro Mini Baguette Bag", price: 280, category: "Bags", image: "https://images.unsplash.com/photo-1566150902880-3052110a6f57?auto=format&fit=crop&w=600&q=80", description: "Trendy compact baguette silhouette designed for light carrying and evening events." },
+            { id: 16, name: "Vintage Pocket Watch Reissue", price: 650, category: "Watches", image: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=600&q=80", description: "Classic pocket-watch heritage reimagined with modern swiss mechanical gears." },
+            { id: 17, name: "Quilted Flap Shoulder Bag", price: 620, category: "Bags", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=600&q=80", description: "Iconic quilted pattern shoulder purse equipped with interweaved leather chain." },
+            { id: 18, name: "Ceramic White Elegance Watch", price: 1400, category: "Watches", image: "https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=600&q=80", description: "Ultra-durable white ceramic casing and bracelet with mother-of-pearl dial." },
+            { id: 19, name: "Crocodile Skin Messenger", price: 1100, category: "Bags", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80", description: "Handcrafted messenger bag made with premium textured crocodile leather." },
+            { id: 20, name: "Aviator Chrono Steel", price: 720, category: "Watches", image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=600&q=80", description: "Inspired by classical flight instruments, featuring dual-timezone dials." },
+            { id: 21, name: "Signature Gold Buckle Belt", price: 210, category: "Accessories", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80", description: "Reversible calfskin leather belt with custom SherenVogue metallic gold buckle." },
+            { id: 22, name: "Noir Luxury Perfume 100ml", price: 185, category: "Accessories", image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=600&q=80", description: "Intense eau de parfum with notes of rare amber, dark vanilla, and cedarwood." },
+            { id: 23, name: "Leather Cardholder Wallet", price: 145, category: "Accessories", image: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=600&q=80", description: "Slim RFID-blocking leather wallet with six card slots and cash clip." },
+            { id: 24, name: "Sapphire Crystal Moonphase", price: 1850, category: "Watches", image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80", description: "High-complication moonphase watch displaying real-time lunar positions." },
+            { id: 25, name: "Woven Leather Hobo Bag", price: 530, category: "Bags", image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80", description: "Hand-woven soft nappa leather hobo bag designed for slouchy elegance." },
+            { id: 26, name: "Platinum Skeleton Collector", price: 4200, category: "Watches", image: "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=600&q=80", description: "Exquisite platinum edition watch revealing intricate gearwork from both sides." },
+            { id: 27, name: "Oversized Travel Weekender", price: 950, category: "Bags", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80", description: "Heavy-duty luggage tote designed with dedicated shoe section and garment sleeves." },
+            { id: 28, name: "Monogram Silk Scarf", price: 230, category: "Accessories", image: "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=600&q=80", description: "100% pure Mulberry silk scarf printed with custom brand heritage monograms." },
+            { id: 29, name: "Imperial Oud Perfume 100ml", price: 260, category: "Accessories", image: "https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=600&q=80", description: "Opulent fragrance steeped in authentic Cambodian oud wood and damask rose." },
+            { id: 30, name: "Matte Black Leather Backpack", price: 590, category: "Bags", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80", description: "Urban luxury backpack with waterproof zippers and padded interior partitions." }
         ];
 
         // --- State Management ---
@@ -416,7 +446,7 @@
 
         function renderFeaturedProducts() {
             const grid = document.getElementById('featured-grid');
-            grid.innerHTML = products.slice(0, 4).map(createProductCard).join('');
+            grid.innerHTML = products.slice(0, 8).map(createProductCard).join('');
         }
 
         function renderShopProducts() {
@@ -529,7 +559,7 @@
                     <div class="col-span-full text-center py-16">
                         <i data-lucide="shopping-bag" class="w-16 h-16 text-gray-600 mx-auto mb-4"></i>
                         <h3 class="font-cinzel text-xl font-bold text-white mb-2">Your Bag is Empty</h3>
-                        <p class="text-gray-400 text-sm mb-6">Explore our curated collection to add luxury items.</p>
+                        <p class="text-gray-400 text-sm mb-6">Explore our 30 curated products to add luxury items.</p>
                         <button onclick="showPage('shop')" class="bg-gold hover:bg-darkGold text-black font-semibold text-xs uppercase tracking-widest px-6 py-3 transition">Shop Now</button>
                     </div>
                 `;
@@ -744,7 +774,6 @@
 
         // --- Fetch Posts from posts.json ---
         async function fetchFacebookPosts() {
-            const container = document.getElementById('posts-container');
             try {
                 const response = await fetch('posts.json');
                 if (!response.ok) throw new Error("File not found");
