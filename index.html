@@ -116,7 +116,7 @@
         <!-- Stats Counter -->
         <div class="bg-neutral-900 rounded-2xl my-6 md:my-8 p-4 md:p-5 grid grid-cols-4 text-center divide-x divide-neutral-800 text-white shadow-md">
           <div>
-            <p class="font-display text-base md:text-2xl font-bold text-amber-200">10+</p>
+            <p class="font-display text-base md:text-2xl font-bold text-amber-200">30+</p>
             <p class="text-[7px] md:text-[9px] text-neutral-400 uppercase tracking-widest mt-0.5">Masterpieces</p>
           </div>
           <div>
@@ -136,30 +136,38 @@
         <!-- Categories Section -->
         <section class="my-8 md:my-10">
           <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-neutral-900 mb-4">Shop by Category</h2>
-          <div class="grid grid-cols-2 gap-3 md:gap-5">
+          <div class="grid grid-cols-3 gap-3 md:gap-5">
             <div onclick="showPage('shop'); filterCategory('bags');" class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100">
-              <img src="1000068169.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Haute Bags">
+              <img src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Ladies Bags">
               <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6">
-                <h3 class="text-white font-display text-sm md:text-xl font-bold">Haute Couture Bags</h3>
-                <p class="text-[8px] md:text-[10px] text-neutral-300 uppercase tracking-wider mt-0.5">Bespoke Styles</p>
+                <h3 class="text-white font-display text-xs md:text-lg font-bold">Haute Bags</h3>
+                <p class="text-[7px] md:text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">15 Styles</p>
               </div>
             </div>
             <div class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100" onclick="showPage('shop'); filterCategory('watches');">
-              <img src="1000066019.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Timepieces">
+              <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Timepieces">
               <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6">
-                <h3 class="text-white font-display text-sm md:text-xl font-bold">Fine Timepieces</h3>
-                <p class="text-[8px] md:text-[10px] text-neutral-300 uppercase tracking-wider mt-0.5">Swiss Designs</p>
+                <h3 class="text-white font-display text-xs md:text-lg font-bold">Timepieces</h3>
+                <p class="text-[7px] md:text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">10 Designs</p>
+              </div>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100" onclick="showPage('shop'); filterCategory('accessories');">
+              <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Accessories">
+              <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6">
+                <h3 class="text-white font-display text-xs md:text-lg font-bold">Accessories</h3>
+                <p class="text-[7px] md:text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">5 Essentials</p>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- Featured Products Section -->
+        <!-- Featured & Make.com Facebook Sync Section -->
         <section class="my-10 md:my-12">
           <div class="flex justify-between items-center mb-5">
-            <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-neutral-900">Featured Masterpieces</h2>
+            <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-neutral-900">Featured & Latest (FB Feed)</h2>
             <button type="button" onclick="showPage('shop')" class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-amber-600 border-b border-amber-600 pb-0.5">See All</button>
           </div>
+          <!-- Target Grid for Make.com / Facebook Sync -->
           <div id="featured-products" class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"></div>
         </section>
 
@@ -172,14 +180,15 @@
         <h1 class="font-display text-2xl md:text-3xl mb-2 font-bold text-neutral-900">Maison Collection</h1>
         <div class="max-w-md mx-auto px-4 mt-4 mb-3">
           <div class="relative">
-            <input type="text" id="shop-search" oninput="handleSearch(this.value)" placeholder="Search collection..." class="w-full border border-gray-200 rounded-full px-4 py-2.5 text-xs focus:outline-none focus:border-amber-600 bg-stone-50">
+            <input type="text" id="shop-search" oninput="handleSearch(this.value)" placeholder="Search for 30 luxury masterpieces..." class="w-full border border-gray-200 rounded-full px-4 py-2.5 text-xs focus:outline-none focus:border-amber-600 bg-stone-50">
             <i data-lucide="search" class="absolute right-4 top-2.5 w-4 h-4 text-gray-400"></i>
           </div>
         </div>
-        <div id="category-filters" class="flex justify-center gap-4 md:gap-5 flex-wrap mt-2 px-4">
+        <div id="category-filters" class="flex justify-center gap-3 md:gap-5 flex-wrap mt-2 px-4">
           <button type="button" onclick="filterCategory('all')" id="filter-all" class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-amber-600 text-amber-600">Everything</button>
           <button type="button" onclick="filterCategory('bags')" id="filter-bags" class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-transparent text-gray-400">Bespoke Bags</button>
           <button type="button" onclick="filterCategory('watches')" id="filter-watches" class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-transparent text-gray-400">Timepieces</button>
+          <button type="button" onclick="filterCategory('accessories')" id="filter-accessories" class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-transparent text-gray-400">Accessories</button>
         </div>
       </div>
       <div class="max-w-7xl mx-auto px-3 md:px-4 py-6 md:py-8">
@@ -356,98 +365,38 @@
   <script>
     const WEB3FORMS_ACCESS_KEY = "140b2d00-51ed-40d4-bc25-72bbcf4d92a9";
 
-    // 1. PRODUCTS DATA (YOUR 10 CUSTOM PRODUCTS)
+    // 1. PRODUCTS DATA (30 LUXURY SHERENVOGUE MASTERPIECES)
     const products = [
-      { 
-        id: 101, 
-        name: "Wings Magenta Ring Crossbody", 
-        category: "bags", 
-        rawPrice: 6800, 
-        price: "৳6,800", 
-        image: "1000068169.png", 
-        desc: "Deep magenta textured leather featuring a circular top handle, gold ring, and signature SherenVogue gold winged emblem." 
-      },
-      { 
-        id: 102, 
-        name: "Wings Blush Ring Crossbody", 
-        category: "bags", 
-        rawPrice: 6800, 
-        price: "৳6,800", 
-        image: "1000068167.png", 
-        desc: "Blush pink luxury leather with polished metallic ring handle and signature SherenVogue gold winged emblem." 
-      },
-      { 
-        id: 103, 
-        name: "Luminary Pearl Beige Watch", 
-        category: "watches", 
-        rawPrice: 5800, 
-        price: "৳5,800", 
-        image: "1000066019.png", 
-        desc: "Iridescent Mother-of-Pearl dial studded with crystal markers and premium beige leather strap." 
-      },
-      { 
-        id: 104, 
-        name: "Diamond Sovereign Horology Watch", 
-        category: "watches", 
-        rawPrice: 14500, 
-        price: "৳14,500", 
-        image: "1000025560.png", 
-        desc: "High-complication rose gold timepiece paved with crystal diamonds, deep blue dial, and precision chronograph." 
-      },
-      { 
-        id: 105, 
-        name: "Obsidian Sculptural Crossbody", 
-        category: "bags", 
-        rawPrice: 9200, 
-        price: "৳9,200", 
-        image: "1000025461.png", 
-        desc: "Structured matte black leather with metallic top handle, chain strap, and winged emblem." 
-      },
-      { 
-        id: 106, 
-        name: "Private Member Black Satchel", 
-        category: "bags", 
-        rawPrice: 8900, 
-        price: "৳8,900", 
-        image: "1000024543.png", 
-        desc: "Pebbled black genuine leather with luxury gold chain accent and winged crown crest." 
-      },
-      { 
-        id: 107, 
-        name: "Luminary Mesh Rose Gold Watch", 
-        category: "watches", 
-        rawPrice: 6500, 
-        price: "৳6,500", 
-        image: "1000024539.png", 
-        desc: "Sleek rose gold mesh strap watch with mother-of-pearl dial and crystal indices." 
-      },
-      { 
-        id: 108, 
-        name: "Celestial Diamond Bezel Watch", 
-        category: "watches", 
-        rawPrice: 16000, 
-        price: "৳16,000", 
-        image: "1000024538.png", 
-        desc: "Dazzling crystal-set bezel timepiece featuring sunray dial and full diamond-paved bracelet." 
-      },
-      { 
-        id: 109, 
-        name: "Imperial Baroque Embroidered Tote", 
-        category: "bags", 
-        rawPrice: 12500, 
-        price: "৳12,500", 
-        image: "1000024545.png", 
-        desc: "Luxury black leather tote accented with intricate golden baroque side embroidery and signature winged crest." 
-      },
-      { 
-        id: 110, 
-        name: "Grand Luxe Leather Duffle Bag", 
-        category: "bags", 
-        rawPrice: 22000, 
-        price: "৳22,000", 
-        image: "1000024548.png", 
-        desc: "Expansive weekend travel duffle bag crafted from heavy Tuscan leather with gold-toned hardware." 
-      }
+      { id: 101, name: "Wings Blush Ring Crossbody", category: "bags", rawPrice: 6800, price: "৳6,800", image: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=600&q=80", desc: "Blush pink luxury leather with polished metallic ring handle and signature SherenVogue gold winged emblem." },
+      { id: 102, name: "Wings Magenta Ring Crossbody", category: "bags", rawPrice: 6800, price: "৳6,800", image: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=600&q=80", desc: "Deep magenta textured leather featuring a circular top handle and gold winged emblem." },
+      { id: 103, name: "Imperial Emerald Paisley Trapeze", category: "bags", rawPrice: 8500, price: "৳8,500", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80", desc: "Woven paisley brocade side panels with structured emerald green leather and crown clasp." },
+      { id: 104, name: "Imperial Burgundy Paisley Trapeze", category: "bags", rawPrice: 8500, price: "৳8,500", image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80", desc: "Woven paisley brocade side panels with rich burgundy leather and gold crown clasp." },
+      { id: 105, name: "Heritage Crest Leather Satchel", category: "bags", rawPrice: 7500, price: "৳7,500", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=600&q=80", desc: "Pebbled espresso brown leather with contrasting tan stitched trims and winged emblem." },
+      { id: 106, name: "Luminary Pearl Beige Watch", category: "watches", rawPrice: 5800, price: "৳5,800", image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80", desc: "Iridescent Mother-of-Pearl dial studded with crystal markers and premium beige leather strap." },
+      { id: 107, name: "Obsidian Sculptural Crossbody", category: "bags", rawPrice: 9200, price: "৳9,200", image: "https://images.unsplash.com/photo-1594223274512-ad48027321b2?auto=format&fit=crop&w=600&q=80", desc: "Structured matte black leather with metallic top handle, chain strap, and winged emblem." },
+      { id: 108, name: "Private Member Black Satchel", category: "bags", rawPrice: 8900, price: "৳8,900", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80", desc: "Pebbled black genuine leather with luxury gold chain accent and winged crown crest." },
+      { id: 109, name: "Diamond Sovereign Horology Watch", category: "watches", rawPrice: 14500, price: "৳14,500", image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80", desc: "High-complication rose gold timepiece paved with crystal diamonds and mother-of-pearl dial." },
+      { id: 110, name: "Luminary Mesh Rose Gold Watch", category: "watches", rawPrice: 6500, price: "৳6,500", image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80", desc: "Sleek rose gold mesh strap watch with mother-of-pearl dial and crystal indices." },
+      { id: 111, name: "Sovereign Python Embossed Tote", category: "bags", rawPrice: 12000, price: "৳12,000", image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80", desc: "Exquisite python-embossed calfskin tote with reinforced handles and custom brass hardware." },
+      { id: 112, name: "Velvet Royale Evening Clutch", category: "bags", rawPrice: 5500, price: "৳5,500", image: "https://images.unsplash.com/photo-1563178406-4cdc2923acbc?auto=format&fit=crop&w=600&q=80", desc: "Plush midnight velvet evening clutch with detachable golden snake chain and crystal clasp." },
+      { id: 113, name: "Golden Crest Leather Briefcase", category: "bags", rawPrice: 16500, price: "৳16,500", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80", desc: "Handcrafted full-grain executive leather briefcase with custom brass lock and laptop sleeve." },
+      { id: 114, name: "Minimalist Chronograph Steel Watch", category: "watches", rawPrice: 11000, price: "৳11,000", image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80", desc: "Brushed stainless steel chronograph featuring sapphire crystal glass and precision quartz movement." },
+      { id: 115, name: "Classic Saddle Tan Handbag", category: "bags", rawPrice: 7200, price: "৳7,200", image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80", desc: "Timeless saddle tan leather handbag with contrast stitching and dual compartment interior." },
+      { id: 116, name: "Baroque Silk Couture Scarf", category: "accessories", rawPrice: 3500, price: "৳3,500", image: "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=600&q=80", desc: "100% pure mulberry silk scarf featuring intricate Mughal-inspired baroque golden motifs." },
+      { id: 117, name: "Royal Sapphire Leather Backpack", category: "bags", rawPrice: 10500, price: "৳10,500", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80", desc: "Supple royal blue calfskin backpack designed for the modern global traveler with secure zippers." },
+      { id: 118, name: "Midnight Sapphire Automatic Watch", category: "watches", rawPrice: 18000, price: "৳18,000", image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80", desc: "Exquisite automatic mechanical movement watch with deep blue dial and genuine alligator strap." },
+      { id: 119, name: "Signature Monogram Vanity Case", category: "bags", rawPrice: 9800, price: "৳9,800", image: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=600&q=80", desc: "Structured rigid vanity case featuring SherenVogue monogram jacquard and leather piping." },
+      { id: 120, name: "Executive Alligator Grain Belt", category: "accessories", rawPrice: 4200, price: "৳4,200", image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=600&q=80", desc: "Genuine cowhide leather belt with exquisite alligator texture and polished gold monogram buckle." },
+      { id: 121, name: "Imperial Gold Pocket Watch", category: "watches", rawPrice: 13500, price: "৳13,500", image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80", desc: "Vintage-inspired hunter case mechanical pocket watch crafted in polished 18k yellow gold finish." },
+      { id: 122, name: "Ivory Pearl Quilted Shoulder Bag", category: "bags", rawPrice: 8100, price: "৳8,100", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=600&q=80", desc: "Diamond quilted ivory lambskin shoulder bag accented with sliding heavy gold chain straps." },
+      { id: 123, name: "Artisan Crafted Leather Wallet", category: "accessories", rawPrice: 3800, price: "৳3,800", image: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=600&q=80", desc: "Slim bi-fold wallet made from premium full-grain Italian leather with gold embossed crest." },
+      { id: 124, name: "Celestial Diamond Bezel Watch", category: "watches", rawPrice: 16000, price: "৳16,000", image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80", desc: "Dazzling crystal-set bezel timepiece featuring sunray dial and polished silver bracelet." },
+      { id: 125, name: "Vintage Brocade Vanity Tote", category: "bags", rawPrice: 11500, price: "৳11,500", image: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=600&q=80", desc: "Traditional Mughal embroidery woven into heavy structured velvet with leather trim handles." },
+      { id: 126, name: "Noir Ceramic Luxury Timepiece", category: "watches", rawPrice: 15200, price: "৳15,200", image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80", desc: "Scratch-resistant high-tech black ceramic watch with rose gold indices and deployment clasp." },
+      { id: 127, name: "Royal Amethyst Evening Minaudiere", category: "bags", rawPrice: 7900, price: "৳7,900", image: "https://images.unsplash.com/photo-1563178406-4cdc2923acbc?auto=format&fit=crop&w=600&q=80", desc: "Jeweled hard-case minaudiere embellished with deep purple crystals and gold frame." },
+      { id: 128, name: "Heritage Leather Passport Holder", category: "accessories", rawPrice: 2900, price: "৳2,900", image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80", desc: "Travel in utmost style with this monogram stamped leather passport and card travel folio." },
+      { id: 129, name: "Sovereign Dual-Tone Chronograph", category: "watches", rawPrice: 17500, price: "৳17,500", image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80", desc: "Sophisticated dual-tone steel and yellow gold watch with sub-dials and luminous hands." },
+      { id: 130, name: "Grand Luxe Leather Duffle Bag", category: "bags", rawPrice: 22000, price: "৳22,000", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80", desc: "Expansive weekend travel duffle bag crafted from heavy Tuscan leather with brass feet." }
     ];
 
     let cart = [];
@@ -776,6 +725,7 @@
 
       const featuredGrid = document.getElementById('featured-products');
       
+      // Render featured items on home
       if (featuredGrid) {
         const featuredItems = products.slice(0, 4);
         featuredGrid.innerHTML = featuredItems.map(p => `
@@ -797,6 +747,7 @@
 
       renderShopProducts(products);
 
+      // Make.com posts feed sync
       fetch('posts.json')
         .then(res => res.json())
         .then(data => {
