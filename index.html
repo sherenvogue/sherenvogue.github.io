@@ -365,19 +365,19 @@
   <script>
     const WEB3FORMS_ACCESS_KEY = "140b2d00-51ed-40d4-bc25-72bbcf4d92a9";
 
-    // 1. PRODUCTS DATA (30 LUXURY SHERENVOGUE MASTERPIECES)
+    // 1. PRODUCTS DATA (30 VERIFIED LUXURY SHERENVOGUE MASTERPIECES)
     const products = [
-      { id: 101, name: "Wings Blush Ring Crossbody", category: "bags", rawPrice: 6800, price: "৳6,800", image: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=600&q=80", desc: "Blush pink luxury leather with polished metallic ring handle and signature SherenVogue gold winged emblem." },
+      { id: 101, name: "Wings Blush Ring Crossbody", category: "bags", rawPrice: 6800, price: "৳6,800", image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80", desc: "Blush pink luxury leather with polished metallic ring handle and signature SherenVogue gold winged emblem." },
       { id: 102, name: "Wings Magenta Ring Crossbody", category: "bags", rawPrice: 6800, price: "৳6,800", image: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=600&q=80", desc: "Deep magenta textured leather featuring a circular top handle and gold winged emblem." },
       { id: 103, name: "Imperial Emerald Paisley Trapeze", category: "bags", rawPrice: 8500, price: "৳8,500", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80", desc: "Woven paisley brocade side panels with structured emerald green leather and crown clasp." },
-      { id: 104, name: "Imperial Burgundy Paisley Trapeze", category: "bags", rawPrice: 8500, price: "৳8,500", image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80", desc: "Woven paisley brocade side panels with rich burgundy leather and gold crown clasp." },
+      { id: 104, name: "Imperial Burgundy Paisley Trapeze", category: "bags", rawPrice: 8500, price: "৳8,500", image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80", desc: "Woven paisley brocade side panels with rich burgundy leather and gold crown clasp." },
       { id: 105, name: "Heritage Crest Leather Satchel", category: "bags", rawPrice: 7500, price: "৳7,500", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=600&q=80", desc: "Pebbled espresso brown leather with contrasting tan stitched trims and winged emblem." },
       { id: 106, name: "Luminary Pearl Beige Watch", category: "watches", rawPrice: 5800, price: "৳5,800", image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80", desc: "Iridescent Mother-of-Pearl dial studded with crystal markers and premium beige leather strap." },
       { id: 107, name: "Obsidian Sculptural Crossbody", category: "bags", rawPrice: 9200, price: "৳9,200", image: "https://images.unsplash.com/photo-1594223274512-ad48027321b2?auto=format&fit=crop&w=600&q=80", desc: "Structured matte black leather with metallic top handle, chain strap, and winged emblem." },
       { id: 108, name: "Private Member Black Satchel", category: "bags", rawPrice: 8900, price: "৳8,900", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80", desc: "Pebbled black genuine leather with luxury gold chain accent and winged crown crest." },
       { id: 109, name: "Diamond Sovereign Horology Watch", category: "watches", rawPrice: 14500, price: "৳14,500", image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80", desc: "High-complication rose gold timepiece paved with crystal diamonds and mother-of-pearl dial." },
       { id: 110, name: "Luminary Mesh Rose Gold Watch", category: "watches", rawPrice: 6500, price: "৳6,500", image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80", desc: "Sleek rose gold mesh strap watch with mother-of-pearl dial and crystal indices." },
-      { id: 111, name: "Sovereign Python Embossed Tote", category: "bags", rawPrice: 12000, price: "৳12,000", image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80", desc: "Exquisite python-embossed calfskin tote with reinforced handles and custom brass hardware." },
+      { id: 111, name: "Sovereign Python Embossed Tote", category: "bags", rawPrice: 12000, price: "৳12,000", image: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=600&q=80", desc: "Exquisite python-embossed calfskin tote with reinforced handles and custom brass hardware." },
       { id: 112, name: "Velvet Royale Evening Clutch", category: "bags", rawPrice: 5500, price: "৳5,500", image: "https://images.unsplash.com/photo-1563178406-4cdc2923acbc?auto=format&fit=crop&w=600&q=80", desc: "Plush midnight velvet evening clutch with detachable golden snake chain and crystal clasp." },
       { id: 113, name: "Golden Crest Leather Briefcase", category: "bags", rawPrice: 16500, price: "৳16,500", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80", desc: "Handcrafted full-grain executive leather briefcase with custom brass lock and laptop sleeve." },
       { id: 114, name: "Minimalist Chronograph Steel Watch", category: "watches", rawPrice: 11000, price: "৳11,000", image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80", desc: "Brushed stainless steel chronograph featuring sapphire crystal glass and precision quartz movement." },
@@ -725,7 +725,6 @@
 
       const featuredGrid = document.getElementById('featured-products');
       
-      // Render featured items on home
       if (featuredGrid) {
         const featuredItems = products.slice(0, 4);
         featuredGrid.innerHTML = featuredItems.map(p => `
@@ -747,7 +746,6 @@
 
       renderShopProducts(products);
 
-      // Make.com posts feed sync
       fetch('posts.json')
         .then(res => res.json())
         .then(data => {
