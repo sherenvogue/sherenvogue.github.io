@@ -152,7 +152,7 @@
               </div>
             </div>
             <div class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100" onclick="showPage('shop'); filterCategory('accessories');">
-              <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Accessories">
+              <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Accessories">
               <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6">
                 <h3 class="text-white font-display text-xs md:text-lg font-bold">Accessories</h3>
                 <p class="text-[7px] md:text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">5 Essentials</p>
@@ -365,9 +365,9 @@
   <script>
     const WEB3FORMS_ACCESS_KEY = "140b2d00-51ed-40d4-bc25-72bbcf4d92a9";
 
-    // 1. PRODUCTS DATA (30 VERIFIED LUXURY SHERENVOGUE MASTERPIECES)
+    // 1. PRODUCTS DATA (30 VERIFIED LUXURY HANDBAGS, WATCHES & ACCESSORIES)
     const products = [
-      { id: 101, name: "Wings Blush Ring Crossbody", category: "bags", rawPrice: 6800, price: "৳6,800", image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80", desc: "Blush pink luxury leather with polished metallic ring handle and signature SherenVogue gold winged emblem." },
+      { id: 101, name: "Wings Blush Ring Crossbody", category: "bags", rawPrice: 6800, price: "৳6,800", image: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=600&q=80", desc: "Blush pink luxury leather with polished metallic ring handle and signature SherenVogue gold winged emblem." },
       { id: 102, name: "Wings Magenta Ring Crossbody", category: "bags", rawPrice: 6800, price: "৳6,800", image: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=600&q=80", desc: "Deep magenta textured leather featuring a circular top handle and gold winged emblem." },
       { id: 103, name: "Imperial Emerald Paisley Trapeze", category: "bags", rawPrice: 8500, price: "৳8,500", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80", desc: "Woven paisley brocade side panels with structured emerald green leather and crown clasp." },
       { id: 104, name: "Imperial Burgundy Paisley Trapeze", category: "bags", rawPrice: 8500, price: "৳8,500", image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80", desc: "Woven paisley brocade side panels with rich burgundy leather and gold crown clasp." },
@@ -381,8 +381,8 @@
       { id: 112, name: "Velvet Royale Evening Clutch", category: "bags", rawPrice: 5500, price: "৳5,500", image: "https://images.unsplash.com/photo-1563178406-4cdc2923acbc?auto=format&fit=crop&w=600&q=80", desc: "Plush midnight velvet evening clutch with detachable golden snake chain and crystal clasp." },
       { id: 113, name: "Golden Crest Leather Briefcase", category: "bags", rawPrice: 16500, price: "৳16,500", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80", desc: "Handcrafted full-grain executive leather briefcase with custom brass lock and laptop sleeve." },
       { id: 114, name: "Minimalist Chronograph Steel Watch", category: "watches", rawPrice: 11000, price: "৳11,000", image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80", desc: "Brushed stainless steel chronograph featuring sapphire crystal glass and precision quartz movement." },
-      { id: 115, name: "Classic Saddle Tan Handbag", category: "bags", rawPrice: 7200, price: "৳7,200", image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80", desc: "Timeless saddle tan leather handbag with contrast stitching and dual compartment interior." },
-      { id: 116, name: "Baroque Silk Couture Scarf", category: "accessories", rawPrice: 3500, price: "৳3,500", image: "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=600&q=80", desc: "100% pure mulberry silk scarf featuring intricate Mughal-inspired baroque golden motifs." },
+      { id: 115, name: "Classic Saddle Tan Handbag", category: "bags", rawPrice: 7200, price: "৳7,200", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=600&q=80", desc: "Timeless saddle tan leather handbag with contrast stitching and dual compartment interior." },
+      { id: 116, name: "Baroque Silk Couture Scarf", category: "accessories", rawPrice: 3500, price: "৳3,500", image: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=600&q=80", desc: "100% pure mulberry silk scarf featuring intricate Mughal-inspired baroque golden motifs." },
       { id: 117, name: "Royal Sapphire Leather Backpack", category: "bags", rawPrice: 10500, price: "৳10,500", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80", desc: "Supple royal blue calfskin backpack designed for the modern global traveler with secure zippers." },
       { id: 118, name: "Midnight Sapphire Automatic Watch", category: "watches", rawPrice: 18000, price: "৳18,000", image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80", desc: "Exquisite automatic mechanical movement watch with deep blue dial and genuine alligator strap." },
       { id: 119, name: "Signature Monogram Vanity Case", category: "bags", rawPrice: 9800, price: "৳9,800", image: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=600&q=80", desc: "Structured rigid vanity case featuring SherenVogue monogram jacquard and leather piping." },
