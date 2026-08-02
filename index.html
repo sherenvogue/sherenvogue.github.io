@@ -116,7 +116,7 @@
         <!-- Stats Counter -->
         <div class="bg-neutral-900 rounded-2xl my-6 md:my-8 p-4 md:p-5 grid grid-cols-4 text-center divide-x divide-neutral-800 text-white shadow-md">
           <div>
-            <p class="font-display text-base md:text-2xl font-bold text-amber-200">0+</p>
+            <p class="font-display text-base md:text-2xl font-bold text-amber-200">10+</p>
             <p class="text-[7px] md:text-[9px] text-neutral-400 uppercase tracking-widest mt-0.5">Masterpieces</p>
           </div>
           <div>
@@ -136,38 +136,30 @@
         <!-- Categories Section -->
         <section class="my-8 md:my-10">
           <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-neutral-900 mb-4">Shop by Category</h2>
-          <div class="grid grid-cols-3 gap-3 md:gap-5">
+          <div class="grid grid-cols-2 gap-3 md:gap-5">
             <div onclick="showPage('shop'); filterCategory('bags');" class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100">
-              <img src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Ladies Bags">
+              <img src="1000068169.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Haute Bags">
               <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6">
-                <h3 class="text-white font-display text-xs md:text-lg font-bold">Haute Bags</h3>
-                <p class="text-[7px] md:text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">Styles</p>
+                <h3 class="text-white font-display text-sm md:text-xl font-bold">Haute Couture Bags</h3>
+                <p class="text-[8px] md:text-[10px] text-neutral-300 uppercase tracking-wider mt-0.5">Bespoke Styles</p>
               </div>
             </div>
             <div class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100" onclick="showPage('shop'); filterCategory('watches');">
-              <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Timepieces">
+              <img src="1000066019.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Timepieces">
               <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6">
-                <h3 class="text-white font-display text-xs md:text-lg font-bold">Timepieces</h3>
-                <p class="text-[7px] md:text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">Designs</p>
-              </div>
-            </div>
-            <div class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100" onclick="showPage('shop'); filterCategory('accessories');">
-              <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Accessories">
-              <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6">
-                <h3 class="text-white font-display text-xs md:text-lg font-bold">Accessories</h3>
-                <p class="text-[7px] md:text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">Essentials</p>
+                <h3 class="text-white font-display text-sm md:text-xl font-bold">Fine Timepieces</h3>
+                <p class="text-[8px] md:text-[10px] text-neutral-300 uppercase tracking-wider mt-0.5">Swiss Designs</p>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- Featured & Make.com Facebook Sync Section -->
+        <!-- Featured Products Section -->
         <section class="my-10 md:my-12">
           <div class="flex justify-between items-center mb-5">
-            <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-neutral-900">Featured & Latest (FB Feed)</h2>
+            <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-neutral-900">Featured Masterpieces</h2>
             <button type="button" onclick="showPage('shop')" class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-amber-600 border-b border-amber-600 pb-0.5">See All</button>
           </div>
-          <!-- Target Grid for Make.com / Facebook Sync -->
           <div id="featured-products" class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"></div>
         </section>
 
@@ -180,15 +172,14 @@
         <h1 class="font-display text-2xl md:text-3xl mb-2 font-bold text-neutral-900">Maison Collection</h1>
         <div class="max-w-md mx-auto px-4 mt-4 mb-3">
           <div class="relative">
-            <input type="text" id="shop-search" oninput="handleSearch(this.value)" placeholder="Search luxury masterpieces..." class="w-full border border-gray-200 rounded-full px-4 py-2.5 text-xs focus:outline-none focus:border-amber-600 bg-stone-50">
+            <input type="text" id="shop-search" oninput="handleSearch(this.value)" placeholder="Search collection..." class="w-full border border-gray-200 rounded-full px-4 py-2.5 text-xs focus:outline-none focus:border-amber-600 bg-stone-50">
             <i data-lucide="search" class="absolute right-4 top-2.5 w-4 h-4 text-gray-400"></i>
           </div>
         </div>
-        <div id="category-filters" class="flex justify-center gap-3 md:gap-5 flex-wrap mt-2 px-4">
+        <div id="category-filters" class="flex justify-center gap-4 md:gap-5 flex-wrap mt-2 px-4">
           <button type="button" onclick="filterCategory('all')" id="filter-all" class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-amber-600 text-amber-600">Everything</button>
           <button type="button" onclick="filterCategory('bags')" id="filter-bags" class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-transparent text-gray-400">Bespoke Bags</button>
           <button type="button" onclick="filterCategory('watches')" id="filter-watches" class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-transparent text-gray-400">Timepieces</button>
-          <button type="button" onclick="filterCategory('accessories')" id="filter-accessories" class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-transparent text-gray-400">Accessories</button>
         </div>
       </div>
       <div class="max-w-7xl mx-auto px-3 md:px-4 py-6 md:py-8">
@@ -365,20 +356,98 @@
   <script>
     const WEB3FORMS_ACCESS_KEY = "140b2d00-51ed-40d4-bc25-72bbcf4d92a9";
 
-    // 1. PRODUCTS DATA (আপনার নিজের প্রোডাক্টগুলো এখানে যুক্ত করতে পারেন)
+    // 1. PRODUCTS DATA (YOUR 10 CUSTOM PRODUCTS)
     const products = [
-      /* 
-        প্রোডাক্ট যোগ করার নিয়ম:
-        { 
-          id: 101, 
-          name: "প্রোডাক্টের নাম", 
-          category: "bags", // অথবা "watches", "accessories" 
-          rawPrice: 5000, 
-          price: "৳5,000", 
-          image: "ছবির_লিংক_এখানে", 
-          desc: "প্রোডাক্টের বিবরণ..." 
-        },
-      */
+      { 
+        id: 101, 
+        name: "Wings Magenta Ring Crossbody", 
+        category: "bags", 
+        rawPrice: 6800, 
+        price: "৳6,800", 
+        image: "1000068169.png", 
+        desc: "Deep magenta textured leather featuring a circular top handle, gold ring, and signature SherenVogue gold winged emblem." 
+      },
+      { 
+        id: 102, 
+        name: "Wings Blush Ring Crossbody", 
+        category: "bags", 
+        rawPrice: 6800, 
+        price: "৳6,800", 
+        image: "1000068167.png", 
+        desc: "Blush pink luxury leather with polished metallic ring handle and signature SherenVogue gold winged emblem." 
+      },
+      { 
+        id: 103, 
+        name: "Luminary Pearl Beige Watch", 
+        category: "watches", 
+        rawPrice: 5800, 
+        price: "৳5,800", 
+        image: "1000066019.png", 
+        desc: "Iridescent Mother-of-Pearl dial studded with crystal markers and premium beige leather strap." 
+      },
+      { 
+        id: 104, 
+        name: "Diamond Sovereign Horology Watch", 
+        category: "watches", 
+        rawPrice: 14500, 
+        price: "৳14,500", 
+        image: "1000025560.png", 
+        desc: "High-complication rose gold timepiece paved with crystal diamonds, deep blue dial, and precision chronograph." 
+      },
+      { 
+        id: 105, 
+        name: "Obsidian Sculptural Crossbody", 
+        category: "bags", 
+        rawPrice: 9200, 
+        price: "৳9,200", 
+        image: "1000025461.png", 
+        desc: "Structured matte black leather with metallic top handle, chain strap, and winged emblem." 
+      },
+      { 
+        id: 106, 
+        name: "Private Member Black Satchel", 
+        category: "bags", 
+        rawPrice: 8900, 
+        price: "৳8,900", 
+        image: "1000024543.png", 
+        desc: "Pebbled black genuine leather with luxury gold chain accent and winged crown crest." 
+      },
+      { 
+        id: 107, 
+        name: "Luminary Mesh Rose Gold Watch", 
+        category: "watches", 
+        rawPrice: 6500, 
+        price: "৳6,500", 
+        image: "1000024539.png", 
+        desc: "Sleek rose gold mesh strap watch with mother-of-pearl dial and crystal indices." 
+      },
+      { 
+        id: 108, 
+        name: "Celestial Diamond Bezel Watch", 
+        category: "watches", 
+        rawPrice: 16000, 
+        price: "৳16,000", 
+        image: "1000024538.png", 
+        desc: "Dazzling crystal-set bezel timepiece featuring sunray dial and full diamond-paved bracelet." 
+      },
+      { 
+        id: 109, 
+        name: "Imperial Baroque Embroidered Tote", 
+        category: "bags", 
+        rawPrice: 12500, 
+        price: "৳12,500", 
+        image: "1000024545.png", 
+        desc: "Luxury black leather tote accented with intricate golden baroque side embroidery and signature winged crest." 
+      },
+      { 
+        id: 110, 
+        name: "Grand Luxe Leather Duffle Bag", 
+        category: "bags", 
+        rawPrice: 22000, 
+        price: "৳22,000", 
+        image: "1000024548.png", 
+        desc: "Expansive weekend travel duffle bag crafted from heavy Tuscan leather with gold-toned hardware." 
+      }
     ];
 
     let cart = [];
@@ -405,7 +474,7 @@
       if (!shopContainer) return;
 
       if (items.length === 0) {
-        shopContainer.innerHTML = `<p class="col-span-full text-center text-gray-400 py-10 text-xs">No products found. Please add products to the array.</p>`;
+        shopContainer.innerHTML = `<p class="col-span-full text-center text-gray-400 py-10 text-xs">No products match your search query.</p>`;
         return;
       }
 
