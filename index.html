@@ -116,7 +116,7 @@
         <!-- Stats Counter -->
         <div class="bg-neutral-900 rounded-2xl my-6 md:my-8 p-4 md:p-5 grid grid-cols-4 text-center divide-x divide-neutral-800 text-white shadow-md">
           <div>
-            <p class="font-display text-base md:text-2xl font-bold text-amber-200">30+</p>
+            <p class="font-display text-base md:text-2xl font-bold text-amber-200">28+</p>
             <p class="text-[7px] md:text-[9px] text-neutral-400 uppercase tracking-widest mt-0.5">Masterpieces</p>
           </div>
           <div>
@@ -141,7 +141,7 @@
               <img src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Ladies Bags">
               <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6">
                 <h3 class="text-white font-display text-xs md:text-lg font-bold">Haute Bags</h3>
-                <p class="text-[7px] md:text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">15 Styles</p>
+                <p class="text-[7px] md:text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">13 Styles</p>
               </div>
             </div>
             <div class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100" onclick="showPage('shop'); filterCategory('watches');">
@@ -180,7 +180,7 @@
         <h1 class="font-display text-2xl md:text-3xl mb-2 font-bold text-neutral-900">Maison Collection</h1>
         <div class="max-w-md mx-auto px-4 mt-4 mb-3">
           <div class="relative">
-            <input type="text" id="shop-search" oninput="handleSearch(this.value)" placeholder="Search for 30 luxury masterpieces..." class="w-full border border-gray-200 rounded-full px-4 py-2.5 text-xs focus:outline-none focus:border-amber-600 bg-stone-50">
+            <input type="text" id="shop-search" oninput="handleSearch(this.value)" placeholder="Search luxury masterpieces..." class="w-full border border-gray-200 rounded-full px-4 py-2.5 text-xs focus:outline-none focus:border-amber-600 bg-stone-50">
             <i data-lucide="search" class="absolute right-4 top-2.5 w-4 h-4 text-gray-400"></i>
           </div>
         </div>
@@ -365,9 +365,8 @@
   <script>
     const WEB3FORMS_ACCESS_KEY = "140b2d00-51ed-40d4-bc25-72bbcf4d92a9";
 
-    // 1. PRODUCTS DATA (30 VERIFIED CLEAN LUXURY HANDBAGS, WATCHES & ACCESSORIES)
+    // 1. PRODUCTS DATA (28 VERIFIED LUXURY HANDBAGS, WATCHES & ACCESSORIES)
     const products = [
-      { , desc: "Deep magenta textured leather featuring a circular top handle and gold winged emblem." },
       { id: 103, name: "Imperial Emerald Paisley Trapeze", category: "bags", rawPrice: 8500, price: "৳8,500", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80", desc: "Woven paisley brocade side panels with structured emerald green leather and crown clasp." },
       { id: 104, name: "Imperial Burgundy Paisley Trapeze", category: "bags", rawPrice: 8500, price: "৳8,500", image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80", desc: "Woven paisley brocade side panels with rich burgundy leather and gold crown clasp." },
       { id: 105, name: "Heritage Crest Leather Satchel", category: "bags", rawPrice: 7500, price: "৳7,500", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=600&q=80", desc: "Pebbled espresso brown leather with contrasting tan stitched trims and winged emblem." },
@@ -380,7 +379,7 @@
       { id: 112, name: "Velvet Royale Evening Clutch", category: "bags", rawPrice: 5500, price: "৳5,500", image: "https://images.unsplash.com/photo-1563178406-4cdc2923acbc?auto=format&fit=crop&w=600&q=80", desc: "Plush midnight velvet evening clutch with detachable golden snake chain and crystal clasp." },
       { id: 113, name: "Golden Crest Leather Briefcase", category: "bags", rawPrice: 16500, price: "৳16,500", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80", desc: "Handcrafted full-grain executive leather briefcase with custom brass lock and laptop sleeve." },
       { id: 114, name: "Minimalist Chronograph Steel Watch", category: "watches", rawPrice: 11000, price: "৳11,000", image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80", desc: "Brushed stainless steel chronograph featuring sapphire crystal glass and precision quartz movement." },
-      { id: 115, name: "Classic Saddle Tan Handbag", category: "bags", rawPrice: 7200, price: "৳7,200", image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=600&q=80", desc: "Timeless saddle tan leather handbag with contrast stitching and dual compartment interior." },
+      { id: 115, name: "Classic Saddle Tan Handbag", category: "bags", rawPrice: 7200, price: "৳7,200", image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80", desc: "Timeless saddle tan leather handbag with contrast stitching and dual compartment interior." },
       { id: 116, name: "Baroque Silk Couture Scarf", category: "accessories", rawPrice: 3500, price: "৳3,500", image: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=600&q=80", desc: "100% pure mulberry silk scarf featuring intricate Mughal-inspired baroque golden motifs." },
       { id: 117, name: "Royal Sapphire Leather Backpack", category: "bags", rawPrice: 10500, price: "৳10,500", image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80", desc: "Supple royal blue calfskin backpack designed for the modern global traveler with secure zippers." },
       { id: 118, name: "Midnight Sapphire Automatic Watch", category: "watches", rawPrice: 18000, price: "৳18,000", image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80", desc: "Exquisite automatic mechanical movement watch with deep blue dial and genuine alligator strap." },
