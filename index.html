@@ -753,9 +753,9 @@
 
         const orderId = orders[index].orderId || 'SV-Unknown';
         
-        // Send Cancellation Email to CEO
+        // Send Cancellation Email to CEO via Web3Forms
         try {
-          await fetch('https://api.web3forms.com/submit', {
+          let response = await fetch('https://api.web3forms.com/submit', {
             method: 'POST',
             headers: { 
               'Content-Type': 'application/json',
@@ -765,16 +765,22 @@
               access_key: WEB3FORMS_ACCESS_KEY,
               subject: `SherenVogue Order Cancelled: ${orderId}`,
               from_name: "SherenVogue Storefront",
-              to_email: "hello@sherenvogue.com",
               message: `Alert: Order ID ${orderId} has been cancelled by the customer.`
             })
           });
+
+          let resJson = await response.json();
+          if (resJson.success) {
+            showLuxuryToast(`Order cancelled & notification sent.`);
+          } else {
+            showLuxuryToast(`Order cancelled (Notification failed).`);
+          }
         } catch (err) {
           console.error('Cancellation email dispatch error:', err);
+          showLuxuryToast(`Order cancelled locally.`);
         }
 
         renderHistory();
-        showLuxuryToast(`Order cancelled successfully.`);
       }
     }
 
