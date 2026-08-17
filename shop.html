@@ -424,17 +424,17 @@
       shopContainer.innerHTML = items.map(p => `
         <div class="bg-white rounded-2xl border border-gray-100 p-3 shadow-sm group flex flex-col justify-between">
           <div>
-            <div class="aspect-square rounded-xl overflow-hidden bg-stone-50 mb-3 cursor-pointer" onclick="openProductModal(${p.id})">
-              <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="aspect-square rounded-xl overflow-hidden bg-stone-50 mb-3 cursor-pointer" onclick="window.location.href='product.html?id=${p.id}'">
+                <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
             <p class="text-[8px] uppercase tracking-[0.2em] text-amber-600 font-bold mb-0.5">${p.category || 'bags'}</p>
-            <h3 class="font-display text-xs font-bold text-neutral-900 truncate cursor-pointer" onclick="openProductModal(${p.id})">${p.name}</h3>
-            <p class="text-xs font-bold text-gray-800 mt-1">${p.price}</p>
-          </div>
-          <button type="button" onclick="addToCart(${p.id})" class="w-full mt-3 bg-neutral-900 text-white py-2 text-[9px] uppercase tracking-widest font-bold rounded-lg hover:bg-amber-600 transition-all">
-            Add To Bag
-          </button>
+            <h3 class="font-display text-xs font-bold text-neutral-900 truncate cursor-pointer" onclick="window.location.href='product.html?id=${p.id}'">${p.name}</h3>
+            <p class="text-xs font-bold text-gray-800 mt-1">$${p.price}</p>
         </div>
+        <button type="button" onclick="addToCart(${p.id})" class="w-full mt-3 bg-neutral-900 text-white py-2 text-[9px] uppercase tracking-widest font-bold rounded-lg hover:bg-amber-600 transition-all">
+            Add To Bag
+        </button>
+    </div>
       `).join('');
     }
 
