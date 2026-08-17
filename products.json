@@ -1,4 +1,12 @@
-[
+[ <div>
+        <div class="aspect-square rounded-xl overflow-hidden bg-stone-50 mb-3 cursor-pointer" onclick="window.location.href='product.html?id=${p.id}'">
+            <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        </div>
+        <p class="text-[8px] uppercase tracking-[0.2em] text-amber-500 font-bold mb-0.5">${p.category || 'bags'}</p>
+        <h3 class="font-display text-xs font-bold text-neutral-900 truncate cursor-pointer" onclick="window.location.href='product.html?id=${p.id}'">${p.name}</h3>
+        <p class="text-xs font-bold text-gray-800 mt-1">$${p.price}</p>
+    </div>
+  
   {
     "id": 101,
     "name": "SherenVogue Signature Handbag",
