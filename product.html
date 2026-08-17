@@ -3,161 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SherenVogue - Product Details</title>
+    <title>SherenVogue - Product</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f9f9f9; color: #333; line-height: 1.6; }
-        .container { max-width: 1200px; margin: 20px auto; padding: 20px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-radius: 8px; }
-
-        header { text-align: center; padding-bottom: 20px; border-bottom: 1px solid #eee; margin-bottom: 30px; }
-        header h1 { font-size: 2.5em; color: #5c1129; }
-        header p { color: #777; }
-
-        .product-main { display: flex; gap: 40px; margin-bottom: 50px; }
-        
-        .product-images { flex: 1; }
-        #main-image { width: 100%; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.3s ease; object-fit: cover; aspect-ratio: 4/5;}
-        
-        .product-details { flex: 1; padding-top: 10px; }
-        .product-title { font-size: 2em; color: #333; margin-bottom: 5px; }
-        .product-code { font-size: 1em; color: #a8741d; font-weight: bold; margin-bottom: 15px; text-transform: uppercase; }
-        .price { font-size: 2.5em; color: #a8741d; font-weight: bold; margin-bottom: 15px; }
-        .cod-badge { display: inline-block; background-color: #eee; color: #555; padding: 5px 10px; border-radius: 4px; font-size: 0.9em; margin-bottom: 20px; }
-
-        .color-selection { margin-bottom: 25px; }
-        .color-label { font-weight: bold; margin-bottom: 10px; display: block; }
-        .color-options { display: flex; gap: 15px; }
-        .color-option { position: relative; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; border: 2px solid #ccc; transition: transform 0.2s; }
-        .color-option:hover { transform: scale(1.1); }
-        .color-option.active { border-color: #a8741d; box-shadow: 0 0 0 3px rgba(168, 116, 29, 0.2); }
-        
-        #color-bg-1 { background-color: #5c1129; } 
-        #color-bg-2 { background-color: #000000; } 
-        #color-bg-3 { background-color: #1a4d3a; } 
-
-        .color-tooltip { position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); background-color: #333; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 0.8em; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
-        .color-option:hover .color-tooltip { opacity: 1; }
-
-        .selected-color-text { font-weight: bold; margin-top: 12px; color: #555; font-size: 1.1em; }
-
-        .buttons { display: flex; gap: 15px; margin-bottom: 30px; }
-        .btn { flex: 1; padding: 15px; border: none; border-radius: 4px; font-size: 1.2em; font-weight: bold; cursor: pointer; text-align: center; transition: background-color 0.3s; }
-        .add-to-cart { background-color: #a8741d; color: #fff; }
-        .add-to-cart:hover { background-color: #8a5f17; }
-        .buy-now { background-color: #5c1129; color: #fff; }
-        .buy-now:hover { background-color: #480d21; }
-
-        .product-description { margin-top: 40px; border-top: 2px solid #eee; padding-top: 30px; }
-        .description-title { font-size: 1.5em; color: #333; margin-bottom: 15px; }
-        .description-text { margin-bottom: 15px; text-align: justify; }
-        .website-link { color: #1a73e8; text-decoration: none; font-weight: bold; }
-        .website-link:hover { text-decoration: underline; }
-
-        footer { text-align: center; font-size: 0.8em; color: #999; margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee; }
-
-        @media (max-width: 768px) {
-            .product-main { flex-direction: column; }
-        }
+        /* একদম ছিমছাম এবং ক্লিন সিএসএস */
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #050505; color: #fff; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .product-card { max-width: 900px; width: 100%; background: #111; padding: 40px; border-radius: 12px; display: flex; gap: 40px; flex-wrap: wrap; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .img-section { flex: 1; min-width: 300px; }
+        .img-section img { width: 100%; border-radius: 8px; object-fit: cover; aspect-ratio: 4/5; border: 1px solid #333; }
+        .details-section { flex: 1; min-width: 300px; display: flex; flex-direction: column; justify-content: center; }
+        .category { text-transform: uppercase; letter-spacing: 4px; color: #c7a17a; font-size: 0.8rem; margin-bottom: 10px; }
+        h1 { font-family: 'Times New Roman', serif; font-size: 2.5rem; margin: 0 0 15px 0; color: #fff; font-weight: normal; }
+        .price { font-size: 2rem; color: #c7a17a; margin-bottom: 25px; font-weight: 300; }
+        .desc { line-height: 1.8; color: #aaa; margin-bottom: 30px; font-size: 0.95rem; }
+        .buy-btn { background: #c7a17a; color: #000; padding: 15px 30px; text-transform: uppercase; font-weight: 600; letter-spacing: 2px; border: none; cursor: pointer; transition: 0.3s; width: 100%; }
+        .buy-btn:hover { background: #fff; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>SherenVogue</h1>
-        <p>International Luxury Brand</p>
-    </header>
 
-    <main class="container">
-        <section class="product-main">
-            <div class="product-images">
-                <!-- ছবি ডায়নামিক হবে -->
-                <img id="main-image" src="" alt="Product Image">
-            </div>
-
-            <div class="product-details">
-                <!-- নাম, কোড এবং দাম ডায়নামিক হবে -->
-                <h1 id="product-name" class="product-title">Loading...</h1>
-                <div id="product-category" class="product-code">Category</div>
-                <div id="product-price" class="price">৳0</div>
-                <div class="cod-badge">Cash On Delivery Available</div>
-
-                <!-- Color Selection (এটি আপনার ডিজাইন অনুযায়ী রাখা হয়েছে) -->
-                <div class="color-selection">
-                    <label class="color-label">Select Color Edition</label>
-                    <div class="color-options">
-                        <div id="color-bg-1" class="color-option active" onclick="changeEdition('Royal Burgundy')">
-                            <span class="color-tooltip">Royal Burgundy</span>
-                        </div>
-                        <div id="color-bg-2" class="color-option" onclick="changeEdition('Jet Black')">
-                            <span class="color-tooltip">Jet Black</span>
-                        </div>
-                        <div id="color-bg-3" class="color-option" onclick="changeEdition('Emerald Green')">
-                            <span class="color-tooltip">Emerald Green</span>
-                        </div>
-                    </div>
-                    <div id="selected-color-text" class="selected-color-text">Selected: Royal Burgundy</div>
-                </div>
-
-                <div class="buttons">
-                    <button class="btn add-to-cart">ADD TO CART</button>
-                    <button class="btn buy-now">ORDER NOW</button>
-                </div>
-            </div>
-        </section>
-
-        <section class="product-description">
-            <h2 class="description-title">বিবরণ ও ইতিহাস</h2>
-            <div class="description-text">
-                মোগল দরবারের হারিয়ে যাওয়া রাজকীয় রহস্য আর সুপ্ত ইতিহাসের ছোঁয়ায়ে sherenvogue। যেই রাজকীয় প্রতীক আর জটিল নকশাগুলো একসময় কেবল সম্রাটদের গোপন দরবার আর রাজপ্রাসাদে সীমাবদ্ধ ছিল, তার একটি রহস্যময় আভা আজ ফুটে উঠেছে এই আধুনিক মাস্টারপিসে।
-            </div>
-            <div class="description-text">
-                আপনার প্রিমিয়াম লাইফস্টাইলে রাজকীয়তার দীপ্তি যোগ করতে এক্সপ্লোর করুন: 
-                <a href="https://sherenvogue.com" class="website-link" target="_blank">https://sherenvogue.com</a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 SherenVogue. All rights reserved.</p>
-    </footer>
+    <div class="product-card">
+        <div class="img-section">
+            <img id="p-img" src="" alt="Product Image">
+        </div>
+        <div class="details-section">
+            <div id="p-cat" class="category">Loading...</div>
+            <h1 id="p-name">Loading...</h1>
+            <div id="p-price" class="price">৳0</div>
+            <div id="p-desc" class="desc">Please wait, loading product details...</div>
+            
+            <button class="buy-btn">Order Now</button>
+        </div>
+    </div>
 
     <script>
-        // ১. ব্রাউজারের লিংক থেকে প্রোডাক্টের ID খুঁজে বের করা
-        const urlParams = new URLSearchParams(window.location.search);
-        const productId = urlParams.get('id');
-
-        // ২. products.json ফাইল থেকে ডেটা লোড করা
+        // লিংক থেকে ID নিয়ে JSON থেকে ডেটা লোড করার ছোট্ট স্ক্রিপ্ট
+        const id = new URLSearchParams(window.location.search).get('id');
+        
         fetch('products.json')
-            .then(response => response.json())
-            .then(products => {
-                // ৩. ID অনুযায়ী সঠিক প্রোডাক্টটি খুঁজে বের করা
-                const product = products.find(p => p.id == productId);
-
-                if (product) {
-                    // ৪. পেজের তথ্যগুলো আপডেট করা
-                    document.getElementById('main-image').src = product.image;
-                    document.getElementById('product-name').innerText = product.name;
-                    document.getElementById('product-price').innerText = `৳${product.price}`;
-                    document.getElementById('product-category').innerText = `Category: ${product.category || 'Bags'}`;
-                    document.title = `${product.name} - SherenVogue`;
+            .then(res => res.json())
+            .then(data => {
+                const product = data.find(p => p.id == id);
+                if(product) {
+                    document.getElementById('p-img').src = product.image;
+                    document.getElementById('p-name').innerText = product.name;
+                    document.getElementById('p-price').innerText = `৳${product.price}`;
+                    document.getElementById('p-cat').innerText = product.category || 'Haute Couture';
+                    
+                    // JSON ফাইলে description না থাকলে এই ডিফল্ট লেখাটি দেখাবে
+                    document.getElementById('p-desc').innerText = product.description || 'An exclusive luxury masterpiece crafted with precision and elegance by SherenVogue.';
+                    document.title = `${product.name} | SherenVogue`;
                 } else {
-                    // যদি ভুল লিংকে কেউ যায়
-                    document.querySelector('.product-details').innerHTML = '<h2 style="color:red;">Product not found!</h2><p>অনুগ্রহ করে স্টোর পেজে ফিরে যান।</p>';
+                    document.querySelector('.details-section').innerHTML = '<h2 style="color:red;">Product Not Found</h2>';
                 }
             })
-            .catch(error => {
-                console.error('Error loading products:', error);
-            });
-
-        // কালার চেঞ্জ করার ফাংশন (ডিজাইনের জন্য)
-        function changeEdition(colorName) {
-            document.getElementById('selected-color-text').innerText = `Selected: ${colorName}`;
-            
-            const options = document.querySelectorAll('.color-option');
-            options.forEach(opt => {
-                opt.classList.remove('active');
-            });
-            event.currentTarget.classList.add('active');
-        }
+            .catch(err => console.error('Error loading product:', err));
     </script>
+
 </body>
 </html>
