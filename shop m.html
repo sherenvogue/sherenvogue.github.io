@@ -1,341 +1,200 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Sheren Heritage Regalia Collection | SherenVogue</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <title>SherenVogue | Welcome</title>
     <style>
-        :root {
-            --bg-color: #0c0c0c;
-            --surface-color: #141414;
-            --gold-primary: #d4af37;
-            --gold-hover: #e6c55c;
-            --burgundy: #5c1129;
-            --text-main: #f5f5f5;
-            --text-muted: #a0a0a0;
-            --border-color: #2a2a2a;
+        /* =========================================
+           Reset & Base Styles
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-            font-family: 'Montserrat', sans-serif; 
-            background-color: var(--bg-color); 
-            color: var(--text-main); 
-            line-height: 1.8; 
-            letter-spacing: 0.5px;
-        }
-
-        header { 
-            text-align: center; 
-            padding: 30px 20px; 
-            border-bottom: 1px solid var(--border-color); 
-            background: var(--surface-color);
-        }
-        header h1 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 2.2em; 
-            letter-spacing: 3px; 
-            color: var(--gold-primary); 
-            text-transform: uppercase;
-        }
-        header p { 
-            font-size: 0.85em; 
-            color: var(--text-muted); 
-            letter-spacing: 4px; 
-            text-transform: uppercase; 
-            margin-top: 5px; 
-        }
-
-        .container { 
-            max-width: 1280px; 
-            margin: 50px auto; 
-            padding: 0 30px; 
-        }
-
-        .product-grid { 
-            display: grid; 
-            grid-template-columns: 1.2fr 1fr; 
-            gap: 60px; 
-            align-items: start; 
-        }
-
-        .gallery-container {
-            background: var(--surface-color);
-            padding: 20px;
-            border: 1px solid var(--border-color);
-            position: relative;
-        }
-        .main-image-wrapper {
-            overflow: hidden;
+        body, html {
             width: 100%;
-            aspect-ratio: 1/1;
-        }
-        #main-image { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); 
-        }
-        .main-image-wrapper:hover #main-image {
-            transform: scale(1.05);
+            height: 100dvh; /* 100dvh for perfect mobile Safari sizing */
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #050505;
+            overflow: hidden; /* Prevents scrollbars during animation */
         }
 
-        .product-info { 
-            padding: 10px 0; 
-        }
-        .collection-tag {
-            font-size: 0.75em;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--gold-primary);
-            margin-bottom: 15px;
-            display: block;
-        }
-        .product-title { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 2.5em; 
-            font-weight: 600; 
-            color: #fff; 
-            margin-bottom: 15px; 
-            line-height: 1.2;
-        }
-        .product-sku { 
-            font-size: 0.9em; 
-            color: var(--text-muted); 
-            letter-spacing: 1px; 
-            margin-bottom: 25px; 
-        }
-        .price-section { 
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2em; 
-            color: var(--gold-primary); 
-            font-weight: 700; 
-            margin-bottom: 25px; 
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 20px;
+        /* =========================================
+           Background Animation
+           ========================================= */
+        .splash-container {
+            position: relative;
+            width: 100%;
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #050505 100%);
+            background-size: 200% 200%;
+            animation: bgShift 15s ease infinite;
         }
 
-        .edition-selection { margin-bottom: 30px; }
-        .selection-label { 
-            font-size: 0.85em; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            color: var(--text-muted); 
-            margin-bottom: 12px; 
-            display: block; 
+        /* অপশনাল: ভিডিও ব্যাকগ্রাউন্ড ব্যবহার করতে চাইলে নিচের কোডটি আনকমেন্ট করুন */
+        /*
+        .bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            z-index: 0;
         }
-        .color-swatches { display: flex; gap: 15px; }
-        .swatch { 
-            width: 45px; 
-            height: 45px; 
-            border-radius: 50%; 
-            cursor: pointer; 
-            border: 2px solid var(--border-color); 
-            position: relative; 
-            transition: all 0.3s ease; 
-        }
-        .swatch.active { 
-            border-color: var(--gold-primary); 
-            transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-        }
-        #swatch-burgundy { background-color: #5c1129; }
-        #swatch-black { background-color: #1a1a1a; }
-        #swatch-green { background-color: #1a4d3a; }
+        */
 
-        .selected-name {
-            font-size: 0.95em;
-            color: var(--text-main);
-            margin-top: 15px;
-            font-weight: 500;
+        @keyframes bgShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        .action-buttons { 
-            display: flex; 
-            flex-direction: column; 
-            gap: 15px; 
-            margin-top: 35px; 
-        }
-        .btn { 
-            width: 100%; 
-            padding: 18px; 
-            border: none; 
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.95em; 
-            font-weight: 600; 
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
-            cursor: pointer; 
-            transition: all 0.3s ease; 
-        }
-        .btn-primary { 
-            background-color: var(--gold-primary); 
-            color: #000; 
-        }
-        .btn-primary:hover { 
-            background-color: var(--gold-hover); 
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
-        }
-        .btn-outline { 
-            background-color: transparent; 
-            color: #fff; 
-            border: 1px solid var(--gold-primary); 
-        }
-        .btn-outline:hover { 
-            background-color: var(--gold-primary); 
-            color: #000; 
-        }
-
-        .story-section { 
-            margin-top: 100px; 
-            background: var(--surface-color); 
-            border: 1px solid var(--border-color); 
-            padding: 60px; 
-        }
-        .story-title { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 2em; 
-            text-align: center; 
-            color: var(--gold-primary); 
-            margin-bottom: 40px; 
-            letter-spacing: 2px;
-        }
-        .story-content { 
-            max-width: 900px; 
-            margin: 0 auto; 
-            font-size: 1.05em; 
-            color: #d0d0d0; 
-            text-align: justify; 
-            margin-bottom: 25px; 
-        }
-        .brand-link-box {
+        /* =========================================
+           Content Overlay & Typography
+           ========================================= */
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
             text-align: center;
-            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
         }
-        .brand-link { 
-            color: var(--gold-primary); 
-            text-decoration: none; 
-            font-weight: 600; 
-            letter-spacing: 1px;
-            border-bottom: 1px solid var(--gold-primary);
-            padding-bottom: 2px;
-            transition: opacity 0.3s;
-        }
-        .brand-link:hover { opacity: 0.8; }
 
-        footer { 
-            text-align: center; 
-            padding: 40px; 
-            border-top: 1px solid var(--border-color); 
-            margin-top: 80px; 
-            font-size: 0.8em; 
-            color: var(--text-muted); 
-            letter-spacing: 2px;
+        .brand-name {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 4rem;
+            color: #ffffff;
+            letter-spacing: 8px;
             text-transform: uppercase;
+            font-weight: 400;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease forwards 0.5s;
         }
 
-        @media(max-width: 968px) {
-            .product-grid { grid-template-columns: 1fr; gap: 40px; }
-            .story-section { padding: 30px; }
+        .brand-subtitle {
+            font-size: 0.9rem;
+            color: #c7a17a; /* Luxury Gold Tone */
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease forwards 1s;
+        }
+
+        /* =========================================
+           Shopping Button
+           ========================================= */
+        .shop-btn-container {
+            margin-top: 30px;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease forwards 1.5s;
+        }
+
+        .shop-btn {
+            display: inline-block;
+            padding: 16px 45px;
+            font-size: 1rem;
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 1px solid #c7a17a;
+            background: transparent;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.4s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Button Hover Fill Effect */
+        .shop-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: #c7a17a;
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .shop-btn:hover::before {
+            left: 0;
+        }
+
+        .shop-btn:hover {
+            color: #000000;
+            font-weight: 600;
+            transform: translateY(-3px); /* Slight lift effect */
+            box-shadow: 0 10px 20px rgba(199, 161, 122, 0.2);
+        }
+
+        /* =========================================
+           Keyframe Animations
+           ========================================= */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================================
+           Responsive Design (Mobile Devices)
+           ========================================= */
+        @media (max-width: 768px) {
+            .brand-name {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+            .brand-subtitle {
+                font-size: 0.75rem;
+                letter-spacing: 4px;
+            }
+            .shop-btn {
+                padding: 14px 35px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>SherenVogue</h1>
-        <p>International Luxury Brand</p>
-    </header>
+    <div class="splash-container">
+        <!-- 
+            যদি পরবর্তীতে আপনার তৈরি কোনো সিনেমাটিক ড্রোন শট বা 3D ডিজাইনের ভিডিও 
+            ব্যাকগ্রাউন্ডে দিতে চান, তবে নিচের কোডটি আনকমেন্ট করে 'your-video.mp4' এর জায়গায় ভিডিওর লিংক বসিয়ে দিন। 
+        -->
+        <!-- 
+        <video class="bg-video" autoplay loop muted playsinline>
+            <source src="your-video.mp4" type="video/mp4">
+        </video> 
+        -->
 
-    <main class="container">
-        <div class="product-grid">
-            <div class="gallery-container">
-                <div class="main-image-wrapper">
-                    <img id="main-image" src="image_8.png" alt="Heritage Regalia Bag">
-                </div>
-            </div>
-
-            <div class="product-info">
-                <span class="collection-tag">The Heritage Regalia Collection</span>
-                <h1 id="product-title" class="product-title">The Sheren Burgundy Edition</h1>
-                <div id="product-sku" class="product-sku">PRODUCT CODE: SA-BG-01-BRG</div>
-                <div class="price-section">৳12,500</div>
-
-                <div class="edition-selection">
-                    <span class="selection-label">Select Edition & Color</span>
-                    <div class="color-swatches">
-                        <div id="swatch-burgundy" class="swatch active" onclick="switchProduct(0)" title="Royal Burgundy"></div>
-                        <div id="swatch-black" class="swatch" onclick="switchProduct(1)" title="Jet Black"></div>
-                        <div id="swatch-green" class="swatch" onclick="switchProduct(2)" title="Emerald Green"></div>
-                    </div>
-                    <div id="selected-text" class="selected-name">Edition: Royal Burgundy / Maroon</div>
-                </div>
-
-                <div class="action-buttons">
-                    <button class="btn btn-primary">Secure Order Now</button>
-                    <button class="btn btn-outline">Add to Wishlist</button>
-                </div>
+        <div class="content-wrapper">
+            <h1 class="brand-name">Sheren<span style="color: #c7a17a; font-style: italic;">Vogue</span></h1>
+            <div class="brand-subtitle">Haute Couture</div>
+            
+            <div class="shop-btn-container">
+                <!-- href এর জায়গায় আপনার মূল শপিং পেজ বা ওয়েবসাইটের লিংক দিন -->
+                <a href="/shop" class="shop-btn">Enter Store</a>
             </div>
         </div>
+    </div>
 
-        <section class="story-section">
-            <h2 class="story-title">Artisan & Heritage Legacy</h2>
-            <div class="story-content">
-                মোগল দরবারের হারিয়ে যাওয়া রাজকীয় রহস্য আর সুপ্ত ইতিহাসের ছোঁয়া ছোঁয়ায় <strong>sherenvogue</strong>। যেই রাজকীয় প্রতীক আর জটিল নকশাগুলো একসময় কেবল সম্রাটদের গোপন দরবার আর রাজপ্রাসাদে সীমাবদ্ধ ছিল, তার একটি রহস্যময় আভা আজ ফুটে উঠেছে এই আধুনিক মাস্টারপিসে। দ্য শেরেন হেরিটেজ রেগালিয়া কালেকশন—এটি কেবল একটি লাক্সারি অ্যাক্সেসরি নয়, এটি রাজপরিবারের প্রাচীন শিল্পকলা এবং লুকানো ইতিহাসের এক জীবন্ত রূপ।
-            </div>
-            <div class="story-content">
-                যাঁরা সাধারণের ভিড়ে একটু আলাদা এবং ইতিহাসের গভীরে লুকিয়ে থাকা আভিজাত্য পছন্দ করেন, তাঁদের জন্যই এই রাজকীয় সংস্করণের সৃষ্টি। "Heritage Regalia Structured Bag", সাপ্রেল গ্রেইনড টেক্সচার এবং ইম্পেরিয়াল স্ট্রাকচারে তৈরি এই সীমিত সংস্করণের মাস্টারপিসগুলো আপনার স্টাইলকে নিয়ে যাবে অন্য এক রহস্যময় উচ্চতায়।
-            </div>
-            <div class="brand-link-box">
-                <span style="color: var(--text-muted); display: block; margin-bottom: 10px; font-size: 0.9em;">আপনার প্রিমিয়াম লাইফস্টাইলে রাজকীয়তার দীপ্তি যোগ করতে এক্সপ্লোর করুন:</span>
-                <a href="https://sherenvogue.com" class="brand-link" target="_blank">https://sherenvogue.com</a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 SherenVogue. All Rights Reserved. International Luxury House.</p>
-    </footer>
-
-    <script>
-        const database = [
-            {
-                title: "The Sheren Burgundy Edition",
-                code: "PRODUCT CODE: SA-BG-01-BRG",
-                edition: "Edition: Royal Burgundy / Maroon",
-                img: "image_8.png"
-            },
-            {
-                title: "The Sheren Black Edition",
-                code: "PRODUCT CODE: SA-BG-01-BLK",
-                edition: "Edition: Jet Black / Imperial",
-                img: "image_9.png"
-            },
-            {
-                title: "The Sheren Green Edition",
-                code: "PRODUCT CODE: SA-BG-01-GRN",
-                edition: "Edition: Emerald Green / Regalia",
-                img: "image_10.png"
-            }
-        ];
-
-        function switchProduct(index) {
-            let item = database[index];
-            document.getElementById('main-image').src = item.img;
-            document.getElementById('product-title').innerText = item.title;
-            document.getElementById('product-sku').innerText = item.code;
-            document.getElementById('selected-text').innerText = item.edition;
-
-            let swatches = document.querySelectorAll('.swatch');
-            swatches.forEach((el, idx) => {
-                if(idx === index) {
-                    el.classList.add('active');
-                } else {
-                    el.classList.remove('active');
-                }
-            });
-        }
-    </script>
 </body>
 </html>
