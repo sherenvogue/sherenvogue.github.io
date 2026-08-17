@@ -14,13 +14,17 @@
             box-sizing: border-box;
         }
 
-        body, html {
-            width: 100%;
-            height: 100dvh; /* 100dvh for perfect mobile Safari sizing */
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #050505;
-            overflow: hidden; /* Prevents scrollbars during animation */
-        }
+        body, body {
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url('your-luxury-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
 
         /* =========================================
            Background Animation
