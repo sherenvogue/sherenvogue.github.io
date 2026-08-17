@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>দ্য শেরেন হেরিটেজ রেগালিয়া কালেকশন - SherenVogue</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f9f9f9; color: #333; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 20px auto; padding: 20px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.05); border-radius: 8px; }
+
+        header { text-align: center; padding-bottom: 20px; border-bottom: 1px solid #eee; margin-bottom: 30px; }
+        header h1 { font-size: 2.5em; color: #5c1129; }
+        header p { color: #777; }
+
+        .product-main { display: flex; gap: 40px; margin-bottom: 50px; }
+        
+        .product-images { flex: 1; }
+        #main-image { width: 100%; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+        
+        .product-details { flex: 1; padding-top: 10px; }
+        .product-title { font-size: 2em; color: #333; margin-bottom: 5px; }
+        .product-code { font-size: 1em; color: #a8741d; font-weight: bold; margin-bottom: 15px; }
+        .price { font-size: 2.5em; color: #a8741d; font-weight: bold; margin-bottom: 15px; }
+        .cod-badge { display: inline-block; background-color: #eee; color: #555; padding: 5px 10px; border-radius: 4px; font-size: 0.9em; margin-bottom: 20px; }
+
+        .color-selection { margin-bottom: 25px; }
+        .color-label { font-weight: bold; margin-bottom: 10px; display: block; }
+        .color-options { display: flex; gap: 15px; }
+        .color-option { position: relative; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; border: 2px solid #ccc; transition: transform 0.2s; }
+        .color-option:hover { transform: scale(1.1); }
+        .color-option.active { border-color: #a8741d; box-shadow: 0 0 0 3px rgba(168, 116, 29, 0.2); }
+        
+        #color-bg-1 { background-color: #5c1129; } 
+        #color-bg-2 { background-color: #000000; } 
+        #color-bg-3 { background-color: #1a4d3a; } 
+
+        .color-tooltip { position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); background-color: #333; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 0.8em; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+        .color-option:hover .color-tooltip { opacity: 1; }
+
+        .selected-color-text { font-weight: bold; margin-top: 12px; color: #555; font-size: 1.1em; }
+
+        .buttons { display: flex; gap: 15px; margin-bottom: 30px; }
+        .btn { flex: 1; padding: 15px; border: none; border-radius: 4px; font-size: 1.2em; font-weight: bold; cursor: pointer; text-align: center; transition: background-color 0.3s; }
+        .add-to-cart { background-color: #a8741d; color: #fff; }
+        .add-to-cart:hover { background-color: #8a5f17; }
+        .buy-now { background-color: #5c1129; color: #fff; }
+        .buy-now:hover { background-color: #480d21; }
+
+        .product-description { margin-top: 40px; border-top: 2px solid #eee; padding-top: 30px; }
+        .description-title { font-size: 1.5em; color: #333; margin-bottom: 15px; }
+        .description-text { margin-bottom: 15px; text-align: justify; }
+        .website-link { color: #1a73e8; text-decoration: none; font-weight: bold; }
+        .website-link:hover { text-decoration: underline; }
+
+        footer { text-align: center; font-size: 0.8em; color: #999; margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee; }
+
+        @media (max-width: 768px) {
+            .product-main { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SherenVogue</h1>
+        <p>International Luxury Brand</p>
+    </header>
+
+    <main class="container">
+        <section class="product-main">
+            <div class="product-images">
+                <img id="main-image" src="image_8.png" alt="Heritage Regalia Structured Bag">
+            </div>
+
+            <div class="product-details">
+                <h1 id="product-name" class="product-title">The Sheren Burgundy Edition</h1>
+                <div id="product-code" class="product-code">Product Code: SA-BG-01-BRG</div>
+                <div class="price">৳12,500</div>
+                <div class="cod-badge">Cash On Delivery Available</div>
+
+                <div class="color-selection">
+                    <label class="color-label">Select Color Edition</label>
+                    <div class="color-options">
+                        <div id="color-bg-1" class="color-option active" onclick="changeEdition(0)">
+                            <span class="color-tooltip">Royal Burgundy</span>
+                        </div>
+                        <div id="color-bg-2" class="color-option" onclick="changeEdition(1)">
+                            <span class="color-tooltip">Jet Black</span>
+                        </div>
+                        <div id="color-bg-3" class="color-option" onclick="changeEdition(2)">
+                            <span class="color-tooltip">Emerald Green</span>
+                        </div>
+                    </div>
+                    <div id="selected-color-text" class="selected-color-text">Selected: Royal Burgundy/Maroon</div>
+                </div>
+
+                <div class="buttons">
+                    <button class="btn add-to-cart">ADD TO CART</button>
+                    <button class="btn buy-now">ORDER NOW</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-description">
+            <h2 class="description-title">বিবরণ ও ইতিহাস</h2>
+            <div class="description-text">
+                মোগল দরবারের হারিয়ে যাওয়া রাজকীয় রহস্য আর সুপ্ত ইতিহাসের ছোঁয়ায়ে sherenvogue। যেই রাজকীয় প্রতীক আর জটিল নকশাগুলো একসময় কেবল সম্রাটদের গোপন দরবার আর রাজপ্রাসাদে সীমাবদ্ধ ছিল, তার একটি রহস্যময় আভা আজ ফুটে উঠেছে এই আধুনিক মাস্টারপিসে। দ্য শেরেন হেরিটেজ রেগালিয়া কালেকশন—এটি কেবল একটি লাক্সারি অ্যাক্সেসরি নয়, এটি রাজপরিবারের প্রাচীন শিল্পকলা এবং লুকানো ইতিহাসের এক জীবন্ত রূপ।
+            </div>
+            <div class="description-text">
+                যাঁরা সাধারণের ভিড়ে একটু আলাদা এবং ইতিহাসের গভীরে লুকিয়ে থাকা আভিজাত্য পছন্দ করেন, তাঁদের জন্যই এই রাজকীয় সংস্করণের সৃষ্টি। "Heritage Regalia Structured Bag", সাপ্রেল গ্রেইনড টেক্সচার এবং ইম্পেরিয়াল স্ট্রাকচারে তৈরি এই সীমিত সংস্করণের মাস্টারপিসগুলো আপনার স্টাইলকে নিয়ে যাবে অন্য এক রহস্যময় উচ্চতায়।
+            </div>
+            <div class="description-text">
+                আপনার প্রিমিয়াম লাইফস্টাইলে রাজকীয়তার দীপ্তি যোগ করতে এক্সপ্লোর করুন: 
+                <a href="https://sherenvogue.com" class="website-link" target="_blank">https://sherenvogue.com</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SherenVogue. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const productData = [
+            {
+                name: "The Sheren Burgundy Edition",
+                code: "Product Code: SA-BG-01-BRG",
+                colorDesc: "Royal Burgundy/Maroon",
+                image: "image_8.png"
+            },
+            {
+                name: "The Sheren Black Edition",
+                code: "Product Code: SA-BG-01-BLK",
+                colorDesc: "Jet Black",
+                image: "image_9.png"
+            },
+            {
+                name: "The Sheren Green Edition",
+                code: "Product Code: SA-BG-01-GRN",
+                colorDesc: "Emerald Green",
+                image: "image_10.png"
+            }
+        ];
+
+        function changeEdition(index) {
+            const product = productData[index];
+            document.getElementById('main-image').src = product.image;
+            document.getElementById('product-name').innerText = product.name;
+            document.getElementById('product-code').innerText = product.code;
+            document.getElementById('selected-color-text').innerText = `Selected: ${product.colorDesc}`;
+
+            const options = document.querySelectorAll('.color-option');
+            options.forEach((opt, idx) => {
+                if (idx === index) {
+                    opt.classList.add('active');
+                } else {
+                    opt.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
