@@ -1,8 +1,62 @@
-{
-    "id": 2,
-    "name": "The Sheren Black Edition",
-    "price": 8500,
-    "image": "image_9.png",
-    "category": "BAGS",
-    "description": "An exclusive luxury handcrafted timepiece/bag by SherenVogue."
-  }
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SherenVogue - Product</title>
+    <style>
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #050505; color: #fff; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .product-card { max-width: 900px; width: 100%; background: #111; padding: 40px; border-radius: 12px; display: flex; gap: 40px; flex-wrap: wrap; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .img-section { flex: 1; min-width: 300px; }
+        .img-section img { width: 100%; border-radius: 8px; object-fit: cover; aspect-ratio: 4/5; border: 1px solid #333; }
+        .details-section { flex: 1; min-width: 300px; display: flex; flex-direction: column; justify-content: center; }
+        .category { text-transform: uppercase; letter-spacing: 4px; color: #c7a17a; font-size: 0.8rem; margin-bottom: 10px; }
+        h1 { font-family: 'Times New Roman', serif; font-size: 2.5rem; margin: 0 0 15px 0; color: #fff; font-weight: normal; }
+        .price { font-size: 2rem; color: #c7a17a; margin-bottom: 25px; font-weight: 300; }
+        .desc { line-height: 1.8; color: #aaa; margin-bottom: 30px; font-size: 0.95rem; }
+        .buy-btn { background: #c7a17a; color: #000; padding: 15px 30px; text-transform: uppercase; font-weight: 600; letter-spacing: 2px; border: none; cursor: pointer; transition: 0.3s; width: 100%; }
+        .buy-btn:hover { background: #fff; }
+    </style>
+</head>
+<body>
+
+    <div class="product-card">
+        <div class="img-section">
+            <img id="p-img" src="" alt="Product Image">
+        </div>
+        <div class="details-section">
+            <div id="p-cat" class="category">Loading...</div>
+            <h1 id="p-name">Loading...</h1>
+            <div id="p-price" class="price">৳0</div>
+            <div id="p-desc" class="desc">Please wait, loading product details...</div>
+            
+            <button class="buy-btn">Order Now</button>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        
+        fetch('products.json')
+            .then(res => res.json())
+            .then(data => {
+                const product = data.find(p => p.id == id);
+                if(product) {
+                    document.getElementById('p-img').src = product.image;
+                    document.getElementById('p-name').innerText = product.name;
+                    document.getElementById('p-price').innerText = `৳${product.price}`;
+                    document.getElementById('p-cat').innerText = product.category || 'Haute Couture';
+                    document.getElementById('p-desc').innerText = product.description || 'An exclusive luxury masterpiece crafted with precision and elegance by SherenVogue.';
+                    document.title = `${product.name} | SherenVogue`;
+                } else {
+                    document.querySelector('.product-card').innerHTML = '<h2 style="color:red; text-align:center; width:100%;">Product Not Found</h2>';
+                }
+            })
+            .catch(err => {
+                console.error('Error loading product:', err);
+            });
+    </script>
+
+</body>
+</html>
