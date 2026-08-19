@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     
     <style>
-        /* বেসিক রিসেট */
         * {
             margin: 0;
             padding: 0;
@@ -20,34 +19,32 @@
         body, html {
             height: 100%;
             font-family: 'Montserrat', sans-serif;
+            background-color: #050505; 
             overflow: hidden;
-            /* একটি রিচ ডার্ক গোল্ডেন ব্যাকগ্রাউন্ড অ্যানিমেশন */
-            background: radial-gradient(circle at center, #1f1a10 0%, #0a0a0a 70%, #000000 100%);
         }
 
-        /* ---------------------------------------------------
-           অ্যানিমেটেড ব্যাকগ্রাউন্ড ইফেক্ট (CSS Glow & Dust)
-           --------------------------------------------------- */
-        .glow-overlay {
+        /* 3D ক্যানভাস ব্যাকগ্রাউন্ড */
+        #canvas3d {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, rgba(212, 175, 55, 0.05), rgba(0, 0, 0, 0), rgba(212, 175, 55, 0.05));
-            animation: pulseGlow 8s infinite alternate;
+            z-index: -2;
+        }
+
+        /* 3D ডেপথ বাড়ানোর জন্য শ্যাডো ওভারলে */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 10%, #000000 120%);
             z-index: -1;
             pointer-events: none;
         }
 
-        @keyframes pulseGlow {
-            0% { opacity: 0.3; transform: scale(1); }
-            100% { opacity: 0.8; transform: scale(1.05); }
-        }
-
-        /* ---------------------------------------------------
-           মেইন কন্টেন্ট (লোগো এবং বাটন)
-           --------------------------------------------------- */
         .content {
             display: flex;
             flex-direction: column;
@@ -56,103 +53,145 @@
             height: 100%;
             text-align: center;
             color: #fff;
-            z-index: 1;
+            z-index: 1; 
             position: relative;
-            animation: fadeIn 2.5s ease-in-out;
+            animation: fadeIn 2s ease-in-out;
         }
 
         h1.brand-name {
             font-family: 'Playfair Display', serif;
-            font-size: 5rem; /* একটু বড় করা হয়েছে */
+            font-size: 4.5rem;
             letter-spacing: 0.15em;
             margin-bottom: 0.5rem;
             text-transform: uppercase;
             font-weight: 400;
-            /* টেক্সটের চারপাশে একটি সুন্দর গোল্ডেন গ্লো */
-            text-shadow: 0px 4px 20px rgba(212, 175, 55, 0.3);
+            text-shadow: 2px 4px 15px rgba(0,0,0,0.8);
         }
 
         h1.brand-name span {
             font-style: italic;
-            color: #D4AF37; /* লাক্সারি গোল্ডেন কালার */
+            color: #D4AF37; 
         }
 
         h2.subtitle {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            letter-spacing: 0.6em;
-            color: #b3b3b3;
+            font-size: 0.95rem;
+            letter-spacing: 0.5em;
+            color: #C0C0C0;
             margin-bottom: 4rem;
             text-transform: uppercase;
             font-weight: 300;
         }
 
-        /* ---------------------------------------------------
-           লাক্সারি বাটন ডিজাইন (ভিডিওর মতো হুবহু)
-           --------------------------------------------------- */
         .shop-btn {
             text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
             font-size: 0.9rem;
             letter-spacing: 0.25em;
             color: #D4AF37;
-            padding: 18px 50px;
-            border: 1px solid #D4AF37; /* সলিড গোল্ডেন বর্ডার */
+            padding: 16px 45px;
+            border: 1px solid #D4AF37;
             background-color: transparent;
-            transition: all 0.5s ease;
+            transition: all 0.4s ease;
             text-transform: uppercase;
-            font-weight: 400;
+            font-weight: 600;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
         }
 
-        /* বাটনের হোভার ইফেক্ট (মাউস নিলে কালার চেঞ্জ হবে) */
         .shop-btn:hover {
             background-color: #D4AF37;
             color: #000;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
             transform: translateY(-3px);
         }
 
-        /* ---------------------------------------------------
-           অ্যানিমেশন কি-ফ্রেমস
-           --------------------------------------------------- */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ---------------------------------------------------
-           মোবাইল রেসপন্সিভ ডিজাইন
-           --------------------------------------------------- */
         @media (max-width: 768px) {
-            h1.brand-name {
-                font-size: 3rem;
-                letter-spacing: 0.1em;
-            }
-            h2.subtitle {
-                font-size: 0.8rem;
-                letter-spacing: 0.4em;
-                margin-bottom: 3.5rem;
-            }
-            .shop-btn {
-                padding: 15px 40px;
-                font-size: 0.85rem;
-            }
+            h1.brand-name { font-size: 2.8rem; letter-spacing: 0.1em; }
+            h2.subtitle { font-size: 0.75rem; letter-spacing: 0.3em; margin-bottom: 3.5rem; }
+            .shop-btn { padding: 15px 35px; font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="glow-overlay"></div>
+    <!-- লাইভ 3D জেনারেট হওয়ার ক্যানভাস -->
+    <canvas id="canvas3d"></canvas>
+    <div class="overlay"></div>
 
     <div class="content">
         <h1 class="brand-name">SHEREN<span>VOGUE</span></h1>
         <h2 class="subtitle">Haute Couture</h2>
-        
         <a href="shop.html" class="shop-btn">ENTER STORE</a>
     </div>
 
+    <!-- 3D অ্যানিমেশনের জাভাস্ক্রিপ্ট কোড -->
+    <script>
+        const canvas = document.getElementById('canvas3d');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particlesArray = [];
+        const numberOfParticles = 120; // কণার সংখ্যা
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2.5 + 0.5; // সাইজ দিয়ে 3D ডেপথ তৈরি
+                this.speedX = (Math.random() * 1) - 0.5;
+                this.speedY = (Math.random() * 1) - 0.5;
+                this.opacity = Math.random() * 0.8 + 0.2;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                // স্ক্রিনের বাইরে গেলে আবার নতুন করে তৈরি হবে
+                if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2.5 + 0.5;
+                }
+            }
+            draw() {
+                ctx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`; // শেরেনভগের লাক্সারি গোল্ড কালার
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.closePath();
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            particlesArray = [];
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+            }
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+
+        // মোবাইল বা পিসির স্ক্রিন সাইজ চেঞ্জ হলে ফিট হয়ে যাবে
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
+        });
+    </script>
 </body>
 </html>
