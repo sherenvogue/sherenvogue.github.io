@@ -21,36 +21,22 @@
             font-family: 'Montserrat', sans-serif;
             background-color: #050505; 
             overflow: hidden;
+            /* এখানে ভিডিওর বদলে একটি চলন্ত GIF ইমেজ ব্যবহার করা হয়েছে */
+            background: url('https://media.giphy.com/media/3o7TKoHNJT1WAjqZoc/giphy.gif') no-repeat center center fixed; 
+            background-size: cover;
         }
 
-        /* ---------------------------------------------------
-           ভিডিও ব্যাকগ্রাউন্ড সেকশন
-           --------------------------------------------------- */
-        .video-container {
+        /* ডার্ক ওভারলে (যেন টেক্সটগুলো সুন্দরভাবে ফুটে ওঠে) */
+        .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
-            z-index: -2; /* ভিডিও সবার পিছনে রাখার জন্য */
+            background: rgba(0, 0, 0, 0.6); /* হালকা কালো শ্যাডো */
+            z-index: 0;
         }
 
-        .video-container video {
-            min-width: 100%;
-            min-height: 100%;
-            object-fit: cover; /* সব স্ক্রিনে ফিট হওয়ার জন্য */
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            /* ভিডিওটি একটু ডার্ক করা হয়েছে যেন সামনের লেখা স্পষ্ট বোঝা যায় */
-            filter: brightness(0.4) contrast(1.2); 
-        }
-
-        /* ---------------------------------------------------
-           আপনার দেওয়া সামনের কন্টেন্টের কোড (অপরিবর্তিত)
-           --------------------------------------------------- */
         .content {
             display: flex;
             flex-direction: column;
@@ -59,7 +45,7 @@
             height: 100%;
             text-align: center;
             color: #fff;
-            z-index: 1; /* লেখা ভিডিওর সামনে রাখার জন্য */
+            z-index: 1; 
             position: relative;
             animation: fadeIn 2s ease-in-out;
         }
@@ -142,14 +128,10 @@
 </head>
 <body>
 
-    <!-- সরাসরি ইন্টারনেট থেকে ভিডিও প্লে হবে, কোনো ফাইল লাগবে না -->
-    <div class="video-container">
-        <video autoplay loop muted playsinline>
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-golden-particles-in-the-air-4876-large.mp4" type="video/mp4">
-        </video>
-    </div>
+    <!-- ডার্ক শ্যাডো -->
+    <div class="overlay"></div>
 
-    <!-- আপনার মেইন কন্টেন্ট -->
+    <!-- মেইন কন্টেন্ট -->
     <div class="content">
         <h1 class="brand-name">SHEREN<span>VOGUE</span></h1>
         <h2 class="subtitle">Haute Couture</h2>
