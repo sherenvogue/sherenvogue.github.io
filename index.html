@@ -16,26 +16,41 @@
             box-sizing: border-box;
         }
 
-        /* ---------------------------------------------------
-           Pure CSS Background Animation (No Video File Needed)
-           --------------------------------------------------- */
         body, html {
             height: 100%;
             font-family: 'Montserrat', sans-serif;
+            background-color: #050505; 
             overflow: hidden;
-            background: linear-gradient(-45deg, #050505, #1a1a1a, #2a1f10, #000000);
-            background-size: 400% 400%;
-            animation: luxuryGradientBG 12s ease infinite;
         }
 
-        /* ব্যাকগ্রাউন্ড অ্যানিমেশন ফ্রেম */
-        @keyframes luxuryGradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* ---------------------------------------------------
+           ভিডিও ব্যাকগ্রাউন্ড সেকশন
+           --------------------------------------------------- */
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -2; /* ভিডিও সবার পিছনে রাখার জন্য */
         }
 
-        /* মেইন কন্টেন্ট এলাইনমেন্ট */
+        .video-container video {
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover; /* সব স্ক্রিনে ফিট হওয়ার জন্য */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* ভিডিওটি একটু ডার্ক করা হয়েছে যেন সামনের লেখা স্পষ্ট বোঝা যায় */
+            filter: brightness(0.4) contrast(1.2); 
+        }
+
+        /* ---------------------------------------------------
+           আপনার দেওয়া সামনের কন্টেন্টের কোড (অপরিবর্তিত)
+           --------------------------------------------------- */
         .content {
             display: flex;
             flex-direction: column;
@@ -44,12 +59,11 @@
             height: 100%;
             text-align: center;
             color: #fff;
-            z-index: 1;
+            z-index: 1; /* লেখা ভিডিওর সামনে রাখার জন্য */
             position: relative;
             animation: fadeIn 2s ease-in-out;
         }
 
-        /* SherenVogue ব্র্যান্ড টাইপোগ্রাফি */
         h1.brand-name {
             font-family: 'Playfair Display', serif;
             font-size: 4.5rem;
@@ -62,7 +76,7 @@
 
         h1.brand-name span {
             font-style: italic;
-            color: #D4AF37; /* লাক্সারি গোল্ডেন কালার */
+            color: #D4AF37; 
         }
 
         h2.subtitle {
@@ -74,7 +88,6 @@
             font-weight: 300;
         }
 
-        /* লাক্সারি বাটন */
         .shop-btn {
             text-decoration: none;
             font-size: 0.9rem;
@@ -110,7 +123,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* মোবাইল রেসপন্সিভ */
         @media (max-width: 768px) {
             h1.brand-name {
                 font-size: 2.8rem;
@@ -130,6 +142,14 @@
 </head>
 <body>
 
+    <!-- সরাসরি ইন্টারনেট থেকে ভিডিও প্লে হবে, কোনো ফাইল লাগবে না -->
+    <div class="video-container">
+        <video autoplay loop muted playsinline>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-golden-particles-in-the-air-4876-large.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- আপনার মেইন কন্টেন্ট -->
     <div class="content">
         <h1 class="brand-name">SHEREN<span>VOGUE</span></h1>
         <h2 class="subtitle">Haute Couture</h2>
