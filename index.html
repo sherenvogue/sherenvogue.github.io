@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHERENVOGUE | Haute Couture</title>
+    <style>
+        /* ইমপোর্ট করা লাক্সারি ফন্ট */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #050505; /* ডিপ ডার্ক ব্যাকগ্রাউন্ড */
+            overflow: hidden;
+        }
+
+        /* সিনেমাটিক ভিডিও ব্যাকগ্রাউন্ড */
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -2;
+        }
+
+        .video-container video {
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            filter: contrast(1.1) brightness(0.9);
+        }
+
+        /* লাক্সারি ডার্ক ওভারলে (টেক্সট ক্লিয়ার দেখানোর জন্য) */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.85) 100%);
+            z-index: -1;
+        }
+
+        /* মেইন কন্টেন্ট এলাইনমেন্ট */
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+            color: #fff;
+            z-index: 1;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+
+        /* ব্র্যান্ডের নাম ও টাইপোগ্রাফি */
+        h1.brand-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-weight: 400;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.5);
+        }
+
+        h1.brand-name span {
+            font-style: italic;
+            color: #D4AF37; /* বাটার/গোল্ডেন কালার */
+        }
+
+        h2.subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.5em;
+            color: #B0B0B0;
+            margin-bottom: 3.5rem;
+            text-transform: uppercase;
+        }
+
+        /* লাক্সারি বাটার কালার বাটন ও অ্যানিমেশন */
+        .shop-btn {
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.25em;
+            color: #111;
+            /* বাটার/গোল্ড গ্রেডিয়েন্ট */
+            background: linear-gradient(60deg, #C5A059, #F3E5AB, #C5A059, #D4AF37);
+            background-size: 300% 300%;
+            padding: 16px 45px;
+            border: 1px solid #F3E5AB;
+            border-radius: 2px;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            text-transform: uppercase;
+            font-weight: 600;
+            animation: goldShimmer 4s ease infinite;
+        }
+
+        .shop-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+            border-color: #FFF;
+            color: #000;
+        }
+
+        /* অ্যানিমেশন কি-ফ্রেমস */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes goldShimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* মোবাইল রেসপন্সিভ ডিজাইন */
+        @media (max-width: 768px) {
+            h1.brand-name {
+                font-size: 2.8rem;
+                letter-spacing: 0.1em;
+            }
+            h2.subtitle {
+                font-size: 0.75rem;
+                letter-spacing: 0.3em;
+            }
+            .shop-btn {
+                padding: 14px 35px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- সিনেমাটিক ভিডিও ব্যাকগ্রাউন্ড -->
+    <div class="video-container">
+        <!-- 
+          এখানে src এর ভেতরে আপনার লাক্সারি ভিডিওর লিংকটি বসিয়ে দিন। 
+          অটো-প্লে হওয়ার জন্য loop muted playsinline ট্যাগগুলো অবশ্যই রাখবেন। 
+        -->
+        <video autoplay loop muted playsinline>
+            <source src="https://cdn.pixabay.com/video/2022/03/26/111956-692795847_large.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="overlay"></div>
+
+    <!-- মেইন কন্টেন্ট -->
+    <div class="content">
+        <h1 class="brand-name">SHEREN<span>VOGUE</span></h1>
+        <h2 class="subtitle">Haute Couture</h2>
+        
+        <!-- আপনার শপ ফাইলের লিংক এখানে দিন -->
+        <a href="shop.html" class="shop-btn">Enter Store</a>
+    </div>
+
+</body>
+</html>
