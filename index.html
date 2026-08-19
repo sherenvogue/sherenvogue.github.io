@@ -23,7 +23,7 @@
         }
 
         /* =========================================
-           HD / 4K Cinematic Video Background
+           Animated Cinematic Background (No Video File Needed)
            ========================================= */
         .splash-container {
             position: relative;
@@ -34,31 +34,89 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            background-color: #050505;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
         }
 
-        .bg-video {
+        /* Animated Background Layers */
+        .bg-animated {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: 1;
-            will-change: transform;
         }
 
-        /* High-End Luxury Dark Vignette & Gradient Overlay */
+        /* Animated Gradient Layer 1 */
+        .bg-layer-1 {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, #c7a17a 0%, transparent 50%, #050505 100%);
+            animation: slideBackground1 8s linear infinite;
+            opacity: 0.15;
+        }
+
+        /* Animated Gradient Layer 2 */
+        .bg-layer-2 {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(-45deg, #1a1a1a 0%, #c7a17a 25%, #1a1a1a 50%, transparent 75%);
+            animation: slideBackground2 12s linear infinite reverse;
+            opacity: 0.1;
+        }
+
+        /* Animated Particle Effect */
+        .bg-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(199, 161, 122, 0.8), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .particle:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 10%;
+            left: 20%;
+            animation: float 15s infinite ease-in-out;
+            box-shadow: 0 0 30px rgba(199, 161, 122, 0.5);
+        }
+
+        .particle:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 10%;
+            animation: float 20s infinite ease-in-out reverse;
+            box-shadow: 0 0 40px rgba(199, 161, 122, 0.3);
+        }
+
+        .particle:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            bottom: 20%;
+            left: 50%;
+            animation: float 18s infinite ease-in-out;
+            box-shadow: 0 0 25px rgba(199, 161, 122, 0.4);
+        }
+
+        /* Dark Overlay */
         .video-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.75));
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75));
             z-index: 2;
         }
 
@@ -88,7 +146,7 @@
 
         .brand-subtitle {
             font-size: 0.9rem;
-            color: #c7a17a; /* Luxury Gold Tone */
+            color: #c7a17a;
             letter-spacing: 6px;
             text-transform: uppercase;
             opacity: 0;
@@ -158,6 +216,35 @@
             }
         }
 
+        @keyframes slideBackground1 {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(100px, 100px);
+            }
+        }
+
+        @keyframes slideBackground2 {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(-100px, -100px);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translate(50px, -50px);
+                opacity: 0.6;
+            }
+        }
+
         /* =========================================
            Responsive Design (Mobile Devices)
            ========================================= */
@@ -180,10 +267,16 @@
 <body>
 
     <div class="splash-container">
-        <video class="bg-video" autoplay loop muted playsinline preload="auto">
-            <source src="background.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <!-- Animated Background (No Video File Needed) -->
+        <div class="bg-animated">
+            <div class="bg-layer-1"></div>
+            <div class="bg-layer-2"></div>
+            <div class="bg-particles">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+        </div>
 
         <div class="video-overlay"></div>
 
