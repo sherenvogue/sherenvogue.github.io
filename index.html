@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SherenVogue | Welcome</title>
     <style>
-        /* =========================================
-           Reset & Base Styles
-           ========================================= */
         * {
             margin: 0;
             padding: 0;
@@ -21,12 +18,10 @@
             font-family: 'Times New Roman', Times, serif;
         }
 
-        /* =========================================
-           Video Background Styling
-           ========================================= */
         .splash-container {
             position: relative;
             width: 100%;
+            height: 100vh;
             height: 100dvh;
             display: flex;
             justify-content: center;
@@ -48,7 +43,6 @@
             z-index: 1;
         }
 
-        /* Video Overlay for better text readability */
         .video-overlay {
             position: absolute;
             top: 0;
@@ -59,9 +53,6 @@
             z-index: 2;
         }
 
-        /* =========================================
-           Content Overlay & Typography
-           ========================================= */
         .content-wrapper {
             position: relative;
             z-index: 10;
@@ -85,16 +76,13 @@
 
         .brand-subtitle {
             font-size: 0.9rem;
-            color: #c7a17a; /* Luxury Gold Tone */
+            color: #c7a17a;
             letter-spacing: 6px;
             text-transform: uppercase;
             opacity: 0;
             animation: fadeInUp 1.5s ease forwards 1s;
         }
 
-        /* =========================================
-           Shopping Button
-           ========================================= */
         .shop-btn-container {
             margin-top: 30px;
             opacity: 0;
@@ -117,7 +105,6 @@
             cursor: pointer;
         }
 
-        /* Button Hover Fill Effect */
         .shop-btn::before {
             content: '';
             position: absolute;
@@ -141,9 +128,6 @@
             box-shadow: 0 10px 20px rgba(199, 161, 122, 0.3);
         }
 
-        /* =========================================
-           Keyframe Animations
-           ========================================= */
         @keyframes fadeInUp {
             0% {
                 opacity: 0;
@@ -155,9 +139,6 @@
             }
         }
 
-        /* =========================================
-           Responsive Design (Mobile Devices)
-           ========================================= */
         @media (max-width: 768px) {
             .brand-name {
                 font-size: 2.5rem;
@@ -178,7 +159,7 @@
     <div class="splash-container">
         <video class="bg-video" autoplay loop muted playsinline>
             <source src="https://assets.mixkit.co/videos/preview/mixkit-luxury-fashion-store-with-mannequins-41655-large.mp4" type="video/mp4">
-            আপনার ব্রাউজার ভিডিও ট্যাগ সমর্থন করে না।
+            Your browser does not support the video tag.
         </video>
 
         <div class="video-overlay"></div>
