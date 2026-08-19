@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     
     <style>
+        /* বেসিক রিসেট */
         * {
             margin: 0;
             padding: 0;
@@ -19,57 +20,29 @@
         body, html {
             height: 100%;
             font-family: 'Montserrat', sans-serif;
-            background-color: #000; 
             overflow: hidden;
+            /* একটি রিচ ডার্ক গোল্ডেন ব্যাকগ্রাউন্ড অ্যানিমেশন */
+            background: radial-gradient(circle at center, #1f1a10 0%, #0a0a0a 70%, #000000 100%);
         }
 
         /* ---------------------------------------------------
-           স্লাইডশো কন্টেইনার এবং ছবি
+           অ্যানিমেটেড ব্যাকগ্রাউন্ড ইফেক্ট (CSS Glow & Dust)
            --------------------------------------------------- */
-        .slideshow {
+        .glow-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -2;
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.05), rgba(0, 0, 0, 0), rgba(212, 175, 55, 0.05));
+            animation: pulseGlow 8s infinite alternate;
+            z-index: -1;
+            pointer-events: none;
         }
 
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            animation: crossFade 16s infinite; /* ৪টি ছবির জন্য ১৬ সেকেন্ড */
-        }
-
-        /* ছবির ওপর হালকা কালো শ্যাডো (যেন লেখাগুলো ভাসে) */
-        .slide::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); 
-        }
-
-        /* আপনার নিজের ছবির নামগুলো এখানে বসান */
-        .slide-1 { background-image: url('image1.jpg'); animation-delay: 0s; }
-        .slide-2 { background-image: url('image2.jpg'); animation-delay: 4s; }
-        .slide-3 { background-image: url('image3.jpg'); animation-delay: 8s; }
-        .slide-4 { background-image: url('image4.jpg'); animation-delay: 12s; }
-
-        @keyframes crossFade {
-            0% { opacity: 0; }
-            10% { opacity: 1; }
-            25% { opacity: 1; }
-            35% { opacity: 0; }
-            100% { opacity: 0; }
+        @keyframes pulseGlow {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 0.8; transform: scale(1.05); }
         }
 
         /* ---------------------------------------------------
@@ -83,70 +56,101 @@
             height: 100%;
             text-align: center;
             color: #fff;
-            z-index: 1; 
+            z-index: 1;
             position: relative;
+            animation: fadeIn 2.5s ease-in-out;
         }
 
         h1.brand-name {
             font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
+            font-size: 5rem; /* একটু বড় করা হয়েছে */
             letter-spacing: 0.15em;
             margin-bottom: 0.5rem;
             text-transform: uppercase;
             font-weight: 400;
+            /* টেক্সটের চারপাশে একটি সুন্দর গোল্ডেন গ্লো */
+            text-shadow: 0px 4px 20px rgba(212, 175, 55, 0.3);
         }
 
         h1.brand-name span {
             font-style: italic;
-            color: #D4AF37; 
+            color: #D4AF37; /* লাক্সারি গোল্ডেন কালার */
         }
 
         h2.subtitle {
-            font-size: 0.95rem;
-            letter-spacing: 0.5em;
-            color: #C0C0C0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.6em;
+            color: #b3b3b3;
             margin-bottom: 4rem;
             text-transform: uppercase;
             font-weight: 300;
         }
 
+        /* ---------------------------------------------------
+           লাক্সারি বাটন ডিজাইন (ভিডিওর মতো হুবহু)
+           --------------------------------------------------- */
         .shop-btn {
             text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
             font-size: 0.9rem;
             letter-spacing: 0.25em;
-            color: #fff;
-            padding: 15px 45px;
-            border: 1px solid #D4AF37;
-            transition: all 0.4s ease;
+            color: #D4AF37;
+            padding: 18px 50px;
+            border: 1px solid #D4AF37; /* সলিড গোল্ডেন বর্ডার */
+            background-color: transparent;
+            transition: all 0.5s ease;
             text-transform: uppercase;
-            background: rgba(0, 0, 0, 0.4); /* বাটনে ট্রান্সপারেন্ট ব্যাকগ্রাউন্ড */
+            font-weight: 400;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
 
+        /* বাটনের হোভার ইফেক্ট (মাউস নিলে কালার চেঞ্জ হবে) */
         .shop-btn:hover {
             background-color: #D4AF37;
             color: #000;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+            transform: translateY(-3px);
         }
 
+        /* ---------------------------------------------------
+           অ্যানিমেশন কি-ফ্রেমস
+           --------------------------------------------------- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ---------------------------------------------------
+           মোবাইল রেসপন্সিভ ডিজাইন
+           --------------------------------------------------- */
         @media (max-width: 768px) {
-            h1.brand-name { font-size: 2.8rem; letter-spacing: 0.1em; }
-            h2.subtitle { font-size: 0.75rem; letter-spacing: 0.3em; margin-bottom: 3.5rem; }
+            h1.brand-name {
+                font-size: 3rem;
+                letter-spacing: 0.1em;
+            }
+            h2.subtitle {
+                font-size: 0.8rem;
+                letter-spacing: 0.4em;
+                margin-bottom: 3.5rem;
+            }
+            .shop-btn {
+                padding: 15px 40px;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- ব্যাকগ্রাউন্ড স্লাইডশো -->
-    <div class="slideshow">
-        <div class="slide slide-1"></div>
-        <div class="slide slide-2"></div>
-        <div class="slide slide-3"></div>
-        <div class="slide slide-4"></div>
-    </div>
+    <div class="glow-overlay"></div>
 
-    <!-- ফ্রন্ট কন্টেন্ট -->
     <div class="content">
         <h1 class="brand-name">SHEREN<span>VOGUE</span></h1>
         <h2 class="subtitle">Haute Couture</h2>
+        
         <a href="shop.html" class="shop-btn">ENTER STORE</a>
     </div>
 
