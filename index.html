@@ -1,294 +1,94 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+int main() {
+    // HTML, CSS, এবং JS কোডটি একটি Raw String (R"()") এর ভেতর রাখা হলো
+    std::string htmlCode = R"(
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SherenVogue | Welcome</title>
+    <title>SherenVogue - Exclusive Collection</title>
     <style>
-        /* =========================================
-           Reset & Base Styles
-           ========================================= */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body, html {
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            font-family: 'Times New Roman', Times, serif;
-            background-color: #050505;
-        }
-
-        /* =========================================
-           Animated Cinematic Background (No Video File Needed)
-           ========================================= */
-        .splash-container {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            height: 100dvh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
-        }
-
-        /* Animated Background Layers */
-        .bg-animated {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        /* Animated Gradient Layer 1 */
-        .bg-layer-1 {
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, #c7a17a 0%, transparent 50%, #050505 100%);
-            animation: slideBackground1 8s linear infinite;
-            opacity: 0.15;
-        }
-
-        /* Animated Gradient Layer 2 */
-        .bg-layer-2 {
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(-45deg, #1a1a1a 0%, #c7a17a 25%, #1a1a1a 50%, transparent 75%);
-            animation: slideBackground2 12s linear infinite reverse;
-            opacity: 0.1;
-        }
-
-        /* Animated Particle Effect */
-        .bg-particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            background: radial-gradient(circle, rgba(199, 161, 122, 0.8), transparent);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .particle:nth-child(1) {
-            width: 100px;
-            height: 100px;
-            top: 10%;
-            left: 20%;
-            animation: float 15s infinite ease-in-out;
-            box-shadow: 0 0 30px rgba(199, 161, 122, 0.5);
-        }
-
-        .particle:nth-child(2) {
-            width: 150px;
-            height: 150px;
-            top: 60%;
-            right: 10%;
-            animation: float 20s infinite ease-in-out reverse;
-            box-shadow: 0 0 40px rgba(199, 161, 122, 0.3);
-        }
-
-        .particle:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            bottom: 20%;
-            left: 50%;
-            animation: float 18s infinite ease-in-out;
-            box-shadow: 0 0 25px rgba(199, 161, 122, 0.4);
-        }
-
-        /* Dark Overlay */
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75));
-            z-index: 2;
-        }
-
-        /* =========================================
-           Content Overlay & Typography
-           ========================================= */
-        .content-wrapper {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .brand-name {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 4rem;
-            color: #ffffff;
-            letter-spacing: 8px;
-            text-transform: uppercase;
-            font-weight: 400;
-            opacity: 0;
-            animation: fadeInUp 1.5s ease forwards 0.5s;
-        }
-
-        .brand-subtitle {
-            font-size: 0.9rem;
-            color: #c7a17a;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            opacity: 0;
-            animation: fadeInUp 1.5s ease forwards 1s;
-        }
-
-        /* =========================================
-           Professional Enter Store Button
-           ========================================= */
-        .shop-btn-container {
-            margin-top: 30px;
-            opacity: 0;
-            animation: fadeInUp 1.5s ease forwards 1.5s;
-        }
-
-        .shop-btn {
-            display: inline-block;
-            padding: 16px 45px;
-            font-size: 1rem;
-            color: #ffffff;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border: 1px solid #c7a17a;
-            background: transparent;
-            position: relative;
-            overflow: hidden;
-            transition: color 0.4s ease, transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        /* Button Hover Fill Effect */
-        .shop-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background-color: #c7a17a;
-            transition: left 0.4s ease;
-            z-index: -1;
-        }
-
-        .shop-btn:hover::before {
-            left: 0;
-        }
-
-        .shop-btn:hover {
-            color: #000000;
-            font-weight: 600;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(199, 161, 122, 0.3);
-        }
-
-        /* =========================================
-           Keyframe Animations
-           ========================================= */
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideBackground1 {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(100px, 100px);
-            }
-        }
-
-        @keyframes slideBackground2 {
-            0% {
-                transform: translate(0, 0);
-            }
-            100% {
-                transform: translate(-100px, -100px);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translate(0, 0);
-                opacity: 0.3;
-            }
-            50% {
-                transform: translate(50px, -50px);
-                opacity: 0.6;
-            }
-        }
-
-        /* =========================================
-           Responsive Design (Mobile Devices)
-           ========================================= */
-        @media (max-width: 768px) {
-            .brand-name {
-                font-size: 2.5rem;
-                letter-spacing: 4px;
-            }
-            .brand-subtitle {
-                font-size: 0.75rem;
-                letter-spacing: 4px;
-            }
-            .shop-btn {
-                padding: 14px 35px;
-                font-size: 0.9rem;
-            }
-        }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #050505; color: #fff; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .product-card { max-width: 900px; width: 100%; background: #111; padding: 40px; border-radius: 12px; display: flex; gap: 40px; flex-wrap: wrap; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .img-section { flex: 1; min-width: 300px; }
+        .img-section img, .img-section video { width: 100%; border-radius: 8px; object-fit: cover; aspect-ratio: 4/5; border: 1px solid #333; display: none; }
+        .details-section { flex: 1; min-width: 300px; display: flex; flex-direction: column; justify-content: center; }
+        .category { text-transform: uppercase; letter-spacing: 4px; color: #c7a17a; font-size: 0.8rem; margin-bottom: 10px; }
+        h1 { font-family: 'Times New Roman', serif; font-size: 2.5rem; margin: 0 0 15px 0; color: #fff; font-weight: normal; }
+        .price { font-size: 2rem; color: #c7a17a; margin-bottom: 25px; font-weight: 300; }
+        .desc { line-height: 1.8; color: #aaa; margin-bottom: 30px; font-size: 0.95rem; }
+        .buy-btn { background: #c7a17a; color: #000; padding: 15px 30px; text-transform: uppercase; font-weight: 600; letter-spacing: 2px; border: none; cursor: pointer; transition: 0.3s; width: 100%; }
+        .buy-btn:hover { background: #fff; }
     </style>
 </head>
 <body>
 
-    <div class="splash-container">
-        <!-- Animated Background (No Video File Needed) -->
-        <div class="bg-animated">
-            <div class="bg-layer-1"></div>
-            <div class="bg-layer-2"></div>
-            <div class="bg-particles">
-                <div class="particle"></div>
-                <div class="particle"></div>
-                <div class="particle"></div>
-            </div>
+    <div class="product-card">
+        <div class="img-section">
+            <img id="p-img" src="" alt="SherenVogue Product">
+            <video id="p-video" controls autoplay muted loop playsinline></video>
         </div>
-
-        <div class="video-overlay"></div>
-
-        <div class="content-wrapper">
-            <h1 class="brand-name">Sheren<span style="color: #c7a17a; font-style: italic;">Vogue</span></h1>
-            <div class="brand-subtitle">Haute Couture</div>
-            
-            <div class="shop-btn-container">
-                <a href="shop.html" class="shop-btn">Enter Store</a>
-            </div>
+        <div class="details-section">
+            <div id="p-cat" class="category">Loading...</div>
+            <h1 id="p-name">Loading...</h1>
+            <div id="p-price" class="price">৳0</div>
+            <div id="p-desc" class="desc">Please wait...</div>
+            <button class="buy-btn">Order Now</button>
         </div>
     </div>
 
+    <script>
+        const productsData = [
+            {
+                id: "1",
+                name: "Signature Woven Handbag",
+                price: "8,500",
+                video: "https://www.w3schools.com/html/mov_bbb.mp4",
+                image: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?w=500",
+                category: "Ladies Handbags",
+                description: "An exclusive luxury masterpiece crafted with precision. This woven design represents the true elegance and premium quality of SherenVogue."
+            }
+        ];
+
+        const product = productsData[0];
+        const imgEl = document.getElementById('p-img');
+        const videoEl = document.getElementById('p-video');
+
+        if(product.video) {
+            videoEl.src = product.video;
+            videoEl.style.display = 'block';
+            imgEl.style.display = 'none';
+        } else if(product.image) {
+            imgEl.src = product.image;
+            imgEl.style.display = 'block';
+            videoEl.style.display = 'none';
+        }
+
+        document.getElementById('p-name').innerText = product.name;
+        document.getElementById('p-price').innerText = `৳${product.price}`;
+        document.getElementById('p-cat').innerText = product.category;
+        document.getElementById('p-desc').innerText = product.description;
+        document.title = product.name + " | SherenVogue";
+    </script>
+
 </body>
 </html>
+)";
+
+    // index.html নামে একটি ফাইল তৈরি করার কমান্ড
+    std::ofstream file("index.html");
+    
+    if (file.is_open()) {
+        file << htmlCode; // ফাইলে কোডগুলো লেখা হচ্ছে
+        file.close();     // ফাইল সেভ করে বন্ধ করা হচ্ছে
+        std::cout << "Success! 'index.html' file has been generated successfully." << std::endl;
+    } else {
+        std::cout << "Error: Unable to create the file." << std::endl;
+    }
+
+    return 0;
+}
