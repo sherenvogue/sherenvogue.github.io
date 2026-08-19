@@ -5,58 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHERENVOGUE | Haute Couture</title>
     
-    <!-- ফন্ট দ্রুত লোড হওয়ার জন্য Preconnect ব্যবহার করা হয়েছে -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     
     <style>
-        /* বেসিক রিসেট */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* ---------------------------------------------------
+           Pure CSS Background Animation (No Video File Needed)
+           --------------------------------------------------- */
         body, html {
             height: 100%;
             font-family: 'Montserrat', sans-serif;
-            background-color: #050505; 
             overflow: hidden;
+            background: linear-gradient(-45deg, #050505, #1a1a1a, #2a1f10, #000000);
+            background-size: 400% 400%;
+            animation: luxuryGradientBG 12s ease infinite;
         }
 
-        /* সিনেমাটিক ভিডিও ব্যাকগ্রাউন্ড */
-        .video-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -2;
-            background-color: #000; /* ভিডিও লোড হওয়ার আগে কালো দেখাবে */
-        }
-
-        .video-container video {
-            min-width: 100%;
-            min-height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            filter: contrast(1.15) brightness(0.85); /* লাক্সারি সিনেমাটিক টোন */
-        }
-
-        /* ডার্ক ওভারলে (টেক্সট ফোকাস করার জন্য) */
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.85) 100%);
-            z-index: -1;
+        /* ব্যাকগ্রাউন্ড অ্যানিমেশন ফ্রেম */
+        @keyframes luxuryGradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         /* মেইন কন্টেন্ট এলাইনমেন্ট */
@@ -69,6 +45,7 @@
             text-align: center;
             color: #fff;
             z-index: 1;
+            position: relative;
             animation: fadeIn 2s ease-in-out;
         }
 
@@ -85,11 +62,10 @@
 
         h1.brand-name span {
             font-style: italic;
-            color: #D4AF37; /* লাক্সারি গোল্ডেন/বাটার কালার */
+            color: #D4AF37; /* লাক্সারি গোল্ডেন কালার */
         }
 
         h2.subtitle {
-            font-family: 'Montserrat', sans-serif;
             font-size: 0.95rem;
             letter-spacing: 0.5em;
             color: #C0C0C0;
@@ -98,21 +74,18 @@
             font-weight: 300;
         }
 
-        /* লাক্সারি বাটার কালার অ্যানিমেটেড বাটন */
+        /* লাক্সারি বাটন */
         .shop-btn {
             text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
             font-size: 0.9rem;
             letter-spacing: 0.25em;
             color: #111;
-            /* বাটার/গোল্ড গ্রেডিয়েন্ট অ্যানিমেশনের জন্য */
             background: linear-gradient(60deg, #C5A059, #F3E5AB, #C5A059, #D4AF37);
             background-size: 300% 300%;
             padding: 16px 45px;
             border: 1px solid #F3E5AB;
             border-radius: 2px;
             transition: all 0.4s ease;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
             text-transform: uppercase;
             font-weight: 600;
             animation: goldShimmer 3.5s ease infinite;
@@ -121,12 +94,11 @@
 
         .shop-btn:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.6);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
             border-color: #FFF;
             color: #000;
         }
 
-        /* অ্যানিমেশন কি-ফ্রেমস */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -138,7 +110,7 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* মোবাইল রেসপন্সিভ ডিজাইন */
+        /* মোবাইল রেসপন্সিভ */
         @media (max-width: 768px) {
             h1.brand-name {
                 font-size: 2.8rem;
@@ -158,28 +130,9 @@
 </head>
 <body>
 
-    <!-- ব্যাকগ্রাউন্ড ভিডিও সেকশন -->
-    <div class="video-container">
-        <!-- 
-          Fast Loading Tips:
-          ১. poster="bg-image.jpg" ব্যবহার করা হয়েছে। এর ফলে ভিডিও লোড হওয়ার আগেই একটি ছবি দেখাবে, স্ক্রিন কালো থাকবে না। 
-          ২. ভিডিওটি আপনার লোকাল ফোল্ডারে 'luxury-video.mp4' নামে সেভ করে রাখুন।
-        -->
-        <video autoplay loop muted playsinline poster="1000069869.jpg">
-            <!-- ভিডিওর সোর্স (এখানে আপনার লোকাল ফোল্ডারের ভিডিওর নাম দিন) -->
-            <source src="luxury-video.mp4" type="video/mp4">
-        </video>
-    </div>
-    
-    <!-- ডার্ক ওভারলে -->
-    <div class="overlay"></div>
-
-    <!-- মেইন কন্টেন্ট -->
     <div class="content">
         <h1 class="brand-name">SHEREN<span>VOGUE</span></h1>
         <h2 class="subtitle">Haute Couture</h2>
-        
-        <!-- শপ ফাইলের লিংক -->
         <a href="shop.html" class="shop-btn">Enter Store</a>
     </div>
 
