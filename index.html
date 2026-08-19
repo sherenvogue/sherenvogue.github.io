@@ -3,58 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SherenVogue — Haute Couture. Enter our store to explore luxury fashion.">
     <title>SherenVogue | Welcome</title>
     <style>
-        /* Reset */
+        /* =========================================
+           Reset & Base Styles
+           ========================================= */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html, body {
+        body, html {
             width: 100%;
-            height: 100%;
+            height: 100vh;
+            overflow: hidden;
             font-family: 'Times New Roman', Times, serif;
             background-color: #050505;
-            color: #fff;
         }
 
-        /* Full-screen splash container using dynamic viewport height where supported */
+        /* =========================================
+           Video Background Styling
+           ========================================= */
         .splash-container {
             position: relative;
             width: 100%;
-            height: 100vh;    /* fallback */
-            height: 100dvh;   /* better on mobile browsers that support it */
+            height: 100vh;
+            height: 100dvh;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden; /* keeps visuals tidy */
+            overflow: hidden;
             background-color: #050505;
         }
 
-        /* Background video - cover the container reliably */
         .bg-video {
             position: absolute;
-            inset: 0; /* top:0; right:0; bottom:0; left:0; */
-            width: 100%;
-            height: 100%;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
             object-fit: cover;
             z-index: 1;
-            pointer-events: none; /* decorative only */
         }
 
-        /* Overlay to improve text contrast */
+        /* Video Overlay for High-End Cinematic Look & Readability */
         .video-overlay {
             position: absolute;
-            inset: 0;
-            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75));
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.75));
             z-index: 2;
-            pointer-events: none;
         }
 
-        /* Main content stacked above overlay */
+        /* =========================================
+           Content Overlay & Typography
+           ========================================= */
         .content-wrapper {
             position: relative;
             z-index: 10;
@@ -63,10 +72,10 @@
             flex-direction: column;
             align-items: center;
             gap: 20px;
-            padding: 1rem;
         }
 
         .brand-name {
+            font-family: 'Times New Roman', Times, serif;
             font-size: 4rem;
             color: #ffffff;
             letter-spacing: 8px;
@@ -76,27 +85,24 @@
             animation: fadeInUp 1.5s ease forwards 0.5s;
         }
 
-        .brand-name .accent {
-            color: #c7a17a;
-            font-style: italic;
-        }
-
         .brand-subtitle {
             font-size: 0.9rem;
-            color: #c7a17a;
+            color: #c7a17a; /* Luxury Gold Tone */
             letter-spacing: 6px;
             text-transform: uppercase;
             opacity: 0;
             animation: fadeInUp 1.5s ease forwards 1s;
         }
 
+        /* =========================================
+           Shopping Button
+           ========================================= */
         .shop-btn-container {
             margin-top: 30px;
             opacity: 0;
             animation: fadeInUp 1.5s ease forwards 1.5s;
         }
 
-        /* Button styles with safe z-index stacking for pseudo-element */
         .shop-btn {
             display: inline-block;
             padding: 16px 45px;
@@ -109,11 +115,11 @@
             background: transparent;
             position: relative;
             overflow: hidden;
-            transition: color 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            transition: color 0.4s ease, transform 0.3s ease;
             cursor: pointer;
-            z-index: 0; /* ensures ::before sits behind the content */
         }
 
+        /* Button Hover Fill Effect */
         .shop-btn::before {
             content: '';
             position: absolute;
@@ -126,8 +132,7 @@
             z-index: -1;
         }
 
-        .shop-btn:hover::before,
-        .shop-btn:focus::before {
+        .shop-btn:hover::before {
             left: 0;
         }
 
@@ -135,17 +140,12 @@
             color: #000000;
             font-weight: 600;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(199, 161, 122, 0.25);
+            box-shadow: 0 10px 20px rgba(199, 161, 122, 0.3);
         }
 
-        /* Keyboard focus */
-        .shop-btn:focus,
-        .shop-btn:focus-visible {
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(199,161,122,0.15), 0 8px 20px rgba(0,0,0,0.4);
-            transform: translateY(-1px);
-        }
-
+        /* =========================================
+           Keyframe Animations
+           ========================================= */
         @keyframes fadeInUp {
             0% {
                 opacity: 0;
@@ -157,7 +157,9 @@
             }
         }
 
-        /* Mobile adjustments and fallback: hide video on small screens to save bandwidth */
+        /* =========================================
+           Responsive Design (Mobile Devices)
+           ========================================= */
         @media (max-width: 768px) {
             .brand-name {
                 font-size: 2.5rem;
@@ -165,82 +167,34 @@
             }
             .brand-subtitle {
                 font-size: 0.75rem;
+                letter-spacing: 4px;
             }
             .shop-btn {
                 padding: 14px 35px;
                 font-size: 0.9rem;
             }
-
-            /* hide video on small screens and rely on background/fallback image */
-            .bg-video {
-                display: none;
-            }
-
-            /* simple poster fallback fills the container if video is hidden */
-            .video-poster {
-                position: absolute;
-                inset: 0;
-                background-color: #050505;
-                background-position: center;
-                background-size: cover;
-                z-index: 1;
-            }
-        }
-
-        /* Visually-hidden helper if needed later */
-        .sr-only {
-            position: absolute !important;
-            height: 1px; width: 1px;
-            overflow: hidden;
-            clip: rect(1px, 1px, 1px, 1px);
-            white-space: nowrap;
         }
     </style>
 </head>
 <body>
 
-    <div class="splash-container" role="region" aria-label="Welcome to SherenVogue">
-        <!-- Decorative background video -->
-        <video
-            class="bg-video"
-            autoplay
-            loop
-            muted
-            playsinline
-            aria-hidden="true"
-            tabindex="-1"
-            poster=""
-        >
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-luxury-fashion-store-with-mannequins-41655-large.mp4" type="video/mp4">
-            <!-- Fallback text for very old browsers -->
+    <div class="splash-container">
+        <video class="bg-video" autoplay loop muted playsinline preload="auto">
+            <source src="background.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
 
-        <!-- Poster fallback for small screens (hidden when video plays) -->
-        <div class="video-poster" aria-hidden="true" style="display:none;"></div>
-
-        <div class="video-overlay" aria-hidden="true"></div>
+        <div class="video-overlay"></div>
 
         <div class="content-wrapper">
-            <h1 class="brand-name">Sheren<span class="accent">Vogue</span></h1>
+            <h1 class="brand-name">Sheren<span style="color: #c7a17a; font-style: italic;">Vogue</span></h1>
             <div class="brand-subtitle">Haute Couture</div>
-
+            
             <div class="shop-btn-container">
-                <!-- role and aria-label help screen reader users understand the purpose -->
-                <a href="shop.html" class="shop-btn" role="button" aria-label="Enter Store">Enter Store</a>
+                <a href="shop.html" class="shop-btn">Enter Store</a>
             </div>
         </div>
     </div>
-
-    <!-- Noscript fallback: inline SVG poster when JS/video blocked -->
-    <noscript>
-        <div style="background:#050505;color:#c7a17a;display:flex;align-items:center;justify-content:center;height:100vh;">
-            <svg width="70%" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SherenVogue">
-                <rect width="100%" height="100%" fill="#050505"/>
-                <text x="50%" y="50%" font-size="64" fill="#c7a17a" font-family="Times New Roman, serif" text-anchor="middle" dominant-baseline="middle">SherenVogue</text>
-            </svg>
-        </div>
-    </noscript>
 
 </body>
 </html>
