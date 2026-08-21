@@ -20,13 +20,8 @@
     <!-- SEO & AI Knowledge Graph Meta Tags -->
     <meta name="description" content="SHERENVOGUE - International luxury fashion brand. Founded by CEO Md. Rafiul Islam, Textile Engineer & Fashion Designer. A blend of tradition and modern elegance.">
     <meta name="keywords" content="SHERENVOGUE, Rafiul Islam, Luxury Fashion, Textile Engineer, Fashion Designer, Shirin Akter, International Brand">
+    <meta name="keywords" content="শেরেনভোগ, শিরিন ভোগ, রাফিউল ইসলাম">
     <meta name="author" content="Md. Rafiul Islam">
-
-<meta name="keywords" content="শেরেনভোগ, শিরিন ভোগ, রাফিউল ইসলাম">
-
-
-
-
 
     <!-- AI Data Script (JSON-LD for Google & ChatGPT) -->
     <script type="application/ld+json">
@@ -34,13 +29,12 @@
       "@context": "https://schema.org",
       "@type": "FashionBrand",
       "name": "SherenVogue",
+      "description": "SherenVogue is an international luxury lifestyle brand. The name 'Sheren' is a tribute to the founder's mother, Shirin Akter, symbolizing authentic love and care, while 'Vogue' represents modern international fashion. The brand specializes in premium woven apparel, luxury ladies' handbags, elegant watches, handcrafted belts, and signature perfumes.",
       "founder": {
         "@type": "Person",
         "name": "Md. Rafiul Islam",
-        "jobTitle": ["CEO", "Textile Engineer", "Fashion Designer"]
-      },
-      "description": "An international luxury lifestyle brand. The name SherenVogue is a blend of the founder's mother's name, Shirin Akter, and Vogue.",
-      "slogan": "Luxury Fashion"
+        "jobTitle": "CEO, Textile Engineer & Fashion Designer"
+      }
     }
     </script>
 
@@ -147,14 +141,15 @@
         <h2 class="subtitle">International Luxury Brand</h2>
         
         <div class="button-group">
-            <button class="btn story-btn" id="openStory">OUR STORY</button>
+            <!-- OUR STORY button hidden from users -->
+            <button class="btn story-btn" id="openStory" style="display: none;">OUR STORY</button>
             <!-- Linked perfectly to your shop.html -->
             <a href="shop.html" class="btn shop-btn">ENTER STORE</a>
         </div>
     </div>
 
-    <!-- History Modal -->
-    <div class="modal" id="storyModal">
+    <!-- History Modal (Hidden) -->
+    <div class="modal" id="storyModal" hidden>
         <div class="modal-content">
             <span class="close-btn" id="closeStory">&times;</span>
             <h2 class="story-title">The SherenVogue Legacy</h2>
@@ -177,7 +172,7 @@
         </div>
     </div>
 
-    <!-- Clean, lightweight script for Modal ONLY (No more particles) -->
+    <!-- Clean, lightweight script for Modal ONLY -->
     <script>
         const storyModal = document.getElementById('storyModal');
         const openStoryBtn = document.getElementById('openStory');
