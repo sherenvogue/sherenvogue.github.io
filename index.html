@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHERENVOGUE | Haute Couture by Rafiul Islam</title>
     
-    <!-- Favicon for Google Search (logo1.png সরাসরি যুক্ত করা হলো) -->
+    <!-- Title Updated for Premium Google Look -->
+    <title>SHERENVOGUE | Official Website</title>
+    
+    <!-- Favicon for Google Search -->
     <link rel="icon" type="image/png" href="logo1.png">
     <link rel="apple-touch-icon" href="logo1.png">
 
     <!-- High Security Meta Tags -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; media-src 'self' https://cdn.pixabay.com; script-src 'self' 'unsafe-inline';">
     <meta name="referrer" content="no-referrer">
 
     <!-- SEO & AI Knowledge Graph Meta Tags -->
-    <meta name="description" content="SHERENVOGUE - Haute Couture luxury fashion brand. Founded by CEO Rafiul Islam, Textile Engineer & Fashion Designer. A blend of tradition and modern elegance.">
-    <meta name="keywords" content="SHERENVOGUE, Rafiul Islam, Haute Couture, Luxury Fashion, Textile Engineer, Fashion Designer, Shirin Akter">
-    <meta name="author" content="Rafiul Islam">
+    <meta name="description" content="SHERENVOGUE - International luxury fashion brand. Founded by CEO Md. Rafiul Islam, Textile Engineer & Fashion Designer. A blend of tradition and modern elegance.">
+    <meta name="keywords" content="SHERENVOGUE, Rafiul Islam, Luxury Fashion, Textile Engineer, Fashion Designer, Shirin Akter, International Brand">
+    <meta name="author" content="Md. Rafiul Islam">
 
     <!-- AI Data Script (JSON-LD for Google & ChatGPT) -->
     <script type="application/ld+json">
@@ -28,11 +30,11 @@
       "name": "SherenVogue",
       "founder": {
         "@type": "Person",
-        "name": "Rafiul Islam",
+        "name": "Md. Rafiul Islam",
         "jobTitle": ["CEO", "Textile Engineer", "Fashion Designer"]
       },
-      "description": "An international luxury lifestyle brand and haute couture house. The name SherenVogue is a blend of the founder's mother's name, Shirin Akter, and Vogue.",
-      "slogan": "Haute Couture"
+      "description": "An international luxury lifestyle brand. The name SherenVogue is a blend of the founder's mother's name, Shirin Akter, and Vogue.",
+      "slogan": "Luxury Fashion"
     }
     </script>
 
@@ -51,198 +53,68 @@
         body, html {
             height: 100%;
             font-family: 'Montserrat', sans-serif;
-            background-color: #050505; 
-            
-            /* ডিরেক্ট অনলাইন লাক্সারি ব্যাকগ্রাউন্ড ইমেজ (আপলোড করার দরকার নেই) */
-            background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            
-            /* ব্যাকগ্রাউন্ড ডার্ক করার জন্য ওভারলে ইফেক্ট */
-            background-blend-mode: multiply; 
-            
+            background-color: #000; 
             overflow: hidden;
         }
 
-        /* 3D ক্যানভাস ব্যাকগ্রাউন্ড */
-        #canvas3d {
+        /* Luxury Video Background */
+        #bg-video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            object-fit: cover; 
             z-index: -2;
         }
 
-        /* ডিপ শ্যাডো ওভারলে */
+        /* Subtle Shadow Overlay for readability */
         .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.95) 100%);
+            background: rgba(0, 0, 0, 0.5); 
             z-index: -1;
             pointer-events: none;
         }
-
-        .content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            text-align: center;
-            color: #fff;
-            z-index: 1; 
-            position: relative;
-            animation: fadeIn 1.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        h1.brand-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 5rem;
-            letter-spacing: 0.15em;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            font-weight: 400;
-            text-shadow: 2px 4px 20px rgba(0,0,0,0.9);
-        }
-
-        h1.brand-name span {
-            font-style: italic;
-            color: #D4AF37; 
-        }
-
-        h2.subtitle {
-            font-size: 1rem;
-            letter-spacing: 0.6em;
-            color: #E5E4E2; 
-            margin-bottom: 3.5rem;
-            text-transform: uppercase;
-            font-weight: 300;
-        }
-
-        .button-group {
-            display: flex;
-            gap: 20px;
-        }
-
-        .btn {
-            text-decoration: none;
-            font-size: 0.85rem;
-            letter-spacing: 0.2em;
-            padding: 16px 40px;
-            transition: all 0.4s ease;
-            text-transform: uppercase;
-            font-weight: 600;
-            cursor: pointer;
-            backdrop-filter: blur(8px);
-        }
-
-        .shop-btn {
-            color: #000;
-            background-color: #D4AF37;
-            border: 1px solid #D4AF37;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-        }
-
-        .shop-btn:hover {
-            background-color: transparent;
-            color: #D4AF37;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
-            transform: translateY(-3px);
-        }
-
-        .story-btn {
-            color: #D4AF37;
-            background-color: rgba(0, 0, 0, 0.6);
-            border: 1px solid #D4AF37;
-        }
-
-        .story-btn:hover {
-            background-color: #D4AF37;
-            color: #000;
-            transform: translateY(-3px);
-        }
-
-        /* Story Modal (Glassmorphism Luxury Design) */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 100;
-            justify-content: center;
-            align-items: center;
-            backdrop-filter: blur(10px);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .modal-content {
-            background: linear-gradient(145deg, rgba(20,20,20,0.9), rgba(5,5,5,0.95));
-            border: 1px solid rgba(212, 175, 55, 0.5);
-            padding: 50px;
-            max-width: 650px;
-            width: 90%;
-            text-align: left;
-            color: #fff;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.9), inset 0 0 20px rgba(212,175,55,0.05);
-            position: relative;
-            transform: translateY(30px);
-            transition: transform 0.5s ease;
-            font-family: 'Noto Serif Bengali', serif; 
-            max-height: 85vh;
-            overflow-y: auto;
-        }
-
-        .modal.active {
-            display: flex;
-            opacity: 1;
-        }
-        .modal.active .modal-content {
-            transform: translateY(0);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            color: #D4AF37;
-            font-size: 2rem;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        .close-btn:hover {
-            transform: rotate(90deg);
-        }
-
-        .story-title {
-            font-family: 'Playfair Display', serif;
-            color: #D4AF37;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-            padding-bottom: 10px;
-        }
         
-        .story-text {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: #ccc;
-            font-weight: 300;
-        }
-        .story-text strong {
-            color: #D4AF37;
-            font-weight: 600;
+        .content { 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            height: 100%; text-align: center; color: #fff; z-index: 1; position: relative; 
+            animation: fadeIn 1.5s cubic-bezier(0.4, 0, 0.2, 1); 
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        h1.brand-name { font-family: 'Playfair Display', serif; font-size: 5rem; letter-spacing: 0.15em; margin-bottom: 0.5rem; text-transform: uppercase; font-weight: 400; text-shadow: 2px 4px 20px rgba(0,0,0,0.9); }
+        h1.brand-name span { font-style: italic; color: #D4AF37; }
+
+        h2.subtitle { font-size: 1rem; letter-spacing: 0.6em; color: #E5E4E2; margin-bottom: 3.5rem; text-transform: uppercase; font-weight: 300; }
+
+        .button-group { display: flex; gap: 20px; }
+        .btn { text-decoration: none; font-size: 0.85rem; letter-spacing: 0.2em; padding: 16px 40px; transition: all 0.4s ease; text-transform: uppercase; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); }
+
+        .shop-btn { color: #000; background-color: #D4AF37; border: 1px solid #D4AF37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+        .shop-btn:hover { background-color: transparent; color: #D4AF37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.6); transform: translateY(-3px); }
+
+        .story-btn { color: #D4AF37; background-color: rgba(0, 0, 0, 0.6); border: 1px solid #D4AF37; }
+        .story-btn:hover { background-color: #D4AF37; color: #000; transform: translateY(-3px); }
+
+        /* Modal Styles */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 100; justify-content: center; align-items: center; backdrop-filter: blur(10px); opacity: 0; transition: opacity 0.5s ease; }
+        .modal-content { background: linear-gradient(145deg, rgba(20,20,20,0.9), rgba(5,5,5,0.95)); border: 1px solid rgba(212, 175, 55, 0.5); padding: 50px; max-width: 650px; width: 90%; text-align: left; color: #fff; box-shadow: 0 15px 50px rgba(0,0,0,0.9), inset 0 0 20px rgba(212,175,55,0.05); position: relative; transform: translateY(30px); transition: transform 0.5s ease; font-family: 'Noto Serif Bengali', serif; max-height: 85vh; overflow-y: auto; }
+        
+        .modal.active { display: flex; opacity: 1; }
+        .modal.active .modal-content { transform: translateY(0); }
+
+        .close-btn { position: absolute; top: 20px; right: 25px; color: #D4AF37; font-size: 2rem; cursor: pointer; transition: transform 0.3s; }
+        .close-btn:hover { transform: rotate(90deg); }
+
+        .story-title { font-family: 'Playfair Display', serif; color: #D4AF37; font-size: 2rem; margin-bottom: 20px; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 10px; }
+        .story-text { font-size: 1rem; line-height: 1.8; color: #ccc; font-weight: 300; }
+        .story-text strong { color: #D4AF37; font-weight: 600; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
         @media (max-width: 768px) {
             h1.brand-name { font-size: 2.8rem; letter-spacing: 0.1em; }
@@ -257,16 +129,20 @@
 </head>
 <body>
 
-    <canvas id="canvas3d"></canvas>
+    <!-- Cinematic Luxury Video Background -->
+    <video autoplay loop muted playsinline id="bg-video">
+        <source src="https://cdn.pixabay.com/video/2023/10/22/186008-876939918_large.mp4" type="video/mp4">
+    </video>
+    
     <div class="overlay"></div>
 
     <div class="content">
         <h1 class="brand-name">SHEREN<span>VOGUE</span></h1>
-        <h2 class="subtitle">Haute Couture</h2>
+        <h2 class="subtitle">International Luxury Brand</h2>
         
-        <!-- বাটন গ্রুপ -->
         <div class="button-group">
             <button class="btn story-btn" id="openStory">OUR STORY</button>
+            <!-- Linked perfectly to your shop.html -->
             <a href="shop.html" class="btn shop-btn">ENTER STORE</a>
         </div>
     </div>
@@ -278,16 +154,14 @@
             <h2 class="story-title">The SherenVogue Legacy</h2>
             
             <div class="story-text">
-                <!-- English Section -->
-                <p><strong>Where Tradition Meets Haute Couture</strong></p><br>
+                <p><strong>Where Tradition Meets Modern Elegance</strong></p><br>
                 <p>SherenVogue is an international luxury lifestyle brand born from a profound vision. The name is a harmonious blend of two deep meanings: <strong>'Sheren'</strong> honors the founder's mother, Shirin Akter, symbolizing unconditional love, authenticity, and care. <strong>'Vogue'</strong> represents the pinnacle of modern international fashion, elegance, and timeless style.</p><br>
                 
                 <p><strong>Exquisite Craftsmanship & Uncompromising Quality</strong></p><br>
-                <p>We specialize in crafting masterpieces that define true luxury. From bespoke <strong>woven apparel</strong> and premium <strong>ladies' handbags</strong> to statement <strong>luxury watches</strong>, handcrafted <strong>belts</strong>, and signature <strong>perfumes</strong>, every SherenVogue creation is a testament to superior craftsmanship. We source only the finest materials globally to ensure that each piece not only meets but exceeds the highest standards of Haute Couture.</p><br>
+                <p>We specialize in crafting masterpieces that define true luxury. From bespoke <strong>woven apparel</strong> and premium <strong>ladies' handbags</strong> to statement <strong>luxury watches</strong>, handcrafted <strong>belts</strong>, and signature <strong>perfumes</strong>, every SherenVogue creation is a testament to superior craftsmanship. We source only the finest materials globally to ensure that each piece not only meets but exceeds the highest standards of luxury fashion.</p><br>
                 
                 <hr style="border: 0; border-top: 1px solid rgba(212, 175, 55, 0.3); margin: 25px 0;">
 
-                <!-- Bengali Section -->
                 <p><strong>শেরেনভোগ-এর গল্প: ঐতিহ্য ও আভিজাত্যের মেলবন্ধন</strong></p><br>
                 <p>SherenVogue কেবল একটি নাম নয়; এটি একটি আন্তর্জাতিক মানের লাক্সারি লাইফস্টাইল ব্র্যান্ড। এই নামটি দুটি গভীর অর্থবহ শব্দের অপূর্ব সংমিশ্রণ: <strong>'Sheren' (শিরিন)</strong> অংশটি এসেছে প্রতিষ্ঠাতার মা, শিরিন আক্তার-এর নাম থেকে, যা অকৃত্রিম ভালোবাসা ও যত্নের প্রতীক। আর <strong>'Vogue' (ভোগ)</strong> প্রতিনিধিত্ব করে আধুনিকতা এবং আন্তর্জাতিক রুচিশীলতার।</p><br>
                 
@@ -297,6 +171,7 @@
         </div>
     </div>
 
+    <!-- Clean, lightweight script for Modal ONLY (No more particles) -->
     <script>
         const storyModal = document.getElementById('storyModal');
         const openStoryBtn = document.getElementById('openStory');
@@ -305,69 +180,6 @@
         openStoryBtn.addEventListener('click', () => { storyModal.classList.add('active'); });
         closeStoryBtn.addEventListener('click', () => { storyModal.classList.remove('active'); });
         window.addEventListener('click', (e) => { if (e.target === storyModal) storyModal.classList.remove('active'); });
-
-        // 3D Canvas Logic 
-        const canvas = document.getElementById('canvas3d');
-        const ctx = canvas.getContext('2d', { alpha: false }); 
-        let width = canvas.width = window.innerWidth;
-        let height = canvas.height = window.innerHeight;
-
-        let particlesArray = [];
-        const numberOfParticles = window.innerWidth < 768 ? 50 : 100; 
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.size = Math.random() * 2 + 0.5; 
-                this.speedX = (Math.random() * 0.4) - 0.2;
-                this.speedY = (Math.random() * 0.4) - 0.2;
-                this.opacity = Math.random() * 0.6 + 0.1;
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
-                    this.x = Math.random() * width;
-                    this.y = Math.random() * height;
-                }
-            }
-            draw() {
-                ctx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`; 
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        function init() {
-            particlesArray = [];
-            for (let i = 0; i < numberOfParticles; i++) {
-                particlesArray.push(new Particle());
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
-            for (let i = 0; i < particlesArray.length; i++) {
-                particlesArray[i].update();
-                particlesArray[i].draw();
-            }
-            requestAnimationFrame(animate);
-        }
-
-        init();
-        requestAnimationFrame(animate);
-
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                width = canvas.width = window.innerWidth;
-                height = canvas.height = window.innerHeight;
-                init();
-            }, 200); 
-        });
     </script>
 </body>
 </html>
