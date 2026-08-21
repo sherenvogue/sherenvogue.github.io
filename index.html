@@ -3,11 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHERENVOGUE | Haute Couture</title>
+    <title>SHERENVOGUE | Haute Couture by Rafiul Islam</title>
     
+    <!-- Favicon for Google Search -->
+    <link rel="icon" type="image/png" href="favicon.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <!-- High Security Meta Tags -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' type="application/ld+json";">
+    <meta name="referrer" content="no-referrer">
+
+    <!-- SEO & AI Knowledge Graph Meta Tags -->
+    <meta name="description" content="SHERENVOGUE - Haute Couture luxury fashion brand. Founded by CEO Rafiul Islam, Textile Engineer & Fashion Designer. A blend of tradition and modern elegance.">
+    <meta name="keywords" content="SHERENVOGUE, Rafiul Islam, Haute Couture, Luxury Fashion, Textile Engineer, Fashion Designer, Shirin Akter">
+    <meta name="author" content="Rafiul Islam">
+
+    <!-- AI Data Script (JSON-LD for Google & ChatGPT) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FashionBrand",
+      "name": "SherenVogue",
+      "founder": {
+        "@type": "Person",
+        "name": "Rafiul Islam",
+        "jobTitle": ["CEO", "Textile Engineer", "Fashion Designer"],
+        "alumniOf": "Uttara University"
+      },
+      "description": "An international luxury lifestyle brand and haute couture house. The name SherenVogue is a blend of the founder's mother's name, Shirin Akter (representing authenticity and care), and Vogue (representing modern luxury and international style).",
+      "slogan": "Haute Couture"
+    }
+    </script>
+
+    <!-- Performance Optimization: Preconnecting to fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Noto+Serif+Bengali:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
     <style>
         * {
@@ -19,7 +52,15 @@
         body, html {
             height: 100%;
             font-family: 'Montserrat', sans-serif;
-            background-color: #050505; 
+            background-color: #030303; 
+            
+            /* আরও লাক্সারিয়াস ব্যাকগ্রাউন্ড (Dark & Gold Silk Texture) */
+            background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-blend-mode: multiply; 
+            
             overflow: hidden;
         }
 
@@ -33,14 +74,14 @@
             z-index: -2;
         }
 
-        /* 3D ডেপথ বাড়ানোর জন্য শ্যাডো ওভারলে */
+        /* ডিপ শ্যাডো ওভারলে */
         .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, transparent 10%, #000000 120%);
+            background: radial-gradient(circle, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.9) 100%);
             z-index: -1;
             pointer-events: none;
         }
@@ -55,17 +96,27 @@
             color: #fff;
             z-index: 1; 
             position: relative;
-            animation: fadeIn 2s ease-in-out;
+            animation: fadeIn 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .brand-logo {
+            width: 130px; 
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8)); 
+            transition: transform 0.4s ease;
+        }
+        .brand-logo:hover {
+            transform: scale(1.08);
         }
 
         h1.brand-name {
             font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
+            font-size: 5rem;
             letter-spacing: 0.15em;
             margin-bottom: 0.5rem;
             text-transform: uppercase;
             font-weight: 400;
-            text-shadow: 2px 4px 15px rgba(0,0,0,0.8);
+            text-shadow: 2px 4px 20px rgba(0,0,0,0.9);
         }
 
         h1.brand-name span {
@@ -74,95 +125,234 @@
         }
 
         h2.subtitle {
-            font-size: 0.95rem;
-            letter-spacing: 0.5em;
-            color: #C0C0C0;
-            margin-bottom: 4rem;
+            font-size: 1rem;
+            letter-spacing: 0.6em;
+            color: #E5E4E2; /* Platinum Color */
+            margin-bottom: 3.5rem;
             text-transform: uppercase;
             font-weight: 300;
         }
 
-        .shop-btn {
+        .button-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
             text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: 0.25em;
-            color: #D4AF37;
-            padding: 16px 45px;
-            border: 1px solid #D4AF37;
-            background-color: transparent;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            padding: 16px 40px;
             transition: all 0.4s ease;
             text-transform: uppercase;
             font-weight: 600;
             cursor: pointer;
+            backdrop-filter: blur(8px);
+        }
+
+        .shop-btn {
+            color: #000;
+            background-color: #D4AF37;
+            border: 1px solid #D4AF37;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
         }
 
         .shop-btn:hover {
-            background-color: #D4AF37;
-            color: #000;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+            background-color: transparent;
+            color: #D4AF37;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
             transform: translateY(-3px);
         }
 
+        .story-btn {
+            color: #D4AF37;
+            background-color: rgba(0, 0, 0, 0.6);
+            border: 1px solid #D4AF37;
+        }
+
+        .story-btn:hover {
+            background-color: #D4AF37;
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        /* Story Modal (Glassmorphism Luxury Design) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, rgba(20,20,20,0.9), rgba(5,5,5,0.95));
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            padding: 50px;
+            max-width: 600px;
+            width: 90%;
+            text-align: left;
+            color: #fff;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.9), inset 0 0 20px rgba(212,175,55,0.05);
+            position: relative;
+            transform: translateY(30px);
+            transition: transform 0.5s ease;
+            font-family: 'Noto Serif Bengali', serif; /* বাংলা ফন্ট */
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            color: #D4AF37;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .close-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        .story-title {
+            font-family: 'Playfair Display', serif;
+            color: #D4AF37;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 10px;
+        }
+        
+        .story-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #ccc;
+            font-weight: 300;
+        }
+        .story-text strong {
+            color: #D4AF37;
+            font-weight: 600;
+        }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         @media (max-width: 768px) {
-            h1.brand-name { font-size: 2.8rem; letter-spacing: 0.1em; }
-            h2.subtitle { font-size: 0.75rem; letter-spacing: 0.3em; margin-bottom: 3.5rem; }
-            .shop-btn { padding: 15px 35px; font-size: 0.8rem; }
+            .brand-logo { width: 100px; }
+            h1.brand-name { font-size: 3rem; letter-spacing: 0.1em; }
+            h2.subtitle { font-size: 0.75rem; letter-spacing: 0.4em; margin-bottom: 2.5rem; }
+            .button-group { flex-direction: column; gap: 15px; }
+            .btn { padding: 14px 35px; width: 100%; }
+            .modal-content { padding: 30px 20px; }
+            .story-title { font-size: 1.5rem; }
+            .story-text { font-size: 0.95rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- লাইভ 3D জেনারেট হওয়ার ক্যানভাস -->
     <canvas id="canvas3d"></canvas>
     <div class="overlay"></div>
 
     <div class="content">
+        <!-- লোগো -->
+        <img src="logo.png" alt="Sherenvogue Logo" class="brand-logo" loading="lazy">
+        
         <h1 class="brand-name">SHEREN<span>VOGUE</span></h1>
         <h2 class="subtitle">Haute Couture</h2>
-        <a href="shop.html" class="shop-btn">ENTER STORE</a>
+        
+        <!-- বাটন গ্রুপ -->
+        <div class="button-group">
+            <button class="btn story-btn" id="openStory">OUR STORY</button>
+            <a href="shop.html" class="btn shop-btn">ENTER STORE</a>
+        </div>
     </div>
 
-    <!-- 3D অ্যানিমেশনের জাভাস্ক্রিপ্ট কোড -->
+    <!-- History Modal (গল্পের পপ-আপ বক্স) -->
+    <div class="modal" id="storyModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeStory">&times;</span>
+            <h2 class="story-title">SherenVogue-এর গল্প</h2>
+            <div class="story-text">
+                <p><strong>স্বপ্ন, আবেগ ও আভিজাত্যের মেলবন্ধন</strong></p><br>
+                <p>ফ্যাশন কেবল নিজেকে সাজানোর মাধ্যম নয়; এটি ব্যক্তিত্ব, আত্মবিশ্বাস এবং নিজস্বতার একটি শক্তিশালী প্রকাশ। এই মূলমন্ত্রকে ধারণ করেই আত্মপ্রকাশ করেছে SherenVogue—যা কেবল একটি নাম নয়, বরং একটি আন্তর্জাতিক মানের লাক্সারি লাইফস্টাইল ব্র্যান্ড গড়ে তোলার সুগভীর স্বপ্ন। এটি এমন এক শৈল্পিক যাত্রা, যেখানে আধুনিক ফ্যাশনের সাথে মিশে আছে শেকড়ের টান এবং পরম শ্রদ্ধা।</p><br>
+                <p><strong>একটি নামের জন্ম: শেকড় ও আধুনিকতার মেলবন্ধন</strong></p><br>
+                <p>যেকোনো বড় উদ্যোগের পেছনে থাকে একটি শক্তিশালী অনুপ্রেরণা। 'SherenVogue' নামটি মূলত দুটি ভিন্ন কিন্তু অত্যন্ত গভীর অর্থবহ শব্দের এক অপূর্ব সংমিশ্রণ:</p><br>
+                <p><strong>Sheren (শিরিন):</strong> নামের এই প্রথম অংশটি এসেছে ব্র্যান্ডটির প্রতিষ্ঠাতা রাফিউল ইসলামের মা, শিরিন আক্তার-এর নাম থেকে। একজন মায়ের অকৃত্রিম ভালোবাসা, নিখুঁত যত্ন এবং সন্তানকে বড় করে তোলার যে নিরলস অনুপ্রেরণা, তাকে চিরস্মরণীয় করে রাখতেই এই পরম শ্রদ্ধার্ঘ্য। এটি ব্র্যান্ডের সেই দিকটি তুলে ধরে, যা যত্নশীল, খাঁটি এবং চিরন্তন।</p><br>
+                <p><strong>Vogue (ভোগ):</strong> নামের দ্বিতীয় অংশটি বিশ্বজুড়ে ফ্যাশন, ট্রেন্ড, এবং স্টাইলের সমার্থক। এটি প্রতিনিধিত্ব করে আধুনিকতা, আভিজাত্য এবং আন্তর্জাতিক রুচিশীলতার।</p>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // Modal Logic (গল্প ওপেন এবং ক্লোজ করার জন্য)
+        const storyModal = document.getElementById('storyModal');
+        const openStoryBtn = document.getElementById('openStory');
+        const closeStoryBtn = document.getElementById('closeStory');
+
+        openStoryBtn.addEventListener('click', () => {
+            storyModal.classList.add('active');
+        });
+
+        closeStoryBtn.addEventListener('click', () => {
+            storyModal.classList.remove('active');
+        });
+
+        // পপ-আপের বাইরে ক্লিক করলেও এটি বন্ধ হয়ে যাবে
+        window.addEventListener('click', (e) => {
+            if (e.target === storyModal) {
+                storyModal.classList.remove('active');
+            }
+        });
+
+        // 3D Canvas Logic 
         const canvas = document.getElementById('canvas3d');
-        const ctx = canvas.getContext('2d');
+        const ctx = canvas.getContext('2d', { alpha: false }); 
         
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
 
         let particlesArray = [];
-        const numberOfParticles = 120; // কণার সংখ্যা
+        const numberOfParticles = window.innerWidth < 768 ? 50 : 100; 
 
         class Particle {
             constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2.5 + 0.5; // সাইজ দিয়ে 3D ডেপথ তৈরি
-                this.speedX = (Math.random() * 1) - 0.5;
-                this.speedY = (Math.random() * 1) - 0.5;
-                this.opacity = Math.random() * 0.8 + 0.2;
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.size = Math.random() * 2 + 0.5; 
+                this.speedX = (Math.random() * 0.4) - 0.2;
+                this.speedY = (Math.random() * 0.4) - 0.2;
+                this.opacity = Math.random() * 0.6 + 0.1;
             }
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
                 
-                // স্ক্রিনের বাইরে গেলে আবার নতুন করে তৈরি হবে
-                if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                    this.size = Math.random() * 2.5 + 0.5;
+                if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
                 }
             }
             draw() {
-                ctx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`; // শেরেনভগের লাক্সারি গোল্ড কালার
+                ctx.fillStyle = `rgba(212, 175, 55, ${this.opacity})`; 
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.closePath();
                 ctx.fill();
             }
         }
@@ -175,7 +365,7 @@
         }
 
         function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.clearRect(0, 0, width, height);
             for (let i = 0; i < particlesArray.length; i++) {
                 particlesArray[i].update();
                 particlesArray[i].draw();
@@ -184,13 +374,16 @@
         }
 
         init();
-        animate();
+        requestAnimationFrame(animate);
 
-        // মোবাইল বা পিসির স্ক্রিন সাইজ চেঞ্জ হলে ফিট হয়ে যাবে
+        let resizeTimer;
         window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            init();
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+                init();
+            }, 200); 
         });
     </script>
 </body>
