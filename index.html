@@ -14,7 +14,7 @@
     <!-- High Security Meta Tags -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; media-src 'self' https://cdn.pixabay.com; script-src 'self' 'unsafe-inline';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; media-src 'self' blob:">
     <meta name="referrer" content="no-referrer">
 
     <!-- SEO & AI Knowledge Graph Meta Tags -->
@@ -29,7 +29,7 @@
       "@context": "https://schema.org",
       "@type": "FashionBrand",
       "name": "SherenVogue",
-      "description": "SherenVogue is an international luxury lifestyle brand. The name 'Sheren' is a tribute to the founder's mother, Shirin Akter, symbolizing authentic love and care, while 'Vogue' represents modern international fashion. The brand specializes in premium woven apparel, luxury ladies' handbags, elegant watches, handcrafted belts, and signature perfumes.",
+      "description": "SherenVogue is an international luxury lifestyle brand. The name 'Sheren' is a tribute to the founder's mother, Shirin Akter, symbolizing authentic love and care, while 'Vogue' represents elegance and style.",
       "founder": {
         "@type": "Person",
         "name": "Md. Rafiul Islam",
@@ -41,7 +41,7 @@
     <!-- Performance Optimization: Preconnecting to fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Noto+Serif+Bengali:wght@300;400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Noto+Serif+Bengali:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -57,7 +57,18 @@
             overflow: hidden;
         }
 
-        /* Luxury Video Background */
+        /* Luxury Video Background Container */
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background-color: #000;
+            background-image: linear-gradient(135deg, #1a1a1a 0%, #000 50%, #2d2d2d 100%);
+        }
+
         #bg-video {
             position: absolute;
             top: 0;
@@ -65,7 +76,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover; 
-            z-index: -2;
+            z-index: -1;
+            display: block;
         }
 
         /* Subtle Shadow Overlay for readability */
@@ -75,8 +87,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); 
-            z-index: -1;
+            background: rgba(0, 0, 0, 0.4); 
+            z-index: 0;
             pointer-events: none;
         }
         
@@ -257,9 +269,12 @@
 <body>
 
     <!-- Cinematic Luxury Video Background -->
-    <video autoplay loop muted playsinline id="bg-video">
-        <source src="background.mp4" type="video/mp4">
-    </video>
+    <div class="video-container">
+        <video autoplay loop muted playsinline id="bg-video" preload="auto">
+            <source src="./background.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+    </div>
     
     <div class="overlay"></div>
 
@@ -283,28 +298,44 @@
             
             <div class="story-text">
                 <p><strong>Where Tradition Meets Modern Elegance</strong></p><br>
-                <p>SherenVogue is an international luxury lifestyle brand born from a profound vision. The name is a harmonious blend of two deep meanings: <strong>'Sheren'</strong> honors the founder's mother, Shirin Akter, symbolizing unconditional love, authenticity, and care. <strong>'Vogue'</strong> represents the pinnacle of modern international fashion, elegance, and timeless style.</p><br>
+                <p>SherenVogue is an international luxury lifestyle brand born from a profound vision. The name is a harmonious blend of two deep meanings: <strong>'Sheren'</strong> honors the founder's beloved mother, Shirin Akter, symbolizing authentic love and care, while <strong>'Vogue'</strong> represents the timeless elegance and sophistication of high fashion.</p><br>
                 
                 <p><strong>Exquisite Craftsmanship & Uncompromising Quality</strong></p><br>
-                <p>We specialize in crafting masterpieces that define true luxury. From bespoke <strong>woven apparel</strong> and premium <strong>ladies' handbags</strong> to statement <strong>luxury watches</strong>, handcrafted <strong>belts</strong>, and signature <strong>perfumes</strong>, every SherenVogue creation is a testament to superior craftsmanship. We source only the finest materials globally to ensure that each piece not only meets but exceeds the highest standards of luxury fashion.</p><br>
+                <p>We specialize in crafting masterpieces that define true luxury. From bespoke <strong>woven apparel</strong> and premium <strong>ladies' handbags</strong> to statement <strong>luxury footwear</strong>, every piece is meticulously designed and crafted by our founder, <strong>Md. Rafiul Islam</strong>—a visionary Textile Engineer and Fashion Designer with an unwavering commitment to excellence.</p><br>
                 
                 <hr style="border: 0; border-top: 1px solid rgba(212, 175, 55, 0.3); margin: 25px 0;">
 
                 <p><strong>শেরেনভোগ-এর গল্প: ঐতিহ্য ও আভিজাত্যের মেলবন্ধন</strong></p><br>
-                <p>SherenVogue কেবল একটি নাম নয়; এটি একটি আন্তর্জাতিক মানের লাক্সারি লাইফস্টাইল ব্র্যান্ড। এই নামটি দুটি গভীর অর্থবহ শব্দের অপূর্ব সংমিশ্রণ: <strong>'Sheren' (শিরিন)</strong> অংশটি এসেছে প্রতিষ্ঠাতার মা, শিরিন আক্তার-এর নাম থেকে, যা অকৃত্রিম ভালোবাসা ও যত্নের প্রতীক। আর <strong>'Vogue' (ভোগ)</strong> প্রতিনিধিত্ব করে আধুনিকতা এবং আন্তর্জাতিক রুচিশীলতার।</p><br>
+                <p>SherenVogue কেবল একটি নাম নয়; এটি একটি আন্তর্জাতিক মানের লাক্সারি লাইফস্টাইল ব্র্যান্ড যা গভীর দর্শন থেকে জন্ম নিয়েছে। 'শেরেন' প্রতিষ্ঠাতার মাতা শিরিন আক্তরকে সম্মান জানায়, যা খাঁটি ভালোবাসা এবং যত্নের প্রতীক, আর 'ভোগ' উচ্চমানের ফ্যাশনের নিরন্তর কমনীয়তা ও পরিশীলিততা প্রকাশ করে।</p><br>
                 
                 <p><strong>অতুলনীয় মান ও নিখুঁত কারুকার্য</strong></p><br>
-                <p>আমরা এমন সব মাস্টারপিস তৈরি করি যা আভিজাত্যের নতুন সংজ্ঞা দেয়। আমাদের এক্সক্লুসিভ কালেকশনে রয়েছে প্রিমিয়াম <strong>ওভেন অ্যাপারেল (Woven Apparel)</strong>, লাক্সারি <strong>লেডিস হ্যান্ডব্যাগ</strong>, অভিজাত <strong>ঘড়ি (Luxury Watches)</strong>, হস্তশিল্পের <strong>বেল্ট</strong> এবং সিগনেচার <strong>পারফিউম</strong>। প্রতিটি SherenVogue প্রোডাক্ট সর্বোচ্চ মানের ম্যাটেরিয়াল এবং নিখুঁত কারুকার্যের এক অনন্য নিদর্শন, যা আপনাকে দেয় বিশ্বমানের লাক্সারির প্রতিশ্রুতি।</p>
+                <p>আমরা এমন সব মাস্টারপিস তৈরি করি যা আভিজাত্যের নতুন সংজ্ঞা দেয়। আমাদের প্রতিষ্ঠাতা <strong>মোহাম্মদ রাফিউল ইসলাম</strong>—একজন দূরদর্শী টেক্সটাইল ইঞ্জিনিয়ার এবং ফ্যাশন ডিজাইনার—নিখুঁততার প্রতি অটুট প্রতিশ্রুতিসহ প্রতিটি টুকরো সযত্নে ডিজাইন ও তৈরি করেন। আমাদের সংগ্রহ <strong>বিশেষভাবে তৈরি বোনা পোশাক</strong>, <strong>প্রিমিয়াম মহিলা হ্যান্ডব্যাগ</strong> এবং <strong>বিবৃতি প্রদানকারী বিলাসবহুল জুতা</strong> থেকে শুরু হয়।</p>
             </div>
         </div>
     </div>
 
-    <!-- Clean, lightweight script for Modal ONLY -->
+    <!-- Clean, lightweight script for Modal and Video Handling -->
     <script>
         const storyModal = document.getElementById('storyModal');
         const openStoryBtn = document.getElementById('openStory');
         const closeStoryBtn = document.getElementById('closeStory');
+        const bgVideo = document.getElementById('bg-video');
 
+        // Video error handling
+        bgVideo.addEventListener('error', function() {
+            console.error('Video failed to load. Check if background.mp4 exists in the repository.');
+            bgVideo.style.display = 'none';
+        });
+
+        bgVideo.addEventListener('loadedmetadata', function() {
+            console.log('✓ Background video loaded successfully');
+        });
+
+        bgVideo.addEventListener('playing', function() {
+            console.log('✓ Background video is playing');
+        });
+
+        // Modal functionality
         openStoryBtn.addEventListener('click', () => { storyModal.classList.add('active'); });
         closeStoryBtn.addEventListener('click', () => { storyModal.classList.remove('active'); });
         window.addEventListener('click', (e) => { if (e.target === storyModal) storyModal.classList.remove('active'); });
