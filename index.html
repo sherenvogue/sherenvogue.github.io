@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Title Updated for Premium Google Look -->
-    
-<title>SHERENVOGUE | International Luxury Fashion Brand</title>
+    <title>SHERENVOGUE | International Luxury Fashion Brand</title>
     
     <!-- Favicon for Google Search -->
     <link rel="icon" type="image/png" href="logo1.png?v=2">
-<link rel="apple-touch-icon" href="logo1.png?v=2">
-
+    <link rel="apple-touch-icon" href="logo1.png?v=2">
 
     <!-- High Security Meta Tags -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -83,40 +81,167 @@
         }
         
         .content { 
-            display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            height: 100%; text-align: center; color: #fff; z-index: 1; position: relative; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100%; 
+            text-align: center; 
+            color: #fff; 
+            z-index: 1; 
+            position: relative; 
             animation: fadeIn 1.5s cubic-bezier(0.4, 0, 0.2, 1); 
         }
 
-        h1.brand-name { font-family: 'Playfair Display', serif; font-size: 5rem; letter-spacing: 0.15em; margin-bottom: 0.5rem; text-transform: uppercase; font-weight: 400; text-shadow: 2px 4px 20px rgba(0,0,0,0.9); }
-        h1.brand-name span { font-style: italic; color: #D4AF37; }
+        h1.brand-name { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 5rem; 
+            letter-spacing: 0.15em; 
+            margin-bottom: 0.5rem; 
+            text-transform: uppercase; 
+            font-weight: 400; 
+            text-shadow: 2px 4px 20px rgba(0,0,0,0.9); 
+        }
+        
+        h1.brand-name span { 
+            font-style: italic; 
+            color: #D4AF37; 
+        }
 
-        h2.subtitle { font-size: 1rem; letter-spacing: 0.6em; color: #E5E4E2; margin-bottom: 3.5rem; text-transform: uppercase; font-weight: 300; }
+        h2.subtitle { 
+            font-size: 1rem; 
+            letter-spacing: 0.6em; 
+            color: #E5E4E2; 
+            margin-bottom: 3.5rem; 
+            text-transform: uppercase; 
+            font-weight: 300; 
+        }
 
-        .button-group { display: flex; gap: 20px; }
-        .btn { text-decoration: none; font-size: 0.85rem; letter-spacing: 0.2em; padding: 16px 40px; transition: all 0.4s ease; text-transform: uppercase; font-weight: 600; cursor: pointer; backdrop-filter: blur(8px); }
+        .button-group { 
+            display: flex; 
+            gap: 20px; 
+        }
+        
+        .btn { 
+            text-decoration: none; 
+            font-size: 0.85rem; 
+            letter-spacing: 0.2em; 
+            padding: 16px 40px; 
+            transition: all 0.4s ease; 
+            text-transform: uppercase; 
+            font-weight: 600; 
+            cursor: pointer; 
+            backdrop-filter: blur(8px); 
+        }
 
-        .shop-btn { color: #000; background-color: #D4AF37; border: 1px solid #D4AF37; box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
-        .shop-btn:hover { background-color: transparent; color: #D4AF37; box-shadow: 0 0 30px rgba(212, 175, 55, 0.6); transform: translateY(-3px); }
+        .shop-btn { 
+            color: #000; 
+            background-color: #D4AF37; 
+            border: 1px solid #D4AF37; 
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); 
+        }
+        
+        .shop-btn:hover { 
+            background-color: transparent; 
+            color: #D4AF37; 
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6); 
+            transform: translateY(-3px); 
+        }
 
-        .story-btn { color: #D4AF37; background-color: rgba(0, 0, 0, 0.6); border: 1px solid #D4AF37; }
-        .story-btn:hover { background-color: #D4AF37; color: #000; transform: translateY(-3px); }
+        .story-btn { 
+            color: #D4AF37; 
+            background-color: rgba(0, 0, 0, 0.6); 
+            border: 1px solid #D4AF37; 
+        }
+        
+        .story-btn:hover { 
+            background-color: #D4AF37; 
+            color: #000; 
+            transform: translateY(-3px); 
+        }
 
         /* Modal Styles */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 100; justify-content: center; align-items: center; backdrop-filter: blur(10px); opacity: 0; transition: opacity 0.5s ease; }
-        .modal-content { background: linear-gradient(145deg, rgba(20,20,20,0.9), rgba(5,5,5,0.95)); border: 1px solid rgba(212, 175, 55, 0.5); padding: 50px; max-width: 650px; width: 90%; text-align: left; color: #fff; box-shadow: 0 15px 50px rgba(0,0,0,0.9), inset 0 0 20px rgba(212,175,55,0.05); position: relative; transform: translateY(30px); transition: transform 0.5s ease; font-family: 'Noto Serif Bengali', serif; max-height: 85vh; overflow-y: auto; }
+        .modal { 
+            display: none; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(0, 0, 0, 0.85); 
+            z-index: 100; 
+            justify-content: center; 
+            align-items: center; 
+            backdrop-filter: blur(10px); 
+            opacity: 0; 
+            transition: opacity 0.5s ease; 
+        }
         
-        .modal.active { display: flex; opacity: 1; }
-        .modal.active .modal-content { transform: translateY(0); }
+        .modal-content { 
+            background: linear-gradient(145deg, rgba(20,20,20,0.9), rgba(5,5,5,0.95)); 
+            border: 1px solid rgba(212, 175, 55, 0.5); 
+            padding: 50px; 
+            max-width: 650px; 
+            width: 90%; 
+            text-align: left; 
+            color: #fff; 
+            box-shadow: 0 15px 50px rgba(0,0,0,0.9), inset 0 0 20px rgba(212,175,55,0.05); 
+            position: relative; 
+            transform: translateY(30px); 
+            transition: transform 0.5s ease; 
+            font-family: 'Noto Serif Bengali', serif; 
+            max-height: 85vh; 
+            overflow-y: auto; 
+        }
+        
+        .modal.active { 
+            display: flex; 
+            opacity: 1; 
+        }
+        
+        .modal.active .modal-content { 
+            transform: translateY(0); 
+        }
 
-        .close-btn { position: absolute; top: 20px; right: 25px; color: #D4AF37; font-size: 2rem; cursor: pointer; transition: transform 0.3s; }
-        .close-btn:hover { transform: rotate(90deg); }
+        .close-btn { 
+            position: absolute; 
+            top: 20px; 
+            right: 25px; 
+            color: #D4AF37; 
+            font-size: 2rem; 
+            cursor: pointer; 
+            transition: transform 0.3s; 
+        }
+        
+        .close-btn:hover { 
+            transform: rotate(90deg); 
+        }
 
-        .story-title { font-family: 'Playfair Display', serif; color: #D4AF37; font-size: 2rem; margin-bottom: 20px; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 10px; }
-        .story-text { font-size: 1rem; line-height: 1.8; color: #ccc; font-weight: 300; }
-        .story-text strong { color: #D4AF37; font-weight: 600; }
+        .story-title { 
+            font-family: 'Playfair Display', serif; 
+            color: #D4AF37; 
+            font-size: 2rem; 
+            margin-bottom: 20px; 
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3); 
+            padding-bottom: 10px; 
+        }
+        
+        .story-text { 
+            font-size: 1rem; 
+            line-height: 1.8; 
+            color: #ccc; 
+            font-weight: 300; 
+        }
+        
+        .story-text strong { 
+            color: #D4AF37; 
+            font-weight: 600; 
+        }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(30px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
 
         @media (max-width: 768px) {
             h1.brand-name { font-size: 2.8rem; letter-spacing: 0.1em; }
@@ -133,7 +258,7 @@
 
     <!-- Cinematic Luxury Video Background -->
     <video autoplay loop muted playsinline id="bg-video">
-        <source src="https://cdn.pixabay.com/video/2023/10/22/186008-876939918_large.mp4" type="video/mp4">
+        <source src="background.mp4" type="video/mp4">
     </video>
     
     <div class="overlay"></div>
@@ -166,10 +291,10 @@
                 <hr style="border: 0; border-top: 1px solid rgba(212, 175, 55, 0.3); margin: 25px 0;">
 
                 <p><strong>শেরেনভোগ-এর গল্প: ঐতিহ্য ও আভিজাত্যের মেলবন্ধন</strong></p><br>
-                <p>SherenVogue কেবল একটি নাম নয়; এটি একটি আন্তর্জাতিক মানের লাক্সারি লাইফস্টাইল ব্র্যান্ড। এই নামটি দুটি গভীর অর্থবহ শব্দের অপূর্ব সংমিশ্রণ: <strong>'Sheren' (শিরিন)</strong> অংশটি এসেছে প্রতিষ্ঠাতার মা, শিরিন আক্তার-এর নাম থেকে, যা অকৃত্রিম ভালোবাসা ও যত্নের প্রতীক। আর <strong>'Vogue' (ভোগ)</strong> প্রতিনিধিত্ব করে আধুনিকতা এবং আন্তর্জাতিক রুচিশীলতার।</p><br>
+                <p>SherenVogue কেবল একটি নাম নয়; এটি একটি আন্তর্জাতিক মানের লাক্সারি লাইফস্টাইল ব্র্যান্ড। এই নামটি দুটি গভীর অর্থবহ শব্দের অপূর্ব সংমিশ্রণ: <strong>'Sheren' (শিরিন)</strong> অংশটি এসেছে প্রতিষ্ঠাতার মা, শিরিন আক্তার-এর নাম থেকে, যা অকৃত্রিম ভালোবাসা ও যত্নের প্রতীক। আর <strong>'Vogue' (ভোগ)</strong> প্রতিনিধিত্ব করে আধুনিকতা এবং আন্তর্জাতিক রুচিশীলতার।</p><br>
                 
-                <p><strong>অতুলনীয় মান ও নিখুঁত কারুকার্য</strong></p><br>
-                <p>আমরা এমন সব মাস্টারপিস তৈরি করি যা আভিজাত্যের নতুন সংজ্ঞা দেয়। আমাদের এক্সক্লুসিভ কালেকশনে রয়েছে প্রিমিয়াম <strong>ওভেন অ্যাপারেল (Woven Apparel)</strong>, লাক্সারি <strong>লেডিস হ্যান্ডব্যাগ</strong>, অভিজাত <strong>ঘড়ি (Luxury Watches)</strong>, হস্তশিল্পের <strong>বেল্ট</strong> এবং সিগনেচার <strong>পারফিউম</strong>। প্রতিটি SherenVogue প্রোডাক্ট সর্বোচ্চ মানের ম্যাটেরিয়াল এবং নিখুঁত কারুকার্যের এক অনন্য নিদর্শন, যা আপনাকে দেয় বিশ্বমানের লাক্সারির প্রতিশ্রুতি।</p>
+                <p><strong>অতুলনীয় মান ও নিখুঁত কারুকার্য</strong></p><br>
+                <p>আমরা এমন সব মাস্টারপিস তৈরি করি যা আভিজাত্যের নতুন সংজ্ঞা দেয়। আমাদের এক্সক্লুসিভ কালেকশনে রয়েছে প্রিমিয়াম <strong>ওভেন অ্যাপারেল (Woven Apparel)</strong>, লাক্সারি <strong>লেডিস হ্যান্ডব্যাগ</strong>, অভিজাত <strong>ঘড়ি (Luxury Watches)</strong>, হস্তশিল্পের <strong>বেল্ট</strong> এবং সিগনেচার <strong>পারফিউম</strong>। প্রতিটি SherenVogue প্রোডাক্ট সর্বোচ্চ মানের ম্যাটেরিয়াল এবং নিখুঁত কারুকার্যের এক অনন্য নিদর্শন, যা আপনাকে দেয় বিশ্বমানের লাক্সারির প্রতিশ্রুতি।</p>
             </div>
         </div>
     </div>
