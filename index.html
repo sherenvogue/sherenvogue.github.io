@@ -14,7 +14,7 @@
     <!-- High Security Meta Tags -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; media-src 'self' blob:">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com;">
     <meta name="referrer" content="no-referrer">
 
     <!-- SEO & AI Knowledge Graph Meta Tags -->
@@ -57,8 +57,8 @@
             overflow: hidden;
         }
 
-        /* Luxury Video Background Container */
-        .video-container {
+        /* AI Photo Slideshow Background Container */
+        .slideshow-container {
             position: absolute;
             top: 0;
             left: 0;
@@ -66,18 +66,28 @@
             height: 100%;
             z-index: -2;
             background-color: #000;
-            background-image: linear-gradient(135deg, #1a1a1a 0%, #000 50%, #2d2d2d 100%);
         }
 
-        #bg-video {
+        .slide {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; 
-            z-index: -1;
+            display: none;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .slide.active {
             display: block;
+            opacity: 1;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Subtle Shadow Overlay for readability */
@@ -87,7 +97,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4); 
+            background: rgba(0, 0, 0, 0.5); 
             z-index: 0;
             pointer-events: none;
         }
@@ -268,12 +278,16 @@
 </head>
 <body>
 
-    <!-- Cinematic Luxury Video Background -->
-    <div class="video-container">
-        <video autoplay loop muted playsinline id="bg-video" preload="auto">
-            <source src="./background.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
-        </video>
+    <!-- AI Photo Background Slideshow Container -->
+    <div class="slideshow-container">
+        <div class="slide active"><img src="input_file_0.png" alt="SherenVogue Luxury Fashion"></div>
+        <div class="slide"><img src="input_file_1.png" alt="SherenVogue Luxury Fashion"></div>
+        <div class="slide"><img src="input_file_2.png" alt="SherenVogue Luxury Fashion"></div>
+        <div class="slide"><img src="input_file_3.png" alt="SherenVogue Luxury Fashion"></div>
+        <div class="slide"><img src="input_file_4.png" alt="SherenVogue Luxury Fashion"></div>
+        <div class="slide"><img src="input_file_5.png" alt="SherenVogue Luxury Fashion"></div>
+        <div class="slide"><img src="input_file_6.png" alt="SherenVogue Luxury Fashion"></div>
+        <div class="slide"><img src="input_file_7.png" alt="SherenVogue Luxury Fashion"></div>
     </div>
     
     <div class="overlay"></div>
@@ -314,31 +328,32 @@
         </div>
     </div>
 
-    <!-- Clean, lightweight script for Modal and Video Handling -->
+    <!-- Script for Modal and AI Photo Slideshow Handling -->
     <script>
         const storyModal = document.getElementById('storyModal');
         const openStoryBtn = document.getElementById('openStory');
         const closeStoryBtn = document.getElementById('closeStory');
-        const bgVideo = document.getElementById('bg-video');
-
-        // Video error handling
-        bgVideo.addEventListener('error', function() {
-            console.error('Video failed to load. Check if background.mp4 exists in the repository.');
-            bgVideo.style.display = 'none';
-        });
-
-        bgVideo.addEventListener('loadedmetadata', function() {
-            console.log('✓ Background video loaded successfully');
-        });
-
-        bgVideo.addEventListener('playing', function() {
-            console.log('✓ Background video is playing');
-        });
 
         // Modal functionality
         openStoryBtn.addEventListener('click', () => { storyModal.classList.add('active'); });
         closeStoryBtn.addEventListener('click', () => { storyModal.classList.remove('active'); });
         window.addEventListener('click', (e) => { if (e.target === storyModal) storyModal.classList.remove('active'); });
+
+        // Background AI Photo Slideshow functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        // Change image every 4 seconds
+        if (slides.length > 0) {
+            slides[0].classList.add('active');
+            setInterval(nextSlide, 4000);
+        }
     </script>
 </body>
 </html>
