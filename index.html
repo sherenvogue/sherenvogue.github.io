@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Title Updated for Premium Google Look -->
-    <title>SHERENVOGUE | International Luxury Fashion Brand</title>
+    <!-- Title Updated: Only SHERENVOGUE -->
+    <title>SHERENVOGUE</title>
     
     <!-- Favicon for Google Search -->
     <link rel="icon" type="image/png" href="logo1.png?v=2">
@@ -54,7 +54,7 @@
             height: 100%;
             width: 100%;
             font-family: 'Montserrat', sans-serif;
-            background-color: transparent;
+            background-color: #000;
             overflow: hidden;
         }
 
@@ -66,7 +66,7 @@
             width: 100vw;
             height: 100vh;
             z-index: -2;
-            background-color: transparent;
+            background-color: #000;
             overflow: hidden;
         }
 
@@ -79,7 +79,7 @@
             width: 100%;
             height: 100%;
             transform: translate(-50%, -50%);
-            object-fit: cover; /* পিসি এবং মোবাইলে ভিডিও পারফেক্টভাবে ফিট করবে */
+            object-fit: cover; /* পিসির জন্য পারফেক্ট */
             z-index: -1;
             display: block;
         }
@@ -261,14 +261,18 @@
             to { opacity: 1; transform: translateY(0); } 
         }
 
-        /* Mobile & Tablet Responsive Optimization */
+        /* Mobile & Tablet Responsive Optimization (Fixed Zoom & Blurry Video) */
         @media (max-width: 768px) {
+            #bg-video {
+                object-fit: contain; /* মোবাইলে ভিডিও জুম হয়ে কেটে যাওয়া রোধ করবে এবং সম্পূর্ণ দেখাবে */
+                background-color: #000;
+            }
             h1.brand-name { 
-                font-size: 2.8rem; 
+                font-size: 2.5rem; 
                 letter-spacing: 0.1em; 
             }
             h2.subtitle { 
-                font-size: 0.75rem; 
+                font-size: 0.7rem; 
                 letter-spacing: 0.4em; 
                 margin-bottom: 2.5rem; 
             }
