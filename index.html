@@ -53,7 +53,7 @@
             height: 100%;
             width: 100%;
             font-family: 'Montserrat', sans-serif;
-            background-color: #050505; /* Fallback color */
+            background-color: #050505;
             overflow: hidden;
             -webkit-font-smoothing: antialiased;
         }
@@ -78,7 +78,7 @@
             object-position: center center;
             z-index: -1;
             display: block;
-            pointer-events: none; /* Prevents unwanted right-clicks on video */
+            pointer-events: none;
         }
 
         /* Light Overlay */
@@ -88,7 +88,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* Slightly darker for better text readability */
+            background: rgba(0, 0, 0, 0.4);
             z-index: -1;
             pointer-events: none;
         }
@@ -104,7 +104,7 @@
             z-index: 1; 
             position: relative; 
             padding: 0 20px;
-            animation: fadeIn 1.2s ease-out; /* Slightly faster animation */
+            animation: fadeIn 1.2s ease-out;
         }
 
         h1.brand-name { 
@@ -276,11 +276,10 @@
 
     <!-- Cinematic Luxury Video Background -->
     <div class="video-container">
-        <!-- Added 'poster' attribute for instant image loading while video loads -->
-        <video autoplay loop muted playsinline id="bg-video" poster="background-poster.jpg">
-            <!-- Best practice: WebM format first for faster loading, then MP4 -->
-            <source src="background.webm" type="video/webm">
-            <source src="background.mp4" type="video/mp4">
+        <!-- preload="auto" যুক্ত করা হয়েছে দ্রুত লোড হওয়ার জন্য -->
+        <video autoplay loop muted playsinline preload="auto" id="bg-video">
+            <!-- এখানে 'YOUR_VIDEO_NAME.mp4' মুছে তোমার গিটহাবের আসল ভিডিওর নাম বসাও -->
+            <source src="YOUR_VIDEO_NAME.mp4" type="video/mp4">
             Your browser does not support HTML5 video.
         </video>
     </div>
@@ -314,7 +313,6 @@
         const storyModal = document.getElementById('storyModal');
         const openStoryBtn = document.getElementById('openStory');
         const closeStoryBtn = document.getElementById('closeStory');
-        const bgVideo = document.getElementById('bg-video');
 
         // Modal functionality
         openStoryBtn.addEventListener('click', () => { storyModal.classList.add('active'); });
