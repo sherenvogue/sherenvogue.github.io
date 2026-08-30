@@ -20,16 +20,15 @@
     <!-- SEO & AI Knowledge Graph Meta Tags -->
     <meta name="description" content="SHERENVOGUE - International luxury fashion brand. Founded by CEO Md. Rafiul Islam, Textile Engineer & Fashion Designer. A blend of tradition and modern elegance.">
     <meta name="keywords" content="SHERENVOGUE, Rafiul Islam, Luxury Fashion, Textile Engineer, Fashion Designer, Shirin Akter, International Brand">
-    <meta name="keywords" content="শেরেনভোগ, শিরিন ভোগ, রাফিউল ইসলাম">
     <meta name="author" content="Md. Rafiul Islam">
 
-    <!-- AI Data Script (JSON-LD for Google & ChatGPT) -->
+    <!-- AI Data Script (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FashionBrand",
       "name": "SherenVogue",
-      "description": "SherenVogue is an international luxury lifestyle brand. The name 'Sheren' is a tribute to the founder's mother, Shirin Akter, symbolizing authentic love and care, while 'Vogue' represents elegance and style.",
+      "description": "SherenVogue is an international luxury lifestyle brand.",
       "founder": {
         "@type": "Person",
         "name": "Md. Rafiul Islam",
@@ -54,7 +53,7 @@
             height: 100%;
             width: 100%;
             font-family: 'Montserrat', sans-serif;
-            background-color: transparent;
+            background-color: #050505; /* Fallback color */
             overflow: hidden;
             -webkit-font-smoothing: antialiased;
         }
@@ -67,26 +66,19 @@
             width: 100vw;
             height: 100vh;
             z-index: -2;
-            background-color: transparent;
+            background-color: #000;
             overflow: hidden;
-            transform: translateZ(0);
-            backface-visibility: hidden;
-            perspective: 1000px;
         }
 
+        /* Updated PC & Mobile Optimized Video CSS */
         #bg-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: 100%;
-            height: 100%;
-            transform: translate(-50%, -50%) translateZ(0);
+            width: 100vw;
+            height: 100vh;
             object-fit: cover;
+            object-position: center center;
             z-index: -1;
             display: block;
-            will-change: transform;
+            pointer-events: none; /* Prevents unwanted right-clicks on video */
         }
 
         /* Light Overlay */
@@ -96,7 +88,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.2); 
+            background: rgba(0, 0, 0, 0.4); /* Slightly darker for better text readability */
             z-index: -1;
             pointer-events: none;
         }
@@ -112,9 +104,7 @@
             z-index: 1; 
             position: relative; 
             padding: 0 20px;
-            transform: translateZ(0);
-            backface-visibility: hidden;
-            animation: fadeIn 1.5s cubic-bezier(0.4, 0, 0.2, 1); 
+            animation: fadeIn 1.2s ease-out; /* Slightly faster animation */
         }
 
         h1.brand-name { 
@@ -151,7 +141,7 @@
             font-size: 0.85rem; 
             letter-spacing: 0.2em; 
             padding: 16px 40px; 
-            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; 
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; 
             text-transform: uppercase; 
             font-weight: 600; 
             cursor: pointer; 
@@ -250,15 +240,12 @@
         }
 
         @keyframes fadeIn { 
-            from { opacity: 0; transform: translateY(30px); } 
+            from { opacity: 0; transform: translateY(20px); } 
             to { opacity: 1; transform: translateY(0); } 
         }
 
-        /* Mobile & Tablet Responsive Optimization */
+        /* Mobile Responsive Optimization */
         @media (max-width: 768px) {
-            #bg-video {
-                object-fit: cover;
-            }
             h1.brand-name { 
                 font-size: 2.5rem; 
                 letter-spacing: 0.1em; 
@@ -289,7 +276,10 @@
 
     <!-- Cinematic Luxury Video Background -->
     <div class="video-container">
-        <video autoplay loop muted playsinline id="bg-video" preload="auto">
+        <!-- Added 'poster' attribute for instant image loading while video loads -->
+        <video autoplay loop muted playsinline id="bg-video" poster="background-poster.jpg">
+            <!-- Best practice: WebM format first for faster loading, then MP4 -->
+            <source src="background.webm" type="video/webm">
             <source src="background.mp4" type="video/mp4">
             Your browser does not support HTML5 video.
         </video>
@@ -302,14 +292,12 @@
         <h2 class="subtitle">International Luxury Brand</h2>
         
         <div class="button-group">
-            <!-- OUR STORY button hidden from users -->
             <button class="btn story-btn" id="openStory" style="display: none;">OUR STORY</button>
-            <!-- Linked perfectly to your shop.html -->
             <a href="shop.html" class="btn shop-btn">ENTER STORE</a>
         </div>
     </div>
 
-    <!-- History Modal (Hidden) -->
+    <!-- History Modal -->
     <div class="modal" id="storyModal" hidden>
         <div class="modal-content">
             <span class="close-btn" id="closeStory">&times;</span>
@@ -317,42 +305,16 @@
             
             <div class="story-text">
                 <p><strong>Where Tradition Meets Modern Elegance</strong></p><br>
-                <p>SherenVogue is an international luxury lifestyle brand born from a profound vision. The name is a harmonious blend of two deep meanings: <strong>'Sheren'</strong> honors the founder's beloved mother, Shirin Akter, symbolizing authentic love and care, while <strong>'Vogue'</strong> represents the timeless elegance and sophistication of high fashion.</p><br>
-                
-                <p><strong>Exquisite Craftsmanship & Uncompromising Quality</strong></p><br>
-                <p>We specialize in crafting masterpieces that define true luxury. From bespoke <strong>woven apparel</strong> and premium <strong>ladies' handbags</strong> to statement <strong>luxury footwear</strong>, every piece is meticulously designed and crafted by our founder, <strong>Md. Rafiul Islam</strong>—a visionary Textile Engineer and Fashion Designer with an unwavering commitment to excellence.</p><br>
-                
-                <hr style="border: 0; border-top: 1px solid rgba(212, 175, 55, 0.3); margin: 25px 0;">
-
-                <p><strong>শেরেনভোগ-এর গল্প: ঐতিহ্য ও আভিজাত্যের মেলবন্ধন</strong></p><br>
-                <p>SherenVogue কেবল একটি নাম নয়; এটি একটি আন্তর্জাতিক মানের লাক্সারি লাইফস্টাইল ব্র্যান্ড যা গভীর দর্শন থেকে জন্ম নিয়েছে। 'শেরেন' প্রতিষ্ঠাতার মাতা শিরিন আক্তরকে সম্মান জানায়, যা খাঁটি ভালোবাসা এবং যত্নের প্রতীক, আর 'ভোগ' উচ্চমানের ফ্যাশনের নিরন্তর কমনীয়তা ও পরিশীলিততা প্রকাশ করে।</p><br>
-                
-                <p><strong>অতুলনীয় মান ও নিখুঁত কারুকার্য</strong></p><br>
-                <p>আমরা এমন সব মাস্টারপিস তৈরি করি যা আভিজাত্যের নতুন সংজ্ঞা দেয়। আমাদের প্রতিষ্ঠাতা <strong>মোহাম্মদ রাফিউল ইসলাম</strong>—একজন দূরদর্শী টেক্সটাইল ইঞ্জিনিয়ার এবং ফ্যাশন ডিজাইনার—নিখুঁততার প্রতি অটুট প্রতিশ্রুতিসহ প্রতিটি টুকরো সযত্নে ডিজাইন ও তৈরি করেন। আমাদের সংগ্রহ <strong>বিশেষভাবে তৈরি বোনা পোশাক</strong>, <strong>প্রিমিয়াম মহিলা হ্যান্ডব্যাগ</strong> এবং <strong>বিবৃতি প্রদানকারী বিলাসবহুল জুতা</strong> থেকে শুরু হয়।</p>
+                <p>SherenVogue is an international luxury lifestyle brand born from a profound vision...</p>
             </div>
         </div>
     </div>
 
-    <!-- Clean, lightweight script for Modal and Video Handling -->
     <script>
         const storyModal = document.getElementById('storyModal');
         const openStoryBtn = document.getElementById('openStory');
         const closeStoryBtn = document.getElementById('closeStory');
         const bgVideo = document.getElementById('bg-video');
-
-        // Video error handling
-        bgVideo.addEventListener('error', function() {
-            console.error('Video failed to load. Check if background.mp4 exists in the repository.');
-            bgVideo.style.display = 'none';
-        });
-
-        bgVideo.addEventListener('loadedmetadata', function() {
-            console.log('✓ Background video loaded successfully');
-        });
-
-        bgVideo.addEventListener('playing', function() {
-            console.log('✓ Background video is playing');
-        });
 
         // Modal functionality
         openStoryBtn.addEventListener('click', () => { storyModal.classList.add('active'); });
