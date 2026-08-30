@@ -4,40 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Title: Only SHERENVOGUE -->
     <title>SHERENVOGUE</title>
     
-    <!-- Favicon for Google Search -->
     <link rel="icon" type="image/png" href="logo1.png?v=2">
     <link rel="apple-touch-icon" href="logo1.png?v=2">
 
-    <!-- High Security Meta Tags -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; media-src 'self' blob:">
     <meta name="referrer" content="no-referrer">
 
-    <!-- SEO & AI Knowledge Graph Meta Tags -->
-    <meta name="description" content="SHERENVOGUE - International luxury fashion brand. Founded by CEO Md. Rafiul Islam, Textile Engineer & Fashion Designer. A blend of tradition and modern elegance.">
+    <meta name="description" content="SHERENVOGUE - International luxury fashion brand. Founded by CEO Md. Rafiul Islam, Textile Engineer & Fashion Designer.">
     <meta name="keywords" content="SHERENVOGUE, Rafiul Islam, Luxury Fashion, Textile Engineer, Fashion Designer, Shirin Akter, International Brand">
     <meta name="author" content="Md. Rafiul Islam">
 
-    <!-- AI Data Script (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FashionBrand",
-      "name": "SherenVogue",
-      "description": "SherenVogue is an international luxury lifestyle brand.",
-      "founder": {
-        "@type": "Person",
-        "name": "Md. Rafiul Islam",
-        "jobTitle": "CEO, Textile Engineer & Fashion Designer"
-      }
-    }
-    </script>
-
-    <!-- Performance Optimization: Preconnecting to fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Noto+Serif+Bengali:wght@300;400;600&display=swap" rel="stylesheet">
@@ -53,12 +33,12 @@
             height: 100%;
             width: 100%;
             font-family: 'Montserrat', sans-serif;
-            background-color: #050505;
+            background-color: transparent; /* Black background removed */
             overflow: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Super Fast & Smooth Video Background Container */
+        /* Video Background Container */
         .video-container {
             position: fixed;
             top: 0;
@@ -66,17 +46,14 @@
             width: 100vw;
             height: 100vh;
             z-index: -2;
-            background-color: #000;
-            overflow: hidden;
+            background: transparent; /* Black background removed */
         }
 
-        /* PC & Mobile Optimized Video CSS */
         #bg-video {
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            object-position: center center;
-            z-index: -1;
+            object-position: center;
             display: block;
             pointer-events: none;
         }
@@ -86,8 +63,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background: rgba(0, 0, 0, 0.4);
             z-index: -1;
             pointer-events: none;
@@ -175,100 +152,16 @@
             transform: translateY(-3px); 
         }
 
-        /* Modal Styles */
-        .modal { 
-            display: none; 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            background: rgba(0, 0, 0, 0.85); 
-            z-index: 100; 
-            justify-content: center; 
-            align-items: center; 
-            backdrop-filter: blur(10px); 
-        }
-        
-        .modal-content { 
-            background: linear-gradient(145deg, rgba(20,20,20,0.9), rgba(5,5,5,0.95)); 
-            border: 1px solid rgba(212, 175, 55, 0.5); 
-            padding: 50px; 
-            max-width: 650px; 
-            width: 90%; 
-            text-align: left; 
-            color: #fff; 
-            box-shadow: 0 15px 50px rgba(0,0,0,0.9); 
-            position: relative; 
-            font-family: 'Noto Serif Bengali', serif; 
-            max-height: 85vh; 
-            overflow-y: auto; 
-        }
-        
-        .modal.active { 
-            display: flex; 
-        }
-
-        .close-btn { 
-            position: absolute; 
-            top: 20px; 
-            right: 25px; 
-            color: #D4AF37; 
-            font-size: 2rem; 
-            cursor: pointer; 
-        }
-        
-        .story-title { 
-            font-family: 'Playfair Display', serif; 
-            color: #D4AF37; 
-            font-size: 2rem; 
-            margin-bottom: 20px; 
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3); 
-            padding-bottom: 10px; 
-        }
-        
-        .story-text { 
-            font-size: 1rem; 
-            line-height: 1.8; 
-            color: #ccc; 
-            font-weight: 300; 
-        }
-        
-        .story-text strong { 
-            color: #D4AF37; 
-            font-weight: 600; 
-        }
-
         @keyframes fadeIn { 
             from { opacity: 0; transform: translateY(20px); } 
             to { opacity: 1; transform: translateY(0); } 
         }
 
-        /* Mobile Responsive Optimization */
         @media (max-width: 768px) {
-            h1.brand-name { 
-                font-size: 2.5rem; 
-                letter-spacing: 0.1em; 
-            }
-            h2.subtitle { 
-                font-size: 0.7rem; 
-                letter-spacing: 0.4em; 
-                margin-bottom: 2.5rem; 
-            }
-            .button-group { 
-                flex-direction: column; 
-                gap: 15px; 
-                width: 100%;
-                max-width: 280px;
-            }
-            .btn { 
-                padding: 14px 25px; 
-                width: 100%; 
-                text-align: center;
-            }
-            .modal-content { 
-                padding: 30px 20px; 
-            }
+            h1.brand-name { font-size: 2.5rem; letter-spacing: 0.1em; }
+            h2.subtitle { font-size: 0.7rem; letter-spacing: 0.4em; margin-bottom: 2.5rem; }
+            .button-group { flex-direction: column; gap: 15px; width: 100%; max-width: 280px; }
+            .btn { padding: 14px 25px; width: 100%; text-align: center; }
         }
     </style>
 </head>
@@ -276,9 +169,9 @@
 
     <!-- Cinematic Luxury Video Background -->
     <div class="video-container">
+        <!-- added ./ before background.mp4 to force root directory link -->
         <video autoplay loop muted playsinline preload="auto" id="bg-video">
-            <source src="background.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
+            <source src="./background.mp4" type="video/mp4">
         </video>
     </div>
     
@@ -289,33 +182,10 @@
         <h2 class="subtitle">International Luxury Brand</h2>
         
         <div class="button-group">
-            <button class="btn story-btn" id="openStory" style="display: none;">OUR STORY</button>
+            <button class="btn story-btn" style="display: none;">OUR STORY</button>
             <a href="shop.html" class="btn shop-btn">ENTER STORE</a>
         </div>
     </div>
 
-    <!-- History Modal -->
-    <div class="modal" id="storyModal" hidden>
-        <div class="modal-content">
-            <span class="close-btn" id="closeStory">&times;</span>
-            <h2 class="story-title">The SherenVogue Legacy</h2>
-            
-            <div class="story-text">
-                <p><strong>Where Tradition Meets Modern Elegance</strong></p><br>
-                <p>SherenVogue is an international luxury lifestyle brand born from a profound vision...</p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const storyModal = document.getElementById('storyModal');
-        const openStoryBtn = document.getElementById('openStory');
-        const closeStoryBtn = document.getElementById('closeStory');
-
-        // Modal functionality
-        openStoryBtn.addEventListener('click', () => { storyModal.classList.add('active'); });
-        closeStoryBtn.addEventListener('click', () => { storyModal.classList.remove('active'); });
-        window.addEventListener('click', (e) => { if (e.target === storyModal) storyModal.classList.remove('active'); });
-    </script>
 </body>
 </html>
