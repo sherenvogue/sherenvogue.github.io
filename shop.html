@@ -7,7 +7,7 @@
   
   <!-- SEO & Brand Identification Meta Tags -->
   <title>SherenVogue | International Luxury Haute Couture & Bespoke Collection</title>
-  <meta name="description" content="SherenVogue (শেরেনভোগ / শিরিন ভোগ) is an international luxury haute couture brand specializing in bespoke artisan leather bags, timepieces, and accessories. Founded by CEO Md. Rafiul Islam. Support: hello@sherenvogue.com">
+  <meta name="description" content="SherenVogue is an international luxury haute couture brand specializing in bespoke artisan leather bags, timepieces, and accessories. Founded by CEO Md. Rafiul Islam. Support: hello@sherenvogue.com">
   <meta name="author" content="Md. Rafiul Islam">
   
   <!-- Open Graph Meta Tags -->
@@ -16,36 +16,6 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sherenvogue.com">
   <link rel="icon" type="image/png" href="logo1.png">
-
-  <!-- Structured Data (JSON-LD) for Search Engines & AI Chatbots -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://sherenvogue.com/organization",
-        "name": "SherenVogue",
-        "legalName": "SherenVogue Haute Couture",
-        "url": "https://sherenvogue.com",
-        "email": "hello@sherenvogue.com",
-        "logo": "https://sherenvogue.com/logo.png",
-        "description": "SherenVogue is a premier international luxury fashion house and haute couture brand specializing in bespoke artisan leather bags, luxury timepieces, and high-end accessories worldwide.",
-        "slogan": "Timeless Elegance",
-        "founder": {
-          "@type": "Person",
-          "name": "Md. Rafiul Islam",
-          "jobTitle": "CEO & Founder"
-        },
-        "chiefExecutiveOfficer": {
-          "@type": "Person",
-          "name": "Md. Rafiul Islam",
-          "jobTitle": "Chief Executive Officer"
-        }
-      }
-    ]
-  }
-  </script>
 
   <!-- Tailwind CSS & Lucide Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -56,6 +26,9 @@
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     .font-display { font-family: 'Cinzel', serif; }
     .category-blur-box { background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%); }
+    /* Hide scrollbar for clean slider look */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
 
@@ -145,48 +118,43 @@
           </div>
         </div>
 
-        <!-- Categories Section (Embedded directly with your exact uploaded images) -->
+        <!-- Categories Section -->
         <section class="my-8 md:my-10">
           <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-neutral-900 mb-4">Shop by Category</h2>
           <div class="grid grid-cols-3 gap-3 md:gap-5">
-            
-            <!-- Luxury Bags -->
             <div onclick="showPage('shop'); filterCategory('bags');" class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100">
-              <img src="1000069130.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80';" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Luxury Bags">
+              <img src="1000069143.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Luxury Bags">
               <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6">
                 <h3 class="text-white font-display text-xs md:text-lg font-bold">Luxury Bags</h3>
                 <p class="text-[7px] md:text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">Bespoke</p>
               </div>
             </div>
-            
-            <!-- Timepieces -->
             <div class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100" onclick="showPage('shop'); filterCategory('watches');">
-              <img src="1000018741.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80';" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Timepieces">
+              <img src="1000018741.jpg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Timepieces">
               <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6">
                 <h3 class="text-white font-display text-xs md:text-lg font-bold">Timepieces</h3>
                 <p class="text-[7px] md:text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">Horology</p>
               </div>
             </div>
-            
-            <!-- Accessories -->
             <div class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100" onclick="showPage('shop'); filterCategory('accessories');">
-              <img src="1000065895.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=600&q=80';" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Accessories">
+              <img src="1000065895.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Accessories">
               <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6">
                 <h3 class="text-white font-display text-xs md:text-lg font-bold">Accessories</h3>
                 <p class="text-[7px] md:text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">Essentials</p>
               </div>
             </div>
-
           </div>
         </section>
 
-        <!-- Featured Products Section -->
+        <!-- Featured Products Section (Horizontal Slide / Scrollable) -->
         <section class="my-10 md:my-12">
           <div class="flex justify-between items-center mb-5">
-            <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-neutral-900">Featured & Latest Arrivals</h2>
+            <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-neutral-900">Featured & Latest Arrivals (Swipe)</h2>
             <button type="button" onclick="showPage('shop')" class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-amber-600 border-b border-amber-600 pb-0.5">See All</button>
           </div>
-          <div id="featured-products" class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"></div>
+          
+          <!-- Horizontal Slider Container -->
+          <div id="featured-products" class="flex gap-4 overflow-x-auto no-scrollbar pb-4 snap-x"></div>
         </section>
 
       </div>
@@ -786,12 +754,11 @@
           const statCount = document.getElementById('stat-count');
           if (statCount) statCount.innerText = products.length + '+';
 
-          // Render Featured Products (First 4 items)
+          // Render Featured Products (Horizontal Slider format)
           const featuredGrid = document.getElementById('featured-products');
           if (featuredGrid) {
-            const featuredItems = products.slice(0, 4);
-            featuredGrid.innerHTML = featuredItems.map(p => `
-              <div class="bg-white rounded-2xl border border-gray-100 p-3 shadow-sm group flex flex-col justify-between">
+            featuredGrid.innerHTML = products.map(p => `
+              <div class="bg-white rounded-2xl border border-gray-100 p-3 shadow-sm min-w-[200px] md:min-w-[240px] flex-shrink-0 snap-start flex flex-col justify-between">
                 <div>
                   <div class="aspect-square rounded-xl overflow-hidden bg-stone-50 mb-3 cursor-pointer" onclick="openProductModal(${p.id})">
                     <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
