@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="icon" type="image/png" href="logo1.png">
+  <link rel="icon" type="image/png" href="logo1.png">
   <!-- SEO & Brand Identification Meta Tags -->
   <title>SherenVogue | International Luxury Haute Couture & Bespoke Collection</title>
-<meta name="description" content="SherenVogue (শেরেনভোগ / শিরিন ভোগ) is an international luxury haute couture brand specializing in bespoke artisan leather bags, timepieces, and accessories. Founded by CEO Md. Rafiul Islam. Support: hello@sherenvogue.com">
-<meta name="author" content="Md. Rafiul Islam">
+  <meta name="description" content="SherenVogue (শেরেনভোগ / শিরিন ভোগ) is an international luxury haute couture brand specializing in bespoke artisan leather bags, timepieces, and accessories. Founded by CEO Md. Rafiul Islam. Support: hello@sherenvogue.com">
+  <meta name="author" content="Md. Rafiul Islam">
   
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="SherenVogue - International Luxury Haute Couture">
   <meta property="og:description" content="Official Maison of SherenVogue. Discover luxury bespoke leather bags and timepieces. Founded by CEO Md. Rafiul Islam.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sherenvogue.com">
-  <link rel="icon" type="image/png" href="logo1.png">
 
-  
-  <!-- Structured Data (JSON-LD) for Search Engines & AI Chatbots -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -30,18 +27,12 @@
         "legalName": "SherenVogue Haute Couture",
         "url": "https://sherenvogue.com",
         "email": "hello@sherenvogue.com",
-        "logo": "https://sherenvogue.com/logo.png",
-        "description": "SherenVogue is a premier international luxury fashion house and haute couture brand specializing in bespoke artisan leather bags, luxury timepieces, and high-end accessories worldwide.",
+        "description": "SherenVogue is a premier international luxury fashion house and haute couture brand...",
         "slogan": "Timeless Elegance",
         "founder": {
           "@type": "Person",
           "name": "Md. Rafiul Islam",
           "jobTitle": "CEO & Founder"
-        },
-        "chiefExecutiveOfficer": {
-          "@type": "Person",
-          "name": "Md. Rafiul Islam",
-          "jobTitle": "Chief Executive Officer"
         }
       }
     ]
@@ -57,6 +48,10 @@
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     .font-display { font-family: 'Cinzel', serif; }
     .category-blur-box { background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%); }
+    
+    /* Banner Animation CSS */
+    .banner-slide { transition: opacity 1.2s ease-in-out; }
+    .sig-color-btn.active { border-color: #d97706; transform: scale(1.1); }
   </style>
 </head>
 
@@ -93,9 +88,19 @@
         <span class="text-[6px] md:text-[7px] tracking-[0.6em] uppercase text-gray-400 mt-1 block font-medium">Haute Couture</span>
       </a>
 
-      <div class="flex items-center gap-4 md:gap-5">
+      <div class="flex items-center gap-3 md:gap-5">
+        <!-- Country Changer -->
+        <div class="flex items-center gap-1 text-gray-700 bg-stone-100 px-2 py-1 rounded-md">
+          <i data-lucide="globe" class="w-3.5 h-3.5 stroke-[2]"></i>
+          <select class="bg-transparent outline-none cursor-pointer text-[10px] font-bold uppercase tracking-widest">
+            <option value="BD">BD (৳)</option>
+            <option value="US">US ($)</option>
+            <option value="UK">UK (£)</option>
+          </select>
+        </div>
+
         <button type="button" onclick="showPage('shop')" class="p-1 text-gray-700 hover:text-amber-600 transition-colors" title="Search"><i data-lucide="search" class="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]"></i></button>
-        <button type="button" onclick="showPage('history')" class="p-1 text-gray-700 hover:text-amber-600 transition-colors" title="Order History"><i data-lucide="clock" class="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]"></i></button>
+        <button type="button" onclick="showPage('history')" class="hidden md:block p-1 text-gray-700 hover:text-amber-600 transition-colors" title="Order History"><i data-lucide="clock" class="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]"></i></button>
         <button type="button" onclick="showPage('cart')" class="relative p-1 text-gray-700 hover:text-amber-600 transition-colors" title="Cart">
           <i data-lucide="shopping-bag" class="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]"></i>
           <span id="cart-count" class="absolute -top-1 -right-1 bg-amber-600 text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
@@ -111,16 +116,20 @@
     <div id="page-home" class="page-view">
       <div class="max-w-5xl mx-auto px-4 pt-4 md:pt-6">
         
-        <!-- Banner -->
-        <div class="relative rounded-3xl overflow-hidden shadow-sm bg-stone-200 aspect-[16/10] md:aspect-[21/9] flex items-center">
+        <!-- Animated Banner -->
+        <div class="relative rounded-3xl overflow-hidden shadow-sm bg-stone-900 aspect-[16/10] md:aspect-[21/9] flex items-center">
           <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover object-center opacity-85 mix-blend-multiply filter contrast-105" alt="Banner">
-            <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent"></div>
+            <!-- Slider Images -->
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600&auto=format&fit=crop" class="banner-slide w-full h-full object-cover opacity-85 absolute inset-0" alt="Banner 1">
+            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1600&auto=format&fit=crop" class="banner-slide w-full h-full object-cover opacity-0 absolute inset-0" alt="Banner 2">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1600&auto=format&fit=crop" class="banner-slide w-full h-full object-cover opacity-0 absolute inset-0" alt="Banner 3">
+            
+            <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
           </div>
-          <div class="relative z-10 pl-5 md:pl-16 text-white max-w-xs md:max-w-md">
+          <div class="relative z-10 pl-5 md:pl-16 text-white max-w-xs md:max-w-md pointer-events-none">
             <p class="text-[8px] md:text-[11px] uppercase tracking-[0.4em] text-amber-200 mb-1 md:mb-2 font-semibold">New Collection 2026</p>
             <h1 class="font-display text-2xl md:text-5xl font-bold leading-tight tracking-tight mb-3 md:mb-4 text-white">Timeless <br>Elegance</h1>
-            <button type="button" onclick="showPage('shop')" class="inline-flex items-center gap-2 text-[10px] md:text-xs uppercase tracking-widest font-semibold border-b-2 border-white pb-0.5 hover:text-amber-200 hover:border-amber-200 transition-all">
+            <button type="button" onclick="showPage('shop')" class="pointer-events-auto inline-flex items-center gap-2 text-[10px] md:text-xs uppercase tracking-widest font-semibold border-b-2 border-white pb-0.5 hover:text-amber-200 hover:border-amber-200 transition-all">
               Shop Now <i data-lucide="arrow-right" class="w-3 h-3"></i>
             </button>
           </div>
@@ -174,10 +183,35 @@
           </div>
         </section>
 
-        <!-- Featured Products Section (Loaded from JSON) -->
+        <!-- Dynamic Product Variant Showcase -->
+        <section class="my-10 md:my-14 bg-white rounded-3xl p-5 md:p-8 border border-gray-100 shadow-md flex flex-col md:flex-row gap-8 items-center">
+          <div class="w-full md:w-1/2">
+            <img id="sig-product-img" src="https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=800&q=80" class="w-full rounded-2xl object-cover aspect-[4/3] bg-stone-50 transition-all duration-500" alt="Signature Bag">
+          </div>
+          <div class="w-full md:w-1/2 flex flex-col justify-center">
+            <p class="text-[9px] uppercase tracking-[0.3em] text-amber-600 font-bold mb-2">Signature Masterpiece</p>
+            <h2 class="font-display text-2xl md:text-4xl font-bold mb-3 text-neutral-900">Sheren Alarion Handbag</h2>
+            <p id="sig-product-price" class="text-xl md:text-2xl font-bold text-gray-800 mb-4">৳45,000</p>
+            <p id="sig-product-desc" class="text-xs md:text-sm text-gray-500 mb-6 leading-relaxed">The ultimate expression of luxury. This sleek Noir Edition is crafted from the finest artisan leather, designed for absolute elegance.</p>
+            
+            <div class="mb-6">
+              <p class="text-[10px] uppercase tracking-widest font-bold text-gray-400 mb-3">Select Variant</p>
+              <div class="flex gap-4">
+                <button onclick="changeSigVariant('black')" id="btn-black" class="sig-color-btn active w-8 h-8 rounded-full bg-black border-2 border-transparent ring-2 ring-offset-2 ring-transparent transition-all"></button>
+                <button onclick="changeSigVariant('camel')" id="btn-camel" class="sig-color-btn w-8 h-8 rounded-full bg-[#C19A6B] border-2 border-transparent ring-2 ring-offset-2 ring-transparent transition-all"></button>
+              </div>
+            </div>
+            
+            <button onclick="addSignatureToCart()" class="w-full md:w-auto px-10 py-3.5 bg-neutral-900 text-white text-[10px] uppercase tracking-widest font-bold rounded-xl hover:bg-amber-600 transition-all shadow-sm">
+              Add To Bag
+            </button>
+          </div>
+        </section>
+
+        <!-- Featured Products Section -->
         <section class="my-10 md:my-12">
           <div class="flex justify-between items-center mb-5">
-            <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-neutral-900">Featured & Latest Arrivals</h2>
+            <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-neutral-900">Featured Arrivals</h2>
             <button type="button" onclick="showPage('shop')" class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-amber-600 border-b border-amber-600 pb-0.5">See All</button>
           </div>
           <div id="featured-products" class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"></div>
@@ -362,10 +396,11 @@
       </div>
       <div>
         <h4 class="text-[9px] uppercase tracking-[0.3em] mb-4 text-amber-600 font-bold">Concierge Guild</h4>
-        <div class="flex border-b border-white/20 pb-1.5">
-          <input type="email" placeholder="Enter dispatch email" class="bg-transparent text-xs w-full outline-none text-white placeholder-neutral-600">
-          <button type="button" class="text-[9px] uppercase tracking-widest text-amber-600 font-bold ml-2">Join</button>
-        </div>
+        <!-- Connected Email Subscription Form -->
+        <form onsubmit="submitNewsletter(event)" class="flex border-b border-white/20 pb-1.5">
+          <input type="email" id="newsletter-email" required placeholder="Enter dispatch email" class="bg-transparent text-xs w-full outline-none text-white placeholder-neutral-600">
+          <button type="submit" class="text-[9px] uppercase tracking-widest text-amber-600 font-bold ml-2 hover:text-white transition-colors">Join</button>
+        </form>
       </div>
     </div>
     <div class="text-center pt-6 text-[8px] tracking-[0.25em] text-neutral-600 uppercase font-bold">
@@ -377,9 +412,96 @@
   <script>
     const WEB3FORMS_ACCESS_KEY = "140b2d00-51ed-40d4-bc25-72bbcf4d92a9";
 
-    let products = []; // Products will be loaded automatically from products.json
+    let products = [];
     let cart = [];
     let selectedProductForModal = null;
+
+    // --- BANNER ANIMATION LOGIC ---
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.banner-slide');
+    if(slides.length > 0) {
+      setInterval(() => {
+        slides[currentSlide].style.opacity = '0';
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].style.opacity = '0.85';
+      }, 3500); // 3.5 seconds
+    }
+
+    // --- SIGNATURE PRODUCT VARIANTS LOGIC ---
+    let currentSigVariant = 'black';
+    const sigVariants = {
+      black: {
+        id: 9991,
+        name: "Sheren Alarion Handbag (Noir Edition)",
+        priceStr: "৳45,000",
+        rawPrice: 45000,
+        desc: "The ultimate expression of luxury. This sleek Noir Edition is crafted from the finest artisan leather, designed for absolute elegance.",
+        img: "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=800&q=80"
+      },
+      camel: {
+        id: 9992,
+        name: "Sheren Alarion Handbag (Camel Edition)",
+        priceStr: "৳48,500", // ভিন্ন দাম
+        rawPrice: 48500,
+        desc: "A bold statement in premium camel leather. Exclusive golden hardware perfectly complements its rich texture and timeless shape.",
+        img: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=800&q=80"
+      }
+    };
+
+    function changeSigVariant(color) {
+      currentSigVariant = color;
+      
+      // Update Texts & Image
+      document.getElementById('sig-product-img').src = sigVariants[color].img;
+      document.getElementById('sig-product-price').innerText = sigVariants[color].priceStr;
+      document.getElementById('sig-product-desc').innerText = sigVariants[color].desc;
+      
+      // Update Button Styles
+      document.querySelectorAll('.sig-color-btn').forEach(btn => btn.classList.remove('active', 'ring-amber-600'));
+      const activeBtn = document.getElementById('btn-' + color);
+      activeBtn.classList.add('active', 'ring-amber-600');
+    }
+
+    function addSignatureToCart() {
+      const v = sigVariants[currentSigVariant];
+      const existing = cart.find(item => item.id === v.id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ id: v.id, name: v.name, price: v.priceStr, rawPrice: v.rawPrice, image: v.img, qty: 1 });
+      }
+      updateCartBadge();
+      showLuxuryToast(`"${v.name}" added to your bag.`);
+    }
+
+    // --- NEWSLETTER SUBSCRIPTION LOGIC ---
+    async function submitNewsletter(event) {
+      event.preventDefault();
+      const emailInput = document.getElementById('newsletter-email');
+      const email = emailInput.value;
+      const btn = event.target.querySelector('button');
+      btn.innerText = "Wait...";
+
+      try {
+        await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: `New Newsletter Subscriber: ${email}`,
+            from_name: "SherenVogue Concierge",
+            to_email: "hello@sherenvogue.com",
+            message: `You have a new subscriber for the Concierge Guild:\n\nEmail: ${email}`
+          })
+        });
+        showLuxuryToast("Welcome to the Concierge Guild.");
+        emailInput.value = "";
+        btn.innerText = "Join";
+      } catch (err) {
+        showLuxuryToast("Subscription failed. Try again.");
+        btn.innerText = "Join";
+      }
+    }
 
     // Luxury Toast Notification Function
     function showLuxuryToast(productName) {
@@ -397,7 +519,7 @@
       }, 3000);
     }
 
-    // 2. PAGE NAVIGATION
+    // PAGE NAVIGATION
     function showPage(pageId) {
       document.querySelectorAll('.page-view').forEach(p => p.classList.add('hidden'));
       const targetPage = document.getElementById('page-' + pageId);
@@ -412,7 +534,7 @@
       if (window.lucide) lucide.createIcons();
     }
 
-    // 3. PRODUCT RENDER & SEARCH
+    // PRODUCT RENDER & SEARCH
     function renderShopProducts(items) {
       const shopContainer = document.getElementById('shop-products');
       if (!shopContainer) return;
@@ -425,11 +547,11 @@
       shopContainer.innerHTML = items.map(p => `
         <div class="bg-white rounded-2xl border border-gray-100 p-3 shadow-sm group flex flex-col justify-between">
           <div>
-            <div class="aspect-square rounded-xl overflow-hidden bg-stone-50 mb-3 cursor-pointer" onclick="window.location.href='product.html?id=${p.id}'">
+            <div class="aspect-square rounded-xl overflow-hidden bg-stone-50 mb-3 cursor-pointer" onclick="openProductModal(${p.id})">
                 <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
             <p class="text-[8px] uppercase tracking-[0.2em] text-amber-600 font-bold mb-0.5">${p.category || 'bags'}</p>
-            <h3 class="font-display text-xs font-bold text-neutral-900 truncate cursor-pointer" onclick="window.location.href='product.html?id=${p.id}'">${p.name}</h3>
+            <h3 class="font-display text-xs font-bold text-neutral-900 truncate cursor-pointer" onclick="openProductModal(${p.id})">${p.name}</h3>
             <p class="text-xs font-bold text-gray-800 mt-1">$${p.price}</p>
         </div>
         <button type="button" onclick="addToCart(${p.id})" class="w-full mt-3 bg-neutral-900 text-white py-2 text-[9px] uppercase tracking-widest font-bold rounded-lg hover:bg-amber-600 transition-all">
@@ -464,7 +586,7 @@
       else renderShopProducts(products.filter(p => p.category === cat));
     }
 
-    // 4. MODAL MANAGEMENT
+    // MODAL MANAGEMENT
     function openProductModal(id) {
       const p = products.find(item => item.id === id);
       if (!p) return;
@@ -473,7 +595,7 @@
       document.getElementById('modal-img-container').innerHTML = `<img src="${p.image}" class="max-h-64 w-full object-cover rounded-xl" alt="${p.name}" />`;
       document.getElementById('modal-product-cat').innerText = p.category || 'bags';
       document.getElementById('modal-product-name').innerText = p.name;
-      document.getElementById('modal-product-price').innerText = p.price;
+      document.getElementById('modal-product-price').innerText = '$' + p.price;
       document.getElementById('modal-product-desc').innerText = p.desc || 'Handcrafted luxury masterpiece from SherenVogue.';
       document.getElementById('modal-add-btn').onclick = function() {
         addToCart(p.id);
@@ -487,7 +609,7 @@
       document.getElementById('product-modal').classList.add('hidden');
     }
 
-    // 5. CART MANAGEMENT
+    // CART MANAGEMENT
     function addToCart(id) {
       const p = products.find(item => item.id === id);
       if (!p) return;
@@ -496,7 +618,7 @@
       if (existing) {
         existing.qty += 1;
       } else {
-        cart.push({ ...p, qty: 1 });
+        cart.push({ ...p, qty: 1, rawPrice: p.price, price: '$' + p.price });
       }
 
       updateCartBadge();
@@ -561,7 +683,7 @@
       renderCart();
     }
 
-    // 6. CHECKOUT & EMAIL DISPATCH SYSTEM
+    // CHECKOUT & EMAIL DISPATCH SYSTEM
     function prepareCheckout() {
       let grandTotal = cart.reduce((sum, item) => sum + ((item.rawPrice || 0) * (item.qty || 1)), 0);
       document.getElementById('checkout-total-price').innerText = '৳' + grandTotal.toLocaleString();
@@ -616,10 +738,7 @@
       try {
         await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
             access_key: WEB3FORMS_ACCESS_KEY,
             subject: `SherenVogue New Order: ${orderId}`,
@@ -643,7 +762,7 @@
       showPage('success');
     }
 
-    // 7. ORDER HISTORY SYSTEM
+    // ORDER HISTORY SYSTEM
     function renderHistory() {
       const container = document.getElementById('history-container');
       if (!container) return;
@@ -727,10 +846,7 @@
         try {
           let response = await fetch('https://api.web3forms.com/submit', {
             method: 'POST',
-            headers: { 
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify({
               access_key: WEB3FORMS_ACCESS_KEY,
               subject: `SherenVogue Order Cancelled: ${orderId}`,
@@ -738,7 +854,6 @@
               message: `Alert: Order ID ${orderId} has been cancelled by the customer.`
             })
           });
-
           let resJson = await response.json();
           if (resJson.success) {
             showLuxuryToast(`Order cancelled & notification sent.`);
@@ -746,10 +861,8 @@
             showLuxuryToast(`Order cancelled.`);
           }
         } catch (err) {
-          console.error('Cancellation email dispatch error:', err);
           showLuxuryToast(`Order cancelled locally.`);
         }
-
         renderHistory();
       }
     }
@@ -766,21 +879,18 @@
       }
     }
 
-    // 8. INITIALIZATION & DYNAMIC PRODUCTS LOADING FROM products.json
+    // INITIALIZATION & DYNAMIC PRODUCTS LOADING FROM products.json
     document.addEventListener('DOMContentLoaded', function() {
       if (window.lucide) lucide.createIcons();
 
-      // Fetch products dynamically from products.json (Updated automatically by Facebook & Make.com)
       fetch('products.json')
         .then(res => res.json())
         .then(data => {
           products = Array.isArray(data) ? data : [];
           
-          // Update total masterpieces counter
           const statCount = document.getElementById('stat-count');
           if (statCount) statCount.innerText = products.length + '+';
 
-          // Render Featured Products (First 4 items)
           const featuredGrid = document.getElementById('featured-products');
           if (featuredGrid) {
             const featuredItems = products.slice(0, 4);
@@ -792,7 +902,7 @@
                   </div>
                   <p class="text-[8px] uppercase tracking-[0.2em] text-amber-600 font-bold mb-0.5">${p.category || 'bags'}</p>
                   <h3 class="font-display text-xs font-bold text-neutral-900 truncate cursor-pointer" onclick="openProductModal(${p.id})">${p.name}</h3>
-                  <p class="text-xs font-bold text-gray-800 mt-1">${p.price}</p>
+                  <p class="text-xs font-bold text-gray-800 mt-1">$${p.price}</p>
                 </div>
                 <button type="button" onclick="addToCart(${p.id})" class="w-full mt-3 bg-neutral-900 text-white py-2 text-[9px] uppercase tracking-widest font-bold rounded-lg hover:bg-amber-600 transition-all">
                   Add To Bag
