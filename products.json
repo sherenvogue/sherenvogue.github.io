@@ -1,12 +1,11 @@
 [
-  
   {
     "id": 1,
     "name": "Sheren Alarion Royal Maroon Handbag",
     "category": "bags",
     "price": "৳28,500",
     "rawPrice": 28500,
-    "image": "1000069143.png",
+    "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
     "desc": "A crown jewel of the SherenVogue haute couture collection. Masterfully handcrafted from rich burgundy artisan leather, accented with signature winged gold hardware, a twisted gold handle, and a sophisticated chain strap."
   },
   {
@@ -15,7 +14,7 @@
     "category": "watches",
     "price": "৳1,20,000",
     "rawPrice": 120000,
-    "image": "1000018741.jpg",
+    "image": "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=800&q=80",
     "desc": "High-complication horology designed for timeless elegance with Roman numerals and rose-gold finish."
   },
   {
@@ -24,7 +23,7 @@
     "category": "accessories",
     "price": "৳65,000",
     "rawPrice": 65000,
-    "image": "1000065895.png",
+    "image": "https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=800&q=80",
     "desc": "Exclusive Vento Solare collection featuring a luxury timepiece, gold-accented fountain pen, and premium leather wallet."
   }
 ]
