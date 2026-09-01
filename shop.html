@@ -119,10 +119,10 @@
         <!-- Animated Banner -->
         <div class="relative rounded-3xl overflow-hidden shadow-sm bg-stone-900 aspect-[16/10] md:aspect-[21/9] flex items-center">
           <div class="absolute inset-0 z-0">
-            <!-- Slider Images -->
-            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600&auto=format&fit=crop" class="banner-slide w-full h-full object-cover opacity-85 absolute inset-0" alt="Banner 1">
-            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1600&auto=format&fit=crop" class="banner-slide w-full h-full object-cover opacity-0 absolute inset-0" alt="Banner 2">
-            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1600&auto=format&fit=crop" class="banner-slide w-full h-full object-cover opacity-0 absolute inset-0" alt="Banner 3">
+            <!-- Slider Images (Using your provided images) -->
+            <img src="image_c50b10.png" class="banner-slide w-full h-full object-cover opacity-85 absolute inset-0" alt="SherenVogue Banner 1">
+            <img src="image_c5042e.jpg" class="banner-slide w-full h-full object-cover opacity-0 absolute inset-0" alt="SherenVogue Banner 2">
+            <img src="image_c50808.png" class="banner-slide w-full h-full object-cover opacity-0 absolute inset-0" alt="SherenVogue Banner 3">
             
             <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
           </div>
@@ -186,7 +186,8 @@
         <!-- Dynamic Product Variant Showcase -->
         <section class="my-10 md:my-14 bg-white rounded-3xl p-5 md:p-8 border border-gray-100 shadow-md flex flex-col md:flex-row gap-8 items-center">
           <div class="w-full md:w-1/2">
-            <img id="sig-product-img" src="https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=800&q=80" class="w-full rounded-2xl object-cover aspect-[4/3] bg-stone-50 transition-all duration-500" alt="Signature Bag">
+            <!-- Default image set to your Noir bag -->
+            <img id="sig-product-img" src="image_c50808.png" class="w-full rounded-2xl object-cover aspect-[4/3] bg-stone-50 transition-all duration-500" alt="Signature Bag">
           </div>
           <div class="w-full md:w-1/2 flex flex-col justify-center">
             <p class="text-[9px] uppercase tracking-[0.3em] text-amber-600 font-bold mb-2">Signature Masterpiece</p>
@@ -197,8 +198,8 @@
             <div class="mb-6">
               <p class="text-[10px] uppercase tracking-widest font-bold text-gray-400 mb-3">Select Variant</p>
               <div class="flex gap-4">
-                <button onclick="changeSigVariant('black')" id="btn-black" class="sig-color-btn active w-8 h-8 rounded-full bg-black border-2 border-transparent ring-2 ring-offset-2 ring-transparent transition-all"></button>
-                <button onclick="changeSigVariant('camel')" id="btn-camel" class="sig-color-btn w-8 h-8 rounded-full bg-[#C19A6B] border-2 border-transparent ring-2 ring-offset-2 ring-transparent transition-all"></button>
+                <button onclick="changeSigVariant('black')" id="btn-black" class="sig-color-btn active w-8 h-8 rounded-full bg-[#111111] border-2 border-transparent ring-2 ring-offset-2 ring-transparent transition-all" title="Noir Edition"></button>
+                <button onclick="changeSigVariant('maroon')" id="btn-maroon" class="sig-color-btn w-8 h-8 rounded-full bg-[#601a24] border-2 border-transparent ring-2 ring-offset-2 ring-transparent transition-all" title="Maroon Edition"></button>
               </div>
             </div>
             
@@ -436,15 +437,15 @@
         priceStr: "৳45,000",
         rawPrice: 45000,
         desc: "The ultimate expression of luxury. This sleek Noir Edition is crafted from the finest artisan leather, designed for absolute elegance.",
-        img: "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=800&q=80"
+        img: "image_c50808.png"
       },
-      camel: {
+      maroon: {
         id: 9992,
-        name: "Sheren Alarion Handbag (Camel Edition)",
+        name: "Sheren Alarion Handbag (Maroon Edition)",
         priceStr: "৳48,500", // ভিন্ন দাম
         rawPrice: 48500,
-        desc: "A bold statement in premium camel leather. Exclusive golden hardware perfectly complements its rich texture and timeless shape.",
-        img: "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=800&q=80"
+        desc: "A bold statement in premium maroon leather. Exclusive golden hardware perfectly complements its rich texture and timeless shape.",
+        img: "image_c5042e.jpg"
       }
     };
 
