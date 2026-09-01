@@ -1,311 +1,270 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SherenVogue - International Luxury Fashion Brand. Shop premium handbags, wristwatches, and exclusive apparel.">
-    <title>Shop & Orders | SherenVogue</title>
-    
-    <!-- AI ও Search Engine-এর জন্য Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Brand",
-      "name": "SherenVogue",
-      "url": "https://sherenvogue.com",
-      "description": "International luxury fashion brand specializing in handbags, wristwatches, belts, perfume, and woven apparel.",
-      "founder": "Md. Rafiul Islam"
-    }
-    </script>
-
+    <title>SherenVogue | Daraz Style Luxury Marketplace</title>
     <style>
-        /* Luxury Design CSS */
-        body { 
-            background-color: #111; 
-            color: #d4af37; 
-            font-family: 'Georgia', serif; 
-            margin: 0; 
-            padding: 0; 
-        }
-        header { 
-            padding: 30px; 
-            text-align: center; 
-            border-bottom: 1px solid #d4af37; 
-            background-color: #0a0a0a;
-        }
-        header h1 { margin: 0; font-size: 2.5em; letter-spacing: 2px; }
-        .container { 
-            display: flex; 
-            padding: 30px; 
-            gap: 20px; 
-            max-width: 1400px;
-            margin: auto;
-        }
-        .main-content { flex: 2; }
-        .sidebar { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+        /* CSS: Daraz Style + Luxury Colors */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f4f4f4; color: #333; }
         
-        .products-section { 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 20px; 
-        }
-        .product-card { 
-            background: #1a1a1a; 
-            border: 1px solid #333; 
-            padding: 20px; 
-            text-align: center; 
-            width: calc(50% - 10px); 
-            box-sizing: border-box;
-            transition: 0.3s;
-        }
-        .product-card:hover { border-color: #d4af37; box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
-        .product-card img { 
-            width: 100%; 
-            height: 180px;
-            object-fit: cover;
-            border-bottom: 1px solid #333; 
-            margin-bottom: 15px; 
-        }
-        .btn { 
-            background: #d4af37; 
-            color: #111; 
-            border: none; 
-            padding: 10px 15px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            text-transform: uppercase;
-            width: 100%;
-            transition: 0.3s;
-        }
-        .btn:hover { background: #fff; }
-        .danger-btn {
-            background: #8b0000;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            font-size: 0.8em;
-            margin-top: 5px;
-        }
-        .danger-btn:hover { background: #ff4c4c; }
+        /* Top Navigation Bar */
+        .navbar { background-color: #111; color: #d4af37; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .navbar h1 { margin: 0; font-size: 24px; letter-spacing: 2px; text-transform: uppercase; }
+        .search-bar { flex: 1; margin: 0 40px; display: flex; }
+        .search-bar input { width: 100%; padding: 10px; border: none; outline: none; border-radius: 4px 0 0 4px; }
+        .search-bar button { padding: 10px 20px; background: #d4af37; border: none; font-weight: bold; cursor: pointer; border-radius: 0 4px 4px 0; }
+        .cart-icon { cursor: pointer; font-weight: bold; position: relative; }
+        .cart-count { background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; position: absolute; top: -10px; right: -15px; }
+
+        /* Banner Section */
+        .hero-banner { background: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200') no-repeat center center/cover; height: 350px; display: flex; align-items: center; padding-left: 50px; color: white; margin-bottom: 20px; }
+        .hero-text { background: rgba(0,0,0,0.6); padding: 30px; border-left: 4px solid #d4af37; }
+
+        /* Main Container */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
-        .panel { 
-            background: #1a1a1a; 
-            padding: 20px; 
-            border: 1px solid #333; 
-        }
-        .cart-item, .history-item { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-            margin-bottom: 12px; 
-            border-bottom: 1px dashed #444; 
-            padding-bottom: 8px; 
-            font-size: 0.9em;
-        }
+        /* Section Titles */
+        .section-title { font-size: 22px; margin: 30px 0 15px 0; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+
+        /* Product Grid (Daraz Style) */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+        .product-card { background: #fff; border-radius: 5px; padding: 15px; text-align: center; transition: 0.3s; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .product-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.2); transform: translateY(-3px); }
+        .product-card img { width: 100%; height: 200px; object-fit: cover; margin-bottom: 15px; }
+        .product-card h3 { font-size: 16px; margin: 10px 0; height: 40px; overflow: hidden; }
+        .product-card .price { color: #f57224; font-size: 20px; font-weight: bold; margin-bottom: 15px; }
+        .btn-add { background: #111; color: #d4af37; border: none; padding: 10px; width: 100%; font-weight: bold; cursor: pointer; border-radius: 3px; transition: 0.3s; }
+        .btn-add:hover { background: #d4af37; color: #111; }
+
+        /* Modal / Sidebar for Cart & Checkout */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 200; }
+        .cart-modal { position: fixed; top: 0; right: -400px; width: 350px; height: 100%; background: #fff; box-shadow: -5px 0 15px rgba(0,0,0,0.2); transition: 0.4s; z-index: 201; padding: 20px; overflow-y: auto; }
+        .cart-modal.open { right: 0; }
+        .close-btn { background: red; color: white; border: none; padding: 5px 10px; cursor: pointer; float: right; font-weight: bold; }
+        
+        .cart-item { display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .cart-item h4 { margin: 0 0 5px 0; font-size: 14px; }
+        
+        /* Checkout Form */
+        .checkout-form { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+        .checkout-form input { padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        .btn-checkout { background: #f57224; color: white; padding: 12px; border: none; cursor: pointer; font-size: 16px; font-weight: bold; border-radius: 4px; }
+        .btn-checkout:hover { background: #d05b1c; }
+
+        /* Order History */
+        .order-history-card { background: #fff; padding: 15px; margin-bottom: 10px; border-left: 4px solid #d4af37; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>SHERENVOGUE</h1>
-        <p>Elegance in Every Thread & Detail</p>
-    </header>
-    
-    <div class="container">
-        <!-- প্রোডাক্ট ক্যাটালগ -->
-        <div class="main-content">
-            <h2 style="border-bottom: 1px solid #333; padding-bottom: 10px;">Luxury Collection</h2>
-            <div class="products-section" id="product-list"></div>
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>SherenVogue</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Search in SherenVogue...">
+            <button>SEARCH</button>
         </div>
-        
-        <!-- সাইডবার: কার্ট এবং অর্ডার হিস্ট্রি -->
-        <div class="sidebar">
-            <!-- কার্ট সেকশন -->
-            <div class="panel">
-                <h3>Your Cart</h3>
-                <div id="cart-items">
-                    <p style="color: #888;">Your cart is empty</p>
-                </div>
-                <hr style="border-color: #444; margin: 15px 0;">
-                <h4>Total: $<span id="cart-total">0.00</span></h4>
-                <button class="btn" onclick="checkout()">Proceed to Checkout</button>
-            </div>
-
-            <!-- অর্ডার হিস্ট্রি ও ক্যান্সেল অপশন -->
-            <div class="panel">
-                <h3>Order History & Status</h3>
-                <div id="order-history">
-                    <p style="color: #888;">No past orders found</p>
-                </div>
-            </div>
+        <div class="cart-icon" onclick="toggleCart()">
+            🛒 Cart <span class="cart-count" id="cart-counter">0</span>
         </div>
     </div>
 
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+        <div class="hero-text">
+            <h2 style="margin:0; font-size: 2.5em;">Sheren Alarion Collection</h2>
+            <p style="font-size: 1.2em;">Up to 40% Off on Luxury Items</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Flash Sale / Products -->
+        <h2 class="section-title">Just For You</h2>
+        <div class="product-grid" id="product-list"></div>
+
+        <!-- Order History -->
+        <h2 class="section-title">My Order History</h2>
+        <div id="order-history-list">
+            <p>No orders placed yet.</p>
+        </div>
+    </div>
+
+    <!-- Cart Overlay & Modal -->
+    <div class="modal-overlay" id="overlay" onclick="toggleCart()"></div>
+    <div class="cart-modal" id="cart-sidebar">
+        <button class="close-btn" onclick="toggleCart()">X</button>
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <h3 style="text-align: right; margin-top: 20px;">Total: $<span id="cart-total">0.00</span></h3>
+        
+        <h3 style="border-top: 1px solid #ddd; padding-top: 20px; margin-top: 20px;">Checkout Details</h3>
+        <form class="checkout-form" id="checkout-form" onsubmit="processCheckout(event)">
+            <input type="text" id="cust-name" placeholder="Full Name" required>
+            <input type="email" id="cust-email" placeholder="Email Address" required>
+            <input type="text" id="cust-phone" placeholder="Phone Number" required>
+            <input type="text" id="cust-address" placeholder="Delivery Address" required>
+            <button type="submit" class="btn-checkout">Place Order</button>
+        </form>
+    </div>
+
     <script>
-        // ১. প্রোডাক্ট ডেটাবেস
+        // Product Data
         const products = [
-            { id: 1, name: "Sheren Alarion Handbag", price: 499.00, category: "Handbags", image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=300" },
-            { id: 2, name: "Vogue Signature Watch", price: 299.00, category: "Wristwatches", image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300" },
-            { id: 3, name: "Premium Leather Belt", price: 89.00, category: "Belts", image: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=300" },
-            { id: 4, name: "Sheren Exclusive Perfume", price: 150.00, category: "Perfume", image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=300" }
+            { id: 101, name: "Sheren Alarion Exclusive Handbag", price: 499.00, img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400" },
+            { id: 102, name: "Vogue Signature Chronograph Watch", price: 299.00, img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
+            { id: 103, name: "Premium Leather Belt - Black", price: 89.00, img: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=400" },
+            { id: 104, name: "Sheren Essence Perfume", price: 150.00, img: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=400" },
+            { id: 105, name: "Woven Apparel Luxury Shirt", price: 120.00, img: "https://images.unsplash.com/photo-1596755094514-f87e32f85e2c?w=400" }
         ];
 
-        // লোড করা ডাটা লোকালস্টোরেজ থেকে
-        let cart = JSON.parse(localStorage.getItem('sheren_cart')) || [];
-        let orders = JSON.parse(localStorage.getItem('sheren_orders')) || [];
+        let cart = JSON.parse(localStorage.getItem('sv_cart')) || [];
+        let orderHistory = JSON.parse(localStorage.getItem('sv_orders')) || [];
 
-        // প্রোডাক্ট রেন্ডার করা
+        // Render Products to Grid
         function renderProducts() {
             const productList = document.getElementById('product-list');
             productList.innerHTML = '';
-            
-            products.forEach(product => {
-                const card = document.createElement('div');
-                card.className = 'product-card';
-                card.innerHTML = `
-                    <img src="${product.image}" alt="${product.name}">
-                    <h3>${product.name}</h3>
-                    <p style="color: #888; font-size: 0.85em;">${product.category}</p>
-                    <h4 style="font-size: 1.1em; color: #d4af37;">$${product.price.toFixed(2)}</h4>
-                    <button class="btn" onclick="addToCart(${product.id})">Add to Cart</button>
-                `;
-                productList.appendChild(card);
-            });
-        }
-
-        // কার্টে অ্যাড করা
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            cart.push(product);
-            saveAndRender();
-        }
-
-        // কার্ট থেকে রিমুভ করা
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            saveAndRender();
-        }
-
-        // চেকআউট ও অ্যাডমিনের কাছে মেসেজ পাঠানোর ফাংশন
-        function checkout() {
-            if(cart.length === 0) {
-                alert("Your cart is empty!");
-                return;
-            }
-
-            const newOrder = {
-                id: 'ORD-' + Math.floor(100000 + Math.random() * 900000),
-                items: [...cart],
-                total: cart.reduce((sum, item) => sum + item.price, 0),
-                status: 'Processing',
-                date: new Date().toLocaleTimeString()
-            };
-
-            orders.unshift(newOrder); // নতুন অর্ডার হিস্ট্রিতে যোগ হলো
-            
-            // অ্যাডমিনের কাছে নোটিফিকেশন পাঠানোর সিমুলেশন (তুমি এখানে WhatsApp/SMS API যুক্ত করতে পারো)
-            sendAdminNotification(newOrder);
-
-            cart = []; // কার্ট খালি করা হলো
-            saveAndRender();
-            alert("Order placed successfully! Check your Order History below.");
-        }
-
-        // অর্ডার ক্যান্সেল করার অপশন
-        function cancelOrder(orderId) {
-            const order = orders.find(o => o.id === orderId);
-            if(order) {
-                if(order.status === 'Processing') {
-                    order.status = 'Cancelled';
-                    sendCancellationNotification(order);
-                    saveAndRender();
-                    alert(`Order ${orderId} has been cancelled successfully.`);
-                } else {
-                    alert("This order cannot be cancelled.");
-                }
-            }
-        }
-
-        // অ্যাডমিন নোটিফিকেশন সিস্টেম
-        function sendAdminNotification(order) {
-            const msg = `[SherenVogue Alert] New Order Received! ID: ${order.id}, Total: $${order.total.toFixed(2)}`;
-            console.log("SENDING MESSAGE TO ADMIN:", msg);
-            // এখানে ব্যাকএন্ডে রিকোয়েস্ট পাঠিয়ে টেলিগ্রাম বা ওয়াটসঅ্যাপে মেসেজ পাঠানো যাবে।
-        }
-
-        function sendCancellationNotification(order) {
-            const msg = `[SherenVogue Alert] Order Cancelled by User! ID: ${order.id}`;
-            console.log("SENDING CANCELLATION MESSAGE TO ADMIN:", msg);
-        }
-
-        // লোকালস্টোরেজ আপডেট ও UI রিফ্রেশ
-        function saveAndRender() {
-            localStorage.setItem('sheren_cart', JSON.stringify(cart));
-            localStorage.setItem('sheren_orders', JSON.stringify(orders));
-            renderCart();
-            renderOrders();
-        }
-
-        // কার্ট UI আপডেট
-        function renderCart() {
-            const cartItems = document.getElementById('cart-items');
-            const cartTotal = document.getElementById('cart-total');
-            cartItems.innerHTML = '';
-            let total = 0;
-            
-            if(cart.length === 0) {
-                cartItems.innerHTML = '<p style="color: #888;">Your cart is empty</p>';
-            } else {
-                cart.forEach((item, index) => {
-                    total += item.price;
-                    cartItems.innerHTML += `
-                        <div class="cart-item">
-                            <span>${item.name}</span>
-                            <div>
-                                <span style="margin-right: 8px;">$${item.price.toFixed(2)}</span>
-                                <button style="background:none; border:none; color:red; cursor:pointer;" onclick="removeFromCart(${index})">✕</button>
-                            </div>
-                        </div>
-                    `;
-                });
-            }
-            cartTotal.innerText = total.toFixed(2);
-        }
-
-        // অর্ডার হিস্ট্রি UI আপডেট
-        function renderOrders() {
-            const orderHistory = document.getElementById('order-history');
-            orderHistory.innerHTML = '';
-
-            if(orders.length === 0) {
-                orderHistory.innerHTML = '<p style="color: #888;">No past orders found</p>';
-                return;
-            }
-
-            orders.forEach(order => {
-                let itemsList = order.items.map(i => i.name).join(', ');
-                let cancelBtn = order.status === 'Processing' ? `<button class="danger-btn" onclick="cancelOrder('${order.id}')">Cancel Order</button>` : '';
-                
-                orderHistory.innerHTML += `
-                    <div class="history-item" style="flex-direction: column; align-items: flex-start;">
-                        <div style="width: 100%; display: flex; justify-content: space-between;">
-                            <strong>${order.id}</strong>
-                            <span style="color: ${order.status === 'Cancelled' ? '#ff4c4c' : '#d4af37'};">${order.status}</span>
-                        </div>
-                        <p style="margin: 5px 0; font-size: 0.8em; color: #aaa;">Items: ${itemsList}</p>
-                        <div style="width: 100%; display: flex; justify-content: space-between; align-items: center;">
-                            <span style="font-weight: bold;">Total: $${order.total.toFixed(2)}</span>
-                            ${cancelBtn}
-                        </div>
+            products.forEach(p => {
+                productList.innerHTML += `
+                    <div class="product-card">
+                        <img src="${p.img}" alt="${p.name}">
+                        <h3>${p.name}</h3>
+                        <div class="price">$${p.price.toFixed(2)}</div>
+                        <button class="btn-add" onclick="addToCart(${p.id})">ADD TO CART</button>
                     </div>
                 `;
             });
         }
 
-        // পেজ লোড হওয়ার সময় ইনিশিয়ালাইজ করা
+        // Cart Functions
+        function toggleCart() {
+            document.getElementById('cart-sidebar').classList.toggle('open');
+            document.getElementById('overlay').style.display = 
+                document.getElementById('cart-sidebar').classList.contains('open') ? 'block' : 'none';
+        }
+
+        function addToCart(id) {
+            const product = products.find(p => p.id === id);
+            cart.push(product);
+            updateCart();
+            alert(product.name + " added to cart!");
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function updateCart() {
+            localStorage.setItem('sv_cart', JSON.stringify(cart));
+            document.getElementById('cart-counter').innerText = cart.length;
+            
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                total += item.price;
+                cartItems.innerHTML += `
+                    <div class="cart-item">
+                        <div>
+                            <h4>${item.name}</h4>
+                            <span style="color: #f57224; font-weight: bold;">$${item.price.toFixed(2)}</span>
+                        </div>
+                        <button style="background: red; color: white; border: none; cursor: pointer; padding: 5px;" onclick="removeFromCart(${index})">X</button>
+                    </div>
+                `;
+            });
+            document.getElementById('cart-total').innerText = total.toFixed(2);
+        }
+
+        // Checkout & Webhook (Make.com Email System)
+        async function processCheckout(e) {
+            e.preventDefault();
+            if(cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+
+            // Customer details
+            const customer = {
+                name: document.getElementById('cust-name').value,
+                email: document.getElementById('cust-email').value,
+                phone: document.getElementById('cust-phone').value,
+                address: document.getElementById('cust-address').value
+            };
+
+            const orderId = 'SV-' + Math.floor(Math.random() * 9000000);
+            const totalAmount = cart.reduce((sum, item) => sum + item.price, 0);
+
+            const orderPayload = {
+                orderId: orderId,
+                customerInfo: customer,
+                items: cart,
+                total: totalAmount,
+                date: new Date().toLocaleString()
+            };
+
+            // ========== EMAIL AUTOMATION SETUP ==========
+            // Make.com-এ একটা Custom Webhook তৈরি করে সেই লিংকটা নিচের URL-এ বসিয়ে দাও।
+            // তাহলে কেউ অর্ডার করলেই Make.com সেই ডেটা রিসিভ করে তোমার ইমেইলে পাঠিয়ে দেবে।
+            const WEBHOOK_URL = "https://hook.us1.make.com/YOUR_WEBHOOK_ID_HERE"; 
+            
+            try {
+                // Sending data to Make.com
+                await fetch(WEBHOOK_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(orderPayload)
+                });
+                console.log("Order data sent to Make.com Webhook!");
+            } catch (error) {
+                console.log("Webhook not connected yet, but order is saved locally.");
+            }
+
+            // Save Order locally
+            orderHistory.unshift(orderPayload);
+            localStorage.setItem('sv_orders', JSON.stringify(orderHistory));
+            
+            // Clear cart
+            cart = [];
+            updateCart();
+            renderOrders();
+            toggleCart();
+            document.getElementById('checkout-form').reset();
+            
+            alert(`Order Placed Successfully! Order ID: ${orderId}`);
+        }
+
+        // Render Order History
+        function renderOrders() {
+            const orderList = document.getElementById('order-history-list');
+            if(orderHistory.length === 0) {
+                orderList.innerHTML = '<p>No orders placed yet.</p>';
+                return;
+            }
+
+            orderList.innerHTML = '';
+            orderHistory.forEach(order => {
+                let itemsList = order.items.map(i => i.name).join(', ');
+                orderList.innerHTML += `
+                    <div class="order-history-card">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                            <strong>Order ID: ${order.orderId}</strong>
+                            <span style="color: green; font-weight: bold;">Processing</span>
+                        </div>
+                        <p style="margin: 5px 0; font-size: 14px; color: #555;">Items: ${itemsList}</p>
+                        <p style="margin: 5px 0; font-size: 14px;">Total: <strong style="color: #f57224;">$${order.total.toFixed(2)}</strong></p>
+                        <p style="margin: 5px 0; font-size: 12px; color: #888;">Date: ${order.date}</p>
+                    </div>
+                `;
+            });
+        }
+
+        // Initialize App
         renderProducts();
-        renderCart();
+        updateCart();
         renderOrders();
     </script>
 
