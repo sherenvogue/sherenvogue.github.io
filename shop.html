@@ -5,39 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SherenVogue | Exclusive Luxury</title>
     <style>
-        /* CSS: Luxury Theme + Responsive Design */
-        body { font-family: 'Georgia', serif; margin: 0; background-color: #111; color: #d4af37; overflow-x: hidden; }
+        /* Luxury Theme & Basic Setup */
+        body { font-family: 'Georgia', serif; margin: 0; background-color: #111; color: #d4af37; overflow-x: hidden; scroll-behavior: smooth; }
         * { box-sizing: border-box; }
         
-        /* Navbar */
-        .navbar { background-color: #0a0a0a; border-bottom: 1px solid #d4af37; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        /* Top Navbar */
+        .navbar { background-color: #0a0a0a; border-bottom: 1px solid #d4af37; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; flex-wrap: wrap; gap: 15px; }
         .navbar h1 { margin: 0; font-size: 24px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; }
-        .cart-icon { cursor: pointer; font-weight: bold; position: relative; font-size: 18px; }
+        
+        /* Search Bar */
+        .search-container { display: flex; flex: 1; max-width: 400px; min-width: 250px; }
+        .search-container input { width: 100%; padding: 8px 15px; border: 1px solid #d4af37; background: #1a1a1a; color: #fff; outline: none; border-radius: 4px 0 0 4px; }
+        .search-container button { background: #d4af37; border: 1px solid #d4af37; padding: 8px 15px; color: #111; font-weight: bold; cursor: pointer; border-radius: 0 4px 4px 0; }
+        
+        /* Nav Buttons */
+        .nav-actions { display: flex; gap: 20px; align-items: center; }
+        .nav-btn { cursor: pointer; font-weight: bold; font-size: 16px; color: #d4af37; text-decoration: none; position: relative; }
+        .nav-btn:hover { color: #fff; }
         .cart-count { background: #ff4c4c; color: white; border-radius: 50%; padding: 2px 8px; font-size: 12px; position: absolute; top: -10px; right: -15px; }
 
-        /* Container */
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .section-title { font-size: 22px; margin: 30px 0 15px 0; border-bottom: 1px solid #333; padding-bottom: 10px; text-transform: uppercase; }
+        /* Hero Banner */
+        .hero-banner { background: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200') no-repeat center center/cover; height: 350px; display: flex; align-items: center; padding-left: 50px; position: relative; }
+        .hero-banner::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
+        .hero-content { position: relative; z-index: 10; border-left: 4px solid #d4af37; padding-left: 20px; }
+        .hero-content h2 { margin: 0; font-size: 3em; color: #fff; text-transform: uppercase; text-shadow: 2px 2px 5px #000; }
+        .hero-content p { font-size: 1.2em; color: #d4af37; margin-top: 10px; text-shadow: 1px 1px 3px #000; }
+
+        /* Main Container */
+        .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+        .section-title { font-size: 22px; margin: 20px 0; border-bottom: 1px solid #333; padding-bottom: 10px; text-transform: uppercase; }
 
         /* Product Grid */
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 25px; }
         .product-card { background: #1a1a1a; border: 1px solid #333; border-radius: 5px; padding: 15px; text-align: center; cursor: pointer; transition: 0.3s; }
-        .product-card:hover { border-color: #d4af37; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2); }
-        .product-card img { width: 100%; height: 200px; object-fit: cover; margin-bottom: 15px; border-radius: 3px; }
+        .product-card:hover { border-color: #d4af37; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2); transform: translateY(-3px); }
+        .product-card img { width: 100%; height: 220px; object-fit: cover; margin-bottom: 15px; border-radius: 3px; }
         .product-card h3 { font-size: 16px; margin: 10px 0; color: #fff; }
         .product-card .price { color: #d4af37; font-size: 18px; font-weight: bold; }
 
-        /* Product Details Modal (Full Screen) */
+        /* Full Screen Details Modal */
         .details-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 300; justify-content: center; align-items: center; padding: 20px; }
-        .details-content { background: #111; border: 1px solid #d4af37; max-width: 800px; width: 100%; max-height: 90vh; overflow-y: auto; display: flex; flex-wrap: wrap; border-radius: 8px; position: relative; }
-        .details-close { position: absolute; top: 15px; right: 20px; background: none; border: none; color: #ff4c4c; font-size: 24px; cursor: pointer; }
+        .details-content { background: #111; border: 1px solid #d4af37; max-width: 900px; width: 100%; max-height: 90vh; overflow-y: auto; display: flex; flex-wrap: wrap; border-radius: 8px; position: relative; }
+        .details-close { position: absolute; top: 15px; right: 20px; background: none; border: none; color: #ff4c4c; font-size: 24px; cursor: pointer; z-index: 10; }
         .details-img { flex: 1; min-width: 300px; padding: 20px; }
         .details-img img { width: 100%; border-radius: 5px; }
         .details-info { flex: 1; min-width: 300px; padding: 30px 20px; color: #fff; }
         .color-options { display: flex; gap: 10px; margin: 15px 0; }
-        .color-circle { width: 30px; height: 30px; border-radius: 50%; cursor: pointer; border: 2px solid #555; }
+        .color-circle { width: 35px; height: 35px; border-radius: 50%; cursor: pointer; border: 2px solid #555; }
         .color-circle.active { border-color: #d4af37; box-shadow: 0 0 10px #d4af37; }
-        .btn-add { background: #d4af37; color: #111; border: none; padding: 12px; width: 100%; font-weight: bold; cursor: pointer; font-size: 16px; margin-top: 20px; text-transform: uppercase; }
+        .btn-add { background: #d4af37; color: #111; border: none; padding: 12px; width: 100%; font-weight: bold; cursor: pointer; font-size: 16px; margin-top: 20px; text-transform: uppercase; transition: 0.3s; }
         .btn-add:hover { background: #fff; }
 
         /* Cart Sidebar */
@@ -45,43 +61,56 @@
         .cart-sidebar { position: fixed; top: 0; right: -400px; width: 350px; height: 100%; background: #1a1a1a; border-left: 1px solid #d4af37; transition: 0.4s; z-index: 201; padding: 20px; overflow-y: auto; color: #fff; }
         .cart-sidebar.open { right: 0; }
         .close-cart { background: #ff4c4c; color: white; border: none; padding: 5px 10px; cursor: pointer; float: right; }
-        
         .checkout-form { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
         .checkout-form input { padding: 10px; background: #333; color: white; border: 1px solid #555; }
-        .checkout-form input:focus { border-color: #d4af37; outline: none; }
-
-        /* Order History */
-        .order-card { background: #1a1a1a; padding: 15px; margin-bottom: 15px; border-left: 3px solid #d4af37; border-radius: 4px; }
-        .btn-cancel { background: #8b0000; color: white; padding: 5px 10px; border: none; cursor: pointer; font-size: 14px; margin-top: 10px; }
+        
+        /* Order History Section */
+        #history-section { scroll-margin-top: 100px; }
+        .order-card { background: #1a1a1a; padding: 15px; margin-bottom: 15px; border-left: 3px solid #d4af37; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+        .btn-cancel { background: #8b0000; color: white; padding: 8px 12px; border: none; cursor: pointer; font-size: 14px; margin-top: 10px; border-radius: 3px; }
         .btn-cancel:hover { background: #ff4c4c; }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-            .cart-sidebar { width: 100%; right: -100%; }
-        }
+        .no-results { width: 100%; text-align: center; color: #888; padding: 20px; font-size: 1.2em; }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
+    <!-- Navbar with Search and History Button -->
     <div class="navbar">
-        <h1>SherenVogue</h1>
-        <div class="cart-icon" onclick="toggleCart()">
-            🛒 Cart <span class="cart-count" id="cart-counter">0</span>
+        <h1 onclick="window.scrollTo(0,0)">SherenVogue</h1>
+        
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search products..." onkeyup="filterProducts()">
+            <button onclick="filterProducts()">🔍</button>
+        </div>
+
+        <div class="nav-actions">
+            <a href="#history-section" class="nav-btn">📝 Order History</a>
+            <div class="nav-btn" onclick="toggleCart()">
+                🛒 Cart <span class="cart-count" id="cart-counter">0</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+        <div class="hero-content">
+            <h2>Sheren Alarion</h2>
+            <p>The True Definition of Luxury and Elegance</p>
         </div>
     </div>
 
     <!-- Main Content -->
     <div class="container">
-        <h2 class="section-title">Sheren Alarion Collection</h2>
+        <!-- Products Grid -->
+        <h2 class="section-title">Exclusive Collection</h2>
         <div class="product-grid" id="product-list"></div>
 
-        <h2 class="section-title" style="margin-top: 50px;">My Order History</h2>
+        <!-- Order History Area -->
+        <h2 class="section-title" id="history-section" style="margin-top: 60px;">My Order History</h2>
         <div id="order-history-list"></div>
     </div>
 
-    <!-- Full Screen Product Details Modal -->
+    <!-- Product Details Modal -->
     <div class="details-modal" id="details-modal">
         <div class="details-content">
             <button class="details-close" onclick="closeDetails()">✕</button>
@@ -89,8 +118,8 @@
                 <img id="detail-img" src="" alt="Product">
             </div>
             <div class="details-info">
-                <h2 id="detail-title" style="color: #d4af37;"></h2>
-                <h3 id="detail-price"></h3>
+                <h2 id="detail-title" style="color: #d4af37; margin-top: 0;"></h2>
+                <h3 id="detail-price" style="font-size: 1.5em;"></h3>
                 <p id="detail-desc" style="color: #bbb; line-height: 1.6;"></p>
                 
                 <h4 style="margin-bottom: 5px;">Select Color:</h4>
@@ -109,9 +138,8 @@
         <div id="cart-items"></div>
         <h3 style="text-align: right; border-top: 1px dashed #555; padding-top: 10px;">Total: $<span id="cart-total">0.00</span></h3>
         
-        <h3 style="color: #d4af37; margin-top: 30px;">Checkout</h3>
+        <h3 style="color: #d4af37; margin-top: 30px;">Checkout Details</h3>
         <form class="checkout-form" id="checkout-form" onsubmit="processCheckout(event)">
-            <!-- কাস্টমার ইনফরমেশন অটো-ফিল হবে -->
             <input type="text" id="cust-name" placeholder="Full Name" required>
             <input type="email" id="cust-email" placeholder="Email Address" required>
             <input type="text" id="cust-phone" placeholder="Phone Number" required>
@@ -122,10 +150,9 @@
 
     <script>
         // ======= তোমার Make.com ওয়েবহুক লিংক এখানে দাও =======
-        // এই লিংকটি না বসালে তোমার ইমেইলে কোনো মেসেজ যাবে না!
         const MAKE_WEBHOOK_URL = "https://hook.us1.make.com/YOUR_WEBHOOK_LINK_HERE"; 
         
-        // Product Data (2 Colors Each)
+        // Product Data 
         const products = [
             { 
                 id: 101, name: "Sheren Alarion Handbag", price: 499.00, 
@@ -144,6 +171,12 @@
                 desc: "Finest woven apparel designed for absolute comfort and royal elegance.",
                 img: "https://images.unsplash.com/photo-1596755094514-f87e32f85e2c?w=500",
                 colors: [{name: "Classic White", hex: "#ffffff"}, {name: "Navy Blue", hex: "#000080"}]
+            },
+            { 
+                id: 104, name: "Sheren Exclusive Perfume", price: 120.00, 
+                desc: "A signature scent that leaves a lasting impression.",
+                img: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=500",
+                colors: [{name: "Gold Edition", hex: "#d4af37"}, {name: "Silver Edition", hex: "#c0c0c0"}]
             }
         ];
 
@@ -152,11 +185,17 @@
         let activeProduct = null;
         let selectedColor = null;
 
-        // Render Products
-        function renderProducts() {
+        // Render Products with Search Filter
+        function renderProducts(productList = products) {
             const list = document.getElementById('product-list');
             list.innerHTML = '';
-            products.forEach(p => {
+            
+            if(productList.length === 0) {
+                list.innerHTML = '<div class="no-results">No products found matching your search.</div>';
+                return;
+            }
+
+            productList.forEach(p => {
                 list.innerHTML += `
                     <div class="product-card" onclick="openDetails(${p.id})">
                         <img src="${p.img}" alt="${p.name}">
@@ -167,17 +206,23 @@
             });
         }
 
-        // Open Full Screen Details
+        // Live Search Logic
+        function filterProducts() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const filtered = products.filter(p => p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query));
+            renderProducts(filtered);
+        }
+
+        // Product Details Logic
         function openDetails(id) {
             activeProduct = products.find(p => p.id === id);
-            selectedColor = activeProduct.colors[0].name; // Default color
+            selectedColor = activeProduct.colors[0].name; 
             
             document.getElementById('detail-img').src = activeProduct.img;
             document.getElementById('detail-title').innerText = activeProduct.name;
             document.getElementById('detail-price').innerText = "$" + activeProduct.price.toFixed(2);
             document.getElementById('detail-desc').innerText = activeProduct.desc;
             
-            // Render Colors
             const colorDiv = document.getElementById('detail-colors');
             colorDiv.innerHTML = '';
             activeProduct.colors.forEach((c, idx) => {
@@ -192,9 +237,7 @@
             document.getElementById('details-modal').style.display = 'flex';
         }
 
-        function closeDetails() {
-            document.getElementById('details-modal').style.display = 'none';
-        }
+        function closeDetails() { document.getElementById('details-modal').style.display = 'none'; }
 
         function selectColor(element, colorName) {
             document.querySelectorAll('.color-circle').forEach(el => el.classList.remove('active'));
@@ -202,13 +245,13 @@
             selectedColor = colorName;
         }
 
-        // Cart Logic
+        // Cart & Checkout Logic
         function addToCartFromDetails() {
             const item = { ...activeProduct, selectedColor: selectedColor, cartId: Date.now() };
             cart.push(item);
             updateCart();
             closeDetails();
-            toggleCart(); // ওপেন কার্ট
+            toggleCart(); 
         }
 
         function removeFromCart(cartId) {
@@ -219,7 +262,6 @@
         function updateCart() {
             localStorage.setItem('sv_cart', JSON.stringify(cart));
             document.getElementById('cart-counter').innerText = cart.length;
-            
             const cartItems = document.getElementById('cart-items');
             cartItems.innerHTML = '';
             let total = 0;
@@ -242,12 +284,10 @@
 
         function toggleCart() {
             document.getElementById('cart-sidebar').classList.toggle('open');
-            document.getElementById('cart-overlay').style.display = 
-                document.getElementById('cart-sidebar').classList.contains('open') ? 'block' : 'none';
-            loadCustomerData(); // কার্ট খুললেই অটো-ফিল হবে
+            document.getElementById('cart-overlay').style.display = document.getElementById('cart-sidebar').classList.contains('open') ? 'block' : 'none';
+            loadCustomerData(); 
         }
 
-        // Autofill Customer Data
         function loadCustomerData() {
             const savedData = JSON.parse(localStorage.getItem('sv_user_info'));
             if(savedData) {
@@ -258,7 +298,6 @@
             }
         }
 
-        // Checkout Process & API Mail Request
         async function processCheckout(e) {
             e.preventDefault();
             if(cart.length === 0) { alert("Cart is empty!"); return; }
@@ -270,10 +309,9 @@
                 address: document.getElementById('cust-address').value
             };
 
-            // Save for autofill next time
             localStorage.setItem('sv_user_info', JSON.stringify(customer));
-
             const orderId = 'SV-' + Math.floor(100000 + Math.random() * 900000);
+            
             const orderPayload = {
                 type: "NEW_ORDER",
                 orderId: orderId,
@@ -284,9 +322,7 @@
                 date: new Date().toLocaleString()
             };
 
-            // Send Email via Webhook
             sendEmailNotification(orderPayload);
-
             orderHistory.unshift(orderPayload);
             localStorage.setItem('sv_orders', JSON.stringify(orderHistory));
             
@@ -294,67 +330,61 @@
             updateCart();
             renderOrders();
             toggleCart();
-            alert(`Order Placed! Order ID: ${orderId}. You can check history.`);
+            
+            alert(`Order Placed Successfully! ID: ${orderId}`);
+            document.getElementById('history-section').scrollIntoView({behavior: 'smooth'});
         }
 
-        // Cancel Order Process
+        // Cancel Logic
         function cancelOrder(orderId) {
             let order = orderHistory.find(o => o.orderId === orderId);
             if(order && order.status === "Processing") {
                 order.status = "Cancelled";
                 localStorage.setItem('sv_orders', JSON.stringify(orderHistory));
                 renderOrders();
-                
-                // Send Cancel Email via Webhook
                 sendEmailNotification({ type: "CANCEL_ORDER", orderId: orderId, customer: order.customer });
                 alert("Order Cancelled Successfully!");
             }
         }
 
-        // Webhook Notification Function (Orders & Cancellations)
+        // API Call for Emails
         async function sendEmailNotification(payload) {
-            if(MAKE_WEBHOOK_URL.includes("YOUR_WEBHOOK")) {
-                console.warn("Make.com URL not setup! Emails will not be sent.");
-                return;
-            }
+            if(MAKE_WEBHOOK_URL.includes("YOUR_WEBHOOK")) return;
             try {
                 await fetch(MAKE_WEBHOOK_URL, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payload)
                 });
-                console.log("Email request sent to Make.com!");
-            } catch (error) {
-                console.error("Error sending email webhook", error);
-            }
+            } catch (error) { console.error("Webhook Error:", error); }
         }
 
-        // Render Order History
+        // Render Order History UI
         function renderOrders() {
             const list = document.getElementById('order-history-list');
             list.innerHTML = '';
-            if(orderHistory.length === 0) { list.innerHTML = '<p style="color:#888;">No orders found.</p>'; return; }
+            if(orderHistory.length === 0) { list.innerHTML = '<p style="color:#888;">No previous orders found.</p>'; return; }
 
             orderHistory.forEach(order => {
                 let itemsList = order.items.map(i => `${i.name} (${i.selectedColor})`).join(', ');
                 let isCancelable = order.status === "Processing" ? `<button class="btn-cancel" onclick="cancelOrder('${order.orderId}')">Cancel Order</button>` : '';
-                let statusColor = order.status === "Cancelled" ? "red" : "#d4af37";
+                let statusColor = order.status === "Cancelled" ? "#ff4c4c" : "#d4af37";
 
                 list.innerHTML += `
                     <div class="order-card">
-                        <div style="display: flex; justify-content: space-between;">
-                            <strong>Order ID: ${order.orderId}</strong>
-                            <strong style="color: ${statusColor};">${order.status}</strong>
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 10px;">
+                            <strong style="font-size: 1.2em;">Order ID: ${order.orderId}</strong>
+                            <strong style="color: ${statusColor}; border: 1px solid ${statusColor}; padding: 3px 8px; border-radius: 3px;">${order.status}</strong>
                         </div>
-                        <p style="font-size: 14px; margin: 8px 0; color: #ccc;">Items: ${itemsList}</p>
-                        <p style="margin: 0;">Total: <strong style="color: #d4af37;">$${order.total.toFixed(2)}</strong></p>
+                        <p style="font-size: 14px; margin: 8px 0; color: #ddd;">Items: ${itemsList}</p>
+                        <p style="margin: 0; font-size: 1.1em;">Total: <strong style="color: #d4af37;">$${order.total.toFixed(2)}</strong></p>
                         ${isCancelable}
                     </div>
                 `;
             });
         }
 
-        // Init
+        // Initialization
         renderProducts();
         updateCart();
         renderOrders();
