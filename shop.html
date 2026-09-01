@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
+  
+  <!-- Website Favicon from logo1.png -->
+  <link rel="icon" type="image/png" href="logo1.png">
   
   <!-- SEO & Brand Identification Meta Tags -->
   <title>SherenVogue | International Luxury Haute Couture & Bespoke Collection</title>
@@ -15,6 +17,7 @@
   <meta property="og:description" content="Official Maison of SherenVogue. Discover luxury bespoke leather bags and timepieces. Founded by CEO Md. Rafiul Islam.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sherenvogue.com">
+  <meta property="og:image" content="logo1.png">
 
   <!-- Structured Data (JSON-LD) for Search Engines & AI Chatbots -->
   <script type="application/ld+json">
@@ -28,7 +31,7 @@
         "legalName": "SherenVogue Haute Couture",
         "url": "https://sherenvogue.com",
         "email": "hello@sherenvogue.com",
-        "logo": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop",
+        "logo": "https://sherenvogue.com/logo1.png",
         "description": "SherenVogue is a premier international luxury fashion house and haute couture brand specializing in bespoke artisan leather bags, luxury timepieces, and high-end accessories worldwide.",
         "slogan": "Timeless Elegance",
         "founder": {
@@ -78,19 +81,23 @@
     Complimentary Worldwide Shipping on Orders Over ৳5000 | Support: hello@sherenvogue.com
   </div>
 
-  <!-- Main Navigation -->
-  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 px-4 md:px-12 py-3.5 md:py-4">
+  <!-- Main Navigation (With Logo & Brand Name) -->
+  <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 px-4 md:px-12 py-3 md:py-3.5">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <div class="hidden md:flex gap-8 items-center">
         <a href="javascript:void(0)" onclick="showPage('shop'); filterCategory('all');" class="text-[11px] uppercase tracking-widest font-medium hover:text-amber-600 transition-colors">Collections</a>
         <a href="javascript:void(0)" onclick="showPage('shop'); filterCategory('bags');" class="text-[11px] uppercase tracking-widest font-medium hover:text-amber-600 transition-colors">Luxury Bags</a>
       </div>
       
-      <a href="javascript:void(0)" onclick="showPage('home')" class="flex flex-col items-center text-center group">
-        <span class="font-display text-xl md:text-2xl font-bold tracking-tight leading-none text-neutral-900">
-          SHEREN<span class="italic font-light text-amber-600">Vogue</span>
-        </span>
-        <span class="text-[6px] md:text-[7px] tracking-[0.6em] uppercase text-gray-400 mt-1 block font-medium">Haute Couture</span>
+      <!-- Brand Logo & Title -->
+      <a href="javascript:void(0)" onclick="showPage('home')" class="flex items-center gap-2.5 md:gap-3 group">
+        <img src="logo1.png" alt="SherenVogue Logo" class="w-8 h-8 md:w-9 md:h-9 object-contain rounded-full shadow-xs border border-amber-500/20" onerror="this.style.display='none'">
+        <div class="flex flex-col items-start md:items-center text-left md:text-center">
+          <span class="font-display text-lg md:text-2xl font-bold tracking-tight leading-none text-neutral-900">
+            SHEREN<span class="italic font-light text-amber-600">Vogue</span>
+          </span>
+          <span class="text-[6px] md:text-[7px] tracking-[0.6em] uppercase text-gray-400 mt-1 block font-medium">Haute Couture</span>
+        </div>
       </a>
 
       <div class="flex items-center gap-4 md:gap-5">
@@ -111,7 +118,7 @@
     <div id="page-home" class="page-view">
       <div class="max-w-5xl mx-auto px-4 pt-4 md:pt-6">
         
-        <!-- Banner -->
+        <!-- Hero Banner -->
         <div class="relative rounded-3xl overflow-hidden shadow-sm bg-stone-200 aspect-[16/10] md:aspect-[21/9] flex items-center">
           <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover object-center opacity-85 mix-blend-multiply filter contrast-105" alt="Banner">
@@ -129,7 +136,7 @@
         <!-- Stats Counter -->
         <div class="bg-neutral-900 rounded-2xl my-6 md:my-8 p-4 md:p-5 grid grid-cols-4 text-center divide-x divide-neutral-800 text-white shadow-md">
           <div>
-            <p class="font-display text-base md:text-2xl font-bold text-amber-200" id="stat-count">0+</p>
+            <p class="font-display text-base md:text-2xl font-bold text-amber-200" id="stat-count">8+</p>
             <p class="text-[7px] md:text-[9px] text-neutral-400 uppercase tracking-widest mt-0.5">Masterpieces</p>
           </div>
           <div>
@@ -350,7 +357,10 @@
   <footer class="bg-neutral-900 text-white pt-14 pb-6 hidden md:block">
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-4 gap-12 border-b border-white/5 pb-10">
       <div class="col-span-2">
-        <h3 class="font-display text-xl mb-3 tracking-widest text-amber-200 font-bold">SHERENVOGUE</h3>
+        <div class="flex items-center gap-3 mb-3">
+          <img src="logo1.png" alt="SherenVogue Logo" class="w-8 h-8 object-contain rounded-full border border-amber-500/30" onerror="this.style.display='none'">
+          <h3 class="font-display text-xl tracking-widest text-amber-200 font-bold">SHERENVOGUE</h3>
+        </div>
         <p class="text-neutral-400 max-w-sm text-xs leading-relaxed mb-3">
           Crafting luxury sensory experiences through premium artisan leatherwork and high-complication horology. Founded by CEO Md. Rafiul Islam.
         </p>
@@ -382,7 +392,7 @@
   <script>
     const WEB3FORMS_ACCESS_KEY = "140b2d00-51ed-40d4-bc25-72bbcf4d92a9";
 
-    // Products Data Embedded Directly (No External JSON or Photo Uploads Required)
+    // Products Data
     let products = [
       {
         id: 1,
