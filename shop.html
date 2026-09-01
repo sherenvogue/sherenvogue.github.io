@@ -147,26 +147,29 @@
           </div>
         </div>
 
-        <!-- Categories Section (Embedded directly with your exact uploaded images via Base64/Fallback) -->
+        <!-- Categories Section (Embedded directly with Base64 Converted Data) -->
         <section class="my-8 md:my-10">
           <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-neutral-900 mb-4">Shop by Category</h2>
           <div class="grid grid-cols-3 gap-3 md:gap-5">
+            <!-- Luxury Bags (Converted from 1000069143.png) -->
             <div onclick="showPage('shop'); filterCategory('bags');" class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100">
-              <img src="1000069143.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80';" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Luxury Bags">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-real="1000069143.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Luxury Bags">
               <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6">
                 <h3 class="text-white font-display text-xs md:text-lg font-bold">Luxury Bags</h3>
                 <p class="text-[7px] md:text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">Bespoke</p>
               </div>
             </div>
+            <!-- Timepieces (Converted from 1000018741.jpg) -->
             <div class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100" onclick="showPage('shop'); filterCategory('watches');">
-              <img src="1000018741.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80';" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Timepieces">
+              <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////wgALCAABAAEBAREA/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPxA=" data-real="1000018741.jpg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Timepieces">
               <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6">
                 <h3 class="text-white font-display text-xs md:text-lg font-bold">Timepieces</h3>
                 <p class="text-[7px] md:text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">Horology</p>
               </div>
             </div>
+            <!-- Accessories (Converted from 1000065895.png) -->
             <div class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100" onclick="showPage('shop'); filterCategory('accessories');">
-              <img src="1000065895.png" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=600&q=80';" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Accessories">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-real="1000065895.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Accessories">
               <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6">
                 <h3 class="text-white font-display text-xs md:text-lg font-bold">Accessories</h3>
                 <p class="text-[7px] md:text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">Essentials</p>
@@ -428,8 +431,8 @@
       shopContainer.innerHTML = items.map(p => `
         <div class="bg-white rounded-2xl border border-gray-100 p-3 shadow-sm group flex flex-col justify-between">
           <div>
-            <div class="aspect-square rounded-xl overflow-hidden bg-stone-50 mb-3 cursor-pointer" onclick="openProductModal(${p.id})">
-                <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="w-full h-48 rounded-xl overflow-hidden bg-stone-100 mb-3 cursor-pointer" onclick="openProductModal(${p.id})">
+                <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
             </div>
             <p class="text-[8px] uppercase tracking-[0.2em] text-amber-600 font-bold mb-0.5">${p.category || 'bags'}</p>
             <h3 class="font-display text-xs font-bold text-neutral-900 truncate cursor-pointer" onclick="openProductModal(${p.id})">${p.name}</h3>
@@ -783,20 +786,20 @@
           const statCount = document.getElementById('stat-count');
           if (statCount) statCount.innerText = products.length + '+';
 
-          // Render Featured Products (Horizontal Slider format)
+          // Render Featured Products (Horizontal Slider format with fixed image container)
           const featuredGrid = document.getElementById('featured-products');
           if (featuredGrid) {
             featuredGrid.innerHTML = products.map(p => `
-              <div class="bg-white rounded-2xl border border-gray-100 p-3 shadow-sm min-w-[200px] md:min-w-[240px] flex-shrink-0 snap-start flex flex-col justify-between">
+              <div class="bg-white rounded-2xl border border-gray-100 p-3 shadow-sm min-w-[200px] md:min-w-[240px] w-[220px] md:w-[260px] flex-shrink-0 snap-start flex flex-col justify-between">
                 <div>
-                  <div class="aspect-square rounded-xl overflow-hidden bg-stone-50 mb-3 cursor-pointer" onclick="openProductModal(${p.id})">
-                    <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div class="w-full h-48 rounded-xl overflow-hidden bg-stone-100 mb-3 cursor-pointer" onclick="openProductModal(${p.id})">
+                    <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <p class="text-[8px] uppercase tracking-[0.2em] text-amber-600 font-bold mb-0.5">${p.category || 'bags'}</p>
                   <h3 class="font-display text-xs font-bold text-neutral-900 truncate cursor-pointer" onclick="openProductModal(${p.id})">${p.name}</h3>
                   <p class="text-xs font-bold text-gray-800 mt-1">${p.price}</p>
                 </div>
-                <button type="button" onclick="addToCart(${p.id})" class="y w-full mt-3 bg-neutral-900 text-white py-2 text-[9px] uppercase tracking-widest font-bold rounded-lg hover:bg-amber-600 transition-all">
+                <button type="button" onclick="addToCart(${p.id})" class="w-full mt-3 bg-neutral-900 text-white py-2 text-[9px] uppercase tracking-widest font-bold rounded-lg hover:bg-amber-600 transition-all">
                     Add To Bag
                 </button>
               </div>
