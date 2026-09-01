@@ -3,57 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SherenVogue | Daraz Style Luxury Marketplace</title>
+    <title>SherenVogue | Exclusive Luxury</title>
     <style>
-        /* CSS: Daraz Style + Luxury Colors */
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f4f4f4; color: #333; }
+        /* CSS: Luxury Theme + Responsive Design */
+        body { font-family: 'Georgia', serif; margin: 0; background-color: #111; color: #d4af37; overflow-x: hidden; }
+        * { box-sizing: border-box; }
         
-        /* Top Navigation Bar */
-        .navbar { background-color: #111; color: #d4af37; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-        .navbar h1 { margin: 0; font-size: 24px; letter-spacing: 2px; text-transform: uppercase; }
-        .search-bar { flex: 1; margin: 0 40px; display: flex; }
-        .search-bar input { width: 100%; padding: 10px; border: none; outline: none; border-radius: 4px 0 0 4px; }
-        .search-bar button { padding: 10px 20px; background: #d4af37; border: none; font-weight: bold; cursor: pointer; border-radius: 0 4px 4px 0; }
-        .cart-icon { cursor: pointer; font-weight: bold; position: relative; }
-        .cart-count { background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; position: absolute; top: -10px; right: -15px; }
+        /* Navbar */
+        .navbar { background-color: #0a0a0a; border-bottom: 1px solid #d4af37; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+        .navbar h1 { margin: 0; font-size: 24px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; }
+        .cart-icon { cursor: pointer; font-weight: bold; position: relative; font-size: 18px; }
+        .cart-count { background: #ff4c4c; color: white; border-radius: 50%; padding: 2px 8px; font-size: 12px; position: absolute; top: -10px; right: -15px; }
 
-        /* Banner Section */
-        .hero-banner { background: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200') no-repeat center center/cover; height: 350px; display: flex; align-items: center; padding-left: 50px; color: white; margin-bottom: 20px; }
-        .hero-text { background: rgba(0,0,0,0.6); padding: 30px; border-left: 4px solid #d4af37; }
+        /* Container */
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .section-title { font-size: 22px; margin: 30px 0 15px 0; border-bottom: 1px solid #333; padding-bottom: 10px; text-transform: uppercase; }
 
-        /* Main Container */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        /* Product Grid */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+        .product-card { background: #1a1a1a; border: 1px solid #333; border-radius: 5px; padding: 15px; text-align: center; cursor: pointer; transition: 0.3s; }
+        .product-card:hover { border-color: #d4af37; box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2); }
+        .product-card img { width: 100%; height: 200px; object-fit: cover; margin-bottom: 15px; border-radius: 3px; }
+        .product-card h3 { font-size: 16px; margin: 10px 0; color: #fff; }
+        .product-card .price { color: #d4af37; font-size: 18px; font-weight: bold; }
+
+        /* Product Details Modal (Full Screen) */
+        .details-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 300; justify-content: center; align-items: center; padding: 20px; }
+        .details-content { background: #111; border: 1px solid #d4af37; max-width: 800px; width: 100%; max-height: 90vh; overflow-y: auto; display: flex; flex-wrap: wrap; border-radius: 8px; position: relative; }
+        .details-close { position: absolute; top: 15px; right: 20px; background: none; border: none; color: #ff4c4c; font-size: 24px; cursor: pointer; }
+        .details-img { flex: 1; min-width: 300px; padding: 20px; }
+        .details-img img { width: 100%; border-radius: 5px; }
+        .details-info { flex: 1; min-width: 300px; padding: 30px 20px; color: #fff; }
+        .color-options { display: flex; gap: 10px; margin: 15px 0; }
+        .color-circle { width: 30px; height: 30px; border-radius: 50%; cursor: pointer; border: 2px solid #555; }
+        .color-circle.active { border-color: #d4af37; box-shadow: 0 0 10px #d4af37; }
+        .btn-add { background: #d4af37; color: #111; border: none; padding: 12px; width: 100%; font-weight: bold; cursor: pointer; font-size: 16px; margin-top: 20px; text-transform: uppercase; }
+        .btn-add:hover { background: #fff; }
+
+        /* Cart Sidebar */
+        .cart-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 200; }
+        .cart-sidebar { position: fixed; top: 0; right: -400px; width: 350px; height: 100%; background: #1a1a1a; border-left: 1px solid #d4af37; transition: 0.4s; z-index: 201; padding: 20px; overflow-y: auto; color: #fff; }
+        .cart-sidebar.open { right: 0; }
+        .close-cart { background: #ff4c4c; color: white; border: none; padding: 5px 10px; cursor: pointer; float: right; }
         
-        /* Section Titles */
-        .section-title { font-size: 22px; margin: 30px 0 15px 0; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
-
-        /* Product Grid (Daraz Style) */
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
-        .product-card { background: #fff; border-radius: 5px; padding: 15px; text-align: center; transition: 0.3s; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .product-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.2); transform: translateY(-3px); }
-        .product-card img { width: 100%; height: 200px; object-fit: cover; margin-bottom: 15px; }
-        .product-card h3 { font-size: 16px; margin: 10px 0; height: 40px; overflow: hidden; }
-        .product-card .price { color: #f57224; font-size: 20px; font-weight: bold; margin-bottom: 15px; }
-        .btn-add { background: #111; color: #d4af37; border: none; padding: 10px; width: 100%; font-weight: bold; cursor: pointer; border-radius: 3px; transition: 0.3s; }
-        .btn-add:hover { background: #d4af37; color: #111; }
-
-        /* Modal / Sidebar for Cart & Checkout */
-        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 200; }
-        .cart-modal { position: fixed; top: 0; right: -400px; width: 350px; height: 100%; background: #fff; box-shadow: -5px 0 15px rgba(0,0,0,0.2); transition: 0.4s; z-index: 201; padding: 20px; overflow-y: auto; }
-        .cart-modal.open { right: 0; }
-        .close-btn { background: red; color: white; border: none; padding: 5px 10px; cursor: pointer; float: right; font-weight: bold; }
-        
-        .cart-item { display: flex; justify-content: space-between; margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .cart-item h4 { margin: 0 0 5px 0; font-size: 14px; }
-        
-        /* Checkout Form */
         .checkout-form { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
-        .checkout-form input { padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
-        .btn-checkout { background: #f57224; color: white; padding: 12px; border: none; cursor: pointer; font-size: 16px; font-weight: bold; border-radius: 4px; }
-        .btn-checkout:hover { background: #d05b1c; }
+        .checkout-form input { padding: 10px; background: #333; color: white; border: 1px solid #555; }
+        .checkout-form input:focus { border-color: #d4af37; outline: none; }
 
         /* Order History */
-        .order-history-card { background: #fff; padding: 15px; margin-bottom: 10px; border-left: 4px solid #d4af37; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+        .order-card { background: #1a1a1a; padding: 15px; margin-bottom: 15px; border-left: 3px solid #d4af37; border-radius: 4px; }
+        .btn-cancel { background: #8b0000; color: white; padding: 5px 10px; border: none; cursor: pointer; font-size: 14px; margin-top: 10px; }
+        .btn-cancel:hover { background: #ff4c4c; }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .cart-sidebar { width: 100%; right: -100%; }
+        }
     </style>
 </head>
 <body>
@@ -61,98 +67,152 @@
     <!-- Navbar -->
     <div class="navbar">
         <h1>SherenVogue</h1>
-        <div class="search-bar">
-            <input type="text" placeholder="Search in SherenVogue...">
-            <button>SEARCH</button>
-        </div>
         <div class="cart-icon" onclick="toggleCart()">
             🛒 Cart <span class="cart-count" id="cart-counter">0</span>
         </div>
     </div>
 
-    <!-- Hero Banner -->
-    <div class="hero-banner">
-        <div class="hero-text">
-            <h2 style="margin:0; font-size: 2.5em;">Sheren Alarion Collection</h2>
-            <p style="font-size: 1.2em;">Up to 40% Off on Luxury Items</p>
-        </div>
-    </div>
-
+    <!-- Main Content -->
     <div class="container">
-        <!-- Flash Sale / Products -->
-        <h2 class="section-title">Just For You</h2>
+        <h2 class="section-title">Sheren Alarion Collection</h2>
         <div class="product-grid" id="product-list"></div>
 
-        <!-- Order History -->
-        <h2 class="section-title">My Order History</h2>
-        <div id="order-history-list">
-            <p>No orders placed yet.</p>
+        <h2 class="section-title" style="margin-top: 50px;">My Order History</h2>
+        <div id="order-history-list"></div>
+    </div>
+
+    <!-- Full Screen Product Details Modal -->
+    <div class="details-modal" id="details-modal">
+        <div class="details-content">
+            <button class="details-close" onclick="closeDetails()">✕</button>
+            <div class="details-img">
+                <img id="detail-img" src="" alt="Product">
+            </div>
+            <div class="details-info">
+                <h2 id="detail-title" style="color: #d4af37;"></h2>
+                <h3 id="detail-price"></h3>
+                <p id="detail-desc" style="color: #bbb; line-height: 1.6;"></p>
+                
+                <h4 style="margin-bottom: 5px;">Select Color:</h4>
+                <div class="color-options" id="detail-colors"></div>
+                
+                <button class="btn-add" onclick="addToCartFromDetails()">Add To Cart</button>
+            </div>
         </div>
     </div>
 
-    <!-- Cart Overlay & Modal -->
-    <div class="modal-overlay" id="overlay" onclick="toggleCart()"></div>
-    <div class="cart-modal" id="cart-sidebar">
-        <button class="close-btn" onclick="toggleCart()">X</button>
-        <h2>Your Cart</h2>
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <button class="close-cart" onclick="toggleCart()">X</button>
+        <h2 style="color: #d4af37;">Your Cart</h2>
         <div id="cart-items"></div>
-        <h3 style="text-align: right; margin-top: 20px;">Total: $<span id="cart-total">0.00</span></h3>
+        <h3 style="text-align: right; border-top: 1px dashed #555; padding-top: 10px;">Total: $<span id="cart-total">0.00</span></h3>
         
-        <h3 style="border-top: 1px solid #ddd; padding-top: 20px; margin-top: 20px;">Checkout Details</h3>
+        <h3 style="color: #d4af37; margin-top: 30px;">Checkout</h3>
         <form class="checkout-form" id="checkout-form" onsubmit="processCheckout(event)">
+            <!-- কাস্টমার ইনফরমেশন অটো-ফিল হবে -->
             <input type="text" id="cust-name" placeholder="Full Name" required>
             <input type="email" id="cust-email" placeholder="Email Address" required>
             <input type="text" id="cust-phone" placeholder="Phone Number" required>
             <input type="text" id="cust-address" placeholder="Delivery Address" required>
-            <button type="submit" class="btn-checkout">Place Order</button>
+            <button type="submit" class="btn-add">Confirm Order</button>
         </form>
     </div>
 
     <script>
-        // Product Data
+        // ======= তোমার Make.com ওয়েবহুক লিংক এখানে দাও =======
+        // এই লিংকটি না বসালে তোমার ইমেইলে কোনো মেসেজ যাবে না!
+        const MAKE_WEBHOOK_URL = "https://hook.us1.make.com/YOUR_WEBHOOK_LINK_HERE"; 
+        
+        // Product Data (2 Colors Each)
         const products = [
-            { id: 101, name: "Sheren Alarion Exclusive Handbag", price: 499.00, img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400" },
-            { id: 102, name: "Vogue Signature Chronograph Watch", price: 299.00, img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400" },
-            { id: 103, name: "Premium Leather Belt - Black", price: 89.00, img: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=400" },
-            { id: 104, name: "Sheren Essence Perfume", price: 150.00, img: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=400" },
-            { id: 105, name: "Woven Apparel Luxury Shirt", price: 120.00, img: "https://images.unsplash.com/photo-1596755094514-f87e32f85e2c?w=400" }
+            { 
+                id: 101, name: "Sheren Alarion Handbag", price: 499.00, 
+                desc: "Premium quality luxury handbag crafted with genuine leather. Perfect for high-end fashion lovers.",
+                img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500",
+                colors: [{name: "Midnight Black", hex: "#000"}, {name: "Alarion Gold", hex: "#d4af37"}]
+            },
+            { 
+                id: 102, name: "Vogue Signature Watch", price: 299.00, 
+                desc: "Elegant chronograph wristwatch with a sophisticated aesthetic. A true mark of a CEO.",
+                img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500",
+                colors: [{name: "Silver Platinum", hex: "#e5e4e2"}, {name: "Rose Gold", hex: "#b76e79"}]
+            },
+            { 
+                id: 103, name: "Luxury Woven Apparel Shirt", price: 150.00, 
+                desc: "Finest woven apparel designed for absolute comfort and royal elegance.",
+                img: "https://images.unsplash.com/photo-1596755094514-f87e32f85e2c?w=500",
+                colors: [{name: "Classic White", hex: "#ffffff"}, {name: "Navy Blue", hex: "#000080"}]
+            }
         ];
 
         let cart = JSON.parse(localStorage.getItem('sv_cart')) || [];
         let orderHistory = JSON.parse(localStorage.getItem('sv_orders')) || [];
+        let activeProduct = null;
+        let selectedColor = null;
 
-        // Render Products to Grid
+        // Render Products
         function renderProducts() {
-            const productList = document.getElementById('product-list');
-            productList.innerHTML = '';
+            const list = document.getElementById('product-list');
+            list.innerHTML = '';
             products.forEach(p => {
-                productList.innerHTML += `
-                    <div class="product-card">
+                list.innerHTML += `
+                    <div class="product-card" onclick="openDetails(${p.id})">
                         <img src="${p.img}" alt="${p.name}">
                         <h3>${p.name}</h3>
                         <div class="price">$${p.price.toFixed(2)}</div>
-                        <button class="btn-add" onclick="addToCart(${p.id})">ADD TO CART</button>
                     </div>
                 `;
             });
         }
 
-        // Cart Functions
-        function toggleCart() {
-            document.getElementById('cart-sidebar').classList.toggle('open');
-            document.getElementById('overlay').style.display = 
-                document.getElementById('cart-sidebar').classList.contains('open') ? 'block' : 'none';
+        // Open Full Screen Details
+        function openDetails(id) {
+            activeProduct = products.find(p => p.id === id);
+            selectedColor = activeProduct.colors[0].name; // Default color
+            
+            document.getElementById('detail-img').src = activeProduct.img;
+            document.getElementById('detail-title').innerText = activeProduct.name;
+            document.getElementById('detail-price').innerText = "$" + activeProduct.price.toFixed(2);
+            document.getElementById('detail-desc').innerText = activeProduct.desc;
+            
+            // Render Colors
+            const colorDiv = document.getElementById('detail-colors');
+            colorDiv.innerHTML = '';
+            activeProduct.colors.forEach((c, idx) => {
+                colorDiv.innerHTML += `
+                    <div class="color-circle ${idx === 0 ? 'active' : ''}" 
+                         style="background-color: ${c.hex};" 
+                         title="${c.name}"
+                         onclick="selectColor(this, '${c.name}')"></div>
+                `;
+            });
+
+            document.getElementById('details-modal').style.display = 'flex';
         }
 
-        function addToCart(id) {
-            const product = products.find(p => p.id === id);
-            cart.push(product);
+        function closeDetails() {
+            document.getElementById('details-modal').style.display = 'none';
+        }
+
+        function selectColor(element, colorName) {
+            document.querySelectorAll('.color-circle').forEach(el => el.classList.remove('active'));
+            element.classList.add('active');
+            selectedColor = colorName;
+        }
+
+        // Cart Logic
+        function addToCartFromDetails() {
+            const item = { ...activeProduct, selectedColor: selectedColor, cartId: Date.now() };
+            cart.push(item);
             updateCart();
-            alert(product.name + " added to cart!");
+            closeDetails();
+            toggleCart(); // ওপেন কার্ট
         }
 
-        function removeFromCart(index) {
-            cart.splice(index, 1);
+        function removeFromCart(cartId) {
+            cart = cart.filter(item => item.cartId !== cartId);
             updateCart();
         }
 
@@ -164,30 +224,45 @@
             cartItems.innerHTML = '';
             let total = 0;
 
-            cart.forEach((item, index) => {
+            cart.forEach(item => {
                 total += item.price;
                 cartItems.innerHTML += `
-                    <div class="cart-item">
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 10px 0;">
                         <div>
-                            <h4>${item.name}</h4>
-                            <span style="color: #f57224; font-weight: bold;">$${item.price.toFixed(2)}</span>
+                            <h4 style="margin: 0; font-size: 14px;">${item.name}</h4>
+                            <span style="font-size: 12px; color: #888;">Color: ${item.selectedColor}</span><br>
+                            <span style="color: #d4af37; font-weight: bold;">$${item.price.toFixed(2)}</span>
                         </div>
-                        <button style="background: red; color: white; border: none; cursor: pointer; padding: 5px;" onclick="removeFromCart(${index})">X</button>
+                        <button style="background: red; color: white; border: none; cursor: pointer; padding: 5px; height: 30px;" onclick="removeFromCart(${item.cartId})">X</button>
                     </div>
                 `;
             });
             document.getElementById('cart-total').innerText = total.toFixed(2);
         }
 
-        // Checkout & Webhook (Make.com Email System)
+        function toggleCart() {
+            document.getElementById('cart-sidebar').classList.toggle('open');
+            document.getElementById('cart-overlay').style.display = 
+                document.getElementById('cart-sidebar').classList.contains('open') ? 'block' : 'none';
+            loadCustomerData(); // কার্ট খুললেই অটো-ফিল হবে
+        }
+
+        // Autofill Customer Data
+        function loadCustomerData() {
+            const savedData = JSON.parse(localStorage.getItem('sv_user_info'));
+            if(savedData) {
+                document.getElementById('cust-name').value = savedData.name || '';
+                document.getElementById('cust-email').value = savedData.email || '';
+                document.getElementById('cust-phone').value = savedData.phone || '';
+                document.getElementById('cust-address').value = savedData.address || '';
+            }
+        }
+
+        // Checkout Process & API Mail Request
         async function processCheckout(e) {
             e.preventDefault();
-            if(cart.length === 0) {
-                alert("Your cart is empty!");
-                return;
-            }
+            if(cart.length === 0) { alert("Cart is empty!"); return; }
 
-            // Customer details
             const customer = {
                 name: document.getElementById('cust-name').value,
                 email: document.getElementById('cust-email').value,
@@ -195,78 +270,95 @@
                 address: document.getElementById('cust-address').value
             };
 
-            const orderId = 'SV-' + Math.floor(Math.random() * 9000000);
-            const totalAmount = cart.reduce((sum, item) => sum + item.price, 0);
+            // Save for autofill next time
+            localStorage.setItem('sv_user_info', JSON.stringify(customer));
 
+            const orderId = 'SV-' + Math.floor(100000 + Math.random() * 900000);
             const orderPayload = {
+                type: "NEW_ORDER",
                 orderId: orderId,
-                customerInfo: customer,
+                customer: customer,
                 items: cart,
-                total: totalAmount,
+                total: cart.reduce((sum, item) => sum + item.price, 0),
+                status: "Processing",
                 date: new Date().toLocaleString()
             };
 
-            // ========== EMAIL AUTOMATION SETUP ==========
-            // Make.com-এ একটা Custom Webhook তৈরি করে সেই লিংকটা নিচের URL-এ বসিয়ে দাও।
-            // তাহলে কেউ অর্ডার করলেই Make.com সেই ডেটা রিসিভ করে তোমার ইমেইলে পাঠিয়ে দেবে।
-            const WEBHOOK_URL = "https://hook.us1.make.com/YOUR_WEBHOOK_ID_HERE"; 
-            
-            try {
-                // Sending data to Make.com
-                await fetch(WEBHOOK_URL, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(orderPayload)
-                });
-                console.log("Order data sent to Make.com Webhook!");
-            } catch (error) {
-                console.log("Webhook not connected yet, but order is saved locally.");
-            }
+            // Send Email via Webhook
+            sendEmailNotification(orderPayload);
 
-            // Save Order locally
             orderHistory.unshift(orderPayload);
             localStorage.setItem('sv_orders', JSON.stringify(orderHistory));
             
-            // Clear cart
             cart = [];
             updateCart();
             renderOrders();
             toggleCart();
-            document.getElementById('checkout-form').reset();
-            
-            alert(`Order Placed Successfully! Order ID: ${orderId}`);
+            alert(`Order Placed! Order ID: ${orderId}. You can check history.`);
+        }
+
+        // Cancel Order Process
+        function cancelOrder(orderId) {
+            let order = orderHistory.find(o => o.orderId === orderId);
+            if(order && order.status === "Processing") {
+                order.status = "Cancelled";
+                localStorage.setItem('sv_orders', JSON.stringify(orderHistory));
+                renderOrders();
+                
+                // Send Cancel Email via Webhook
+                sendEmailNotification({ type: "CANCEL_ORDER", orderId: orderId, customer: order.customer });
+                alert("Order Cancelled Successfully!");
+            }
+        }
+
+        // Webhook Notification Function (Orders & Cancellations)
+        async function sendEmailNotification(payload) {
+            if(MAKE_WEBHOOK_URL.includes("YOUR_WEBHOOK")) {
+                console.warn("Make.com URL not setup! Emails will not be sent.");
+                return;
+            }
+            try {
+                await fetch(MAKE_WEBHOOK_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+                console.log("Email request sent to Make.com!");
+            } catch (error) {
+                console.error("Error sending email webhook", error);
+            }
         }
 
         // Render Order History
         function renderOrders() {
-            const orderList = document.getElementById('order-history-list');
-            if(orderHistory.length === 0) {
-                orderList.innerHTML = '<p>No orders placed yet.</p>';
-                return;
-            }
+            const list = document.getElementById('order-history-list');
+            list.innerHTML = '';
+            if(orderHistory.length === 0) { list.innerHTML = '<p style="color:#888;">No orders found.</p>'; return; }
 
-            orderList.innerHTML = '';
             orderHistory.forEach(order => {
-                let itemsList = order.items.map(i => i.name).join(', ');
-                orderList.innerHTML += `
-                    <div class="order-history-card">
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                let itemsList = order.items.map(i => `${i.name} (${i.selectedColor})`).join(', ');
+                let isCancelable = order.status === "Processing" ? `<button class="btn-cancel" onclick="cancelOrder('${order.orderId}')">Cancel Order</button>` : '';
+                let statusColor = order.status === "Cancelled" ? "red" : "#d4af37";
+
+                list.innerHTML += `
+                    <div class="order-card">
+                        <div style="display: flex; justify-content: space-between;">
                             <strong>Order ID: ${order.orderId}</strong>
-                            <span style="color: green; font-weight: bold;">Processing</span>
+                            <strong style="color: ${statusColor};">${order.status}</strong>
                         </div>
-                        <p style="margin: 5px 0; font-size: 14px; color: #555;">Items: ${itemsList}</p>
-                        <p style="margin: 5px 0; font-size: 14px;">Total: <strong style="color: #f57224;">$${order.total.toFixed(2)}</strong></p>
-                        <p style="margin: 5px 0; font-size: 12px; color: #888;">Date: ${order.date}</p>
+                        <p style="font-size: 14px; margin: 8px 0; color: #ccc;">Items: ${itemsList}</p>
+                        <p style="margin: 0;">Total: <strong style="color: #d4af37;">$${order.total.toFixed(2)}</strong></p>
+                        ${isCancelable}
                     </div>
                 `;
             });
         }
 
-        // Initialize App
+        // Init
         renderProducts();
         updateCart();
         renderOrders();
+        loadCustomerData();
     </script>
-
 </body>
 </html>
