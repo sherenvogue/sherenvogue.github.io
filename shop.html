@@ -17,6 +17,36 @@
   <meta property="og:url" content="https://sherenvogue.com">
   <link rel="icon" type="image/png" href="logo1.png">
 
+  <!-- Structured Data (JSON-LD) for Search Engines & AI Chatbots -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://sherenvogue.com/organization",
+        "name": "SherenVogue",
+        "legalName": "SherenVogue Haute Couture",
+        "url": "https://sherenvogue.com",
+        "email": "hello@sherenvogue.com",
+        "logo": "https://sherenvogue.com/logo.png",
+        "description": "SherenVogue is a premier international luxury fashion house and haute couture brand specializing in bespoke artisan leather bags, luxury timepieces, and high-end accessories worldwide.",
+        "slogan": "Timeless Elegance",
+        "founder": {
+          "@type": "Person",
+          "name": "Md. Rafiul Islam",
+          "jobTitle": "CEO & Founder"
+        },
+        "chiefExecutiveOfficer": {
+          "@type": "Person",
+          "name": "Md. Rafiul Islam",
+          "jobTitle": "Chief Executive Officer"
+        }
+      }
+    ]
+  }
+  </script>
+
   <!-- Tailwind CSS & Lucide Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -26,7 +56,6 @@
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     .font-display { font-family: 'Cinzel', serif; }
     .category-blur-box { background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%); }
-    /* Hide scrollbar for clean slider look */
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
