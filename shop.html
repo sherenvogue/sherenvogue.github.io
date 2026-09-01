@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="logo1.png">
-  <title>SherenVogue | International Luxury Haute Couture & Bespoke Collection</title>
-  <meta name="description" content="SherenVogue (শেরেনভোগ / শিরিন ভোগ) is an international luxury haute couture brand specializing in bespoke artisan leather bags, timepieces, and accessories.">
+  <title>SherenVogue | International Luxury Haute Couture</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
@@ -14,13 +13,13 @@
     .font-display { font-family: 'Cinzel', serif; }
     .category-blur-box { background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%); }
     /* Banner Animation CSS */
-    .banner-slide { transition: opacity 1.2s ease-in-out; }
+    .banner-slide { transition: opacity 0.5s ease-in-out; }
   </style>
 </head>
 
 <body class="bg-stone-50 text-neutral-900 min-h-screen flex flex-col antialiased">
 
-  <!-- Luxury Toast Notification -->
+  <!-- Toast Notification -->
   <div id="luxury-toast" class="fixed bottom-6 right-6 z-[200] transform translate-y-20 opacity-0 transition-all duration-500 bg-neutral-900 text-white px-5 py-4 rounded-2xl shadow-2xl border border-amber-500/30 flex items-center gap-3 pointer-events-none max-w-sm">
     <div class="w-8 h-8 rounded-full bg-amber-600/20 flex items-center justify-center text-amber-400 shrink-0">
       <i data-lucide="check" class="w-4 h-4"></i>
@@ -31,12 +30,7 @@
     </div>
   </div>
 
-  <!-- Top Announcement Bar -->
-  <div class="bg-neutral-900 text-amber-200 text-[9px] uppercase tracking-[0.35em] py-2.5 text-center font-medium px-4">
-    Complimentary Worldwide Shipping on Orders Over ৳5000 | Support: hello@sherenvogue.com
-  </div>
-
-  <!-- Main Navigation -->
+  <!-- Header -->
   <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 px-4 md:px-12 py-3.5 md:py-4">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <div class="hidden md:flex gap-8 items-center">
@@ -52,30 +46,29 @@
       </a>
 
       <div class="flex items-center gap-4 md:gap-5">
-        <button type="button" onclick="showPage('shop')" class="p-1 text-gray-700 hover:text-amber-600 transition-colors" title="Search"><i data-lucide="search" class="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]"></i></button>
-        <button type="button" onclick="showPage('history')" class="p-1 text-gray-700 hover:text-amber-600 transition-colors" title="Order History"><i data-lucide="clock" class="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]"></i></button>
-        <button type="button" onclick="showPage('cart')" class="relative p-1 text-gray-700 hover:text-amber-600 transition-colors" title="Cart">
-          <i data-lucide="shopping-bag" class="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]"></i>
+        <button type="button" onclick="showPage('shop')" class="p-1 text-gray-700 hover:text-amber-600 transition-colors"><i data-lucide="search" class="w-4 h-4 md:w-5 md:h-5"></i></button>
+        <button type="button" onclick="showPage('history')" class="p-1 text-gray-700 hover:text-amber-600 transition-colors"><i data-lucide="clock" class="w-4 h-4 md:w-5 md:h-5"></i></button>
+        <button type="button" onclick="showPage('cart')" class="relative p-1 text-gray-700 hover:text-amber-600 transition-colors">
+          <i data-lucide="shopping-bag" class="w-4 h-4 md:w-5 md:h-5"></i>
           <span id="cart-count" class="absolute -top-1 -right-1 bg-amber-600 text-white text-[8px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
         </button>
       </div>
     </div>
   </nav>
 
-  <!-- Pages Container -->
+  <!-- Main Content -->
   <main id="pages-container" class="flex-grow">
     
     <!-- HOME PAGE -->
     <div id="page-home" class="page-view">
       <div class="max-w-5xl mx-auto px-4 pt-4 md:pt-6">
         
-        <!-- Animated Banner -->
+        <!-- Banner Animation (2 seconds fast) -->
         <div class="relative rounded-3xl overflow-hidden shadow-sm bg-stone-900 aspect-[16/10] md:aspect-[21/9] flex items-center">
           <div class="absolute inset-0 z-0">
-            <!-- তোমার ফেইসবুক/ইন্সটাগ্রাম ছবির লিংকগুলো src="" এর ভেতর বসিয়ে দিবে -->
-            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600&auto=format&fit=crop" class="banner-slide w-full h-full object-cover absolute inset-0 z-0 opacity-100" alt="FB Banner 1">
-            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1600&auto=format&fit=crop" class="banner-slide w-full h-full object-cover absolute inset-0 z-0 opacity-0" alt="Insta Banner 2">
-            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1600&auto=format&fit=crop" class="banner-slide w-full h-full object-cover absolute inset-0 z-0 opacity-0" alt="Insta Banner 3">
+            <img src="image_c50b10.png" class="banner-slide w-full h-full object-cover absolute inset-0 z-0 opacity-100" alt="SherenVogue Banner 1">
+            <img src="image_c5042e.jpg" class="banner-slide w-full h-full object-cover absolute inset-0 z-0 opacity-0" alt="SherenVogue Banner 2">
+            <img src="image_c50808.png" class="banner-slide w-full h-full object-cover absolute inset-0 z-0 opacity-0" alt="SherenVogue Banner 3">
             <div class="absolute inset-0 z-10 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
           </div>
           <div class="relative z-10 pl-5 md:pl-16 text-white max-w-xs md:max-w-md pointer-events-none">
@@ -87,42 +80,40 @@
           </div>
         </div>
 
-        <!-- Stats Counter -->
-        <div class="bg-neutral-900 rounded-2xl my-6 md:my-8 p-4 md:p-5 grid grid-cols-4 text-center divide-x divide-neutral-800 text-white shadow-md">
-          <div><p class="font-display text-base md:text-2xl font-bold text-amber-200" id="stat-count">0+</p><p class="text-[7px] md:text-[9px] text-neutral-400 uppercase tracking-widest mt-0.5">Masterpieces</p></div>
-          <div><p class="font-display text-base md:text-2xl font-bold text-amber-200">1</p><p class="text-[7px] md:text-[9px] text-neutral-400 uppercase tracking-widest mt-0.5">Maison</p></div>
-          <div><p class="font-display text-base md:text-2xl font-bold text-amber-200">5K+</p><p class="text-[7px] md:text-[9px] text-neutral-400 uppercase tracking-widest mt-0.5">Clients</p></div>
-          <div><p class="font-display text-base md:text-2xl font-bold text-amber-200">15</p><p class="text-[7px] md:text-[9px] text-neutral-400 uppercase tracking-widest mt-0.5">Countries</p></div>
-        </div>
-
-        <!-- Categories Section -->
+        <!-- Categories -->
         <section class="my-8 md:my-10">
           <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-neutral-900 mb-4">Shop by Category</h2>
           <div class="grid grid-cols-3 gap-3 md:gap-5">
             <div onclick="showPage('shop'); filterCategory('bags');" class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100">
-              <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Luxury Bags">
-              <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6"><h3 class="text-white font-display text-xs md:text-lg font-bold">Luxury Bags</h3><p class="text-[7px] md:text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">Bespoke</p></div>
+              <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6"><h3 class="text-white font-display text-xs md:text-lg font-bold">Luxury Bags</h3></div>
             </div>
             <div class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100" onclick="showPage('shop'); filterCategory('watches');">
-              <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Timepieces">
-              <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6"><h3 class="text-white font-display text-xs md:text-lg font-bold">Timepieces</h3><p class="text-[7px] md:text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">Horology</p></div>
+              <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6"><h3 class="text-white font-display text-xs md:text-lg font-bold">Timepieces</h3></div>
             </div>
             <div class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100" onclick="showPage('shop'); filterCategory('accessories');">
-              <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Accessories">
-              <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6"><h3 class="text-white font-display text-xs md:text-lg font-bold">Accessories</h3><p class="text-[7px] md:text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">Essentials</p></div>
+              <img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=600&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6"><h3 class="text-white font-display text-xs md:text-lg font-bold">Accessories</h3></div>
             </div>
           </div>
         </section>
 
-        <!-- Featured Products Section -->
+        <!-- Featured Products -->
         <section class="my-10 md:my-12">
           <div class="flex justify-between items-center mb-5">
-            <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-neutral-900">Featured & Latest Arrivals</h2>
+            <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-neutral-900">Featured Arrivals</h2>
             <button type="button" onclick="showPage('shop')" class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-amber-600 border-b border-amber-600 pb-0.5">See All</button>
           </div>
           <div id="featured-products" class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"></div>
         </section>
+      </div>
+    </div>
 
+    <!-- PRODUCT DETAILS PAGE (NEW IN-BUILT PAGE) -->
+    <div id="page-product-details" class="page-view hidden">
+      <div class="max-w-5xl mx-auto px-4 py-8 md:py-12" id="product-details-container">
+        <!-- JS will render product details here -->
       </div>
     </div>
 
@@ -139,8 +130,6 @@
         <div id="category-filters" class="flex justify-center gap-3 md:gap-5 flex-wrap mt-2 px-4">
           <button type="button" onclick="filterCategory('all')" id="filter-all" class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-amber-600 text-amber-600">Everything</button>
           <button type="button" onclick="filterCategory('bags')" id="filter-bags" class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-transparent text-gray-400">Luxury Bags</button>
-          <button type="button" onclick="filterCategory('watches')" id="filter-watches" class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-transparent text-gray-400">Timepieces</button>
-          <button type="button" onclick="filterCategory('accessories')" id="filter-accessories" class="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold pb-1 border-b-2 border-transparent text-gray-400">Accessories</button>
         </div>
       </div>
       <div class="max-w-7xl mx-auto px-3 md:px-4 py-6 md:py-8">
@@ -148,78 +137,66 @@
       </div>
     </div>
 
-    <!-- CART, HISTORY, CHECKOUT PAGES... (Kept intact) -->
-    <!-- (Your original cart, history, checkout html goes here - keeping it shortened for view but functionality is all below) -->
-    <div id="page-cart" class="page-view hidden"><div class="max-w-2xl mx-auto px-4 py-8 md:py-10"><h1 class="font-display text-2xl md:text-3xl mb-6 md:mb-8 font-bold text-center text-neutral-900">Your Atelier Bag</h1><div id="cart-container" class="bg-white rounded-2xl border border-gray-100 p-5 md:p-6 shadow-sm"></div></div></div>
-    <div id="page-history" class="page-view hidden"><div class="max-w-2xl mx-auto px-4 py-8 md:py-10"><h1 class="font-display text-2xl md:text-3xl mb-2 font-bold text-center text-neutral-900">Order History</h1><p class="text-[9px] md:text-[10px] text-gray-400 uppercase tracking-widest text-center mb-6 md:mb-8">Your saved procurements</p><div id="history-container" class="space-y-4"></div></div></div>
+    <!-- CART PAGE -->
+    <div id="page-cart" class="page-view hidden">
+      <div class="max-w-2xl mx-auto px-4 py-8 md:py-10">
+        <h1 class="font-display text-2xl md:text-3xl mb-6 md:mb-8 font-bold text-center text-neutral-900">Your Atelier Bag</h1>
+        <div id="cart-container" class="bg-white rounded-2xl border border-gray-100 p-5 md:p-6 shadow-sm"></div>
+      </div>
+    </div>
     
-    <!-- CHECKOUT PAGE -->
+    <!-- HISTORY, CHECKOUT, SUCCESS PAGES... -->
+    <div id="page-history" class="page-view hidden"><div class="max-w-2xl mx-auto px-4 py-8 md:py-10"><h1 class="font-display text-2xl font-bold text-center">Order History</h1><div id="history-container" class="space-y-4 mt-6"></div></div></div>
+    
     <div id="page-checkout" class="page-view hidden">
       <div class="max-w-xl mx-auto px-4 py-8 md:py-10">
-        <h1 class="font-display text-2xl md:text-3xl mb-2 font-bold text-center text-neutral-900">Maison Shipping</h1>
-        <p class="text-[9px] md:text-[10px] text-gray-400 uppercase tracking-widest text-center mb-6 md:mb-8">Complete your luxury procurement order</p>
-        <form id="checkout-form" onsubmit="processCheckout(event)" class="bg-white rounded-2xl border border-gray-100 p-5 md:p-6 space-y-4 md:space-y-5 shadow-sm">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div><label class="block text-[9px] uppercase tracking-widest text-gray-400 mb-1.5 font-bold">Full Name</label><input type="text" id="cust-name" required class="w-full border border-gray-200 rounded-xl px-4 py-2.5 md:py-3 text-sm bg-stone-50/50"></div>
-            <div><label class="block text-[9px] uppercase tracking-widest text-gray-400 mb-1.5 font-bold">Email Address</label><input type="email" id="cust-email" required class="w-full border border-gray-200 rounded-xl px-4 py-2.5 md:py-3 text-sm bg-stone-50/50"></div>
+        <h1 class="font-display text-2xl font-bold text-center mb-6">Maison Shipping</h1>
+        <form id="checkout-form" onsubmit="processCheckout(event)" class="bg-white rounded-2xl border border-gray-100 p-5 md:p-6 space-y-4">
+          <div class="grid grid-cols-2 gap-4">
+            <input type="text" id="cust-name" required placeholder="Full Name" class="border rounded-xl px-4 py-2.5 text-sm w-full">
+            <input type="email" id="cust-email" required placeholder="Email" class="border rounded-xl px-4 py-2.5 text-sm w-full">
           </div>
-          <div><label class="block text-[9px] uppercase tracking-widest text-gray-400 mb-1.5 font-bold">Delivery Address</label><textarea id="cust-address" required rows="3" class="w-full border border-gray-200 rounded-xl px-4 py-2.5 md:py-3 text-sm bg-stone-50/50"></textarea></div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div><label class="block text-[9px] uppercase tracking-widest text-gray-400 mb-1.5 font-bold">Phone Number</label><input type="tel" id="cust-phone" required class="w-full border border-gray-200 rounded-xl px-4 py-2.5 md:py-3 text-sm bg-stone-50/50"></div>
-            <div><label class="block text-[9px] uppercase tracking-widest text-gray-400 mb-1.5 font-bold">Preferred Payment Method</label>
-              <select id="cust-payment" class="w-full border border-gray-200 rounded-xl px-4 py-2.5 md:py-3 text-sm font-medium"><option>Cash On Delivery (COD)</option><option>Mobile Banking (bKash / Nagad)</option><option>Credit or Debit Card</option></select>
-            </div>
+          <textarea id="cust-address" required placeholder="Delivery Address" class="border rounded-xl px-4 py-2.5 text-sm w-full"></textarea>
+          <div class="grid grid-cols-2 gap-4">
+            <input type="tel" id="cust-phone" required placeholder="Phone Number" class="border rounded-xl px-4 py-2.5 text-sm w-full">
+            <select id="cust-payment" class="border rounded-xl px-4 py-2.5 text-sm w-full"><option>Cash On Delivery (COD)</option><option>Mobile Banking (bKash / Nagad)</option></select>
           </div>
-          <div class="pt-4 border-t border-gray-100 flex justify-between items-center">
-            <div><p class="text-[9px] md:text-[10px] text-gray-400 uppercase tracking-wider font-bold">Total Payable</p><p id="checkout-total-price" class="text-lg md:text-xl font-bold text-neutral-900">৳0</p></div>
-            <button type="submit" id="submit-btn" class="bg-neutral-900 text-white px-5 py-3 text-[10px] uppercase tracking-widest font-bold rounded-xl hover:bg-amber-600 transition-all shadow-sm">Place Secure Order</button>
+          <div class="pt-4 border-t flex justify-between items-center">
+            <p id="checkout-total-price" class="text-xl font-bold">৳0</p>
+            <button type="submit" id="submit-btn" class="bg-neutral-900 text-white px-5 py-3 text-xs uppercase font-bold rounded-xl hover:bg-amber-600">Place Order</button>
           </div>
         </form>
       </div>
     </div>
 
-    <!-- SUCCESS PAGE -->
     <div id="page-success" class="page-view hidden">
-      <div class="max-w-md mx-auto px-4 py-16 md:py-20 text-center">
-        <div class="w-14 h-14 bg-white border border-amber-600 rounded-full flex items-center justify-center mx-auto mb-5 text-amber-600 shadow-sm"><i data-lucide="check" class="w-5 h-5 stroke-[2.5]"></i></div>
-        <h1 class="font-display text-2xl md:text-3xl font-bold mb-2 text-neutral-900">Order Confirmed</h1>
-        <p class="text-gray-400 text-xs leading-relaxed mb-4 px-2">Thank you for your procurement.</p>
-        <div class="bg-white border border-gray-100 rounded-xl p-4 text-left mb-6 shadow-sm">
-          <p class="text-[10px] uppercase tracking-widest font-bold text-amber-600 mb-2 border-b border-gray-100 pb-2">Order Summary</p>
-          <div id="success-order-summary" class="text-xs text-gray-600 space-y-2 whitespace-pre-line mb-3 font-medium"></div>
-          <p class="text-sm font-bold text-neutral-900 border-t border-gray-100 pt-2" id="success-total-price"></p>
-        </div>
-        <button type="button" onclick="showPage('home')" class="bg-neutral-900 text-white px-6 py-3.5 text-[9px] uppercase tracking-widest hover:bg-amber-600 transition-all font-bold rounded-xl shadow-sm">Return to Storefront</button>
+      <div class="max-w-md mx-auto px-4 py-16 text-center">
+        <h1 class="font-display text-3xl font-bold mb-2">Order Confirmed</h1>
+        <p class="text-gray-500 mb-6">Thank you for your procurement.</p>
+        <button onclick="showPage('home')" class="bg-neutral-900 text-white px-6 py-3 uppercase text-xs font-bold rounded-xl">Return to Storefront</button>
       </div>
     </div>
   </main>
 
-  <!-- Mobile Bottom Navigation -->
+  <!-- Mobile Bottom Nav -->
   <div class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-neutral-100 py-3 px-6 flex justify-between items-center md:hidden shadow-lg rounded-t-2xl">
-    <button type="button" onclick="showPage('home')" class="flex flex-col items-center gap-1 text-gray-400 hover:text-amber-600"><i data-lucide="home" class="w-5 h-5 stroke-[1.5]"></i><span class="text-[8px] font-bold tracking-wider">Home</span></button>
-    <button type="button" onclick="showPage('shop'); filterCategory('all');" class="flex flex-col items-center gap-1 text-gray-400 hover:text-amber-600"><i data-lucide="grid" class="w-5 h-5 stroke-[1.5]"></i><span class="text-[8px] font-bold tracking-wider">Shop</span></button>
-    <button type="button" onclick="showPage('cart')" class="flex flex-col items-center gap-1 text-gray-400 hover:text-amber-600"><i data-lucide="shopping-cart" class="w-5 h-5 stroke-[1.5]"></i><span class="text-[8px] font-bold tracking-wider">Cart</span></button>
-    <button type="button" onclick="showPage('history')" class="flex flex-col items-center gap-1 text-gray-400 hover:text-amber-600"><i data-lucide="clock" class="w-5 h-5 stroke-[1.5]"></i><span class="text-[8px] font-bold tracking-wider">History</span></button>
+    <button type="button" onclick="showPage('home')" class="flex flex-col items-center gap-1 text-gray-400 hover:text-amber-600"><i data-lucide="home" class="w-5 h-5"></i></button>
+    <button type="button" onclick="showPage('shop')" class="flex flex-col items-center gap-1 text-gray-400 hover:text-amber-600"><i data-lucide="grid" class="w-5 h-5"></i></button>
+    <button type="button" onclick="showPage('cart')" class="flex flex-col items-center gap-1 text-gray-400 hover:text-amber-600"><i data-lucide="shopping-cart" class="w-5 h-5"></i></button>
+    <button type="button" onclick="showPage('history')" class="flex flex-col items-center gap-1 text-gray-400 hover:text-amber-600"><i data-lucide="clock" class="w-5 h-5"></i></button>
   </div>
 
   <script>
-    const WEB3FORMS_ACCESS_KEY = "140b2d00-51ed-40d4-bc25-72bbcf4d92a9";
     let products = [];
-    
-    // কার্ট এখন LocalStorage থেকে লোড হবে যাতে অন্য পেজে গেলেও সেভ থাকে
     let cart = JSON.parse(localStorage.getItem('sherenvogue_cart')) || []; 
 
     function showLuxuryToast(productName) {
       const toast = document.getElementById('luxury-toast');
       const msg = document.getElementById('toast-message');
-      if (!toast || !msg) return;
       msg.innerText = productName;
-      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+      toast.classList.remove('translate-y-20', 'opacity-0');
       toast.classList.add('translate-y-0', 'opacity-100');
-      setTimeout(() => {
-        toast.classList.remove('translate-y-0', 'opacity-100');
-        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
-      }, 3000);
+      setTimeout(() => { toast.classList.remove('translate-y-0', 'opacity-100'); toast.classList.add('translate-y-20', 'opacity-0'); }, 3000);
     }
 
     function showPage(pageId) {
@@ -232,82 +209,81 @@
       if (pageId === 'cart') renderCart();
       if (pageId === 'history') renderHistory();
       if (pageId === 'checkout') prepareCheckout();
-      if (window.lucide) lucide.createIcons();
     }
 
-    // প্রোডাক্টগুলোতে ক্লিক করলে এখন সরাসরি product.html এ চলে যাবে
+    // --- NEW: SHOW PRODUCT DETAILS IN THE SAME FILE ---
+    function showProductDetails(id) {
+      const p = products.find(item => item.id == id);
+      if(!p) return;
+
+      const container = document.getElementById('product-details-container');
+      container.innerHTML = `
+        <button onclick="showPage('shop')" class="mb-6 text-xs uppercase tracking-widest font-bold text-gray-500 hover:text-amber-600 flex items-center gap-2">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Collections
+        </button>
+        <div class="bg-white rounded-3xl border border-gray-100 shadow-md flex flex-col md:flex-row overflow-hidden">
+          <div class="w-full md:w-1/2 bg-stone-100 flex items-center justify-center p-6 md:p-10">
+            <img src="${p.image}" class="w-full max-w-md rounded-2xl shadow-sm object-cover aspect-square hover:scale-105 transition-transform duration-700">
+          </div>
+          <div class="w-full md:w-1/2 p-8 md:p-14 flex flex-col justify-center">
+            <p class="text-[10px] uppercase tracking-[0.3em] text-amber-600 font-bold mb-3">${p.category || 'Maison Exclusive'}</p>
+            <h1 class="font-display text-3xl md:text-5xl font-bold mb-4 text-neutral-900">${p.name}</h1>
+            <p class="text-2xl md:text-3xl font-bold text-gray-800 mb-6">$${p.price}</p>
+            <hr class="border-gray-100 mb-6">
+            <p class="text-sm md:text-base text-gray-500 leading-relaxed mb-10">${p.desc || 'An exclusive handcrafted luxury masterpiece carefully designed by SherenVogue artisans.'}</p>
+            <button onclick="addToCart(${p.id})" class="w-full bg-neutral-900 text-white py-4 text-xs uppercase tracking-widest font-bold rounded-xl hover:bg-amber-600 transition-all shadow-md flex items-center justify-center gap-3">
+              Add To Atelier Bag
+            </button>
+          </div>
+        </div>
+      `;
+      lucide.createIcons();
+      showPage('product-details'); // Change page inside SPA
+    }
+
     function renderShopProducts(items) {
-      const shopContainer = document.getElementById('shop-products');
-      if (!shopContainer) return;
-      if (items.length === 0) {
-        shopContainer.innerHTML = `<p class="col-span-full text-center text-gray-400 py-10 text-xs">No products match your search query.</p>`;
-        return;
-      }
-      shopContainer.innerHTML = items.map(p => `
+      const container = document.getElementById('shop-products');
+      if (!container) return;
+      container.innerHTML = items.map(p => `
         <div class="bg-white rounded-2xl border border-gray-100 p-3 shadow-sm group flex flex-col justify-between">
           <div>
-            <div class="aspect-square rounded-xl overflow-hidden bg-stone-50 mb-3 cursor-pointer" onclick="window.location.href='product.html?id=${p.id}'">
-                <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="aspect-square rounded-xl overflow-hidden bg-stone-50 mb-3 cursor-pointer" onclick="showProductDetails(${p.id})">
+                <img src="${p.image}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             </div>
-            <p class="text-[8px] uppercase tracking-[0.2em] text-amber-600 font-bold mb-0.5">${p.category || 'bags'}</p>
-            <h3 class="font-display text-xs font-bold text-neutral-900 truncate cursor-pointer" onclick="window.location.href='product.html?id=${p.id}'">${p.name}</h3>
-            <p class="text-xs font-bold text-gray-800 mt-1">$${p.price}</p>
+            <p class="text-[8px] uppercase text-amber-600 font-bold mb-0.5">${p.category || 'bags'}</p>
+            <h3 class="font-display text-xs font-bold truncate cursor-pointer" onclick="showProductDetails(${p.id})">${p.name}</h3>
+            <p class="text-xs font-bold mt-1">$${p.price}</p>
           </div>
-          <button type="button" onclick="addToCart(${p.id})" class="w-full mt-3 bg-neutral-900 text-white py-2 text-[9px] uppercase tracking-widest font-bold rounded-lg hover:bg-amber-600 transition-all">
-            Add To Bag
-          </button>
+          <button type="button" onclick="addToCart(${p.id})" class="w-full mt-3 bg-neutral-900 text-white py-2 text-[9px] uppercase font-bold rounded-lg hover:bg-amber-600">Add To Bag</button>
         </div>
       `).join('');
     }
 
-    function handleSearch(query) {
-      const term = query.toLowerCase().trim();
-      const filtered = products.filter(p => p.name.toLowerCase().includes(term) || (p.category && p.category.toLowerCase().includes(term)));
-      renderShopProducts(filtered);
-    }
-
     function filterCategory(cat) {
-      document.querySelectorAll('#category-filters button').forEach(b => {
-        b.classList.remove('border-amber-600', 'text-amber-600');
-        b.classList.add('border-transparent', 'text-gray-400');
-      });
-      const activeBtn = document.getElementById('filter-' + cat);
-      if (activeBtn) {
-        activeBtn.classList.add('border-amber-600', 'text-amber-600');
-        activeBtn.classList.remove('border-transparent', 'text-gray-400');
-      }
       if (cat === 'all') renderShopProducts(products);
       else renderShopProducts(products.filter(p => p.category === cat));
     }
 
     function addToCart(id) {
-      const p = products.find(item => item.id === id);
-      if (!p) return;
-      const existing = cart.find(item => item.id === id);
-      if (existing) {
-        existing.qty += 1;
-      } else {
-        cart.push({ ...p, qty: 1 });
-      }
+      const p = products.find(item => item.id == id);
+      const existing = cart.find(item => item.id == id);
+      if (existing) existing.qty += 1;
+      else cart.push({ ...p, qty: 1 });
       localStorage.setItem('sherenvogue_cart', JSON.stringify(cart));
       updateCartBadge();
-      showLuxuryToast(`"${p.name}" added to your bag.`);
+      showLuxuryToast(`"${p.name}" added to bag.`);
     }
 
     function updateCartBadge() {
-      // LocalStorage থেকে লেটেস্ট কার্ট আপডেট নিয়ে আসবে
       cart = JSON.parse(localStorage.getItem('sherenvogue_cart')) || [];
-      const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
-      document.getElementById('cart-count').innerText = totalQty;
+      document.getElementById('cart-count').innerText = cart.reduce((sum, item) => sum + item.qty, 0);
     }
 
     function renderCart() {
       const container = document.getElementById('cart-container');
-      if (!container) return;
-      
       cart = JSON.parse(localStorage.getItem('sherenvogue_cart')) || [];
       if (cart.length === 0) {
-        container.innerHTML = `<div class="text-center py-10"><p class="text-gray-400 text-xs uppercase tracking-widest mb-4">Your Atelier Bag is empty.</p><button onclick="showPage('shop')" class="bg-neutral-900 text-white px-5 py-2.5 text-[9px] uppercase tracking-widest font-bold rounded-xl hover:bg-amber-600 transition-all">Explore Collections</button></div>`;
+        container.innerHTML = `<div class="text-center py-10"><p class="text-gray-400 text-xs uppercase mb-4">Bag is empty.</p><button onclick="showPage('shop')" class="bg-neutral-900 text-white px-5 py-2.5 text-xs rounded-xl">Shop Now</button></div>`;
         return;
       }
       let grandTotal = 0;
@@ -315,106 +291,67 @@
         const itemTotal = (item.rawPrice || 0) * (item.qty || 1);
         grandTotal += itemTotal;
         return `
-          <div class="flex items-center justify-between border-b border-gray-100 py-3">
-            <div class="flex items-center gap-3">
-              <img src="${item.image}" class="w-12 h-12 rounded-lg object-cover bg-stone-50">
-              <div><h4 class="font-display text-xs font-bold text-neutral-900">${item.name}</h4><p class="text-[10px] text-gray-500">${item.price} × ${item.qty}</p></div>
+          <div class="flex items-center justify-between border-b py-3">
+            <div class="flex items-center gap-3"><img src="${item.image}" class="w-12 h-12 rounded-lg object-cover bg-stone-50">
+              <div><h4 class="font-display text-xs font-bold">${item.name}</h4><p class="text-[10px] text-gray-500">$${item.price} × ${item.qty}</p></div>
             </div>
-            <div class="flex items-center gap-3"><span class="text-xs font-bold text-gray-800">৳${itemTotal.toLocaleString()}</span><button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700 text-xs font-bold">✕</button></div>
+            <div class="flex items-center gap-3"><span class="text-xs font-bold">৳${itemTotal.toLocaleString()}</span><button onclick="removeFromCart(${index})" class="text-red-500 font-bold">✕</button></div>
           </div>
         `;
       }).join('');
-      container.innerHTML = `<div class="space-y-2 mb-4">${itemsHTML}</div><div class="pt-4 border-t border-gray-100 flex justify-between items-center mb-6"><span class="text-xs uppercase tracking-widest font-bold text-gray-500">Subtotal</span><span class="text-lg font-bold text-neutral-900">৳${grandTotal.toLocaleString()}</span></div><button onclick="showPage('checkout')" class="w-full bg-neutral-900 text-white py-3.5 text-[10px] uppercase tracking-widest font-bold rounded-xl hover:bg-amber-600 transition-all shadow-sm">Proceed to Maison Shipping</button>`;
+      container.innerHTML = `<div class="space-y-2 mb-4">${itemsHTML}</div><div class="flex justify-between font-bold mb-6"><span>Subtotal</span><span>৳${grandTotal.toLocaleString()}</span></div><button onclick="showPage('checkout')" class="w-full bg-neutral-900 text-white py-3.5 text-xs font-bold rounded-xl">Proceed to Shipping</button>`;
     }
 
     function removeFromCart(index) {
       cart.splice(index, 1);
       localStorage.setItem('sherenvogue_cart', JSON.stringify(cart));
-      updateCartBadge();
-      renderCart();
+      updateCartBadge(); renderCart();
     }
 
     function prepareCheckout() {
-      let grandTotal = cart.reduce((sum, item) => sum + ((item.rawPrice || 0) * (item.qty || 1)), 0);
-      document.getElementById('checkout-total-price').innerText = '৳' + grandTotal.toLocaleString();
+      document.getElementById('checkout-total-price').innerText = '৳' + cart.reduce((sum, item) => sum + ((item.rawPrice || 0) * (item.qty || 1)), 0).toLocaleString();
     }
 
-    async function processCheckout(event) {
+    function processCheckout(event) {
       event.preventDefault();
-      if (cart.length === 0) { alert("Your cart is empty!"); return; }
-      
-      const submitBtn = document.getElementById('submit-btn');
-      submitBtn.disabled = true; submitBtn.innerText = "Processing Order...";
-
-      const grandTotal = cart.reduce((sum, item) => sum + ((item.rawPrice || 0) * (item.qty || 1)), 0);
-      const orderId = 'SV-' + Math.floor(100000 + Math.random() * 900000);
-      
-      const newOrder = { orderId, date: new Date().toLocaleDateString(), items: [...cart], total: grandTotal, paymentMethod: document.getElementById('cust-payment').value, status: 'Processing' };
-      const existingOrders = JSON.parse(localStorage.getItem('sheren_orders') || '[]');
-      existingOrders.unshift(newOrder);
-      localStorage.setItem('sheren_orders', JSON.stringify(existingOrders));
-
-      document.getElementById('success-order-summary').innerText = `Order ID: ${newOrder.orderId}\nPayment: ${newOrder.paymentMethod}\n\nProducts:\n` + cart.map(i => `• ${i.name} (x${i.qty})`).join('\n');
-      document.getElementById('success-total-price').innerText = `Total Amount: ৳${grandTotal.toLocaleString()}`;
-
-      cart = [];
-      localStorage.setItem('sherenvogue_cart', JSON.stringify(cart));
-      updateCartBadge();
-      submitBtn.disabled = false; submitBtn.innerText = "Place Secure Order";
-      showPage('success');
+      const newOrder = { orderId: 'SV-' + Math.floor(100000 + Math.random() * 900000), total: cart.reduce((sum, item) => sum + ((item.rawPrice||0)*(item.qty||1)), 0), status: 'Processing' };
+      const orders = JSON.parse(localStorage.getItem('sheren_orders') || '[]');
+      orders.unshift(newOrder); localStorage.setItem('sheren_orders', JSON.stringify(orders));
+      cart = []; localStorage.setItem('sherenvogue_cart', JSON.stringify(cart));
+      updateCartBadge(); showPage('success');
     }
 
     function renderHistory() {
-      const container = document.getElementById('history-container');
       const orders = JSON.parse(localStorage.getItem('sheren_orders') || '[]');
-      if (orders.length === 0) { container.innerHTML = `<div class="bg-white rounded-2xl p-8 text-center"><p class="text-gray-400 text-xs">No order history found.</p></div>`; return; }
-      container.innerHTML = orders.map((order, index) => `<div class="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm mb-3">
-        <div class="flex justify-between border-b pb-2"><span class="text-[10px] font-bold text-amber-600">${order.orderId}</span><span class="text-[8px] bg-green-50 text-green-700 px-2 py-1 rounded-full">${order.status}</span></div>
-        <div class="pt-2"><span class="text-sm font-bold">৳${order.total.toLocaleString()}</span></div>
-      </div>`).join('');
+      document.getElementById('history-container').innerHTML = orders.length === 0 ? `<p class="text-center text-xs text-gray-500">No history found.</p>` : orders.map(o => `<div class="bg-white border p-4 rounded-xl flex justify-between"><div><p class="font-bold text-amber-600">${o.orderId}</p><p class="text-xs">${o.status}</p></div><p class="font-bold">৳${o.total.toLocaleString()}</p></div>`).join('');
     }
 
-    // --- BANNER ANIMATION LOGIC ---
+    // --- FAST BANNER ANIMATION ---
     let currentSlide = 0;
     const slides = document.querySelectorAll('.banner-slide');
     if(slides.length > 0) {
       setInterval(() => {
-        slides[currentSlide].classList.remove('opacity-100');
-        slides[currentSlide].classList.add('opacity-0');
+        slides[currentSlide].classList.remove('opacity-100'); slides[currentSlide].classList.add('opacity-0');
         currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.remove('opacity-0');
-        slides[currentSlide].classList.add('opacity-100');
-      }, 3500); // 3.5 seconds
+        slides[currentSlide].classList.remove('opacity-0'); slides[currentSlide].classList.add('opacity-100');
+      }, 2000); 
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
-      updateCartBadge();
-      if (window.lucide) lucide.createIcons();
-      fetch('products.json')
-        .then(res => res.json())
-        .then(data => {
-          products = Array.isArray(data) ? data : [];
-          document.getElementById('stat-count').innerText = products.length + '+';
-          
-          const featuredGrid = document.getElementById('featured-products');
-          if (featuredGrid) {
-            featuredGrid.innerHTML = products.slice(0, 4).map(p => `
-              <div class="bg-white rounded-2xl border border-gray-100 p-3 shadow-sm group flex flex-col justify-between">
-                <div>
-                  <div class="aspect-square rounded-xl overflow-hidden bg-stone-50 mb-3 cursor-pointer" onclick="window.location.href='product.html?id=${p.id}'">
-                    <img src="${p.image}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  <p class="text-[8px] uppercase tracking-[0.2em] text-amber-600 font-bold mb-0.5">${p.category || 'bags'}</p>
-                  <h3 class="font-display text-xs font-bold text-neutral-900 truncate cursor-pointer" onclick="window.location.href='product.html?id=${p.id}'">${p.name}</h3>
-                  <p class="text-xs font-bold text-gray-800 mt-1">${p.price}</p>
-                </div>
-                <button type="button" onclick="addToCart(${p.id})" class="w-full mt-3 bg-neutral-900 text-white py-2 text-[9px] uppercase tracking-widest font-bold rounded-lg hover:bg-amber-600 transition-all">Add To Bag</button>
-              </div>
-            `).join('');
-          }
-          renderShopProducts(products);
-        })
-        .catch(err => console.log('Error loading products.json:', err));
+    document.addEventListener('DOMContentLoaded', () => {
+      updateCartBadge(); lucide.createIcons();
+      fetch('products.json').then(res => res.json()).then(data => {
+        products = data;
+        document.getElementById('featured-products').innerHTML = products.slice(0, 4).map(p => `
+          <div class="bg-white rounded-2xl border p-3 shadow-sm group">
+            <div class="aspect-square rounded-xl overflow-hidden bg-stone-50 mb-3 cursor-pointer" onclick="showProductDetails(${p.id})">
+              <img src="${p.image}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <h3 class="font-display text-xs font-bold truncate cursor-pointer" onclick="showProductDetails(${p.id})">${p.name}</h3>
+            <button onclick="addToCart(${p.id})" class="w-full mt-3 bg-neutral-900 text-white py-2 text-[9px] uppercase font-bold rounded-lg hover:bg-amber-600">Add To Bag</button>
+          </div>
+        `).join('');
+        renderShopProducts(products);
+      }).catch(err => console.log('Error:', err));
     });
   </script>
 </body>
