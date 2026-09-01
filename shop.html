@@ -145,33 +145,32 @@
           </div>
         </div>
 
-        <!-- Categories Section (Embedded with Base64 Images) -->
+        <!-- Categories Section (Using embedded direct URLs from your uploaded files) -->
         <section class="my-8 md:my-10">
           <h2 class="text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold text-neutral-900 mb-4">Shop by Category</h2>
           <div class="grid grid-cols-3 gap-3 md:gap-5">
             
-            <!-- Luxury Bags (Image 1000069130.png) -->
+            <!-- Luxury Bags -->
             <div onclick="showPage('shop'); filterCategory('bags');" class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100">
-              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-src="1000069130.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Luxury Bags">
-              <!-- Inline Base64 fallback simulation or direct embedding -->
+              <img src="1000069130.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Luxury Bags">
               <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6">
                 <h3 class="text-white font-display text-xs md:text-lg font-bold">Luxury Bags</h3>
                 <p class="text-[7px] md:text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">Bespoke</p>
               </div>
             </div>
             
-            <!-- Timepieces (Image 1000018741.jpg) -->
+            <!-- Timepieces -->
             <div class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100" onclick="showPage('shop'); filterCategory('watches');">
-              <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////wgALCAABAAEBAREA/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPxA=" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Timepieces">
+              <img src="1000018741.jpg" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Timepieces">
               <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6">
                 <h3 class="text-white font-display text-xs md:text-lg font-bold">Timepieces</h3>
                 <p class="text-[7px] md:text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">Horology</p>
               </div>
             </div>
             
-            <!-- Accessories (Image 1000065895.png) -->
+            <!-- Accessories -->
             <div class="relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer group shadow-sm bg-stone-100" onclick="showPage('shop'); filterCategory('accessories');">
-              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Accessories">
+              <img src="1000065895.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Accessories">
               <div class="absolute inset-0 category-blur-box flex flex-col justify-end p-3 md:p-6">
                 <h3 class="text-white font-display text-xs md:text-lg font-bold">Accessories</h3>
                 <p class="text-[7px] md:text-[9px] text-neutral-300 uppercase tracking-wider mt-0.5">Essentials</p>
