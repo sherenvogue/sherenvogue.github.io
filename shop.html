@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHERENVOGUE | A Maison of Timeless Elegance</title>
+    <title>SHERENVOGUE | LUXURY FASHION BRAND</title>
     <!-- Tailwind CSS & Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         body {
@@ -20,59 +20,85 @@
         .font-cinzel {
             font-family: 'Cinzel', serif;
         }
-        /* Luxury Gold Gradients & Text */
+        /* Luxury Gold Gradients */
         .gold-text {
-            background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 50%, #aa7c11 100%);
+            background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 40%, #aa7c11 80%, #f3e5ab 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .gold-border {
+            border-image: linear-gradient(to right, #aa7c11, #d4af37, #aa7c11) 1;
+        }
         .gold-btn {
-            background: linear-gradient(135deg, #b89556 0%, #d4af37 50%, #8a6f3e 100%);
+            background: linear-gradient(135deg, #b89556 0%, #e5c158 50%, #8a6f3e 100%);
             color: #050505;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .gold-btn:hover {
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 0 20px rgba(229, 193, 88, 0.45);
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #e5c158 0%, #b89556 50%, #8a6f3e 100%);
+        }
+        .buy-now-btn {
+            background: linear-gradient(135deg, #d23232 0%, #b21e1e 100%);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .buy-now-btn:hover {
+            box-shadow: 0 0 20px rgba(178, 30, 30, 0.5);
             transform: translateY(-2px);
         }
         /* Glassmorphism Panel */
         .glass-panel {
-            background: rgba(15, 15, 15, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(10, 10, 10, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(212, 175, 55, 0.12);
         }
         .glass-card {
-            background: rgba(10, 10, 10, 0.8);
+            background: rgba(12, 12, 12, 0.85);
             border: 1px solid rgba(212, 175, 55, 0.08);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .glass-card:hover {
             border-color: rgba(212, 175, 55, 0.3);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 175, 55, 0.05);
-            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(212, 175, 55, 0.08);
+            transform: translateY(-5px);
         }
-        /* 3D Pedestal Category Styling */
+        /* Thumbnail Selector Highlight */
+        .thumb-active {
+            border: 2px solid #d4af37 !important;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        }
+        /* 3D Pedestal container */
         .pedestal-container {
-            perspective: 1000px;
+            perspective: 1200px;
         }
         .pedestal {
             transform-style: preserve-3d;
-            transition: transform 0.5s ease;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-            background: linear-gradient(180deg, rgba(20,20,20,0.8) 0%, rgba(5,5,5,0.95) 100%);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            background: linear-gradient(180deg, rgba(20,20,20,0.9) 0%, rgba(5,5,5,0.98) 100%);
             border: 1px solid rgba(212, 175, 55, 0.15);
         }
         .pedestal::after {
             content: '';
             position: absolute;
-            bottom: -15px;
-            left: 10%;
-            width: 80%;
+            bottom: -20px;
+            left: 5%;
+            width: 90%;
             height: 15px;
-            background: rgba(212, 175, 55, 0.15);
-            filter: blur(8px);
+            background: rgba(212, 175, 55, 0.18);
+            filter: blur(10px);
             transform: rotateX(80deg);
+        }
+        .image-zoom-container {
+            overflow: hidden;
+        }
+        .image-zoom-container img {
+            transition: transform 0.5s ease;
+        }
+        .image-zoom-container:hover img {
+            transform: scale(1.3);
         }
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
@@ -89,38 +115,36 @@
 </head>
 <body class="relative min-h-screen">
 
-    <!-- Top Promo bar -->
-    <div class="w-full bg-[#050505] border-b border-[rgba(212,175,55,0.15)] py-2 text-center text-[10px] tracking-[0.25em] text-[#d4af37] font-cinzel">
-        COMPLIMENTARY WORLDWIDE EXPRESS SHIPPING | PARIS • MILAN • NEW YORK • LONDON • TOKYO | EN / USD $
-    </div>
-
     <!-- MAIN HEADER -->
-    <header class="sticky top-0 z-40 w-full glass-panel border-b border-[rgba(212,175,55,0.1)] px-4 lg:px-12 py-4 flex items-center justify-between">
+    <header class="sticky top-0 z-45 w-full glass-panel border-b border-[rgba(212,175,55,0.1)] px-4 lg:px-12 py-4 flex items-center justify-between">
         <div class="flex items-center gap-6">
             <button onclick="toggleMobileMenu()" class="lg:hidden text-[#d4af37] text-xl">
                 <i class="fa-solid fa-bars"></i>
             </button>
-            <a href="#" class="flex flex-col items-start" onclick="showSection('home')">
-                <span class="font-cinzel text-xl lg:text-3xl font-extrabold tracking-[0.2em] gold-text">SHERENVOGUE</span>
-                <span class="text-[7px] tracking-[0.55em] text-[#d4af37] font-cinzel ml-0.5">HAUTE COUTURE</span>
+            <a href="#" class="flex items-center gap-3.5" onclick="showSection('home')">
+                <!-- Using provided signature Golden Brand Logo with default failsafe path -->
+                <img src="logo1.png" onerror="this.src='https://i.ibb.co/68v8S0T/logo1.png'" class="w-12 lg:w-16 h-auto object-contain filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.5)]" alt="SV Crest Logo" />
+                <div class="flex flex-col items-start">
+                    <span class="font-cinzel text-xl lg:text-3xl font-extrabold tracking-[0.2em] gold-text leading-none">SHERENVOGUE</span>
+                    <span class="text-[7px] tracking-[0.4em] text-[#d4af37] font-cinzel ml-0.5 mt-1">LUXURY FASHION BRAND</span>
+                </div>
             </a>
         </div>
 
-        <!-- Navigation (Desktop) -->
         <nav class="hidden lg:flex items-center gap-8 font-cinzel text-xs tracking-widest text-gray-300">
             <a href="#" onclick="showSection('home')" class="hover:text-[#d4af37] transition duration-300">HOME</a>
-            <a href="#masterpieces" onclick="showSection('home')" class="hover:text-[#d4af37] transition duration-300">COLLECTIONS</a>
-            <a href="#concierge" class="hover:text-[#d4af37] transition duration-300">MAISON</a>
+            <a href="#masterpieces" onclick="scrollToMasterpieces('all')" class="hover:text-[#d4af37] transition duration-300">COLLECTIONS</a>
+            <a href="#story" onclick="showSection('home')" class="hover:text-[#d4af37] transition duration-300">OUR STORY</a>
+            <a href="#concierge" class="hover:text-[#d4af37] transition duration-300">CONCIERGE</a>
             <a href="#" onclick="showSection('cart')" class="hover:text-[#d4af37] transition-all flex items-center gap-1">CART (<span class="cart-count">0</span>)</a>
             <a href="#" onclick="showSection('history')" class="hover:text-[#d4af37] transition duration-300">ORDER HISTORY</a>
         </nav>
 
-        <!-- Header Actions -->
         <div class="flex items-center gap-4">
-            <!-- Search bar inline-desktop -->
+            <!-- Inline Search Bar -->
             <div class="relative hidden md:block w-48 lg:w-64">
-                <input type="text" id="desktop-search" placeholder="Live Search Collection..." oninput="handleSearch(this.value)" class="w-full bg-black/60 border border-[rgba(212,175,55,0.2)] rounded-full px-4 py-1.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#d4af37] transition" />
-                <span class="absolute right-3 top-2.5 text-gray-400 text-xs"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="text" id="desktop-search" placeholder="Search collection..." oninput="handleSearch(this.value)" class="w-full bg-black/65 border border-[rgba(212,175,55,0.25)] rounded-full px-4 py-1.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-[#d4af37] transition" />
+                <span class="absolute right-3.5 top-2 text-gray-400 text-xs"><i class="fa-solid fa-magnifying-glass"></i></span>
             </div>
             
             <button onclick="showSection('cart')" class="relative text-[#d4af37] text-lg hover:text-white transition">
@@ -130,7 +154,7 @@
         </div>
     </header>
 
-    <!-- MOBILE MENU (Toggle) -->
+    <!-- MOBILE MENU DRAWER -->
     <div id="mobile-menu" class="fixed inset-y-0 left-0 z-50 w-64 bg-[#0a0a0a] border-r border-[rgba(212,175,55,0.15)] transform -translate-x-full transition-transform duration-300 p-6 hidden">
         <div class="flex justify-between items-center mb-8">
             <span class="font-cinzel tracking-wider text-lg gold-text">NAVIGATION</span>
@@ -138,7 +162,7 @@
         </div>
         <div class="flex flex-col gap-6 font-cinzel text-sm tracking-widest text-gray-300">
             <a href="#" onclick="showSection('home'); toggleMobileMenu()" class="hover:text-[#d4af37]">HOME</a>
-            <a href="#masterpieces" onclick="showSection('home'); toggleMobileMenu()" class="hover:text-[#d4af37]">COLLECTIONS</a>
+            <a href="#masterpieces" onclick="scrollToMasterpieces('all'); toggleMobileMenu()" class="hover:text-[#d4af37]">COLLECTIONS</a>
             <a href="#story" onclick="showSection('home'); toggleMobileMenu()" class="hover:text-[#d4af37]">OUR STORY</a>
             <a href="#concierge" onclick="toggleMobileMenu()" class="hover:text-[#d4af37]">CONCIERGE</a>
             <a href="#" onclick="showSection('cart'); toggleMobileMenu()" class="hover:text-[#d4af37]">MY CART (<span class="cart-count">0</span>)</a>
@@ -149,34 +173,29 @@
         </div>
     </div>
 
-    <!-- MAIN CONTENT CONTAINERS -->
-
-    <!-- SECTION: HOME & SHOP (Masterpieces) -->
-    <main id="home-section" class="section-view block">
+    <!-- MAIN VIEWS -->
+    <main id="home-section" class="section-view block pb-16 animate-fade-in">
         
-        <!-- HERO HEROINE BANNER -->
-        <section class="relative min-h-[70vh] lg:min-h-[85vh] flex items-center justify-center px-4 lg:px-12 py-12 overflow-hidden bg-cover bg-center" style="background-image: linear-gradient(180deg, rgba(5,5,5,0.4) 0%, #050505 100%), url('https://images.unsplash.com/photo-1549062572-544a64fb0c56?q=80&w=2000&auto=format&fit=crop');">
-            <div class="absolute inset-0 bg-black/40"></div>
-            <!-- Interactive glow/shading layers -->
-            <div class="absolute -top-40 -left-40 w-96 h-96 bg-[#d4af37]/5 blur-[120px] rounded-full"></div>
-            
+        <!-- HERO (MAIN PROMO / HOME DISPLAY) -->
+        <section class="relative min-h-[70vh] lg:min-h-[80vh] flex items-center justify-center px-4 py-12 bg-cover bg-center" style="background-image: linear-gradient(180deg, rgba(5,5,5,0.35) 0%, #050505 100%), url('https://images.unsplash.com/photo-1549062572-544a64fb0c56?q=80&w=2000&auto=format&fit=crop');">
+            <div class="absolute inset-0 bg-black/35"></div>
             <div class="relative z-10 text-center max-w-4xl flex flex-col items-center">
-                <span class="text-[#d4af37] text-xs font-cinzel tracking-[0.4em] mb-4 flex items-center gap-2">
-                    <i class="fa-solid fa-crown text-[10px]"></i> MD. RAFIUL ISLAM PRESENTS
+                <span class="text-[#d4af37] text-[11px] font-cinzel tracking-[0.4em] mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-crown"></i> MD. RAFIUL ISLAM PRESENTS
                 </span>
-                <h1 class="font-cinzel text-4xl md:text-7xl font-bold tracking-[0.15em] mb-3 uppercase gold-text leading-tight">SHERENVOGUE</h1>
-                <p class="font-cinzel text-xs md:text-md tracking-[0.35em] text-gray-300 uppercase mb-4">THE ART OF LUXURY • HAUTE COUTURE</p>
-                <div class="w-24 h-[1px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mb-6"></div>
-                <p class="text-sm md:text-base text-gray-300 tracking-wide font-light max-w-xl mb-8 leading-relaxed">
-                    Step into an elite dynasty of tailoring, featuring magnificent handcraft, flawless 3D silhouettes, and timeless grace designed exclusively for the global aristocracy.
+                <h1 class="font-cinzel text-4xl md:text-7xl font-extrabold tracking-[0.18em] mb-2 uppercase gold-text leading-tight drop-shadow-md">SHERENVOGUE</h1>
+                <p class="font-cinzel text-[10px] md:text-xs tracking-[0.45em] text-gray-300 uppercase mb-5">THE ART OF LUXURY • LUXURY FASHION BRAND</p>
+                <div class="w-24 h-[1.5px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mb-6"></div>
+                <p class="text-xs md:text-sm text-gray-300 tracking-wide font-light max-w-xl mb-8 leading-relaxed">
+                    Explore an elite dynasty of tailored excellence, featuring majestic handcraft, flawless 3D silhouettes, and timeless grace designed exclusively for the global aristocracy.
                 </p>
-                <a href="#masterpieces" class="gold-btn px-8 py-3 text-[11px] font-cinzel tracking-[0.25em] font-bold uppercase rounded-none hover:tracking-[0.3em] transition-all">
-                    DISCOVER THE COLLECTION <i class="fa-solid fa-arrow-right-long ml-2"></i>
+                <a href="#masterpieces" onclick="scrollToMasterpieces('all')" class="gold-btn px-8 py-3 text-[10px] font-cinzel tracking-[0.25em] font-bold uppercase rounded-none hover:tracking-[0.3em] transition-all">
+                    DISCOVER THE ATELIER <i class="fa-solid fa-arrow-right-long ml-2"></i>
                 </a>
             </div>
         </section>
 
-        <!-- 3D PEDESTAL CATEGORIES -->
+        <!-- Dynamic Category Scrolling Pedestals (LADIES BAG, PERFUME, WATCH, WALLET, BELT) -->
         <section class="py-16 px-4 max-w-7xl mx-auto">
             <div class="text-center mb-12">
                 <span class="text-xs text-[#d4af37] tracking-[0.3em] font-cinzel">EXQUISITE MAISON ATELIER</span>
@@ -184,73 +203,79 @@
                 <div class="w-12 h-[1px] bg-[#d4af37] mx-auto mt-3"></div>
             </div>
 
-            <!-- Pedestal Carousel Grid -->
             <div class="grid grid-cols-2 md:grid-cols-5 gap-6 lg:gap-8 pedestal-container">
-                <!-- 1 -->
-                <div class="pedestal relative rounded-xl p-4 flex flex-col items-center text-center transform hover:translate-y-[-10px] transition duration-500 cursor-pointer" onclick="filterCategory('Luxury Bags')">
+                <!-- LADIES BAG -->
+                <div class="pedestal relative rounded-xl p-4 flex flex-col items-center text-center transform hover:translate-y-[-10px] transition duration-500 cursor-pointer" onclick="scrollToMasterpieces('Ladies Bag')">
                     <div class="h-32 flex items-center justify-center mb-4 overflow-hidden rounded-lg">
-                        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=300&auto=format&fit=crop" class="h-full object-contain filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.6)]" alt="Bags" />
+                        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=300&auto=format&fit=crop" class="h-full object-contain filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.6)]" alt="Ladies Bag" />
                     </div>
-                    <span class="font-cinzel text-[11px] font-bold tracking-widest text-[#d4af37]">LUXURY BAGS</span>
+                    <span class="font-cinzel text-[11px] font-bold tracking-widest text-[#d4af37]">LADIES BAG</span>
                     <span class="text-[8px] tracking-wider text-gray-500 uppercase mt-1">Carry Elegance</span>
                 </div>
-                <!-- 2 -->
-                <div class="pedestal relative rounded-xl p-4 flex flex-col items-center text-center transform hover:translate-y-[-10px] transition duration-500 cursor-pointer" onclick="filterCategory('Timepieces')">
-                    <div class="h-32 flex items-center justify-center mb-4 overflow-hidden rounded-lg">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=300&auto=format&fit=crop" class="h-full object-contain filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.6)]" alt="Watches" />
-                    </div>
-                    <span class="font-cinzel text-[11px] font-bold tracking-widest text-[#d4af37]">TIMEPIECES</span>
-                    <span class="text-[8px] tracking-wider text-gray-500 uppercase mt-1">Live The Time</span>
-                </div>
-                <!-- 3 -->
-                <div class="pedestal relative rounded-xl p-4 flex flex-col items-center text-center transform hover:translate-y-[-10px] transition duration-500 cursor-pointer" onclick="filterCategory('Haute Parfums')">
+
+                <!-- PERFUME -->
+                <div class="pedestal relative rounded-xl p-4 flex flex-col items-center text-center transform hover:translate-y-[-10px] transition duration-500 cursor-pointer" onclick="scrollToMasterpieces('Perfume')">
                     <div class="h-32 flex items-center justify-center mb-4 overflow-hidden rounded-lg">
                         <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=300&auto=format&fit=crop" class="h-full object-contain filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.6)]" alt="Perfume" />
                     </div>
-                    <span class="font-cinzel text-[11px] font-bold tracking-widest text-[#d4af37]">HAUTE PARFUMS</span>
-                    <span class="text-[8px] tracking-wider text-gray-500 uppercase mt-1">Live Sensory</span>
+                    <span class="font-cinzel text-[11px] font-bold tracking-widest text-[#d4af37]">PERFUME</span>
+                    <span class="text-[8px] tracking-wider text-gray-500 uppercase mt-1">Sensory Projection</span>
                 </div>
-                <!-- 4 -->
-                <div class="pedestal relative rounded-xl p-4 flex flex-col items-center text-center transform hover:translate-y-[-10px] transition duration-500 cursor-pointer" onclick="filterCategory('Exquisite Wallets')">
+
+                <!-- WATCH -->
+                <div class="pedestal relative rounded-xl p-4 flex flex-col items-center text-center transform hover:translate-y-[-10px] transition duration-500 cursor-pointer" onclick="scrollToMasterpieces('Watch')">
+                    <div class="h-32 flex items-center justify-center mb-4 overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=300&auto=format&fit=crop" class="h-full object-contain filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.6)]" alt="Watch" />
+                    </div>
+                    <span class="font-cinzel text-[11px] font-bold tracking-widest text-[#d4af37]">WATCH</span>
+                    <span class="text-[8px] tracking-wider text-gray-500 uppercase mt-1">Live The Time</span>
+                </div>
+
+                <!-- WALLET -->
+                <div class="pedestal relative rounded-xl p-4 flex flex-col items-center text-center transform hover:translate-y-[-10px] transition duration-500 cursor-pointer" onclick="scrollToMasterpieces('Wallet')">
                     <div class="h-32 flex items-center justify-center mb-4 overflow-hidden rounded-lg">
                         <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=300&auto=format&fit=crop" class="h-full object-contain filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.6)]" alt="Wallet" />
                     </div>
-                    <span class="font-cinzel text-[11px] font-bold tracking-widest text-[#d4af37]">WALLETS</span>
+                    <span class="font-cinzel text-[11px] font-bold tracking-widest text-[#d4af37]">WALLET</span>
                     <span class="text-[8px] tracking-wider text-gray-500 uppercase mt-1">Keep It Classy</span>
                 </div>
-                <!-- 5 -->
-                <div class="pedestal relative rounded-xl p-4 flex flex-col items-center text-center transform hover:translate-y-[-10px] transition duration-500 cursor-pointer" onclick="filterCategory('Couture Accessories')">
+
+                <!-- BELT -->
+                <div class="pedestal relative rounded-xl p-4 flex flex-col items-center text-center transform hover:translate-y-[-10px] transition duration-500 cursor-pointer" onclick="scrollToMasterpieces('Belt')">
                     <div class="h-32 flex items-center justify-center mb-4 overflow-hidden rounded-lg">
-                        <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=300&auto=format&fit=crop" class="h-full object-contain filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.6)]" alt="Accessories" />
+                        <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=300&auto=format&fit=crop" class="h-full object-contain filter drop-shadow-[0_15px_15px_rgba(0,0,0,0.6)]" alt="Belt" />
                     </div>
-                    <span class="font-cinzel text-[11px] font-bold tracking-widest text-[#d4af37]">ACCESSORIES</span>
+                    <span class="font-cinzel text-[11px] font-bold tracking-widest text-[#d4af37]">BELT</span>
                     <span class="text-[8px] tracking-wider text-gray-500 uppercase mt-1">Define Style</span>
                 </div>
             </div>
         </section>
 
-        <!-- PRODUCTS (MASTERPIECES) GRID -->
-        <section id="masterpieces" class="py-16 px-4 max-w-7xl mx-auto border-t border-[rgba(212,175,55,0.08)]">
+        <!-- THE ATELIER PRODUCT SECTION (OUR EXCLUSIVE MASTERPIECES Grid) -->
+        <section id="masterpieces" class="py-16 px-4 max-w-7xl mx-auto border-t border-[rgba(212,175,55,0.08)] scroll-mt-20">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
                 <div>
                     <span class="text-xs text-[#d4af37] tracking-[0.3em] font-cinzel">FEATURED COLLECTION</span>
-                    <h2 class="font-cinzel text-3xl font-bold tracking-wider text-white mt-1">Our Masterpieces</h2>
+                    <h2 class="font-cinzel text-3xl font-bold tracking-wider text-white mt-1">OUR EXCLUSIVE MASTERPIECES</h2>
                 </div>
-                <div class="mt-4 md:mt-0 flex gap-4 text-xs font-cinzel tracking-widest">
+                <!-- Categories Filtering Toolbar -->
+                <div class="mt-4 md:mt-0 flex flex-wrap gap-4 text-[10px] lg:text-xs font-cinzel tracking-widest">
                     <button onclick="filterCategory('all')" id="cat-all" class="text-[#d4af37] border-b border-[#d4af37] pb-1">ALL</button>
-                    <button onclick="filterCategory('Luxury Bags')" id="cat-bags" class="text-gray-400 hover:text-[#d4af37] pb-1 transition">BAGS</button>
-                    <button onclick="filterCategory('Timepieces')" id="cat-timepieces" class="text-gray-400 hover:text-[#d4af37] pb-1 transition">TIMEPIECES</button>
-                    <button onclick="filterCategory('Haute Parfums')" id="cat-parfums" class="text-gray-400 hover:text-[#d4af37] pb-1 transition">PARFUMS</button>
+                    <button onclick="filterCategory('Ladies Bag')" id="cat-bags" class="text-gray-400 hover:text-[#d4af37] pb-1 transition">LADIES BAG</button>
+                    <button onclick="filterCategory('Perfume')" id="cat-perfume" class="text-gray-400 hover:text-[#d4af37] pb-1 transition">PERFUME</button>
+                    <button onclick="filterCategory('Watch')" id="cat-watch" class="text-gray-400 hover:text-[#d4af37] pb-1 transition">WATCH</button>
+                    <button onclick="filterCategory('Wallet')" id="cat-wallet" class="text-gray-400 hover:text-[#d4af37] pb-1 transition">WALLET</button>
+                    <button onclick="filterCategory('Belt')" id="cat-belt" class="text-gray-400 hover:text-[#d4af37] pb-1 transition">BELT</button>
                 </div>
             </div>
 
-            <!-- Product Grid -->
+            <!-- Visual grid container -->
             <div id="product-grid" class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
-                <!-- Products dynamically output here -->
+                <!-- Javascript populated item Cards -->
             </div>
         </section>
 
-        <!-- OUR STORY: ROYAL COUTURE -->
+        <!-- OUR STORY -->
         <section id="story" class="py-20 px-4 max-w-7xl mx-auto border-t border-[rgba(212,175,55,0.08)] grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div class="lg:col-span-5 order-2 lg:order-1">
                 <span class="text-xs text-[#d4af37] tracking-[0.3em] font-cinzel">OUR STORY</span>
@@ -259,14 +284,15 @@
                     Founded by visionary CEO Md. Rafiul Islam, SherenVogue serves as an international standard of bespoke haute couture. Drawing inspirations from grand royal eras, every attire, gown, and custom accessory is curated to exude prestige, heritage, and power.
                 </p>
                 <div class="p-6 glass-panel rounded-none border border-[rgba(212,175,55,0.15)] relative mb-6">
-                    <p class="text-xs italic text-[#d4af37] tracking-widest font-cinzel">"Haute Couture isn't merely style; it is an enduring identity, a canvas where historical craft captures timeless modern royalty."</p>
+                    <p class="text-xs italic text-[#d4af37] tracking-widest font-cinzel">"Luxury Fashion isn't merely style; it is an enduring identity, a canvas where historical craft captures timeless modern royalty."</p>
                     <span class="block text-right text-[10px] font-bold text-white tracking-widest font-cinzel mt-3">— MD. RAFIUL ISLAM, CEO</span>
                 </div>
             </div>
+            <!-- Royal Blue Couture Gown image -->
             <div class="lg:col-span-7 relative order-1 lg:order-2">
-                <div class="relative overflow-hidden rounded border border-[rgba(212,175,55,0.2)]">
-                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=1000&auto=format&fit=crop" class="w-full h-[550px] object-cover hover:scale-105 transition duration-700" alt="Royal Haute Gown Atelier" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                <div class="relative overflow-hidden rounded-lg border border-[rgba(212,175,55,0.2)]">
+                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=1200&auto=format&fit=crop" class="w-full h-[550px] object-cover hover:scale-105 transition duration-700" alt="Royal Blue Silk Drape Gown" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                     <div class="absolute bottom-6 left-6 border-l-2 border-[#d4af37] pl-4">
                         <span class="text-[9px] text-[#d4af37] font-cinzel tracking-widest block">GRAND REVELATIONS</span>
                         <span class="font-cinzel text-md text-white font-bold tracking-widest">Royal Blue Atelier & Silk Drape Gown</span>
@@ -275,7 +301,7 @@
             </div>
         </section>
 
-        <!-- MAISON CONCIERGE & SERVICE -->
+        <!-- MAISON CONCIERGE -->
         <section id="concierge" class="py-20 px-4 bg-gradient-to-b from-[#050505] to-[#0a0a0a] border-t border-[rgba(212,175,55,0.08)]">
             <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
@@ -289,11 +315,11 @@
                             <i class="fa-solid fa-envelope"></i>
                         </div>
                         <div>
-                            <span class="text-[10px] text-gray-500 uppercase tracking-widest block font-cinzel">Write to Us</span>
+                            <span class="text-[10px] text-gray-500 uppercase tracking-widest block font-cinzel font-semibold">WRITE TO US</span>
                             <a href="mailto:hello@sherenvogue.com" class="text-lg text-white font-bold hover:text-[#d4af37] transition font-cinzel">hello@sherenvogue.com</a>
                         </div>
                     </div>
-                    <a href="mailto:hello@sherenvogue.com" class="gold-btn inline-block px-8 py-3.5 text-xs font-cinzel tracking-widest rounded-none font-bold uppercase hover:bg-white transition-all">
+                    <a href="mailto:hello@sherenvogue.com" class="gold-btn inline-block px-8 py-3.5 text-[11px] font-cinzel tracking-widest rounded-none font-bold uppercase hover:bg-white transition-all">
                         REQUEST VIRTUAL APPOINTMENT →
                     </a>
                 </div>
@@ -311,62 +337,69 @@
         </section>
     </main>
 
-    <!-- SECTION: SHOPPING CART -->
+    <!-- SECTION: CART -->
     <main id="cart-section" class="section-view hidden py-16 px-4 max-w-5xl mx-auto">
         <h2 class="font-cinzel text-3xl font-bold tracking-wider text-center text-white mb-8">SHOPPING BAG</h2>
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
-            <!-- Left: Cart Items -->
-            <div class="lg:col-span-8 flex flex-col gap-6" id="cart-items-container">
-                <!-- Cart items load here dynamically -->
-            </div>
+            <!-- Items container -->
+            <div class="lg:col-span-8 flex flex-col gap-6" id="cart-items-container"></div>
 
-            <!-- Right: Summary & Forms -->
-            <div class="lg:col-span-4 bg-black/60 border border-[rgba(212,175,55,0.15)] p-6 rounded relative h-fit">
-                <h3 class="font-cinzel text-md font-bold tracking-wider text-white mb-4 pb-2 border-b border-[rgba(212,175,55,0.1)]">ORDER SUMMARY</h3>
+            <!-- Checkout panel -->
+            <div class="lg:col-span-4 bg-black/60 border border-[rgba(212,175,55,0.15)] p-6 rounded relative h-fit flex flex-col gap-5">
+                <h3 class="font-cinzel text-md font-bold tracking-wider text-white border-b border-[rgba(212,175,55,0.1)] pb-3">ORDER SUMMARY</h3>
                 
-                <div class="flex justify-between text-xs mb-3 text-gray-400">
+                <!-- Applied Coupon code tracking -->
+                <div id="cart-coupon-banner" class="hidden justify-between items-center bg-[#d4af37]/10 border border-[#d4af37]/40 px-3 py-2 text-[10px] rounded">
+                    <span class="text-[#d4af37] font-semibold"><i class="fa-solid fa-tag mr-1"></i> Coupon "SVROYAL500" Activated!</span>
+                    <button onclick="removeCoupon()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+
+                <div class="flex justify-between text-xs text-gray-400">
                     <span>Subtotal</span>
                     <span id="cart-subtotal">$0.00</span>
                 </div>
-                <div class="flex justify-between text-xs mb-3 text-gray-400">
+                <div id="cart-discount-row" class="hidden justify-between text-xs text-red-400">
+                    <span>Coupon Discount</span>
+                    <span id="cart-discount-val">-$500.00</span>
+                </div>
+                <div class="flex justify-between text-xs text-gray-400">
                     <span>Maison Shipping</span>
                     <span id="cart-shipping">FREE</span>
                 </div>
-                <hr class="border-[rgba(212,175,55,0.1)] my-3" />
-                <div class="flex justify-between text-sm font-bold mb-6">
+                <hr class="border-[rgba(212,175,55,0.1)]" />
+                <div class="flex justify-between text-sm font-bold">
                     <span class="text-[#d4af37]">GRAND TOTAL</span>
                     <span class="gold-text" id="cart-grandtotal">$0.00</span>
                 </div>
 
-                <button onclick="showCheckout()" class="gold-btn w-full py-3.5 text-xs font-cinzel font-bold uppercase tracking-widest mb-3">
-                    PROCEED TO CHECKOUT
+                <button onclick="showCheckout()" class="gold-btn w-full py-3.5 text-[11px] font-cinzel font-bold uppercase tracking-widest">
+                    PROCEED TO SECURE CHECKOUT
                 </button>
-                <button onclick="showSection('home')" class="w-full text-center text-xs text-gray-400 hover:text-white transition py-2 font-cinzel tracking-wider">
-                    CONTINUE BROWSING
+                <button onclick="showSection('home')" class="w-full text-center text-xs text-gray-400 hover:text-white transition py-1 font-cinzel tracking-wider">
+                    CONTINUE SHOPPING
                 </button>
             </div>
         </div>
     </main>
 
-    <!-- SECTION: CHECKOUT FORM -->
-    <main id="checkout-section" class="section-view hidden py-16 px-4 max-w-3xl mx-auto">
+    <!-- SECTION: SECURE CHECKOUT -->
+    <main id="checkout-section" class="section-view hidden py-16 px-4 max-w-3xl mx-auto animate-fade-in">
         <div class="text-center mb-8">
             <span class="text-xs text-[#d4af37] tracking-[0.3em] font-cinzel">THE PRIVATE ATELIER</span>
-            <h2 class="font-cinzel text-3xl font-bold tracking-wider text-white mt-1">MAISON SECURE CHECKOUT</h2>
+            <h2 class="font-cinzel text-3xl font-bold tracking-wider text-white mt-1">MAISON CHECKOUT</h2>
         </div>
 
         <form id="checkout-form" onsubmit="submitCheckout(event)" class="glass-panel p-6 md:p-10 rounded border border-[rgba(212,175,55,0.15)] flex flex-col gap-6">
-            <!-- Order summary visual in checkout -->
-            <div class="p-4 bg-black/80 border border-gold border-[rgba(212,175,55,0.08)] mb-4">
-                <span class="text-[9px] tracking-widest font-cinzel text-gray-400 block mb-2 uppercase">Your Selection Summary</span>
-                <div class="flex justify-between items-center text-sm font-bold text-[#d4af37]">
-                    <span id="checkout-items-count">0 items selected</span>
-                    <span id="checkout-grandtotal">$0.00</span>
+            <div class="p-4 bg-black/85 border border-[rgba(212,175,55,0.08)] rounded-md">
+                <span class="text-[9px] tracking-widest font-cinzel text-gray-400 block mb-1">SELECTED COUTURES & COST</span>
+                <div class="flex justify-between items-center text-sm font-bold">
+                    <span id="checkout-items-count" class="text-gray-300">0 Items</span>
+                    <span id="checkout-grandtotal" class="gold-text">$0.00</span>
                 </div>
             </div>
 
-            <!-- Customer fields -->
+            <!-- Customer Billing inputs -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                     <label class="text-[10px] text-gray-400 font-cinzel tracking-widest block uppercase mb-1">Full Name *</label>
@@ -384,8 +417,8 @@
                     <input type="tel" id="cust-phone" required class="w-full bg-[#050505] border border-[rgba(212,175,55,0.2)] rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#d4af37] transition" />
                 </div>
                 <div>
-                    <label class="text-[10px] text-gray-400 font-cinzel tracking-widest block uppercase mb-1">Postal / Zip Code</label>
-                    <input type="text" id="cust-zip" class="w-full bg-[#050505] border border-[rgba(212,175,55,0.2)] rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#d4af37] transition" />
+                    <label class="text-[10px] text-gray-400 font-cinzel tracking-widest block uppercase mb-1">Postal / Zip Code *</label>
+                    <input type="text" id="cust-zip" required class="w-full bg-[#050505] border border-[rgba(212,175,55,0.2)] rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-[#d4af37] transition" />
                 </div>
             </div>
 
@@ -395,26 +428,25 @@
             </div>
 
             <div>
-                <label class="text-[10px] text-gray-400 font-cinzel tracking-widest block uppercase mb-1">Maison Delivery Speed</label>
-                <select id="cust-speed" class="w-full bg-[#050505] border border-[rgba(212,175,55,0.2)] rounded px-3 py-2 text-xs text-white focus:outline-none focus:border-[#d4af37] transition">
+                <label class="text-[10px] text-gray-400 font-cinzel tracking-widest block uppercase mb-1">Maison Delivery Method *</label>
+                <select id="cust-speed" class="w-full bg-[#050505] border border-[rgba(212,175,55,0.2)] rounded px-3 py-2.5 text-xs text-white focus:outline-none focus:border-[#d4af37] transition">
                     <option value="complimentary">Complimentary VIP Worldwide Shipping (7-10 Days) - FREE</option>
-                    <option value="expedited">Express Couture Concierge Courier (2-4 Days) - FREE (Luxury perk)</option>
+                    <option value="expedited">Express Courier (2-4 Days) - FREE (Luxury Privilege)</option>
                 </select>
             </div>
 
             <div>
-                <label class="text-[10px] text-gray-400 font-cinzel tracking-widest block uppercase mb-1">Billing Payment Choice</label>
-                <select id="cust-payment" class="w-full bg-[#050505] border border-[rgba(212,175,55,0.2)] rounded px-3 py-2 text-xs text-[#d4af37] focus:outline-none focus:border-[#d4af37] transition">
-                    <option value="cod">Cash on VIP Delivery (At-Home Concierge inspection)</option>
-                    <option value="bank">Direct Private Wire Bank Transfer (Our customer team will reach you)</option>
+                <label class="text-[10px] text-gray-400 font-cinzel tracking-widest block uppercase mb-1">Payment Method *</label>
+                <select id="cust-payment" class="w-full bg-[#050505] border border-[rgba(212,175,55,0.2)] rounded px-3 py-2.5 text-xs text-[#d4af37] focus:outline-none focus:border-[#d4af37] transition">
+                    <option value="cod">Cash on Delivery (At-Home Inspection)</option>
+                    <option value="wire">Direct Wire Transfer (Our team will verify manually)</option>
                 </select>
             </div>
 
-            <!-- Submit Button with Web3Forms notification -->
-            <button type="submit" class="gold-btn w-full py-4 text-xs font-cinzel font-bold uppercase tracking-[0.2em] rounded">
+            <button type="submit" class="gold-btn w-full py-4 text-xs font-cinzel font-bold uppercase tracking-[0.2em] rounded-md mt-2">
                 COMPLETE ORDER & SEND MAISON NOTIFICATION
             </button>
-            <button type="button" onclick="showSection('cart')" class="text-center text-xs text-gray-400 hover:text-white transition py-2 font-cinzel tracking-wider">
+            <button type="button" onclick="showSection('cart')" class="text-center text-xs text-gray-400 hover:text-white transition py-1 font-cinzel tracking-wider">
                 RETURN TO SHOPPING BAG
             </button>
         </form>
@@ -423,14 +455,12 @@
     <!-- SECTION: ORDER HISTORY -->
     <main id="history-section" class="section-view hidden py-16 px-4 max-w-5xl mx-auto">
         <div class="text-center mb-10">
-            <span class="text-[#d4af37] text-xs font-cinzel tracking-[0.3em]">MAISON ACCORD RECORDS</span>
-            <h2 class="font-cinzel text-3xl font-bold tracking-wider text-white mt-1">YOUR ORDER HISTORY</h2>
+            <span class="text-[#d4af37] text-xs font-cinzel tracking-[0.3em]">ATELIER ARCHIVES</span>
+            <h2 class="font-cinzel text-3xl font-bold tracking-wider text-white mt-1">ORDER HISTORY</h2>
             <div class="w-12 h-[1px] bg-[#d4af37] mx-auto mt-2"></div>
         </div>
 
-        <div id="history-container" class="flex flex-col gap-6">
-            <!-- Dynamically rendering history -->
-        </div>
+        <div id="history-container" class="flex flex-col gap-6"></div>
     </main>
 
     <!-- SUCCESS SCREEN -->
@@ -439,77 +469,147 @@
             <i class="fa-solid fa-crown animate-pulse"></i>
         </div>
         <span class="text-xs text-[#d4af37] tracking-[0.4em] font-cinzel uppercase block mb-1">Maison Reverence</span>
-        <h2 class="font-cinzel text-3xl lg:text-4xl font-extrabold text-white tracking-widest mb-4">ORDER ACQUIRED</h2>
-        <p class="text-xs tracking-widest text-[#d4af37] font-cinzel mb-4">Transaction identification: <span id="success-id" class="text-white">#SV-00000</span></p>
+        <h2 class="font-cinzel text-3xl lg:text-4xl font-extrabold text-white tracking-widest mb-4">ORDER PLACED</h2>
+        <p class="text-xs tracking-widest text-[#d4af37] font-cinzel mb-4">IDENTIFIER: <span id="success-id" class="text-white">#SV-00000</span></p>
         
         <p class="text-gray-300 text-sm leading-relaxed max-w-md mx-auto mb-8 font-light">
-            An elite transaction notification dispatch has been transmitted to hello@sherenvogue.com via Web3Forms API. A private client concierge will arrive via text or email shortly. Order metadata saved to order archives.
+            Your dispatch task is secured. Client concierge team will verify and notify you at hello@sherenvogue.com. 
         </p>
 
         <div class="flex gap-4 justify-center">
-            <button onclick="showSection('home')" class="gold-btn px-6 py-3.5 text-xs font-cinzel font-bold tracking-widest uppercase">
-                CONTINUE SHOPPING
+            <button onclick="showSection('home')" class="gold-btn px-6 py-3 text-xs font-cinzel font-bold tracking-widest uppercase">
+                CONTINUE BROWSING
             </button>
-            <button onclick="showSection('history')" class="bg-transparent border border-[rgba(212,175,55,0.2)] hover:border-[#d4af37] text-white px-6 py-3.5 text-xs font-cinzel tracking-widest uppercase transition-all">
-                VIEW HISTORIES
+            <button onclick="showSection('history')" class="bg-transparent border border-[rgba(212,175,55,0.2)] hover:border-[#d4af37] text-white px-6 py-3 text-xs font-cinzel tracking-widest uppercase transition-all">
+                ORDER ARCHIVES
             </button>
         </div>
     </main>
 
-    <!-- DYNAMIC LUXURY MODAL (Daraz-Style color selection, carousel slider) -->
-    <div id="product-modal" class="fixed inset-0 z-50 overflow-y-auto bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="glass-panel w-full max-w-4xl rounded-xl relative overflow-hidden flex flex-col md:flex-row max-h-[90vh] overflow-y-auto">
-            <!-- Close button -->
-            <button onclick="closeModal()" class="absolute right-4 top-4 text-gray-400 hover:text-[#d4af37] text-xl z-10 transition">
+    <!-- DARAZ-STYLE ADVANCED DYNAMIC MODAL -->
+    <div id="product-modal" class="fixed inset-0 z-50 overflow-y-auto bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="glass-panel w-full max-w-5xl rounded-2xl relative overflow-hidden flex flex-col md:flex-row max-h-[92vh] overflow-y-auto">
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute right-4 top-4 text-gray-400 hover:text-[#d4af37] text-2xl z-20 transition">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
-            <!-- Left: Slider / images -->
-            <div class="md:w-1/2 p-6 flex flex-col justify-between">
-                <div class="relative overflow-hidden w-full aspect-[4/5] rounded bg-black/50 border border-[rgba(212,175,55,0.1)] mb-4">
-                    <img id="modal-primary-image" src="" class="w-full h-full object-cover" alt="Focus View" />
+            <!-- LEFT: MEDIA GALLERY (Active Magnified Images Carousel & Thumbs) -->
+            <div class="md:w-[48%] p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-[rgba(212,175,55,0.08)]">
+                <div>
+                    <!-- Zoom Container -->
+                    <div class="relative overflow-hidden w-full aspect-[4/5] rounded-xl bg-black/60 border border-[rgba(212,175,55,0.12)] mb-4 image-zoom-container">
+                        <img id="modal-primary-image" src="" class="w-full h-full object-cover" alt="Primary Active Inspect" />
+                    </div>
+                    <!-- Hover Swap thumbnails -->
+                    <div id="modal-thumbs" class="flex gap-3 overflow-x-auto pb-2"></div>
                 </div>
-                <!-- Mini carousel slider indicators -->
-                <div id="modal-thumbs" class="flex gap-2">
-                    <!-- Carousel thumb thumbnails dynamically populated -->
+
+                <div class="mt-4 pt-4 border-t border-[rgba(212,175,55,0.08)] grid grid-cols-3 gap-2 text-center">
+                    <div class="bg-white/[0.02] border border-white/5 p-2 rounded">
+                        <i class="fa-solid fa-shield-halved text-[#d4af37] text-xs mb-1"></i>
+                        <span class="block text-[8px] tracking-wider uppercase font-semibold">100% Authentic</span>
+                    </div>
+                    <div class="bg-white/[0.02] border border-white/5 p-2 rounded">
+                        <i class="fa-solid fa-truck-fast text-[#d4af37] text-xs mb-1"></i>
+                        <span class="block text-[8px] tracking-wider uppercase font-semibold">Express Ship</span>
+                    </div>
+                    <div class="bg-white/[0.02] border border-white/5 p-2 rounded">
+                        <i class="fa-solid fa-rotate text-[#d4af37] text-xs mb-1"></i>
+                        <span class="block text-[8px] tracking-wider uppercase font-semibold">7 Days Return</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Right: Options/Details -->
-            <div class="md:w-1/2 p-6 md:p-8 flex flex-col justify-between">
+            <!-- RIGHT: DARAZ-STYLE DESCRIPTIVES & OPTIONS -->
+            <div class="md:w-[52%] p-6 md:p-8 flex flex-col justify-between gap-6">
                 <div>
-                    <span id="modal-badge" class="bg-[rgba(212,175,55,0.12)] border border-[#d4af37]/30 text-[#d4af37] text-[8px] tracking-[0.25em] font-cinzel font-bold px-2.5 py-0.5 rounded-full inline-block uppercase mb-3">EXCLUSIVE MASTERPIECE</span>
-                    <h3 id="modal-title" class="font-cinzel text-xl lg:text-2xl font-bold tracking-wide text-white">Product Spec</h3>
-                    <div id="modal-subtitle" class="text-[10px] tracking-widest text-[#d4af37] font-cinzel mt-1 uppercase">Limited Atelier Stock</div>
+                    <!-- Badge & View counts -->
+                    <div class="flex items-center gap-2 flex-wrap mb-2">
+                        <span id="modal-badge" class="bg-[rgba(212,175,55,0.12)] border border-[#d4af37]/35 text-[#d4af37] text-[8px] tracking-[0.25em] font-cinzel font-bold px-2.5 py-0.5 rounded-full uppercase">EXCLUSIVE</span>
+                        <span class="text-[9px] bg-red-600/20 border border-red-500/30 text-red-400 font-bold px-2 py-0.5 rounded uppercase"><i class="fa-solid fa-eye mr-1"></i> 14 Viewers</span>
+                    </div>
                     
-                    <div class="flex items-center gap-2 mt-4 mb-4">
-                        <span id="modal-price" class="text-xl lg:text-2xl font-extrabold gold-text font-cinzel">$0,00</span>
-                        <span class="text-xs text-gray-500 line-through tracking-wider font-cinzel" id="modal-orig-price"></span>
+                    <h3 id="modal-title" class="font-cinzel text-xl md:text-2xl font-extrabold tracking-wide text-white leading-tight">Product Title</h3>
+                    
+                    <!-- Rating and Authenticated checks -->
+                    <div class="flex items-center gap-2 mt-2 mb-3">
+                        <div class="flex text-[#d4af37] text-[10px]">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="text-[10px] text-gray-400 font-semibold mt-0.5">4.9 | 42 Luxury Reviews</span>
+                        <span class="text-gray-600 text-xs">|</span>
+                        <span class="text-[10px] text-[#d4af37] font-semibold mt-0.5">Maison Authenticated</span>
                     </div>
 
-                    <p id="modal-desc" class="text-xs text-gray-400 leading-relaxed font-light mb-6">
-                        Description details go here. Seamless dynamic content based on real product choices. Crafted with meticulous handcrafting elements.
-                    </p>
+                    <!-- Price Breaks and Save tags -->
+                    <div class="flex items-baseline gap-3 mb-4">
+                        <span id="modal-price" class="text-2xl md:text-3xl font-extrabold gold-text font-cinzel">$0,00</span>
+                        <span id="modal-orig-price" class="text-xs text-gray-500 line-through font-cinzel"></span>
+                        <span class="text-[9px] text-[#d4af37] font-bold bg-[#d4af37]/10 border border-[#d4af37]/30 px-1.5 py-0.5 rounded">SAVE $1,000+</span>
+                    </div>
 
-                    <!-- COLOR SELECT SWATCHES (Daraz style with active/disabled state visualizer) -->
-                    <div class="mb-6">
-                        <span class="text-[10px] tracking-[0.15em] font-cinzel text-gray-400 uppercase block mb-2">MAISON ATELIER COUTURE COLOR</span>
-                        <div id="color-swatches-container" class="flex gap-3">
-                            <!-- Color circles dynamically render here -->
+                    <p id="modal-desc" class="text-xs text-gray-400 leading-relaxed font-light mb-5"></p>
+
+                    <!-- COLOR CHOICES swatches (highlighted state) -->
+                    <div class="mb-4">
+                        <span class="text-[9px] tracking-widest font-cinzel text-gray-400 uppercase block mb-2">MAISON ATELIER COUTURE COLOR <span id="selected-color-lbl" class="text-white ml-2"></span></span>
+                        <div id="color-swatches-container" class="flex gap-2.5 flex-wrap"></div>
+                    </div>
+
+                    <!-- ATELIER SIZES Selector -->
+                    <div class="mb-5">
+                        <span class="text-[9px] tracking-widest font-cinzel text-gray-400 uppercase block mb-2">SIZES AVAILABLE <span id="selected-size-lbl" class="text-white ml-2"></span></span>
+                        <div id="size-swatches-container" class="flex gap-2.5 flex-wrap"></div>
+                    </div>
+
+                    <!-- DELIVERY ESTIMATION module -->
+                    <div class="bg-white/[0.02] border border-white/5 rounded-xl p-3 mb-5">
+                        <span class="text-[9px] font-cinzel tracking-widest text-[#d4af37] block mb-2 uppercase">Estimate Delivery & Location</span>
+                        <div class="flex gap-2">
+                            <input type="text" id="postal-checker-val" placeholder="Enter Postal/Zip (e.g., 10001)" class="bg-[#050505] border border-white/10 text-xs px-3 py-1.5 rounded focus:outline-none focus:border-[#d4af37] flex-1 text-white" />
+                            <button onclick="checkDeliveryRate()" class="bg-[#d4af37] text-black font-semibold text-[10px] px-4 py-1.5 hover:bg-[#c3a030] transition rounded uppercase font-cinzel">CHECK</button>
+                        </div>
+                        <div id="delivery-calc-output" class="hidden text-[10px] mt-2 text-gray-400">
+                            <i class="fa-solid fa-truck-ramp-box mr-1 text-[#d4af37]"></i> Delivery estimated <span class="text-white font-bold" id="est-delivery-time"></span>. Rate: <span class="text-emerald-400 font-bold" id="est-delivery-rate"></span>
+                        </div>
+                    </div>
+
+                    <!-- DARAZ VOUCHERS -->
+                    <div class="mb-5">
+                        <span class="text-[9px] tracking-widest font-cinzel text-gray-400 uppercase block mb-1">PROMOTION VOUCHERS AVAILABLE</span>
+                        <div class="border border-[#d4af37]/30 bg-[#d4af37]/5 px-3 py-2 flex justify-between items-center rounded-lg">
+                            <div>
+                                <span class="text-[10px] font-bold font-cinzel text-white tracking-wider block">Get $500.00 Flat Discount Code</span>
+                                <span class="text-[8px] text-[#d4af37]">Min. Spend $6,000 • Code: <strong class="text-white">SVROYAL500</strong></span>
+                            </div>
+                            <button onclick="applyVoucher('SVROYAL500')" class="bg-white/10 hover:bg-[#d4af37] text-[#d4af37] hover:text-black font-bold text-[9px] px-3 py-1 rounded transition uppercase">APPLY</button>
                         </div>
                     </div>
                 </div>
 
-                <div class="mt-auto">
-                    <!-- Quantity and add -->
+                <!-- Quantities & checkout buttons -->
+                <div class="flex flex-col gap-3 mt-auto">
                     <div class="flex gap-4 items-center">
-                        <div class="flex items-center border border-[rgba(212,175,55,0.3)] h-12">
-                            <button onclick="adjustModalQty(-1)" class="w-10 h-full text-white hover:text-[#d4af37] text-xs font-bold transition">-</button>
-                            <span id="modal-qty-val" class="px-4 text-sm font-semibold text-white font-cinzel">1</span>
-                            <button onclick="adjustModalQty(1)" class="w-10 h-full text-white hover:text-[#d4af37] text-xs font-bold transition">+</button>
+                        <span class="text-[10px] text-gray-400 uppercase tracking-widest font-cinzel">Quantity</span>
+                        <div class="flex items-center border border-[rgba(212,175,55,0.3)] h-10 rounded">
+                            <button onclick="adjustModalQty(-1)" class="w-8 h-full text-white hover:text-[#d4af37] transition font-bold text-xs">-</button>
+                            <span id="modal-qty-val" class="px-4 text-xs font-semibold text-white font-cinzel">1</span>
+                            <button onclick="adjustModalQty(1)" class="w-8 h-full text-white hover:text-[#d4af37] transition font-bold text-xs">+</button>
                         </div>
-                        <button onclick="addModalToCart()" class="gold-btn flex-1 h-12 text-xs font-cinzel font-bold uppercase tracking-widest">
-                            ADD TO ATELIER BAG
+                        <span id="modal-stock-indicator" class="text-[10px] text-orange-400 font-bold tracking-wider font-cinzel uppercase ml-2 animate-pulse">Few pieces left!</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mt-2">
+                        <button onclick="addModalToCart()" class="gold-btn h-12 text-[10px] font-cinzel font-bold uppercase tracking-widest rounded-lg">
+                            ADD TO BAG
+                        </button>
+                        <button onclick="buyNowModal()" class="buy-now-btn h-12 text-[10px] font-cinzel font-bold uppercase tracking-widest rounded-lg">
+                            BUY NOW (INSTANT)
                         </button>
                     </div>
                 </div>
@@ -517,34 +617,13 @@
         </div>
     </div>
 
-    <!-- MOBILE BOTTON NAVIGATION BAR (Instant feedback, seamless dynamic) -->
-    <div class="lg:hidden fixed bottom-0 inset-x-0 z-40 glass-panel border-t border-[rgba(212,175,55,0.2)] py-2 flex items-center justify-around font-cinzel text-[8px] tracking-[0.2em] text-gray-400">
-        <a href="#" onclick="showSection('home')" class="flex flex-col items-center gap-1 hover:text-[#d4af37] transition">
-            <i class="fa-solid fa-home text-base"></i>
-            <span>HOME</span>
-        </a>
-        <a href="#" onclick="showSection('cart')" class="relative flex flex-col items-center gap-1 hover:text-[#d4af37] transition">
-            <i class="fa-solid fa-bag-shopping text-base"></i>
-            <span>BAG</span>
-            <span class="absolute top-0 right-1 bg-red-600 text-white text-[8px] font-bold rounded-full w-3 h-3 flex items-center justify-center cart-count">0</span>
-        </a>
-        <a href="#" onclick="showSection('history')" class="flex flex-col items-center gap-1 hover:text-[#d4af37] transition">
-            <i class="fa-solid fa-clock-rotate-left text-base"></i>
-            <span>ORDERS</span>
-        </a>
-        <a href="#concierge" class="flex flex-col items-center gap-1 hover:text-[#d4af37] transition">
-            <i class="fa-solid fa-envelope text-base"></i>
-            <span>SUPPORT</span>
-        </a>
-    </div>
-
-    <!-- MAISON FOUL FOOTER -->
+    <!-- FOOTER -->
     <footer class="bg-[#050505] border-t border-[rgba(212,175,55,0.15)] pt-16 pb-28 lg:pb-12 px-4">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
             <div>
                 <a href="#" class="flex flex-col items-start mb-4">
                     <span class="font-cinzel text-xl lg:text-2xl font-extrabold tracking-[0.2em] gold-text">SHERENVOGUE</span>
-                    <span class="text-[6px] tracking-[0.55em] text-[#d4af37] font-cinzel">HAUTE COUTURE</span>
+                    <span class="text-[6px] tracking-[0.4em] text-[#d4af37] font-cinzel mt-1 leading-none">LUXURY FASHION BRAND</span>
                 </a>
                 <p class="text-[11px] text-gray-400 font-light leading-relaxed max-w-xs">
                     Curators of exquisite global styles, serving royalties, dynasties, and the elite aristocratic community with bespoke and private ready-to-wear luxury.
@@ -553,10 +632,11 @@
             <div>
                 <span class="font-cinzel text-xs font-bold text-white tracking-widest block mb-4 uppercase">Atelier Categories</span>
                 <div class="flex flex-col gap-2.5 text-[11px] text-gray-400">
-                    <a href="#" onclick="filterCategory('Luxury Bags')" class="hover:text-[#d4af37] transition">Luxury Couture Bags</a>
-                    <a href="#" onclick="filterCategory('Timepieces')" class="hover:text-[#d4af37] transition">Elite Heritage Timepieces</a>
-                    <a href="#" onclick="filterCategory('Haute Parfums')" class="hover:text-[#d4af37] transition">Pure Royalty Parfums</a>
-                    <a href="#" onclick="filterCategory('Exquisite Wallets')" class="hover:text-[#d4af37] transition">Prestige Wallets</a>
+                    <a href="#" onclick="scrollToMasterpieces('Ladies Bag')" class="hover:text-[#d4af37] transition">Ladies Bag Selection</a>
+                    <a href="#" onclick="scrollToMasterpieces('Perfume')" class="hover:text-[#d4af37] transition">Maison Fragrances / Perfume</a>
+                    <a href="#" onclick="scrollToMasterpieces('Watch')" class="hover:text-[#d4af37] transition">Heritage Timepieces</a>
+                    <a href="#" onclick="scrollToMasterpieces('Wallet')" class="hover:text-[#d4af37] transition">Wallet Prestige</a>
+                    <a href="#" onclick="scrollToMasterpieces('Belt')" class="hover:text-[#d4af37] transition">Couture Belts</a>
                 </div>
             </div>
             <div>
@@ -570,8 +650,8 @@
             </div>
             <div>
                 <span class="font-cinzel text-xs font-bold text-white tracking-widest block mb-4 uppercase">Direct Assurance</span>
-                <p class="text-[10px] text-gray-400 mb-4 leading-relaxed font-light">
-                    Our digital identity guarantees standard authentications. Write directly at your ease hello@sherenvogue.com.
+                <p class="text-[10px] text-gray-400 mb-4 leading-relaxed font-light font-semibold">
+                    Our digital identity guarantees standard authentication and inspection. hello@sherenvogue.com.
                 </p>
                 <div class="flex gap-4 text-gray-400 text-sm">
                     <a href="#" class="hover:text-[#d4af37]"><i class="fa-brands fa-facebook"></i></a>
@@ -581,19 +661,27 @@
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto border-t border-[rgba(212,175,55,0.08)] pt-6 text-center text-[10px] text-gray-500 font-cinzel tracking-wider">
-            © 2026 SHERENVOGUE. PRIVATELY OWNED & OPERATED BY CEO MD. RAFIUL ISLAM. ALL WORLDWIDE HAUTE COUTURE RIGHTS RESERVED.
+        
+        <!-- LARGE SIGNATURE Crest and stamps -->
+        <div class="flex flex-col items-center justify-center border-t border-[rgba(212,175,55,0.08)] pt-10 pb-6 text-center">
+            <!-- Custom requested image stamp footer -->
+            <img src="logo1.png" onerror="this.src='https://i.ibb.co/68v8S0T/logo1.png'" class="w-16 lg:w-24 h-auto object-contain mb-4 opacity-75 filter grayscale-[20%] hover:grayscale-0 transition-all duration-500" alt="Crest stamp" />
+            <span class="font-cinzel text-[14px] font-extrabold tracking-[0.25em] gold-text">SHERENVOGUE</span>
+            <span class="text-[8px] tracking-[0.45em] text-gray-500 font-cinzel mt-1 mb-4 uppercase">LUXURY FASHION BRAND</span>
+            <div class="text-[9px] text-gray-600 font-cinzel tracking-wider">
+                © 2026 SHERENVOGUE. PRIVATELY OWNED & OPERATED BY CEO MD. RAFIUL ISLAM. ALL WORLDWIDE HAUTE COUTURE RIGHTS RESERVED.
+            </div>
         </div>
     </footer>
 
-    <!-- INTERACTIVE JAVASCRIPT SYSTEM -->
+    <!-- INTERACTIVE SCRIPT SYSTEM (ALL BUTTONS ACTIONABLE) -->
     <script>
-        // Simulated Dynamic Products Database loaded from JSON design
+        // Production level dynamic structured array representing all custom ladies bags, perfume, watches, wallets, belt categories
         const productsDb = [
             {
                 id: "SV-001",
                 name: "The Sheren Royal Edition Bag",
-                category: "Luxury Bags",
+                category: "Ladies Bag",
                 price: 7999,
                 origPrice: "$8,999",
                 badge: "NEW COUTURE ARRIVAL",
@@ -602,34 +690,32 @@
                     "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop",
                     "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800&auto=format&fit=crop"
                 ],
-                colors: [
-                    { name: "Royal Midnight Black", hex: "#0c0a09" },
-                    { name: "Monarch Velvet Blue", hex: "#1e3a5f" }
-                ],
+                colors: ["Midnight Gold", "Ruby Velvet", "Suede Onyx"],
+                sizes: ["S", "M", "L"],
+                stock: 2,
                 desc: "Sculpted from selected 100% full-grain calf leather and layered in hand-sewn golden quilt. Finished with SherenVogue’s signature heavy brass insignia. Represents high-end status and timeless elegance."
             },
             {
                 id: "SV-002",
-                name: "Sheren Signature Timepiece",
-                category: "Timepieces",
-                price: 14999,
-                origPrice: "$16,500",
-                badge: "BESTSELLER",
-                thumbnail: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop",
+                name: "The Sheren Grace Graceful Bag",
+                category: "Ladies Bag",
+                price: 7499,
+                origPrice: "$8,500",
+                badge: "EXCLUSIVE",
+                thumbnail: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800&auto=format&fit=crop",
                 gallery: [
-                    "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop",
-                    "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800&auto=format&fit=crop"
+                    "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop"
                 ],
-                colors: [
-                    { name: "Gilded Rose Gold", hex: "#b76e79" },
-                    { name: "Midnight Obsidian", hex: "#1c1c1c" }
-                ],
-                desc: "Equipped with automatic tourbillon precision and an unscratchable golden watch perimeter. Handcrafted individually by heritage watchsmiths, creating a masterpiece the entire dynasty can honor."
+                colors: ["Creamy Ivory", "Royal Blue Gilded", "Shadow Black"],
+                sizes: ["S", "M", "L"],
+                stock: 3,
+                desc: "Exhibits subtle grandeur with ivory full-grain canvas, a tailored gold chain, and royal finish. Handcrafted to offer effortless styling across the most exclusive runways."
             },
             {
                 id: "SV-003",
                 name: "Sheres Noir Parfum",
-                category: "Haute Parfums",
+                category: "Perfume",
                 price: 6490,
                 origPrice: "$6,990",
                 badge: "LIMITED ATELIER",
@@ -638,60 +724,108 @@
                     "https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=800&auto=format&fit=crop",
                     "https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=800&auto=format&fit=crop"
                 ],
-                colors: [
-                    { name: "Royal Dark Gold Amber", hex: "#8a6e45" }
-                ],
+                colors: ["Dark Gold Amber"],
+                sizes: ["100ml Special Reserve"],
+                stock: 5,
                 desc: "An aristocratic alchemy featuring dark leather, midnight patchouli, and the rarest black orchids. Preserved in a solid glass 3D luxury bottle to deliver deep, everlasting luxury projection."
             },
             {
                 id: "SV-004",
-                name: "The Sheren Grace Bag",
-                category: "Luxury Bags",
-                price: 7499,
-                origPrice: "$8,000",
-                badge: "EXCLUSIVE",
-                thumbnail: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800&auto=format&fit=crop",
+                name: "Maison Royal Sillage Perfume",
+                category: "Perfume",
+                price: 5200,
+                origPrice: "$5,800",
+                badge: "COUTURE",
+                thumbnail: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=800&auto=format&fit=crop",
                 gallery: [
-                    "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800&auto=format&fit=crop",
-                    "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800&auto=format&fit=crop"
+                    "https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=800&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=800&auto=format&fit=crop"
                 ],
-                colors: [
-                    { name: "Creamy Ivory Gold", hex: "#eed9b3" },
-                    { name: "Elite Midnight Dark", hex: "#0c0a09" }
-                ],
-                desc: "Exhibits subtle grandeur with ivory full-grain canvas, a tailored gold chain, and royal finish. Handcrafted to offer effortless styling across the most exclusive runways."
+                colors: ["Obsidian Rosewood"],
+                sizes: ["50ml", "100ml"],
+                stock: 4,
+                desc: "Sophisticated formulation with rich Saffron, Damask Rose, Oudh wood, and warm Ambergris, delivering a regal sensory footprint."
             },
             {
                 id: "SV-005",
-                name: "Atelier Signature Wallet",
-                category: "Exquisite Wallets",
+                name: "Sheren Signature Timepiece",
+                category: "Watch",
+                price: 14999,
+                origPrice: "$16,500",
+                badge: "BESTSELLER",
+                thumbnail: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop",
+                gallery: [
+                    "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800&auto=format&fit=crop"
+                ],
+                colors: ["Rose Gold Prestige", "Stealth Obsidian Platinum"],
+                sizes: ["Classic 40mm", "Elite 42mm"],
+                stock: 2,
+                desc: "Equipped with automatic tourbillon precision and an unscratchable golden watch perimeter. Handcrafted individually by heritage watchsmiths, creating a masterpiece the entire dynasty can honor."
+            },
+            {
+                id: "SV-006",
+                name: "Atelier Chrono Royalist",
+                category: "Watch",
+                price: 18450,
+                origPrice: "$20,000",
+                badge: "LIMITED",
+                thumbnail: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800&auto=format&fit=crop",
+                gallery: [
+                    "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800&auto=format&fit=crop",
+                    "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=800&auto=format&fit=crop"
+                ],
+                colors: ["Golden Brass Slate", "Midnight Platinum Noir"],
+                sizes: ["Classic 42mm"],
+                stock: 1,
+                desc: "Featuring customized 3D internal wheels, un-scratchable sapphire crystal, Chronometer accuracy, and signature crown. Beautiful piece of functional jewellery."
+            },
+            {
+                id: "SV-007",
+                name: "Atelier Prestige Wallet",
+                category: "Wallet",
                 price: 2490,
                 origPrice: "$2,990",
-                badge: "EXCLUSIVE CLASSIC",
+                badge: "NEW CLASSIC",
                 thumbnail: "https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=800&auto=format&fit=crop",
                 gallery: [
-                    "https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=800&auto=format&fit=crop",
-                    "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800&auto=format&fit=crop"
+                    "https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=800&auto=format&fit=crop"
                 ],
-                colors: [
-                    { name: "Espresso Onyx", hex: "#2b1c11" },
-                    { name: "Velvet Obsidian", hex: "#1c1c1c" }
-                ],
+                colors: ["Espresso Grained", "Carbon Obsidian"],
+                sizes: ["Compact Size", "Signature Bi-Fold"],
+                stock: 6,
                 desc: "Slim profile luxury featuring dedicated slots and high-grade 3D golden brand emblem for those with uncompromising exquisite requirements."
+            },
+            {
+                id: "SV-008",
+                name: "Couture Gold-Buckled Belt",
+                category: "Belt",
+                price: 3490,
+                origPrice: "$3,990",
+                badge: "LUXURY ESSENTIAL",
+                thumbnail: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800&auto=format&fit=crop",
+                gallery: [
+                    "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800&auto=format&fit=crop"
+                ],
+                colors: ["Black Gloss Gold Shield", "Gilded Mahogany"],
+                sizes: ["85cm", "90cm", "95cm", "Custom Fit"],
+                stock: 3,
+                desc: "Expertly hand-woven full-grain calf leather strap adorned with double-winged royal crest golden shield buckle. Pure prestige."
             }
         ];
 
-        // Global System State
         let currentFilter = "all";
         let searchTerm = "";
+        
         let selectedProduct = null;
         let selectedColor = "";
+        let selectedSize = "";
         let selectedQty = 1;
-        
+        let activeCoupon = null;
+
         let cart = JSON.parse(localStorage.getItem('sv_luxury_cart')) || [];
         let orderHistory = JSON.parse(localStorage.getItem('sv_order_history')) || [];
 
-        // ON LOAD INITIALIZER
         window.addEventListener('DOMContentLoaded', () => {
             renderProducts();
             updateCartBadges();
@@ -699,7 +833,6 @@
             renderHistory();
         });
 
-        // VIEW ROUTING FUNCTIONALITY
         function showSection(sectionId) {
             document.querySelectorAll('.section-view').forEach(section => {
                 section.classList.add('hidden');
@@ -710,7 +843,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Toggle mobile drawer
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             if(menu.classList.contains('hidden')) {
@@ -722,13 +854,24 @@
             }
         }
 
-        // PRODUCT RENDERING (DYNAMICS & DYNAMIC FILTERS)
+        // SCROLL TO SHOP section
+        function scrollToMasterpieces(category) {
+            showSection('home');
+            filterCategory(category);
+            
+            setTimeout(() => {
+                const el = document.getElementById('masterpieces');
+                if(el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+
+        // LIVE FILTER & RE-RENDER
         function renderProducts() {
             const grid = document.getElementById('product-grid');
             grid.innerHTML = "";
 
             const filtered = productsDb.filter(prod => {
-                const matchesCategory = (currentFilter === 'all' || prod.category === currentFilter);
+                const matchesCategory = (currentFilter === 'all' || prod.category.toLowerCase() === currentFilter.toLowerCase());
                 const matchesSearch = prod.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
                                       prod.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
                                       prod.desc.toLowerCase().includes(searchTerm.toLowerCase());
@@ -736,23 +879,23 @@
             });
 
             if(filtered.length === 0) {
-                grid.innerHTML = `<div class="col-span-full py-12 text-center text-gray-500 font-cinzel tracking-widest text-xs">NO EXQUISITE MASTERPIECES FOUND matching search or filter</div>`;
+                grid.innerHTML = `<div class="col-span-full py-12 text-center text-gray-500 font-cinzel tracking-widest text-xs">NO MASTERPIECES FOUND SEARCHING "${searchTerm}"</div>`;
                 return;
             }
 
             filtered.forEach(p => {
                 grid.innerHTML += `
-                    <div class="glass-card p-4 flex flex-col relative rounded cursor-pointer" onclick="openProductModal('${p.id}')">
-                        <div class="relative overflow-hidden aspect-[4/5] rounded mb-4 bg-black/40">
-                            <span class="absolute top-2 left-2 bg-[rgba(5,5,5,0.7)] text-[8px] text-[#d4af37] font-cinzel font-bold tracking-widest border border-[#d4af37]/30 px-2 py-0.5 z-10 uppercase">${p.badge}</span>
-                            <img src="${p.thumbnail}" alt="${p.name}" class="w-full h-full object-cover transform hover:scale-110 transition duration-700" />
+                    <div class="glass-card p-4 flex flex-col relative rounded cursor-pointer group" onclick="openProductModal('${p.id}')">
+                        <div class="relative overflow-hidden aspect-[4/5] rounded mb-4 bg-black/45">
+                            <span class="absolute top-2.5 left-2.5 bg-black/75 text-[8px] text-[#d4af37] font-cinzel font-bold tracking-widest border border-[#d4af37]/30 px-2 py-0.5 z-10 uppercase">${p.badge}</span>
+                            <img src="${p.thumbnail}" alt="${p.name}" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500" />
                         </div>
                         <div class="flex-1 flex flex-col justify-between">
                             <div>
                                 <span class="text-[8px] tracking-[0.2em] font-cinzel text-gray-400 block mb-1 uppercase">${p.category}</span>
-                                <h4 class="font-cinzel text-xs font-semibold tracking-wide text-white group-hover:text-[#d4af37] duration-300 transition line-clamp-1 mb-2">${p.name}</h4>
+                                <h4 class="font-cinzel text-xs font-semibold tracking-wide text-white group-hover:text-[#d4af37] transition duration-300 line-clamp-1 mb-2">${p.name}</h4>
                             </div>
-                            <div class="flex items-center gap-2">
+                            <div class="flex items-center gap-2 mt-auto">
                                 <span class="text-[12px] font-bold text-[#d4af37] font-cinzel">$${p.price.toLocaleString()}</span>
                                 <span class="text-[10px] text-gray-500 line-through font-cinzel">${p.origPrice}</span>
                             </div>
@@ -762,46 +905,57 @@
             });
         }
 
-        // DYNAMIC Live Search Handler
+        // Search Input bindings
         function handleSearch(val) {
             searchTerm = val;
+            
+            // Auto focus to target visual block if typing from elsewhere
+            const currentActiveView = document.querySelector('.section-view:not(.hidden)');
+            if (currentActiveView && currentActiveView.id !== 'home-section') {
+                showSection('home');
+            }
+            
             renderProducts();
+
+            // Smooth scroll down to target grid automatically if searching
+            if (searchTerm.length >= 2) {
+                const el = document.getElementById('masterpieces');
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
 
         function filterCategory(cat) {
             currentFilter = cat;
             
-            // Adjust toggling styles visually
-            const categories = ["all", "bags", "timepieces", "parfums"];
-            categories.forEach(c => {
-                const el = document.getElementById(`cat-${c}`);
-                if(el) {
-                    el.classList.add("text-gray-400");
-                    el.classList.remove("text-[#d4af37]", "border-b", "border-[#d4af37]");
-                }
+            const categoryIds = {
+                "all": "cat-all",
+                "Ladies Bag": "cat-bags",
+                "Perfume": "cat-perfume",
+                "Watch": "cat-watch",
+                "Wallet": "cat-wallet",
+                "Belt": "cat-belt"
+            };
+
+            Object.values(categoryIds).forEach(id => {
+                const el = document.getElementById(id);
+                if(el) el.className = "text-gray-400 hover:text-[#d4af37] pb-1 transition";
             });
 
-            let activeId = "cat-all";
-            if (cat === "Luxury Bags") activeId = "cat-bags";
-            else if (cat === "Timepieces") activeId = "cat-timepieces";
-            else if (cat === "Haute Parfums") activeId = "cat-parfums";
-            
+            const activeId = categoryIds[cat] || "cat-all";
             const activeEl = document.getElementById(activeId);
-            if(activeEl) {
-                activeEl.classList.remove("text-gray-400");
-                activeEl.classList.add("text-[#d4af37]", "border-b", "border-[#d4af37]");
-            }
+            if(activeEl) activeEl.className = "text-[#d4af37] border-b border-[#d4af37] pb-1";
 
             renderProducts();
         }
 
-        // DYNAMIC PRODUCT MODAL (Color choices, multi-image view)
+        // DYNAMIC PRESTIGE MODAL (Daraz Swatches, Multi-Gallery zoom and calculator)
         function openProductModal(id) {
             const product = productsDb.find(p => p.id === id);
             if(!product) return;
 
             selectedProduct = product;
-            selectedColor = product.colors[0]?.name || "Default";
+            selectedColor = product.colors[0];
+            selectedSize = product.sizes[0];
             selectedQty = 1;
 
             document.getElementById('modal-badge').innerText = product.badge;
@@ -812,32 +966,60 @@
             document.getElementById('modal-desc').innerText = product.desc;
             document.getElementById('modal-qty-val').innerText = selectedQty;
 
-            // Thumbnail Slider Logic
+            // Quantity & Stock Tracker
+            const stockInd = document.getElementById('modal-stock-indicator');
+            if (product.stock <= 2) {
+                stockInd.innerText = `⚠️ Few Left! Only ${product.stock} items remaining`;
+                stockInd.className = 'text-red-400 text-[9px] font-bold tracking-wider font-cinzel uppercase ml-2 animate-pulse';
+            } else {
+                stockInd.innerText = `✓ Piece in Stock`;
+                stockInd.className = 'text-emerald-400 text-[9px] font-bold tracking-wider font-cinzel uppercase ml-2';
+            }
+
+            // Carousel Image Settings
             const mainImg = document.getElementById('modal-primary-image');
             mainImg.src = product.thumbnail;
 
             const thumbsCont = document.getElementById('modal-thumbs');
             thumbsCont.innerHTML = "";
-            product.gallery.forEach((imgSrc, idx) => {
+            product.gallery.forEach((img, index) => {
+                const isActive = img === product.thumbnail;
                 thumbsCont.innerHTML += `
-                    <button onclick="setModalPrimaryImage('${imgSrc}')" class="w-12 h-14 rounded border border-[rgba(212,175,55,0.2)] overflow-hidden bg-black/40 hover:border-[#d4af37] transition">
-                        <img src="${imgSrc}" class="w-full h-full object-cover" />
+                    <button id="thumb-${index}" onclick="setModalImage('${img}', 'thumb-${index}')" class="w-12 h-14 rounded border border-[rgba(212,175,55,0.2)] overflow-hidden bg-black/40 ${isActive ? 'thumb-active' : ''} transition-all">
+                        <img src="${img}" class="w-full h-full object-cover animate-fade-in" />
                     </button>
                 `;
             });
 
-            // Color selection swatches logic
+            // Color Selector Dynamic rendering
+            document.getElementById('selected-color-lbl').innerText = `(${selectedColor})`;
             const colorsCont = document.getElementById('color-swatches-container');
             colorsCont.innerHTML = "";
-            product.colors.forEach((col, idx) => {
-                const isActive = col.name === selectedColor;
+            product.colors.forEach(col => {
+                const isActive = col === selectedColor;
                 colorsCont.innerHTML += `
-                    <button onclick="setModalColor('${col.name}')" title="${col.name}" class="relative w-7 h-7 rounded-full border ${isActive ? 'border-[#d4af37]' : 'border-transparent'} p-[2px] transition duration-300">
-                        <span class="block w-full h-full rounded-full" style="background-color: ${col.hex};"></span>
-                        ${isActive ? '<span class="absolute -bottom-1 -right-1 bg-[#d4af37] text-black w-3.5 h-3.5 rounded-full text-[8px] flex items-center justify-center font-bold">✓</span>' : ''}
+                    <button onclick="setModalColor('${col}')" class="px-3 py-1.5 border text-[9px] lg:text-[10px] rounded uppercase font-semibold transition ${isActive ? 'border-[#d4af37] bg-[#d4af37]/10 text-[#d4af37] scale-105 shadow' : 'border-white/10 hover:border-white/30 text-gray-400'}">
+                        ${col}
                     </button>
                 `;
             });
+
+            // Sizing options select
+            document.getElementById('selected-size-lbl').innerText = `(${selectedSize})`;
+            const sizesCont = document.getElementById('size-swatches-container');
+            sizesCont.innerHTML = "";
+            product.sizes.forEach(sz => {
+                const isActive = sz === selectedSize;
+                sizesCont.innerHTML += `
+                    <button onclick="setModalSize('${sz}')" class="px-3 py-1.5 border text-[9px] lg:text-[10px] rounded transition uppercase ${isActive ? 'border-[#d4af37] bg-[#d4af37]/10 text-[#d4af37]' : 'border-white/10 hover:border-white/30 text-gray-400'}">
+                        ${sz}
+                    </button>
+                `;
+            });
+
+            // Delivery Calculator display reset
+            document.getElementById('delivery-calc-output').classList.add('hidden');
+            document.getElementById('postal-checker-val').value = "";
 
             document.getElementById('product-modal').classList.remove('hidden');
             document.body.style.overflow = "hidden";
@@ -848,33 +1030,66 @@
             document.body.style.overflow = "auto";
         }
 
-        function setModalPrimaryImage(src) {
+        function setModalImage(src, thumbId) {
             document.getElementById('modal-primary-image').src = src;
+            document.querySelectorAll('#modal-thumbs button').forEach(b => b.classList.remove('thumb-active'));
+            const activeEl = document.getElementById(thumbId);
+            if (activeEl) activeEl.classList.add('thumb-active');
         }
 
-        function setModalColor(colorName) {
-            selectedColor = colorName;
-            // Update modal options (Rerender visual active state)
+        function setModalColor(color) {
+            selectedColor = color;
+            document.getElementById('selected-color-lbl').innerText = `(${color})`;
             openProductModal(selectedProduct.id);
         }
 
-        function adjustModalQty(delta) {
-            selectedQty = Math.max(1, selectedQty + delta);
+        function setModalSize(size) {
+            selectedSize = size;
+            document.getElementById('selected-size-lbl').innerText = `(${size})`;
+            openProductModal(selectedProduct.id);
+        }
+
+        function adjustModalQty(val) {
+            selectedQty = Math.max(1, selectedQty + val);
             document.getElementById('modal-qty-val').innerText = selectedQty;
         }
 
-        // SHOPPING CART CONTROLLER
+        // Daraz postal rate estimate module
+        function checkDeliveryRate() {
+            const postal = document.getElementById('postal-checker-val').value;
+            if(!postal) return alert("Please specify your shipping location postal zip identifier.");
+
+            const timeline = (postal.startsWith("1") || postal.startsWith("2")) ? "2 to 3 days (Priority Flight)" : "5 to 7 days (Regular Air Cargo)";
+            document.getElementById('est-delivery-time').innerText = timeline;
+            document.getElementById('est-delivery-rate').innerText = "FREE Maison Standard Shipping";
+            document.getElementById('delivery-calc-output').classList.remove('hidden');
+        }
+
+        function applyVoucher(code) {
+            if(code === 'SVROYAL500') {
+                activeCoupon = { code: 'SVROYAL500', value: 500 };
+                alert("Maison Promotional $500 Discount Coupon Activated on current checkout path!");
+                renderCart();
+            }
+        }
+
+        function removeCoupon() {
+            activeCoupon = null;
+            renderCart();
+        }
+
+        // CARTS LOGS (Daraz matching state updates)
         function updateCartBadges() {
-            const cnt = cart.reduce((total, item) => total + item.quantity, 0);
-            document.querySelectorAll('.cart-count').forEach(badge => badge.innerText = cnt);
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.querySelectorAll('.cart-count').forEach(badge => badge.innerText = count);
         }
 
         function addModalToCart() {
             if(!selectedProduct) return;
 
-            const existingIndex = cart.findIndex(item => item.id === selectedProduct.id && item.color === selectedColor);
-            if(existingIndex > -1) {
-                cart[existingIndex].quantity += selectedQty;
+            const idx = cart.findIndex(i => i.id === selectedProduct.id && i.color === selectedColor && i.size === selectedSize);
+            if(idx > -1) {
+                cart[idx].quantity += selectedQty;
             } else {
                 cart.push({
                     id: selectedProduct.id,
@@ -883,6 +1098,7 @@
                     price: selectedProduct.price,
                     thumbnail: selectedProduct.thumbnail,
                     color: selectedColor,
+                    size: selectedSize,
                     quantity: selectedQty
                 });
             }
@@ -894,50 +1110,73 @@
             showSection('cart');
         }
 
+        // BUY NOW immediately builds instant ordering bypasses
+        function buyNowModal() {
+            if(!selectedProduct) return;
+
+            cart = [{
+                id: selectedProduct.id,
+                name: selectedProduct.name,
+                category: selectedProduct.category,
+                price: selectedProduct.price,
+                thumbnail: selectedProduct.thumbnail,
+                color: selectedColor,
+                size: selectedSize,
+                quantity: selectedQty
+            }];
+
+            localStorage.setItem('sv_luxury_cart', JSON.stringify(cart));
+            updateCartBadges();
+            renderCart();
+            closeModal();
+            showCheckout();
+        }
+
         function renderCart() {
-            const container = document.getElementById('cart-items-container');
-            container.innerHTML = "";
+            const cont = document.getElementById('cart-items-container');
+            cont.innerHTML = "";
 
             if(cart.length === 0) {
-                container.innerHTML = `
+                cont.innerHTML = `
                     <div class="glass-panel p-12 text-center rounded border border-[rgba(212,175,55,0.1)]">
                         <i class="fa-solid fa-basket-shopping text-3xl text-gray-600 mb-4 block"></i>
-                        <span class="font-cinzel text-sm text-white tracking-widest block uppercase mb-1">Your bag is entirely vacant</span>
-                        <p class="text-xs text-gray-500 mb-6 max-w-sm mx-auto">Explore high-end couture items & add selections to the boutique carrier</p>
-                        <button onclick="showSection('home')" class="gold-btn px-6 py-2.5 text-xs font-cinzel font-bold">START EXPLORING</button>
+                        <span class="font-cinzel text-sm text-white tracking-widest block uppercase mb-1">YOUR SHOPPING BAG IS VACANT</span>
+                        <p class="text-xs text-gray-500 mb-6 max-w-sm mx-auto">Explore exclusive royal items & configure selection orders</p>
+                        <button onclick="showSection('home')" class="gold-btn px-6 py-2.5 text-xs font-cinzel font-bold">START BROWSING</button>
                     </div>
                 `;
                 document.getElementById('cart-subtotal').innerText = "$0.00";
                 document.getElementById('cart-grandtotal').innerText = "$0.00";
+                document.getElementById('cart-coupon-banner').classList.add('hidden');
+                document.getElementById('cart-discount-row').classList.add('hidden');
                 return;
             }
 
             let subtotal = 0;
-            cart.forEach((item, index) => {
-                const totalItemPrice = item.price * item.quantity;
-                subtotal += totalItemPrice;
-
-                container.innerHTML += `
-                    <div class="glass-card p-4 flex gap-4 rounded items-center justify-between border-b border-[rgba(212,175,55,0.08)]">
-                        <div class="flex gap-4 items-center flex-1">
-                            <img src="${item.thumbnail}" class="w-14 h-16 object-cover rounded border border-[rgba(212,175,55,0.12)] bg-black/50" />
+            cart.forEach((i, index) => {
+                subtotal += (i.price * i.quantity);
+                cont.innerHTML += `
+                    <div class="glass-card p-4 flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between border-b border-[rgba(212,175,55,0.08)]">
+                        <div class="flex gap-4 items-center">
+                            <img src="${i.thumbnail}" class="w-16 h-20 object-cover rounded border border-[rgba(212,175,55,0.12)] bg-black/60" />
                             <div>
-                                <span class="text-[8px] font-cinzel text-gray-400 block tracking-widest uppercase">${item.category}</span>
-                                <h4 class="font-cinzel text-xs font-bold text-white tracking-wide line-clamp-1">${item.name}</h4>
-                                <span class="text-[9px] tracking-wider text-[#d4af37] font-cinzel">COL: ${item.color}</span>
-                                <div class="flex items-center gap-2 mt-1">
-                                    <span class="text-[11px] font-bold text-white font-cinzel">$${item.price.toLocaleString()}</span>
-                                    <span class="text-[9px] text-gray-400">× ${item.quantity}</span>
+                                <span class="text-[8px] tracking-widest font-cinzel text-gray-400 block mb-1 uppercase">${i.category}</span>
+                                <h4 class="font-cinzel text-xs font-bold text-white tracking-wide line-clamp-1">${i.name}</h4>
+                                <div class="flex gap-2 items-center text-[9px] font-cinzel mt-1">
+                                    <span class="text-[#d4af37]">COL: ${i.color}</span>
+                                    <span class="text-gray-600">|</span>
+                                    <span class="text-gray-400">SIZE: ${i.size}</span>
                                 </div>
+                                <span class="text-xs font-bold text-white block mt-2 font-cinzel">$${i.price.toLocaleString()}</span>
                             </div>
                         </div>
 
-                        <!-- Quantity control + remove -->
-                        <div class="flex items-center gap-4">
+                        <!-- Quantity inputs -->
+                        <div class="flex items-center justify-between w-full sm:w-auto gap-4 pt-4 sm:pt-0 border-t sm:border-0 border-white/5">
                             <div class="flex items-center border border-[rgba(212,175,55,0.2)] rounded h-8">
-                                <button onclick="adjustCartQty(${index}, -1)" class="px-2 text-white hover:text-[#d4af37] text-xs font-bold transition">-</button>
-                                <span class="px-2 text-xs text-white font-cinzel font-bold">${item.quantity}</span>
-                                <button onclick="adjustCartQty(${index}, 1)" class="px-2 text-white hover:text-[#d4af37] text-xs font-bold transition">+</button>
+                                <button onclick="adjustCartQty(${index}, -1)" class="px-2 text-white hover:text-[#d4af37] font-bold text-xs">-</button>
+                                <span class="px-3 text-xs text-white font-cinzel font-bold">${i.quantity}</span>
+                                <button onclick="adjustCartQty(${index}, 1)" class="px-2 text-white hover:text-[#d4af37] font-bold text-xs">+</button>
                             </div>
                             <button onclick="removeFromCart(${index})" class="text-gray-500 hover:text-red-500 text-sm transition px-2"><i class="fa-solid fa-trash-can"></i></button>
                         </div>
@@ -945,8 +1184,23 @@
                 `;
             });
 
+            // Discount application checking
+            let discount = 0;
+            if (activeCoupon && subtotal >= 6000) {
+                discount = activeCoupon.value;
+                document.getElementById('cart-discount-row').classList.remove('hidden');
+                document.getElementById('cart-discount-val').innerText = `-$${discount.toLocaleString()}.00`;
+                document.getElementById('cart-coupon-banner').classList.remove('hidden');
+                document.getElementById('cart-coupon-banner').classList.add('flex');
+            } else {
+                document.getElementById('cart-discount-row').classList.add('hidden');
+                document.getElementById('cart-coupon-banner').classList.add('hidden');
+            }
+
+            const grand = Math.max(0, subtotal - discount);
+
             document.getElementById('cart-subtotal').innerText = `$${subtotal.toLocaleString()}.00`;
-            document.getElementById('cart-grandtotal').innerText = `$${subtotal.toLocaleString()}.00`;
+            document.getElementById('cart-grandtotal').innerText = `$${grand.toLocaleString()}.00`;
         }
 
         function adjustCartQty(index, delta) {
@@ -963,30 +1217,30 @@
             renderCart();
         }
 
-        // SECURE CHECKOUT DYNAMICS
+        // CHECKOUT SCENARIOS
         function showCheckout() {
-            if(cart.length === 0) return alert("The atelier bag contains no items. Start shopping.");
+            if(cart.length === 0) return alert("Your cart is empty. Please add masterpieces to proceed.");
             
             const count = cart.reduce((t, i) => t + i.quantity, 0);
             const subtotal = cart.reduce((t, i) => t + (i.price * i.quantity), 0);
+            const discount = (activeCoupon && subtotal >= 6000) ? activeCoupon.value : 0;
+            const grand = Math.max(0, subtotal - discount);
 
-            document.getElementById('checkout-items-count').innerText = `${count} High-End Masterpiece Item(s) Selected`;
-            document.getElementById('checkout-grandtotal').innerText = `$${subtotal.toLocaleString()}.00`;
+            document.getElementById('checkout-items-count').innerText = `${count} Selected Luxury Product(s)`;
+            document.getElementById('checkout-grandtotal').innerText = `$${grand.toLocaleString()}.00`;
 
-            // Preset customer values from localStorage
-            const cachedInfo = JSON.parse(localStorage.getItem('sv_checkout_info'));
-            if(cachedInfo) {
-                document.getElementById('cust-name').value = cachedInfo.name || "";
-                document.getElementById('cust-email').value = cachedInfo.email || "";
-                document.getElementById('cust-phone').value = cachedInfo.phone || "";
-                document.getElementById('cust-zip').value = cachedInfo.zip || "";
-                document.getElementById('cust-address').value = cachedInfo.address || "";
+            const info = JSON.parse(localStorage.getItem('sv_checkout_info'));
+            if(info) {
+                document.getElementById('cust-name').value = info.name || "";
+                document.getElementById('cust-email').value = info.email || "";
+                document.getElementById('cust-phone').value = info.phone || "";
+                document.getElementById('cust-zip').value = info.zip || "";
+                document.getElementById('cust-address').value = info.address || "";
             }
 
             showSection('checkout');
         }
 
-        // CHECKOUT SUBMISSION WITH ORDER HISTORY LOG & WEB3FORMS EMAIL DISPATCH
         async function submitCheckout(e) {
             e.preventDefault();
 
@@ -998,42 +1252,41 @@
             const speed = document.getElementById('cust-speed').value;
             const payment = document.getElementById('cust-payment').value;
 
-            // Cache info locally for convenience
             localStorage.setItem('sv_checkout_info', JSON.stringify({ name, email, phone, zip, address }));
 
             const orderId = `SV-${Math.floor(10000 + Math.random() * 90000)}`;
             const dateStr = new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+            
             const subtotal = cart.reduce((t, i) => t + (i.price * i.quantity), 0);
+            const discount = (activeCoupon && subtotal >= 6000) ? activeCoupon.value : 0;
+            const grand = Math.max(0, subtotal - discount);
 
-            const orderObject = {
+            const order = {
                 orderId,
                 date: dateStr,
                 items: [...cart],
-                subtotal,
-                status: 'Acquired / Dispatch Preparation',
+                subtotal: grand,
+                status: 'In dispatch / transit prep',
                 customer: { name, email, phone, zip, address, speed, payment }
             };
 
-            // Order saving
-            orderHistory.unshift(orderObject);
+            orderHistory.unshift(order);
             localStorage.setItem('sv_order_history', JSON.stringify(orderHistory));
             renderHistory();
 
-            // Prepare dynamic textual content of ordering
+            // Web3Forms automated delivery mails API
             let itemsReport = "";
             cart.forEach(i => {
-                itemsReport += `\n• ${i.name} (QTY: ${i.quantity}, COLOR: ${i.color}) - $${i.price.toLocaleString()}`;
+                itemsReport += `\n• ${i.name} (QTY: ${i.quantity}, COLOR: ${i.color}, SIZE: ${i.size}) - $${i.price.toLocaleString()}`;
             });
 
-            // Web3Forms API dispatch order alert
             const emailPayload = {
                 access_key: "140b2d00-51ed-40d4-bc25-72bbcf4d92a9",
-                subject: `👑 [NEW ORDER - ${orderId}] Acquired Order From ${name}`,
-                from_name: "SHERENVOGUE DIGITAL ACQUISITION DESK",
-                message: `An exquisite haute couture purchase transaction has occurred on the SherenVogue website.\n\n` +
-                          `ORDER IDENTIFICATION: ${orderId}\n` +
-                          `DATE: ${dateStr}\n` +
-                          `TRANSACTION SUM: $${subtotal.toLocaleString()}.00 USD\n\n` +
+                subject: `👑 [NEW ACQUISITION ORDER - ${orderId}] from ${name}`,
+                from_name: "SHERENVOGUE DIGITAL DESK",
+                message: `An exclusive purchase transaction has occurred on SherenVogue system.\n\n` +
+                          `ORDER IDENTIFIER: ${orderId}\n` +
+                          `TRANSACTION SUM: $${grand.toLocaleString()}.00 USD\n\n` +
                           `--- ACQUISITION DETAILS ---` +
                           `${itemsReport}\n\n` +
                           `--- CLIENT PROFILE ---` +
@@ -1041,35 +1294,32 @@
                           `Email: ${email}\n` +
                           `Phone: ${phone}\n` +
                           `Postal/Zip: ${zip}\n` +
-                          `Shipping Location Address: ${address}\n` +
-                          `Shipping Selection: ${speed}\n` +
+                          `Shipping Location: ${address}\n` +
+                          `Delivery Method: ${speed}\n` +
                           `Secured Payment: ${payment}\n\n` +
-                          `Order archived to transaction files.`
+                          `Saved to Order archives.`
             };
 
             try {
-                // Submit asynchronous network email trigger
                 await fetch("https://api.web3forms.com/submit", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(emailPayload)
                 });
             } catch (err) {
-                console.warn("Failed sending notification email alert to administrative contact.", err);
+                console.warn("Maison automation request lost dispatch tracking.", err);
             }
 
-            // Flush secure shopping bag state
             cart = [];
             localStorage.setItem('sv_luxury_cart', JSON.stringify(cart));
             updateCartBadges();
             renderCart();
 
-            // Settle on Success visual interface with feedback identifier
             document.getElementById('success-id').innerText = `#${orderId}`;
             showSection('success');
         }
 
-        // HISTORY VIEW CONTROLLER with functional cancelling methods
+        // ORDER HISTORY views logs
         function renderHistory() {
             const container = document.getElementById('history-container');
             container.innerHTML = "";
@@ -1078,9 +1328,9 @@
                 container.innerHTML = `
                     <div class="glass-panel p-12 text-center rounded border border-[rgba(212,175,55,0.1)]">
                         <i class="fa-solid fa-clock-rotate-left text-3xl text-gray-600 mb-4 block"></i>
-                        <span class="font-cinzel text-sm text-white tracking-widest block uppercase mb-1">Your archival history is void</span>
-                        <p class="text-xs text-gray-500 mb-6 max-w-sm mx-auto">Luxury transaction traces will become cataloged here</p>
-                        <button onclick="showSection('home')" class="gold-btn px-6 py-2.5 text-xs font-cinzel font-bold">SHOP NOW</button>
+                        <span class="font-cinzel text-sm text-white tracking-widest block uppercase mb-1">HISTORY VOID</span>
+                        <p class="text-xs text-gray-500 mb-6 max-w-sm mx-auto">Couture orders histories logs will be archived here</p>
+                        <button onclick="showSection('home')" class="gold-btn px-6 py-2.5 text-xs font-cinzel font-bold font-semibold">SHOP ATELIER</button>
                     </div>
                 `;
                 return;
@@ -1089,38 +1339,37 @@
             orderHistory.forEach((o, index) => {
                 let report = "";
                 o.items.forEach(i => {
-                    report += `\n• ${i.name} (QTY: ${i.quantity}, COL: ${i.color})`;
+                    report += `\n• ${i.name} (QTY: ${i.quantity}, COLOR: ${i.color}, SIZE: ${i.size})`;
                 });
 
                 const isCancelled = o.status === 'Cancelled';
 
                 container.innerHTML += `
-                    <div class="glass-panel p-6 rounded relative border ${isCancelled ? 'border-red-900/40 bg-red-950/5' : 'border-[rgba(212,175,55,0.15)] bg-black/40'}">
+                    <div class="glass-panel p-6 rounded border ${isCancelled ? 'border-red-955 bg-red-950/5' : 'border-[rgba(212,175,55,0.15)] bg-black/40'}">
                         <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-[rgba(212,175,55,0.08)] pb-4 mb-4 gap-4">
                             <div>
                                 <div class="flex items-center gap-2 flex-wrap">
                                     <span class="text-[12px] font-bold text-white font-cinzel tracking-wider">${o.orderId}</span>
                                     <span class="text-[9px] bg-black/60 text-[#d4af37] px-2 py-0.5 border border-[#d4af37]/35 rounded-full font-cinzel">${o.date}</span>
                                 </div>
-                                <span class="text-[10px] text-gray-400 block mt-1">Recipient client: ${o.customer.name}</span>
+                                <span class="text-[10px] text-gray-400 block mt-1">Client: ${o.customer.name}</span>
                             </div>
                             <div class="flex items-center gap-4 justify-between md:justify-end">
                                 <div class="text-right">
-                                    <span class="text-[9px] block text-gray-400 font-cinzel tracking-widest uppercase">Current Status</span>
+                                    <span class="text-[9px] block text-gray-400 font-cinzel tracking-widest uppercase">Status Code</span>
                                     <span class="text-[10px] font-bold tracking-wider ${isCancelled ? 'text-red-500' : 'text-[#d4af37]'} uppercase">${o.status}</span>
                                 </div>
                                 
-                                ${!isCancelled ? `<button onclick="cancelOrder(${index})" class="bg-transparent hover:bg-red-950/20 text-red-400 hover:text-red-300 px-3 py-1.5 border border-red-500/30 text-[10px] tracking-widest font-cinzel transition uppercase rounded">CANCEL ORDER</button>` : ''}
-                                <button onclick="deleteHistory(${index})" class="text-gray-500 hover:text-gray-300 text-sm transition px-2" title="Delete Archive"><i class="fa-solid fa-trash-can"></i></button>
+                                ${!isCancelled ? `<button onclick="cancelOrder(${index})" class="bg-transparent hover:bg-red-955/20 text-red-400 hover:text-red-300 px-3 py-1.5 border border-red-500/30 text-[10px] tracking-widest font-cinzel transition uppercase rounded">CANCEL</button>` : ''}
+                                <button onclick="deleteHistory(${index})" class="text-gray-500 hover:text-gray-300 text-sm transition px-2" title="Delete Log"><i class="fa-solid fa-trash-can"></i></button>
                             </div>
                         </div>
 
                         <div>
-                            <span class="text-[9px] tracking-widest font-cinzel text-gray-400 block uppercase mb-1">Acquired Content:</span>
                             <div class="text-[11px] text-gray-300 font-light whitespace-pre-line leading-relaxed mb-4">${report}</div>
                             <div class="flex justify-between items-center bg-black/50 p-3 rounded">
-                                <span class="text-[10px] text-[#d4af37] tracking-widest font-cinzel">CONCIERGE VALUE</span>
-                                <span class="text-sm font-bold text-white font-cinzel">$${o.subtotal.toLocaleString()}.00</span>
+                                <span class="text-[10px] text-[#d4af37] tracking-widest font-cinzel">MAISON VALUE</span>
+                                <span class="text-sm font-bold text-white font-cinzel">$${o.subtotal.toLocaleString()}</span>
                             </div>
                         </div>
                     </div>
@@ -1128,29 +1377,24 @@
             });
         }
 
-        // CANCELLING & ORDER NOTIFYING DISPATCHES
         async function cancelOrder(index) {
-            if(!confirm("Are you entirely sure you want to request cancellation for this couture masterpiece order?")) return;
+            if(!confirm("Cancel order & trigger dispatch notifications to support?")) return;
 
             const order = orderHistory[index];
             order.status = "Cancelled";
             localStorage.setItem('sv_order_history', JSON.stringify(orderHistory));
             renderHistory();
 
-            // Web3Forms cancel notification trigger to hello@sherenvogue.com
             const cancelPayload = {
                 access_key: "140b2d00-51ed-40d4-bc25-72bbcf4d92a9",
-                subject: `🚨 [CANCELLATION ORDER - ${order.orderId}] Cancel Request Dispatch`,
+                subject: `🚨 [CANCEL REQUEST - ${order.orderId}] Cancel status requested`,
                 from_name: "SHERENVOGUE CANCEL ATELIER DESK",
-                message: `An archival order status update to CANCELLED has just been requested on SherenVogue digital system.\n\n` +
+                message: `An order status cancellation has been requested on SherenVogue system.\n\n` +
                           `ORDER IDENTIFIER: ${order.orderId}\n` +
-                          `ORIGINAL DATE: ${order.date}\n` +
-                          `CANCELLED TOTAL LOSS: $${order.subtotal.toLocaleString()}.00 USD\n\n` +
-                          `--- CLIENT PROFILE ---` +
-                          `Name: ${order.customer.name}\n` +
-                          `Email: ${order.customer.email}\n` +
-                          `Phone: ${order.customer.phone}\n\n` +
-                          `Transaction has been cataloged as Cancelled.`
+                          `CANCELLED SUB TOTAL: $${order.subtotal.toLocaleString()}.00 USD\n\n` +
+                          `Customer client: ${order.customer.name}\n` +
+                          `Client email: ${order.customer.email}\n\n` +
+                          `Please adjust dispatch records.`
             };
 
             try {
@@ -1160,15 +1404,14 @@
                     body: JSON.stringify(cancelPayload)
                 });
             } catch (err) {
-                console.warn("Mailed request for cancel notification could not route.", err);
+                console.warn("Mail verify lost cancellation routing trigger.", err);
             }
 
             alert("Cancel dispatch notification was processed. Order status updated to 'Cancelled'.");
         }
 
-        // DELETE TRANSACTION
         function deleteHistory(index) {
-            if(!confirm("Erase this archive trace? (This action cannot be undone)")) return;
+            if(!confirm("Delete this archival trace from browse index?")) return;
             orderHistory.splice(index, 1);
             localStorage.setItem('sv_order_history', JSON.stringify(orderHistory));
             renderHistory();
