@@ -4,17 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- Website Favicon from logo1.png -->
+  <!-- Website Favicon -->
   <link rel="icon" type="image/png" href="logo1.png">
   
-  <!-- SEO & Brand Identification Meta Tags -->
+  <!-- SEO & Brand Meta Tags -->
   <title>SherenVogue | International Luxury Haute Couture & Bespoke Collection</title>
   <meta name="description" content="SherenVogue is an international luxury haute couture brand specializing in bespoke artisan leather bags, timepieces, and accessories. Founded by CEO Md. Rafiul Islam.">
   <meta name="author" content="Md. Rafiul Islam">
   
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="SherenVogue - International Luxury Haute Couture">
-  <meta property="og:description" content="Official Maison of SherenVogue. Discover luxury bespoke leather bags and timepieces. Founded by CEO Md. Rafiul Islam.">
+  <meta property="og:description" content="Official Maison of SherenVogue. Discover luxury bespoke leather bags and timepieces.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sherenvogue.com">
   <meta property="og:image" content="logo1.png">
@@ -26,31 +26,31 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
     
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0a0a0a; color: #f5f5f5; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050505; color: #f5f5f5; overflow-x: hidden; -webkit-tap-highlight-color: transparent; }
     .font-display { font-family: 'Cinzel', serif; }
     
-    /* Luxury 3D & Marble Effects */
-    .bg-luxury-dark { background: linear-gradient(145deg, #121212, #000000); }
     .gold-text { background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C); -webkit-background-clip: text; color: transparent; }
-    .gold-btn { background: linear-gradient(145deg, #BF953F, #AA771C); color: #000; box-shadow: 0 4px 15px rgba(191, 149, 63, 0.2); transition: all 0.3s ease; }
+    .gold-btn { background: linear-gradient(145deg, #BF953F, #AA771C); color: #000; box-shadow: 0 4px 20px rgba(191, 149, 63, 0.3); transition: all 0.3s ease; }
     .gold-btn:hover { background: linear-gradient(145deg, #FCF6BA, #BF953F); transform: translateY(-2px); }
     
-    .glass-panel { background: rgba(20, 20, 20, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(191, 149, 63, 0.15); box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+    .glass-panel { background: rgba(15, 15, 15, 0.85); backdrop-filter: blur(16px); border: 1px solid rgba(191, 149, 63, 0.2); box-shadow: 0 10px 40px rgba(0,0,0,0.8); }
+    .category-card { background: linear-gradient(180deg, rgba(20,20,20,0.8) 0%, rgba(5,5,5,0.95) 100%); border: 1px solid rgba(191, 149, 63, 0.25); transition: transform 0.3s ease; }
+    .category-card:active { transform: scale(0.97); }
+    
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-    /* Modal Gallery & Colors */
     .thumb-active { border: 2px solid #BF953F; opacity: 1; }
     .thumb-inactive { border: 2px solid transparent; opacity: 0.6; }
-    .color-btn { width: 24px; height: 24px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease; }
-    .color-active { border: 2px solid #BF953F; transform: scale(1.2); box-shadow: 0 0 10px rgba(191,149,63,0.5); }
+    .color-btn { width: 28px; height: 28px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease; }
+    .color-active { border: 2px solid #BF953F; transform: scale(1.15); box-shadow: 0 0 12px rgba(191,149,63,0.6); }
   </style>
 </head>
 
-<body class="min-h-screen flex flex-col antialiased">
+<body class="min-h-screen flex flex-col antialiased pb-16 md:pb-0">
 
   <!-- Luxury Toast Notification -->
-  <div id="luxury-toast" class="fixed bottom-6 right-6 z-[200] transform translate-y-20 opacity-0 transition-all duration-500 bg-neutral-900 text-white px-5 py-4 rounded-xl border border-amber-600/50 flex items-center gap-3 pointer-events-none shadow-2xl shadow-amber-900/20">
+  <div id="luxury-toast" class="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-[200] transform translate-y-20 opacity-0 transition-all duration-500 bg-neutral-900 text-white px-5 py-4 rounded-xl border border-amber-600/50 flex items-center gap-3 pointer-events-none shadow-2xl">
     <div class="w-8 h-8 rounded-full bg-amber-600/20 flex items-center justify-center text-amber-400 shrink-0">
       <i data-lucide="check" class="w-4 h-4"></i>
     </div>
@@ -60,22 +60,26 @@
     </div>
   </div>
 
+  <!-- Top Announcement Bar -->
+  <div class="bg-neutral-950 text-amber-200/80 text-[8px] md:text-[9px] uppercase tracking-[0.2em] md:tracking-[0.3em] py-2 text-center font-medium border-b border-amber-600/10 px-2">
+    Complimentary Worldwide Shipping on Orders Over ৳5000 &bull; hello@sherenvogue.com
+  </div>
+
   <!-- Main Navigation -->
-  <nav class="sticky top-0 z-50 glass-panel px-4 md:px-12 py-3 md:py-4">
+  <nav class="sticky top-0 z-50 glass-panel px-4 md:px-12 py-3 border-b border-amber-600/20">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <div class="hidden md:flex gap-8 items-center">
         <a href="javascript:void(0)" onclick="showPage('shop'); filterCategory('all');" class="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-300 hover:text-amber-400 transition-colors">Collections</a>
       </div>
       
-      <!-- Brand Logo -->
-      <a href="javascript:void(0)" onclick="showPage('home')" class="flex items-center gap-3">
-        <img src="logo1.png" alt="SV Logo" class="w-10 h-10 object-contain" onerror="this.style.display='none'">
-        <div class="flex flex-col text-center">
-          <span class="font-display text-xl md:text-2xl font-bold tracking-widest gold-text">SHERENVOGUE</span>
-        </div>
+      <!-- Brand Logo & Title -->
+      <a href="javascript:void(0)" onclick="showPage('home')" class="flex items-center gap-2 md:gap-3">
+        <img src="logo1.png" alt="SV Logo" class="w-8 h-8 md:w-9 md:h-9 object-contain" onerror="this.style.display='none'">
+        <span class="font-display text-lg md:text-2xl font-bold tracking-widest gold-text">SHERENVOGUE</span>
       </a>
 
-      <div class="flex items-center gap-5">
+      <div class="flex items-center gap-4 md:gap-5">
+        <button type="button" onclick="showPage('shop');" class="text-gray-300 hover:text-amber-400 transition-colors" title="Search"><i data-lucide="search" class="w-5 h-5"></i></button>
         <button type="button" onclick="showPage('history')" class="text-gray-300 hover:text-amber-400 transition-colors" title="Order History"><i data-lucide="clock" class="w-5 h-5"></i></button>
         <button type="button" onclick="showPage('cart')" class="relative text-gray-300 hover:text-amber-400 transition-colors" title="Cart">
           <i data-lucide="shopping-bag" class="w-5 h-5"></i>
@@ -85,94 +89,176 @@
     </div>
   </nav>
 
-  <!-- Dynamic Pages Container -->
+  <!-- Pages Container -->
   <main id="pages-container" class="flex-grow">
     
     <!-- HOME PAGE -->
     <div id="page-home" class="page-view">
-      <!-- 3D Luxury Hero Banner -->
-      <div class="relative w-full h-[70vh] md:h-[80vh] flex items-center justify-center overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity" alt="Hero Background">
-        <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]"></div>
-        <div class="relative z-10 text-center flex flex-col items-center">
-          <i data-lucide="crown" class="w-12 h-12 text-amber-500 mb-4 opacity-80"></i>
-          <h1 class="font-display text-4xl md:text-7xl font-bold gold-text tracking-widest mb-2 shadow-black drop-shadow-2xl">SHERENVOGUE</h1>
-          <p class="text-[10px] md:text-sm uppercase tracking-[0.4em] text-gray-300 mb-8">The Art of Luxury</p>
-          <button type="button" onclick="showPage('shop')" class="gold-btn px-8 py-3 text-[10px] md:text-xs uppercase tracking-widest font-bold rounded-sm">
-            Discover Collection
-          </button>
+      
+      <!-- Hero Section -->
+      <div class="relative w-full min-h-[75vh] md:min-h-[85vh] flex flex-col justify-between px-4 md:px-12 py-8 overflow-hidden bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1541971875076-8f970d573be6?q=80&w=1600&auto=format&fit=crop');">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/85 via-black/50 to-[#050505]"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto w-full flex flex-col md:flex-row justify-between items-center gap-8 pt-4">
+          <div class="text-center md:text-left max-w-xl mx-auto md:mx-0">
+            <div class="flex justify-center md:justify-start mb-3">
+              <img src="logo1.png" class="w-10 h-10 md:w-12 md:h-12 object-contain opacity-90 drop-shadow-[0_0_10px_rgba(191,149,63,0.5)]" onerror="this.style.display='none'">
+            </div>
+            <h1 class="font-display text-3xl sm:text-4xl md:text-6xl font-bold gold-text tracking-widest mb-2">SHERENVOGUE</h1>
+            <p class="text-[9px] md:text-xs uppercase tracking-[0.4em] text-amber-200/90 font-semibold mb-3">The Art of Luxury</p>
+            <p class="text-xs text-gray-300 italic mb-6">Timeless Elegance. Endless Possibilities.</p>
+            <button type="button" onclick="showPage('shop')" class="gold-btn px-7 py-3 text-[10px] uppercase tracking-widest font-bold rounded-sm inline-flex items-center gap-2">
+              Discover Collection <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+          
+          <div class="hidden lg:block relative w-[340px] h-[380px] rounded-2xl overflow-hidden glass-panel border border-amber-600/30">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+              <p class="font-display text-sm gold-text tracking-widest">Haute Couture Muse</p>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="max-w-6xl mx-auto px-4 py-16">
-        <h2 class="text-center font-display text-2xl md:text-3xl gold-text mb-10">Our Masterpieces</h2>
-        <!-- Products will be injected here from JSON -->
-        <div id="featured-products" class="flex gap-6 overflow-x-auto no-scrollbar pb-8 snap-x justify-start md:justify-center"></div>
-      </div>
+        <!-- 3D Pedestal Categories -->
+        <div class="relative z-10 max-w-7xl mx-auto w-full mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 md:gap-4">
+          <div onclick="showPage('shop'); filterCategory('bags');" class="category-card p-3 md:p-4 rounded-xl text-center cursor-pointer group">
+            <div class="w-full h-24 md:h-28 rounded-lg overflow-hidden mb-2 bg-neutral-900">
+              <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=500" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            </div>
+            <h3 class="font-display text-[11px] md:text-xs font-bold text-white uppercase tracking-wider mb-0.5">Luxury Bags</h3>
+            <p class="text-[8px] md:text-[9px] text-amber-500/80">Carry Elegance</p>
+          </div>
+          
+          <div onclick="showPage('shop'); filterCategory('watches');" class="category-card p-3 md:p-4 rounded-xl text-center cursor-pointer group">
+            <div class="w-full h-24 md:h-28 rounded-lg overflow-hidden mb-2 bg-neutral-900">
+              <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=500" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            </div>
+            <h3 class="font-display text-[11px] md:text-xs font-bold text-white uppercase tracking-wider mb-0.5">Timepieces</h3>
+            <p class="text-[8px] md:text-[9px] text-amber-500/80">Live the Time</p>
+          </div>
 
-      <!-- Customer Concierge Section -->
-      <div class="max-w-4xl mx-auto px-4 py-16 mb-10">
-        <div class="glass-panel rounded-2xl p-8 md:p-12 text-center relative overflow-hidden">
-          <div class="absolute -top-10 -right-10 w-40 h-40 bg-amber-600/10 rounded-full blur-3xl"></div>
-          <h3 class="text-[10px] md:text-xs uppercase tracking-[0.4em] text-amber-500 font-bold mb-3">Customer Concierge</h3>
-          <h2 class="font-display text-3xl md:text-4xl text-white mb-6">Direct Service</h2>
-          <p class="text-xs text-gray-400 max-w-md mx-auto mb-8 leading-relaxed">Our concierge team is at your service. For bespoke orders, personal assistance, or any inquiries regarding the Sheren Alarion collection, reach us directly.</p>
-          <div class="flex flex-col items-center gap-6">
-            <a href="mailto:hello@sherenvogue.com" class="font-display text-xl md:text-2xl gold-text tracking-wider hover:scale-105 transition-transform">hello@sherenvogue.com</a>
-            <a href="mailto:hello@sherenvogue.com" class="gold-btn px-8 py-3 text-[10px] uppercase tracking-widest font-bold rounded-sm inline-flex items-center gap-2">
-              <i data-lucide="mail" class="w-4 h-4"></i> Email Us Now
-            </a>
+          <div onclick="showPage('shop'); filterCategory('accessories');" class="category-card p-3 md:p-4 rounded-xl text-center cursor-pointer group">
+            <div class="w-full h-24 md:h-28 rounded-lg overflow-hidden mb-2 bg-neutral-900">
+              <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=500" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            </div>
+            <h3 class="font-display text-[11px] md:text-xs font-bold text-white uppercase tracking-wider mb-0.5">Perfumes</h3>
+            <p class="text-[8px] md:text-[9px] text-amber-500/80">Scent of Royalty</p>
+          </div>
+
+          <div onclick="showPage('shop'); filterCategory('accessories');" class="category-card p-3 md:p-4 rounded-xl text-center cursor-pointer group">
+            <div class="w-full h-24 md:h-28 rounded-lg overflow-hidden mb-2 bg-neutral-900">
+              <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?q=80&w=500" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            </div>
+            <h3 class="font-display text-[11px] md:text-xs font-bold text-white uppercase tracking-wider mb-0.5">Wallets</h3>
+            <p class="text-[8px] md:text-[9px] text-amber-500/80">Sophistication</p>
+          </div>
+
+          <div onclick="showPage('shop'); filterCategory('accessories');" class="category-card p-3 md:p-4 rounded-xl text-center cursor-pointer group col-span-2 sm:col-span-1">
+            <div class="w-full h-24 md:h-28 rounded-lg overflow-hidden mb-2 bg-neutral-900">
+              <img src="https://images.unsplash.com/photo-1624222247344-550fb60583dc?q=80&w=500" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            </div>
+            <h3 class="font-display text-[11px] md:text-xs font-bold text-white uppercase tracking-wider mb-0.5">Belts</h3>
+            <p class="text-[8px] md:text-[9px] text-amber-500/80">Define Style</p>
           </div>
         </div>
       </div>
+
+      <!-- Featured Masterpieces -->
+      <section class="max-w-7xl mx-auto px-4 py-12 md:py-16">
+        <div class="flex justify-between items-center mb-6 border-b border-neutral-800 pb-4">
+          <div>
+            <p class="text-[9px] uppercase tracking-[0.4em] text-amber-500 font-bold mb-1">Featured Collection</p>
+            <h2 class="font-display text-xl md:text-3xl text-white">Our Masterpieces</h2>
+          </div>
+          <button type="button" onclick="showPage('shop')" class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold gold-text border-b border-amber-500 pb-0.5">View All →</button>
+        </div>
+        
+        <div id="featured-products" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"></div>
+      </section>
+
+      <!-- Customer Concierge Desk -->
+      <section class="max-w-7xl mx-auto px-4 py-12 mb-10">
+        <div class="glass-panel rounded-2xl p-6 md:p-12 relative overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-8 items-center border border-amber-600/30">
+          <div>
+            <p class="text-[9px] uppercase tracking-[0.4em] text-amber-500 font-bold mb-2">গ্রাহক সেবা</p>
+            <h2 class="font-display text-2xl md:text-4xl text-white mb-4">CUSTOMER CONCIERGE<br><span class="text-lg md:text-xl gold-text">DIRECT SERVICE</span></h2>
+            <p class="text-xs text-gray-300 leading-relaxed mb-6">Our concierge team is at your service. For bespoke orders, personal assistance, or any inquiries, reach us directly.</p>
+            <a href="mailto:hello@sherenvogue.com" class="font-display text-lg md:text-2xl gold-text block mb-6 hover:underline">hello@sherenvogue.com</a>
+            <a href="mailto:hello@sherenvogue.com" class="gold-btn px-6 md:px-8 py-3.5 text-[10px] uppercase tracking-widest font-bold rounded-sm inline-flex items-center gap-2">
+              <i data-lucide="mail" class="w-4 h-4"></i> EMAIL US NOW →
+            </a>
+          </div>
+          
+          <div class="flex flex-col items-center justify-center bg-neutral-950/80 p-6 rounded-xl border border-neutral-800 text-center">
+            <img src="logo1.png" class="w-14 h-14 object-contain mb-3 drop-shadow-[0_0_15px_rgba(191,149,63,0.6)]" onerror="this.style.display='none'">
+            <h3 class="font-display text-base text-white mb-1">SHERENVOGUE</h3>
+            <p class="text-[8px] uppercase tracking-[0.3em] text-gray-400 mb-4">Haute Couture Concierge Desk</p>
+            <div class="w-full border-t border-neutral-800 pt-4 flex justify-around text-center text-[10px] text-amber-200/80">
+              <div><span class="block font-bold text-white text-sm">50+</span>Products</div>
+              <div><span class="block font-bold text-white text-sm">1</span>Maison</div>
+              <div><span class="block font-bold text-white text-sm">5K+</span>Clients</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
 
-    <!-- SHOP PAGE -->
+    <!-- SHOP PAGE (With Fully Functional Real-time Search & Filter) -->
     <div id="page-shop" class="page-view hidden max-w-7xl mx-auto px-4 py-10">
-      <div class="text-center mb-10">
-        <h1 class="font-display text-3xl gold-text mb-6">The Collections</h1>
-        <div id="category-filters" class="flex justify-center gap-4 flex-wrap">
-          <button onclick="filterCategory('all')" id="filter-all" class="text-[10px] uppercase tracking-widest font-bold text-amber-500 border-b-2 border-amber-500 pb-1">Everything</button>
-          <button onclick="filterCategory('bags')" id="filter-bags" class="text-[10px] uppercase tracking-widest font-bold text-gray-500 hover:text-amber-400 pb-1">Luxury Bags</button>
-          <button onclick="filterCategory('watches')" id="filter-watches" class="text-[10px] uppercase tracking-widest font-bold text-gray-500 hover:text-amber-400 pb-1">Timepieces</button>
-          <button onclick="filterCategory('accessories')" id="filter-accessories" class="text-[10px] uppercase tracking-widest font-bold text-gray-500 hover:text-amber-400 pb-1">Accessories</button>
+      <div class="text-center mb-8">
+        <h1 class="font-display text-2xl md:text-3xl gold-text mb-4">The Collections</h1>
+        
+        <!-- Live Search Bar -->
+        <div class="max-w-md mx-auto mb-6 px-2">
+          <div class="relative">
+            <input type="text" id="live-search-input" oninput="handleSearch(this.value)" placeholder="Search bags, watches, perfumes..." class="w-full bg-neutral-900 border border-neutral-700 rounded-full px-5 py-3 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 shadow-inner">
+            <i data-lucide="search" class="absolute right-4 top-3.5 w-4 h-4 text-gray-400"></i>
+          </div>
+        </div>
+
+        <div id="category-filters" class="flex justify-center gap-3 md:gap-4 flex-wrap">
+          <button onclick="filterCategory('all')" id="filter-all" class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-amber-500 border-b-2 border-amber-500 pb-1">Everything</button>
+          <button onclick="filterCategory('bags')" id="filter-bags" class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-gray-500 hover:text-amber-400 pb-1">Luxury Bags</button>
+          <button onclick="filterCategory('watches')" id="filter-watches" class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-gray-500 hover:text-amber-400 pb-1">Timepieces</button>
+          <button onclick="filterCategory('accessories')" id="filter-accessories" class="text-[9px] md:text-[10px] uppercase tracking-widest font-bold text-gray-500 hover:text-amber-400 pb-1">Accessories</button>
         </div>
       </div>
-      <!-- Products will be injected here from JSON -->
-      <div id="shop-products" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"></div>
+      <div id="shop-products" class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6"></div>
     </div>
     
     <!-- CART PAGE -->
-    <div id="page-cart" class="page-view hidden max-w-2xl mx-auto px-4 py-12">
-      <h1 class="font-display text-3xl mb-8 gold-text text-center">Your Atelier Bag</h1>
-      <div id="cart-container" class="glass-panel p-6 rounded-xl"></div>
+    <div id="page-cart" class="page-view hidden max-w-2xl mx-auto px-4 py-10">
+      <h1 class="font-display text-2xl md:text-3xl mb-6 gold-text text-center">Your Atelier Bag</h1>
+      <div id="cart-container" class="glass-panel p-5 md:p-6 rounded-xl"></div>
     </div>
 
     <!-- CHECKOUT PAGE -->
-    <div id="page-checkout" class="page-view hidden max-w-xl mx-auto px-4 py-12">
-      <h1 class="font-display text-3xl mb-8 gold-text text-center">Maison Shipping</h1>
-      <form id="checkout-form" onsubmit="processCheckout(event)" class="glass-panel p-6 rounded-xl space-y-5">
-        <div class="grid grid-cols-2 gap-4">
+    <div id="page-checkout" class="page-view hidden max-w-xl mx-auto px-4 py-10">
+      <h1 class="font-display text-2xl md:text-3xl mb-6 gold-text text-center">Maison Shipping</h1>
+      <form id="checkout-form" onsubmit="processCheckout(event)" class="glass-panel p-5 md:p-6 rounded-xl space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-[10px] text-gray-400 mb-2 uppercase tracking-widest">Full Name</label>
+            <label class="block text-[9px] text-gray-400 mb-1.5 uppercase tracking-widest font-bold">Full Name</label>
             <input type="text" id="cust-name" required class="w-full bg-neutral-900 border border-neutral-700 text-white p-3 text-sm focus:border-amber-500 outline-none rounded">
           </div>
           <div>
-            <label class="block text-[10px] text-gray-400 mb-2 uppercase tracking-widest">Email</label>
+            <label class="block text-[9px] text-gray-400 mb-1.5 uppercase tracking-widest font-bold">Email</label>
             <input type="email" id="cust-email" required class="w-full bg-neutral-900 border border-neutral-700 text-white p-3 text-sm focus:border-amber-500 outline-none rounded">
           </div>
         </div>
         <div>
-          <label class="block text-[10px] text-gray-400 mb-2 uppercase tracking-widest">Delivery Address</label>
+          <label class="block text-[9px] text-gray-400 mb-1.5 uppercase tracking-widest font-bold">Delivery Address</label>
           <textarea id="cust-address" required rows="2" class="w-full bg-neutral-900 border border-neutral-700 text-white p-3 text-sm focus:border-amber-500 outline-none rounded"></textarea>
         </div>
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label class="block text-[10px] text-gray-400 mb-2 uppercase tracking-widest">Phone Number</label>
+            <label class="block text-[9px] text-gray-400 mb-1.5 uppercase tracking-widest font-bold">Phone Number</label>
             <input type="tel" id="cust-phone" required class="w-full bg-neutral-900 border border-neutral-700 text-white p-3 text-sm focus:border-amber-500 outline-none rounded">
           </div>
           <div>
-            <label class="block text-[10px] text-gray-400 mb-2 uppercase tracking-widest">Payment</label>
+            <label class="block text-[9px] text-gray-400 mb-1.5 uppercase tracking-widest font-bold">Payment</label>
             <select id="cust-payment" class="w-full bg-neutral-900 border border-neutral-700 text-white p-3 text-sm focus:border-amber-500 outline-none rounded">
               <option value="Cash On Delivery (COD)">Cash On Delivery (COD)</option>
               <option value="Mobile Banking">Mobile Banking (bKash/Nagad)</option>
@@ -180,93 +266,120 @@
             </select>
           </div>
         </div>
-        <div class="pt-6 mt-4 border-t border-neutral-800 flex justify-between items-center">
-          <p class="text-xl font-bold gold-text" id="checkout-total-price">৳0</p>
-          <button type="submit" id="submit-btn" class="gold-btn px-6 py-3 text-[10px] uppercase tracking-widest font-bold rounded-sm">Place Secure Order</button>
+        <div class="pt-4 mt-2 border-t border-neutral-800 flex justify-between items-center">
+          <div>
+            <p class="text-[9px] text-gray-400 uppercase tracking-widest">Total Payable</p>
+            <p class="text-lg md:text-xl font-bold gold-text" id="checkout-total-price">৳0</p>
+          </div>
+          <button type="submit" id="submit-btn" class="gold-btn px-5 py-3 text-[10px] uppercase tracking-widest font-bold rounded-sm">Place Secure Order</button>
         </div>
       </form>
     </div>
 
     <!-- SUCCESS PAGE -->
-    <div id="page-success" class="page-view hidden max-w-md mx-auto px-4 py-20 text-center">
+    <div id="page-success" class="page-view hidden max-w-md mx-auto px-4 py-16 text-center">
       <i data-lucide="check-circle" class="w-16 h-16 text-amber-500 mx-auto mb-6"></i>
-      <h1 class="font-display text-3xl gold-text mb-4">Order Confirmed</h1>
+      <h1 class="font-display text-2xl md:text-3xl gold-text mb-4">Order Confirmed</h1>
       <p class="text-xs text-gray-400 mb-8 leading-relaxed">Thank you for your procurement. Your luxury order has been securely processed and saved.</p>
-      <div class="flex flex-col gap-4 justify-center">
+      <div class="flex flex-col gap-3 justify-center">
         <button onclick="showPage('history')" class="gold-btn px-6 py-3 text-[10px] uppercase tracking-widest font-bold rounded-sm">View Order History</button>
         <button onclick="showPage('home')" class="text-gray-500 hover:text-white text-[10px] uppercase tracking-widest font-bold transition-colors">Return to Maison</button>
       </div>
     </div>
 
     <!-- ORDER HISTORY PAGE -->
-    <div id="page-history" class="page-view hidden max-w-2xl mx-auto px-4 py-12">
-      <h1 class="font-display text-3xl mb-2 gold-text text-center">Order History</h1>
-      <p class="text-[10px] text-gray-500 uppercase tracking-widest text-center mb-8">Your saved procurements</p>
+    <div id="page-history" class="page-view hidden max-w-2xl mx-auto px-4 py-10">
+      <h1 class="font-display text-2xl md:text-3xl mb-2 gold-text text-center">Order History</h1>
+      <p class="text-[10px] text-gray-500 uppercase tracking-widest text-center mb-6">Your saved procurements</p>
       <div id="history-container" class="space-y-4"></div>
     </div>
 
   </main>
 
-  <!-- DARAZ STYLE PRODUCT MODAL -->
-  <div id="product-modal" class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="glass-panel w-full max-w-4xl max-h-[90vh] overflow-y-auto relative flex flex-col md:flex-row shadow-2xl rounded-xl">
-      <button onclick="closeProductModal()" class="absolute top-4 right-4 z-50 text-gray-400 hover:text-amber-500"><i data-lucide="x" class="w-6 h-6"></i></button>
+  <!-- PRODUCT MODAL (Daraz Style) -->
+  <div id="product-modal" class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm hidden items-center justify-center p-3 md:p-4">
+    <div class="glass-panel w-full max-w-4xl max-h-[92vh] overflow-y-auto relative flex flex-col md:flex-row shadow-2xl rounded-xl">
+      <button onclick="closeProductModal()" class="absolute top-4 right-4 z-50 text-gray-400 hover:text-amber-500 bg-neutral-900/80 p-2 rounded-full"><i data-lucide="x" class="w-5 h-5"></i></button>
       
       <div class="w-full md:w-1/2 p-4 flex flex-col gap-3 bg-neutral-950">
         <img id="modal-main-img" src="" class="w-full aspect-square object-cover rounded-lg border border-neutral-800" alt="Product Image">
         <div id="modal-thumbnails" class="flex gap-2 overflow-x-auto no-scrollbar justify-center"></div>
       </div>
       
-      <div class="w-full md:w-1/2 p-6 md:p-8 flex flex-col">
-        <p id="modal-product-cat" class="text-[9px] uppercase tracking-[0.3em] text-amber-500 mb-2 font-bold"></p>
-        <h2 id="modal-product-name" class="font-display text-2xl font-bold mb-3 text-white"></h2>
-        <p id="modal-product-price" class="font-bold text-xl gold-text mb-4"></p>
-        <hr class="border-neutral-800 my-4">
-        
-        <div class="mb-6">
-          <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-3 font-bold">Select Color: <span id="selected-color-name" class="text-white ml-1"></span></p>
-          <div id="modal-colors" class="flex gap-4"></div>
-        </div>
+      <div class="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-between">
+        <div>
+          <p id="modal-product-cat" class="text-[9px] uppercase tracking-[0.3em] text-amber-500 mb-2 font-bold"></p>
+          <h2 id="modal-product-name" class="font-display text-xl md:text-2xl font-bold mb-3 text-white"></h2>
+          <p id="modal-product-price" class="font-bold text-lg md:text-xl gold-text mb-4"></p>
+          <hr class="border-neutral-800 my-3">
+          
+          <div class="mb-5">
+            <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-2 font-bold">Select Color: <span id="selected-color-name" class="text-white ml-1"></span></p>
+            <div id="modal-colors" class="flex gap-3"></div>
+          </div>
 
-        <p id="modal-product-desc" class="text-gray-400 text-xs leading-relaxed mb-8 flex-grow"></p>
+          <p id="modal-product-desc" class="text-gray-400 text-xs leading-relaxed mb-6"></p>
+        </div>
         
-        <button id="modal-add-btn" class="gold-btn w-full py-4 text-[11px] uppercase tracking-widest font-bold rounded-sm flex justify-center items-center gap-2">
+        <button id="modal-add-btn" class="gold-btn w-full py-3.5 text-[11px] uppercase tracking-widest font-bold rounded-sm flex justify-center items-center gap-2">
           <i data-lucide="shopping-bag" class="w-4 h-4"></i> Add to Bag
         </button>
       </div>
     </div>
   </div>
 
-  <footer class="border-t border-neutral-800 bg-[#050505] pt-12 pb-6 text-center">
-    <img src="logo1.png" class="w-10 mx-auto mb-4 opacity-50" alt="Logo" onerror="this.style.display='none'">
-    <p class="text-[8px] tracking-[0.3em] text-neutral-600 uppercase font-bold">&copy; 2026 SHERENVOGUE. FOUNDER & CEO: MD. RAFIUL ISLAM.</p>
+  <!-- Mobile Bottom Navigation Bar (Smooth & Handy) -->
+  <div class="fixed bottom-0 left-0 right-0 z-50 glass-panel border-t border-amber-600/20 py-2.5 px-6 flex justify-between items-center md:hidden shadow-2xl">
+    <button type="button" onclick="showPage('home')" class="flex flex-col items-center gap-0.5 text-gray-400 hover:text-amber-400">
+      <i data-lucide="home" class="w-5 h-5"></i>
+      <span class="text-[8px] font-bold tracking-wider uppercase">Home</span>
+    </button>
+    <button type="button" onclick="showPage('shop'); filterCategory('all');" class="flex flex-col items-center gap-0.5 text-gray-400 hover:text-amber-400">
+      <i data-lucide="grid" class="w-5 h-5"></i>
+      <span class="text-[8px] font-bold tracking-wider uppercase">Shop</span>
+    </button>
+    <button type="button" onclick="showPage('cart')" class="flex flex-col items-center gap-0.5 text-gray-400 hover:text-amber-400 relative">
+      <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+      <span class="text-[8px] font-bold tracking-wider uppercase">Cart</span>
+    </button>
+    <button type="button" onclick="showPage('history')" class="flex flex-col items-center gap-0.5 text-gray-400 hover:text-amber-400">
+      <i data-lucide="clock" class="w-5 h-5"></i>
+      <span class="text-[8px] font-bold tracking-wider uppercase">History</span>
+    </button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-amber-600/20 bg-[#030303] pt-10 pb-16 md:pb-8 text-center">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
+      <img src="logo1.png" class="w-10 h-10 object-contain mb-2 opacity-90" onerror="this.style.display='none'">
+      <span class="font-display text-base gold-text tracking-widest mb-1">SHERENVOGUE HAUTE COUTURE</span>
+      <p class="text-[8px] text-amber-200/70 uppercase tracking-[0.4em] mb-4">Timeless Elegance</p>
+      <p class="text-[8px] tracking-[0.25em] text-neutral-500 uppercase font-bold">&copy; 2026 SHERENVOGUE. FOUNDER & CEO: MD. RAFIUL ISLAM.</p>
+    </div>
   </footer>
 
-  <!-- FULLY LINKED JAVASCRIPT SYSTEM (JSON Fetch) -->
+  <!-- FULLY OPTIMIZED JAVASCRIPT SYSTEM -->
   <script>
     const WEB3FORMS_ACCESS_KEY = "140b2d00-51ed-40d4-bc25-72bbcf4d92a9";
 
     let products = [];
     let cart = [];
     let selectedColor = "";
+    let activeCategory = 'all';
 
-    // 1. Fetch JSON Data
     async function loadProducts() {
       try {
         const response = await fetch('products.json');
-        if (!response.ok) throw new Error('Network response was not ok');
+        if (!response.ok) throw new Error('Failed to load JSON');
         products = await response.json();
         
-        // Render products after data is loaded
         renderShopProducts(products.slice(0, 4), 'featured-products');
         renderShopProducts(products, 'shop-products');
       } catch (error) {
-        console.error("Error loading products from products.json:", error);
-        document.getElementById('shop-products').innerHTML = `<p class="text-center text-gray-500 col-span-full">Failed to load products. Please ensure products.json exists.</p>`;
+        console.error("Error loading products:", error);
       }
     }
 
-    // 2. Notifications
     function showLuxuryToast(msg) {
       const toast = document.getElementById('luxury-toast');
       document.getElementById('toast-message').innerText = msg;
@@ -274,33 +387,56 @@
       setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 3000);
     }
 
-    // 3. Navigation
     function showPage(pageId) {
       document.querySelectorAll('.page-view').forEach(p => p.classList.add('hidden'));
       document.getElementById('page-' + pageId).classList.remove('hidden');
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       
       if(pageId === 'cart') renderCart();
       if(pageId === 'history') renderHistory();
       if(pageId === 'checkout') prepareCheckout();
+      if(window.lucide) lucide.createIcons();
     }
 
-    // 4. Render Products to Screen
+    // REAL-TIME SEARCH FUNCTIONALITY (Everything Works Smoothly)
+    function handleSearch(query) {
+      const term = query.toLowerCase().trim();
+      const filtered = products.filter(p => 
+        p.name.toLowerCase().includes(term) || 
+        (p.category && p.category.toLowerCase().includes(term)) || 
+        (p.desc && p.desc.toLowerCase().includes(term))
+      );
+      renderShopProducts(filtered, 'shop-products');
+    }
+
     function renderShopProducts(items, containerId = 'shop-products') {
       const container = document.getElementById(containerId);
       if (!container) return;
+      
+      if (items.length === 0) {
+        container.innerHTML = `<p class="col-span-full text-center text-gray-500 py-10 text-xs uppercase tracking-widest">No luxury masterpieces found.</p>`;
+        return;
+      }
+
       container.innerHTML = items.map(p => `
-        <div class="glass-panel p-3 rounded-lg group text-center cursor-pointer border border-neutral-800 hover:border-amber-600 transition-colors" onclick="openProductModal(${p.id})">
-          <div class="w-full aspect-square overflow-hidden rounded-md mb-4 bg-neutral-900">
-            <img src="${p.image}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="${p.name}">
+        <div class="glass-panel p-2.5 md:p-3 rounded-xl group text-center cursor-pointer border border-neutral-800 hover:border-amber-600 transition-all duration-300 flex flex-col justify-between" onclick="openProductModal(${p.id})">
+          <div>
+            <div class="w-full aspect-square overflow-hidden rounded-lg mb-2.5 bg-neutral-900">
+              <img src="${p.image}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="${p.name}" loading="lazy">
+            </div>
+            <p class="text-[8px] uppercase tracking-[0.2em] text-amber-500 font-bold mb-0.5">${p.category}</p>
+            <h3 class="font-display text-xs font-bold text-white mb-1 truncate px-1">${p.name}</h3>
+            <p class="text-xs gold-text font-bold mb-2">${p.price}</p>
           </div>
-          <h3 class="font-display text-xs font-bold text-white mb-1 truncate">${p.name}</h3>
-          <p class="text-[10px] gold-text font-bold mb-3">${p.price}</p>
+          <button type="button" class="w-full bg-neutral-900 text-white py-2 text-[8px] md:text-[9px] uppercase tracking-widest font-bold rounded hover:bg-amber-600 transition-colors">
+            View Details
+          </button>
         </div>
       `).join('');
     }
 
     function filterCategory(cat) {
+      activeCategory = cat;
       document.querySelectorAll('#category-filters button').forEach(b => {
         b.classList.remove('text-amber-500', 'border-amber-500');
         b.classList.add('text-gray-500', 'border-transparent');
@@ -310,10 +446,14 @@
         btn.classList.add('text-amber-500', 'border-amber-500');
         btn.classList.remove('text-gray-500', 'border-transparent');
       }
-      renderShopProducts(cat === 'all' ? products : products.filter(p => p.category === cat));
+      
+      // Clear search input when changing category filter
+      const searchInput = document.getElementById('live-search-input');
+      if(searchInput) searchInput.value = '';
+
+      renderShopProducts(cat === 'all' ? products : products.filter(p => p.category === cat), 'shop-products');
     }
 
-    // 5. Modal & Colors
     function openProductModal(id) {
       const p = products.find(item => item.id === id);
       if (!p) return;
@@ -322,7 +462,7 @@
       document.getElementById('modal-main-img').src = p.image;
       
       const galleryHtml = p.gallery && p.gallery.length > 0 ? p.gallery.map((img, idx) => `
-        <img src="${img}" onclick="changeModalImage('${img}', this)" class="w-16 h-16 object-cover rounded cursor-pointer ${idx === 0 ? 'thumb-active' : 'thumb-inactive'}">
+        <img src="${img}" onclick="changeModalImage('${img}', this)" class="w-14 h-14 md:w-16 md:h-16 object-cover rounded cursor-pointer ${idx === 0 ? 'thumb-active' : 'thumb-inactive'}">
       `).join('') : `<img src="${p.image}" class="w-16 h-16 object-cover rounded thumb-active">`;
       document.getElementById('modal-thumbnails').innerHTML = galleryHtml;
 
@@ -365,7 +505,6 @@
       document.getElementById('product-modal').style.display = 'none';
     }
 
-    // 6. Cart System
     function addToCart(id, color) {
       const p = products.find(item => item.id === id);
       const cartItemName = color !== "Standard Edition" ? `${p.name} (${color})` : p.name;
@@ -394,30 +533,29 @@
         const itemTotal = item.rawPrice * item.qty;
         total += itemTotal;
         return `
-          <div class="flex justify-between items-center border-b border-neutral-800 py-4">
-            <div class="flex items-center gap-4">
-              <img src="${item.image}" class="w-12 h-12 rounded object-cover">
+          <div class="flex justify-between items-center border-b border-neutral-800 py-3">
+            <div class="flex items-center gap-3">
+              <img src="${item.image}" class="w-10 h-10 md:w-12 md:h-12 rounded object-cover bg-neutral-900">
               <div>
-                <p class="text-sm font-bold text-white">${item.cartName}</p>
-                <p class="text-[10px] text-gray-500">Qty: ${item.qty} × ${item.price}</p>
+                <p class="text-xs md:text-sm font-bold text-white">${item.cartName}</p>
+                <p class="text-[9px] text-gray-500">Qty: ${item.qty} × ${item.price}</p>
               </div>
             </div>
-            <div class="flex items-center gap-4">
-              <span class="gold-text font-bold">৳${itemTotal.toLocaleString()}</span>
-              <button onclick="cart.splice(${i},1); renderCart(); document.getElementById('cart-count').innerText = cart.reduce((s, i) => s + i.qty, 0);" class="text-red-500 text-xs hover:text-red-400">✕</button>
+            <div class="flex items-center gap-3">
+              <span class="gold-text font-bold text-xs md:text-sm">৳${itemTotal.toLocaleString()}</span>
+              <button onclick="cart.splice(${i},1); renderCart(); document.getElementById('cart-count').innerText = cart.reduce((s, i) => s + i.qty, 0);" class="text-red-500 text-xs hover:text-red-400 p-1">✕</button>
             </div>
           </div>
         `;
       }).join('') + `
         <div class="mt-6 flex justify-between items-center">
           <span class="text-gray-400 uppercase text-[10px] font-bold tracking-widest">Total Payable</span>
-          <span class="text-xl gold-text font-bold">৳${total.toLocaleString()}</span>
+          <span class="text-lg md:text-xl gold-text font-bold">৳${total.toLocaleString()}</span>
         </div>
-        <button onclick="showPage('checkout')" class="gold-btn w-full mt-6 py-3 text-[10px] uppercase font-bold tracking-widest rounded-sm">Proceed to Maison Shipping</button>
+        <button onclick="showPage('checkout')" class="gold-btn w-full mt-6 py-3.5 text-[10px] uppercase font-bold tracking-widest rounded-sm">Proceed to Maison Shipping</button>
       `;
     }
 
-    // 7. Checkout Process
     function prepareCheckout() {
       let grandTotal = cart.reduce((sum, item) => sum + (item.rawPrice * item.qty), 0);
       document.getElementById('checkout-total-price').innerText = '৳' + grandTotal.toLocaleString();
@@ -489,7 +627,6 @@
       showPage('success');
     }
 
-    // 8. Order History
     function renderHistory() {
       const container = document.getElementById('history-container');
       const orders = JSON.parse(localStorage.getItem('sheren_orders') || '[]');
@@ -516,7 +653,7 @@
           : `<span class="bg-amber-900/30 text-amber-500 text-[8px] font-bold uppercase tracking-wider px-2 py-1 rounded">Processing</span>`;
 
         return `
-          <div class="glass-panel p-5 rounded-xl space-y-3">
+          <div class="glass-panel p-4 md:p-5 rounded-xl space-y-3">
             <div class="flex justify-between items-center border-b border-neutral-800 pb-2">
               <div>
                 <span class="text-[10px] uppercase font-bold gold-text tracking-widest">${order.orderId}</span>
@@ -534,9 +671,8 @@
       }).join('');
     }
 
-    // 9. Initialize
     document.addEventListener('DOMContentLoaded', () => {
-      lucide.createIcons();
+      if(window.lucide) lucide.createIcons();
       loadProducts();
     });
   </script>
