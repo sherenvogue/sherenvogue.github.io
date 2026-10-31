@@ -1,0 +1,483 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Product Details | SherenVogue</title>
+  <meta name="description" content="Discover luxury fashion and accessories at SherenVogue.">
+
+  <style>
+    :root {
+      --black: #171513;
+      --gold: #c5a059;
+      --cream: #faf8f5;
+      --white: #ffffff;
+      --gray: #777777;
+      --border: #e9e4dc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--cream);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      background: var(--black);
+      color: var(--white);
+      padding: 18px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      border-bottom: 1px solid var(--gold);
+    }
+
+    .logo {
+      color: var(--gold);
+      font-family: Georgia, serif;
+      font-size: 23px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .back-link {
+      font-size: 14px;
+    }
+
+    .breadcrumb {
+      padding: 18px 5%;
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto 45px;
+      padding: 0 20px;
+    }
+
+    .product-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      background: var(--white);
+      padding: 25px;
+      border: 1px solid var(--border);
+    }
+
+    .main-image {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: contain;
+      background: #f5f2ed;
+      display: block;
+    }
+
+    .thumbnails {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+      overflow-x: auto;
+    }
+
+    .thumbnail {
+      width: 75px;
+      height: 85px;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+      background: var(--white);
+      padding: 3px;
+      cursor: pointer;
+    }
+
+    .thumbnail.active {
+      border: 2px solid var(--gold);
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .category {
+      color: #9a793e;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: 30px;
+      line-height: 1.3;
+      margin: 12px 0;
+    }
+
+    .sku {
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    .price {
+      color: #a17c36;
+      font-size: 28px;
+      font-weight: bold;
+      margin: 20px 0 5px;
+    }
+
+    .old-price {
+      color: #999;
+      font-size: 15px;
+      text-decoration: line-through;
+      margin-left: 8px;
+    }
+
+    .description {
+      color: #555;
+      font-size: 14px;
+      margin: 18px 0;
+    }
+
+    .detail-row {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+    }
+
+    .detail-row strong {
+      display: inline-block;
+      min-width: 100px;
+    }
+
+    .quantity {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin: 22px 0;
+    }
+
+    .quantity input {
+      width: 65px;
+      padding: 9px;
+      border: 1px solid var(--border);
+      font-size: 16px;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      margin-top: 12px;
+      border: 1px solid var(--gold);
+      background: var(--gold);
+      color: var(--black);
+      text-align: center;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .button.secondary {
+      background: var(--black);
+      color: var(--gold);
+      border-color: var(--black);
+    }
+
+    .notice {
+      font-size: 12px;
+      color: var(--gray);
+      margin-top: 18px;
+    }
+
+    .error {
+      padding: 35px;
+      text-align: center;
+      background: var(--white);
+    }
+
+    footer {
+      background: var(--black);
+      color: #ddd;
+      text-align: center;
+      padding: 25px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding: 15px 4%;
+      }
+
+      .logo {
+        font-size: 19px;
+      }
+
+      .product-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 15px;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      .container {
+        padding: 0 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a class="logo" href="index.html">SHERENVOGUE</a>
+    <a class="back-link" href="shop.html">← Continue Shopping</a>
+  </header>
+
+  <div class="breadcrumb">
+    <a href="index.html">Home</a> /
+    <a href="shop.html">Shop</a> /
+    <span id="crumb">Product Details</span>
+  </div>
+
+  <main class="container">
+    <div id="product-root">
+      <div class="error">Loading product...</div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="logo">SHERENVOGUE</div>
+    <p>The Art of Luxury.</p>
+    <p>© 2026 SherenVogue. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const root = document.getElementById("product-root");
+    const params = new URLSearchParams(location.search);
+    const productId = params.get("id");
+
+    function money(value) {
+      return "৳" + Number(value || 0).toLocaleString("en-BD");
+    }
+
+    function safe(value) {
+      return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[char]);
+    }
+
+    async function loadProduct() {
+      try {
+        const response = await fetch("products.json");
+
+        if (!response.ok) {
+          throw new Error("Could not load products.json");
+        }
+
+        const data = await response.json();
+        const products = Array.isArray(data)
+          ? data
+          : (data.products || []);
+
+        const product = products.find(item =>
+          String(item.id) === String(productId)
+        );
+
+        if (!product) {
+          root.innerHTML = `
+            <div class="error">
+              <h2>Product not found</h2>
+              <p>Please return to our shop and select a product.</p>
+              <a class="button" href="shop.html">Explore Products</a>
+            </div>`;
+          return;
+        }
+
+        const images = [
+          product.image,
+          ...(Array.isArray(product.images) ? product.images : [])
+        ].filter((src, index, all) =>
+          typeof src === "string" &&
+          src.length > 0 &&
+          all.indexOf(src) === index
+        );
+
+        document.title = product.name + " | SherenVogue";
+        document.getElementById("crumb").textContent = product.name;
+
+        const price = Number(product.price || 0);
+        const oldPrice = Number(product.oldPrice || 0);
+
+        root.innerHTML = `
+          <section class="product-layout">
+            <div>
+              <img id="main-image"
+                   class="main-image"
+                   src="${safe(images[0] || "")}"
+                   alt="${safe(product.name)}">
+
+              <div class="thumbnails" id="thumbnails">
+                ${images.map((src, index) => `
+                  <button class="thumbnail ${index === 0 ? "active" : ""}"
+                          data-index="${index}"
+                          aria-label="View product image ${index + 1}">
+                    <img src="${safe(src)}"
+                         alt="${safe(product.name)} image ${index + 1}">
+                  </button>
+                `).join("")}
+              </div>
+            </div>
+
+            <div>
+              <div class="category">${safe(product.category || "Luxury Collection")}</div>
+              <h1>${safe(product.name)}</h1>
+              <div class="sku">Product ID: ${safe(product.id)}</div>
+
+              <div class="price">
+                ${money(price)}
+                ${oldPrice > price
+                  ? `<span class="old-price">${money(oldPrice)}</span>`
+                  : ""}
+              </div>
+
+              <p class="description">
+                ${safe(product.description || "Discover timeless style with SherenVogue.")}
+              </p>
+
+              <div class="detail-row">
+                <strong>Colour</strong> ${safe(product.color || "As shown")}
+              </div>
+
+              <div class="detail-row">
+                <strong>Material</strong> ${safe(product.material || "Contact us for details")}
+              </div>
+
+              <div class="detail-row">
+                <strong>Availability</strong>
+                ${safe(product.stockStatus || "Contact us to confirm")}
+              </div>
+
+              <div class="quantity">
+                <label for="quantity"><strong>Quantity</strong></label>
+                <input id="quantity" type="number" min="1" value="1">
+              </div>
+
+              <button class="button" id="add-cart">ADD TO CART</button>
+              <button class="button secondary" id="buy-now">BUY NOW</button>
+
+              <p class="notice">
+                Delivery charges, delivery time and return eligibility
+                should be confirmed before ordering.
+              </p>
+            </div>
+          </section>`;
+
+        document.querySelectorAll(".thumbnail").forEach(button => {
+          button.addEventListener("click", () => {
+            const index = Number(button.dataset.index);
+            document.getElementById("main-image").src = images[index];
+
+            document.querySelectorAll(".thumbnail").forEach(item =>
+              item.classList.remove("active")
+            );
+
+            button.classList.add("active");
+          });
+        });
+
+        function getCart() {
+          try {
+            return JSON.parse(localStorage.getItem("sv-cart") || "[]");
+          } catch {
+            return [];
+          }
+        }
+
+        function addToCart() {
+          const quantity = Number(
+            document.getElementById("quantity").value
+          );
+
+          if (!Number.isInteger(quantity) || quantity < 1) {
+            alert("Please enter a valid quantity.");
+            return false;
+          }
+
+          const cart = getCart();
+          const existing = cart.find(item =>
+            String(item.id) === String(product.id)
+          );
+
+          if (existing) {
+            existing.quantity += quantity;
+          } else {
+            cart.push({
+              id: product.id,
+              name: product.name,
+              price: price,
+              image: images[0] || "",
+              quantity: quantity
+            });
+          }
+
+          localStorage.setItem("sv-cart", JSON.stringify(cart));
+          return true;
+        }
+
+        document.getElementById("add-cart").onclick = () => {
+          if (addToCart()) {
+            alert("Product added to your cart!");
+          }
+        };
+
+        document.getElementById("buy-now").onclick = () => {
+          if (addToCart()) {
+            location.href = "cart.html";
+          }
+        };
+
+      } catch (error) {
+        root.innerHTML = `
+          <div class="error">
+            <h2>Unable to load product</h2>
+            <p>Please check your products.json file and try again.</p>
+          </div>`;
+        console.error(error);
+      }
+    }
+
+    if (productId) {
+      loadProduct();
+    } else {
+      root.innerHTML = `
+        <div class="error">
+          <h2>Select a product first</h2>
+          <a class="button" href="shop.html">Go to Shop</a>
+        </div>`;
+    }
+  </script>
+
+</body>
+</html>
