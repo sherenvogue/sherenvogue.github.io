@@ -4,22 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- Website Favicon -->
   <link rel="icon" type="image/png" href="logo1.png">
   
-  <!-- SEO & Brand Meta Tags -->
   <title>SherenVogue | International Luxury Haute Couture & Bespoke Collection</title>
   <meta name="description" content="SherenVogue is an international luxury haute couture brand specializing in bespoke artisan leather bags, timepieces, and accessories. Founded by CEO Md. Rafiul Islam.">
   <meta name="author" content="Md. Rafiul Islam">
   
-  <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="SherenVogue - International Luxury Haute Couture">
   <meta property="og:description" content="Official Maison of SherenVogue. Discover luxury bespoke leather bags and timepieces.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sherenvogue.com">
   <meta property="og:image" content="logo1.png">
 
-  <!-- Tailwind CSS & Lucide Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   
@@ -72,7 +68,6 @@
         <a href="javascript:void(0)" onclick="showPage('shop'); filterCategory('all');" class="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-300 hover:text-amber-400 transition-colors">Collections</a>
       </div>
       
-      <!-- Brand Logo & Title -->
       <a href="javascript:void(0)" onclick="showPage('home')" class="flex items-center gap-2 md:gap-3">
         <img src="logo1.png" alt="SV Logo" class="w-8 h-8 md:w-9 md:h-9 object-contain" onerror="this.style.display='none'">
         <span class="font-display text-lg md:text-2xl font-bold tracking-widest gold-text">SHERENVOGUE</span>
@@ -83,7 +78,8 @@
         <button type="button" onclick="showPage('history')" class="text-gray-300 hover:text-amber-400 transition-colors" title="Order History"><i data-lucide="clock" class="w-5 h-5"></i></button>
         <button type="button" onclick="showPage('cart')" class="relative text-gray-300 hover:text-amber-400 transition-colors" title="Cart">
           <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-          <span id="cart-count" class="absolute -top-1.5 -right-1.5 bg-amber-600 text-black text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+          <!-- Cart Count Badge (Red dot with exact quantity count) -->
+          <span id="cart-count" class="absolute -top-1.5 -right-1.5 bg-red-600 text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
         </button>
       </div>
     </div>
@@ -95,7 +91,6 @@
     <!-- HOME PAGE -->
     <div id="page-home" class="page-view">
       
-      <!-- Hero Section -->
       <div class="relative w-full min-h-[75vh] md:min-h-[85vh] flex flex-col justify-between px-4 md:px-12 py-8 overflow-hidden bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1541971875076-8f970d573be6?q=80&w=1600&auto=format&fit=crop');">
         <div class="absolute inset-0 bg-gradient-to-b from-black/85 via-black/50 to-[#050505]"></div>
         
@@ -120,7 +115,6 @@
           </div>
         </div>
 
-        <!-- 3D Pedestal Categories -->
         <div class="relative z-10 max-w-7xl mx-auto w-full mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 md:gap-4">
           <div onclick="showPage('shop'); filterCategory('bags');" class="category-card p-3 md:p-4 rounded-xl text-center cursor-pointer group">
             <div class="w-full h-24 md:h-28 rounded-lg overflow-hidden mb-2 bg-neutral-900">
@@ -164,7 +158,6 @@
         </div>
       </div>
 
-      <!-- Featured Masterpieces -->
       <section class="max-w-7xl mx-auto px-4 py-12 md:py-16">
         <div class="flex justify-between items-center mb-6 border-b border-neutral-800 pb-4">
           <div>
@@ -177,7 +170,6 @@
         <div id="featured-products" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"></div>
       </section>
 
-      <!-- Customer Concierge Desk -->
       <section class="max-w-7xl mx-auto px-4 py-12 mb-10">
         <div class="glass-panel rounded-2xl p-6 md:p-12 relative overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-8 items-center border border-amber-600/30">
           <div>
@@ -205,12 +197,11 @@
 
     </div>
 
-    <!-- SHOP PAGE (With Fully Functional Real-time Search & Filter) -->
+    <!-- SHOP PAGE -->
     <div id="page-shop" class="page-view hidden max-w-7xl mx-auto px-4 py-10">
       <div class="text-center mb-8">
         <h1 class="font-display text-2xl md:text-3xl gold-text mb-4">The Collections</h1>
         
-        <!-- Live Search Bar -->
         <div class="max-w-md mx-auto mb-6 px-2">
           <div class="relative">
             <input type="text" id="live-search-input" oninput="handleSearch(this.value)" placeholder="Search bags, watches, perfumes..." class="w-full bg-neutral-900 border border-neutral-700 rounded-full px-5 py-3 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-amber-500 shadow-inner">
@@ -296,7 +287,7 @@
 
   </main>
 
-  <!-- PRODUCT MODAL (Daraz Style) -->
+  <!-- PRODUCT MODAL -->
   <div id="product-modal" class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm hidden items-center justify-center p-3 md:p-4">
     <div class="glass-panel w-full max-w-4xl max-h-[92vh] overflow-y-auto relative flex flex-col md:flex-row shadow-2xl rounded-xl">
       <button onclick="closeProductModal()" class="absolute top-4 right-4 z-50 text-gray-400 hover:text-amber-500 bg-neutral-900/80 p-2 rounded-full"><i data-lucide="x" class="w-5 h-5"></i></button>
@@ -328,7 +319,7 @@
     </div>
   </div>
 
-  <!-- Mobile Bottom Navigation Bar (Smooth & Handy) -->
+  <!-- Mobile Bottom Navigation Bar -->
   <div class="fixed bottom-0 left-0 right-0 z-50 glass-panel border-t border-amber-600/20 py-2.5 px-6 flex justify-between items-center md:hidden shadow-2xl">
     <button type="button" onclick="showPage('home')" class="flex flex-col items-center gap-0.5 text-gray-400 hover:text-amber-400">
       <i data-lucide="home" class="w-5 h-5"></i>
@@ -340,6 +331,7 @@
     </button>
     <button type="button" onclick="showPage('cart')" class="flex flex-col items-center gap-0.5 text-gray-400 hover:text-amber-400 relative">
       <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+      <span id="mobile-cart-count" class="absolute -top-1 -right-1 bg-red-600 text-white text-[8px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-bold">0</span>
       <span class="text-[8px] font-bold tracking-wider uppercase">Cart</span>
     </button>
     <button type="button" onclick="showPage('history')" class="flex flex-col items-center gap-0.5 text-gray-400 hover:text-amber-400">
@@ -348,7 +340,6 @@
     </button>
   </div>
 
-  <!-- Footer -->
   <footer class="border-t border-amber-600/20 bg-[#030303] pt-10 pb-16 md:pb-8 text-center">
     <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
       <img src="logo1.png" class="w-10 h-10 object-contain mb-2 opacity-90" onerror="this.style.display='none'">
@@ -358,7 +349,6 @@
     </div>
   </footer>
 
-  <!-- FULLY OPTIMIZED JAVASCRIPT SYSTEM -->
   <script>
     const WEB3FORMS_ACCESS_KEY = "140b2d00-51ed-40d4-bc25-72bbcf4d92a9";
 
@@ -398,7 +388,6 @@
       if(window.lucide) lucide.createIcons();
     }
 
-    // REAL-TIME SEARCH FUNCTIONALITY (Everything Works Smoothly)
     function handleSearch(query) {
       const term = query.toLowerCase().trim();
       const filtered = products.filter(p => 
@@ -447,7 +436,6 @@
         btn.classList.remove('text-gray-500', 'border-transparent');
       }
       
-      // Clear search input when changing category filter
       const searchInput = document.getElementById('live-search-input');
       if(searchInput) searchInput.value = '';
 
@@ -505,6 +493,7 @@
       document.getElementById('product-modal').style.display = 'none';
     }
 
+    // UPDATE CART & COUNT BADGE (Red badge with exact quantity)
     function addToCart(id, color) {
       const p = products.find(item => item.id === id);
       const cartItemName = color !== "Standard Edition" ? `${p.name} (${color})` : p.name;
@@ -513,8 +502,15 @@
       if (existing) existing.qty += 1;
       else cart.push({ ...p, cartName: cartItemName, qty: 1, selectedColor: color });
 
-      document.getElementById('cart-count').innerText = cart.reduce((s, i) => s + i.qty, 0);
+      updateCartBadge();
       showLuxuryToast(`Added to Bag`);
+    }
+
+    function updateCartBadge() {
+      const totalQty = cart.reduce((s, i) => s + i.qty, 0);
+      document.getElementById('cart-count').innerText = totalQty;
+      const mobBadge = document.getElementById('mobile-cart-count');
+      if(mobBadge) mobBadge.innerText = totalQty;
     }
 
     function renderCart() {
@@ -543,7 +539,7 @@
             </div>
             <div class="flex items-center gap-3">
               <span class="gold-text font-bold text-xs md:text-sm">৳${itemTotal.toLocaleString()}</span>
-              <button onclick="cart.splice(${i},1); renderCart(); document.getElementById('cart-count').innerText = cart.reduce((s, i) => s + i.qty, 0);" class="text-red-500 text-xs hover:text-red-400 p-1">✕</button>
+              <button onclick="cart.splice(${i},1); renderCart(); updateCartBadge();" class="text-red-500 text-xs hover:text-red-400 p-1">✕</button>
             </div>
           </div>
         `;
@@ -621,12 +617,13 @@
       }
 
       cart = [];
-      document.getElementById('cart-count').innerText = 0;
+      updateCartBadge();
       submitBtn.disabled = false;
       submitBtn.innerText = "Place Secure Order";
       showPage('success');
     }
 
+    // ORDER HISTORY & CANCELLATION SYSTEM (Fully Connected with Mail)
     function renderHistory() {
       const container = document.getElementById('history-container');
       const orders = JSON.parse(localStorage.getItem('sheren_orders') || '[]');
@@ -640,7 +637,7 @@
         return;
       }
 
-      container.innerHTML = orders.map((order) => {
+      container.innerHTML = orders.map((order, index) => {
         const itemRows = order.items.map(i => `
           <div class="flex justify-between text-xs py-1 text-gray-400 font-medium">
             <span>${i.cartName} × ${i.qty}</span>
@@ -648,9 +645,16 @@
           </div>
         `).join('');
 
-        const statusBadge = order.status === 'Cancelled' 
+        const isCancelled = order.status === 'Cancelled';
+        const statusBadge = isCancelled 
           ? `<span class="bg-red-900/30 text-red-500 text-[8px] font-bold uppercase tracking-wider px-2 py-1 rounded">Cancelled</span>`
           : `<span class="bg-amber-900/30 text-amber-500 text-[8px] font-bold uppercase tracking-wider px-2 py-1 rounded">Processing</span>`;
+
+        const cancelBtnHTML = isCancelled ? '' : `
+          <button onclick="cancelOrderByIndex(${index})" class="text-[9px] uppercase tracking-widest text-red-400 hover:text-red-300 font-bold border border-red-900/50 px-2.5 py-1 rounded bg-red-950/20 transition-all">
+            Cancel Order
+          </button>
+        `;
 
         return `
           <div class="glass-panel p-4 md:p-5 rounded-xl space-y-3">
@@ -659,7 +663,13 @@
                 <span class="text-[10px] uppercase font-bold gold-text tracking-widest">${order.orderId}</span>
                 <p class="text-[9px] text-gray-500">${order.date}</p>
               </div>
-              <div>${statusBadge}</div>
+              <div class="flex items-center gap-2">
+                ${statusBadge}
+                ${cancelBtnHTML}
+                <button onclick="deleteOrderByIndex(${index})" class="text-[9px] uppercase tracking-widest text-neutral-400 hover:text-red-400 font-bold border border-neutral-800 px-2.5 py-1 rounded bg-neutral-900 transition-all">
+                  Delete
+                </button>
+              </div>
             </div>
             <div>${itemRows}</div>
             <div class="flex justify-between items-center pt-2 border-t border-neutral-800">
@@ -669,6 +679,50 @@
           </div>
         `;
       }).join('');
+    }
+
+    async function cancelOrderByIndex(index) {
+      if (!confirm("Are you sure you want to cancel this order?")) return;
+
+      let orders = JSON.parse(localStorage.getItem('sheren_orders') || '[]');
+      if (orders[index]) {
+        orders[index].status = 'Cancelled';
+        localStorage.setItem('sheren_orders', JSON.stringify(orders));
+
+        const orderId = orders[index].orderId || 'SV-Unknown';
+        const customerName = orders[index].customer ? orders[index].customer.name : 'Valued Client';
+
+        try {
+          await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              access_key: WEB3FORMS_ACCESS_KEY,
+              subject: `SherenVogue Order Cancelled: ${orderId}`,
+              from_name: "SherenVogue Concierge",
+              to_email: "hello@sherenvogue.com",
+              message: `Alert: Order ID ${orderId} has been cancelled by customer ${customerName}.`
+            })
+          });
+        } catch (err) {
+          console.error('Cancellation email dispatch error:', err);
+        }
+
+        showLuxuryToast(`Order ${orderId} cancelled & alert sent to mail.`);
+        renderHistory();
+      }
+    }
+
+    function deleteOrderByIndex(index) {
+      if (!confirm("Are you sure you want to delete this order from history?")) return;
+
+      let orders = JSON.parse(localStorage.getItem('sheren_orders') || '[]');
+      if (index > -1 && index < orders.length) {
+        orders.splice(index, 1);
+        localStorage.setItem('sheren_orders', JSON.stringify(orders));
+        renderHistory();
+        showLuxuryToast("Order deleted from history.");
+      }
     }
 
     document.addEventListener('DOMContentLoaded', () => {
