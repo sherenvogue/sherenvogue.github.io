@@ -857,8 +857,19 @@
     }
 
     // 8. INITIALIZATION
-    document.addEventListener('DOMContentLoaded', function() {
-      if (window.lucide) lucide.createIcons();
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.lucide) lucide.createIcons();
+
+  // products.json ফাইল থেকে ডেটা ফেচ (Fetch) করা
+  fetch('products.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json(); // JSON ডেটাকে জাভাস্ক্রিপ্ট অবজেক্টে রূপান্তর
+    })
+    .then(products => {
+      // JSON ডেটা সফলভাবে লোড হওয়ার পর এই ব্লকের কোড রান করবে
 
       // Update total masterpieces counter
       const statCount = document.getElementById('stat-count');
@@ -868,21 +879,34 @@
       const featuredGrid = document.getElementById('featured-products');
       if (featuredGrid) {
         featuredGrid.innerHTML = products.map(p => `
-          <div class="bg-white rounded-2xl border border-gray-100 p-3 shadow-sm min-w-[200px] md:min-w-[240px] w-[220px] md:w-[260px] flex-shrink-0 snap-start flex flex-col justify-between">
+          <div class="group bg-white rounded-2xl border border-gray-100 p-3 shadow-sm min-w-[200px] md:min-w-[240px] w-[220px] md:w-[260px] flex-shrink-0 snap-start flex flex-col justify-between">
             <div>
-              <div class="w-full h-48 rounded-xl overflow-hidden bg-stone-100 mb-3 cursor-pointer" onclick="openProductModal(${p.id})">
+              <div class="w-full h-48 rounded-xl overflow-hidden bg-stone-100 mb-3 cursor-pointer" onclick="openProductModal('${p.id}')">
                 <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
               </div>
               <p class="text-[8px] uppercase tracking-[0.2em] text-amber-600 font-bold mb-0.5">${p.category || 'bags'}</p>
-              <h3 class="font-display text-xs font-bold text-neutral-900 truncate cursor-pointer" onclick="openProductModal(${p.id})">${p.name}</h3>
+              <h3 class="font-display text-xs font-bold text-neutral-900 truncate cursor-pointer" onclick="openProductModal('${p.id}')">${p.name}</h3>
               <p class="text-xs font-bold text-gray-800 mt-1">${p.price}</p>
             </div>
-            <button type="button" onclick="addToCart(${p.id})" class="w-full mt-3 bg-neutral-900 text-white py-2 text-[9px] uppercase tracking-widest font-bold rounded-lg hover:bg-amber-600 transition-all">
+            <button type="button" onclick="addToCart('${p.id}')" class="w-full mt-3 bg-neutral-900 text-white py-2 text-[9px] uppercase tracking-widest font-bold rounded-lg hover:bg-amber-600 transition-all">
                 Add To Bag
             </button>
           </div>
         `).join('');
       }
+
+      // শপ পেজের প্রোডাক্ট রেন্ডার করা (যদি ফাংশনটি থাকে)
+      if (typeof renderShopProducts === 'function') {
+        renderShopProducts(products);
+      }
+
+      // নতুন রেন্ডার হওয়া HTML-এর জন্য আইকন পুনরায় ইনিশিয়ালাইজ করা
+      if (window.lucide) lucide.createIcons();
+    })
+    .catch(error => {
+      console.error('Error loading products.json:', error);
+    });
+});
 
       renderShopProducts(products);
       if (window.lucide) lucide.createIcons();
