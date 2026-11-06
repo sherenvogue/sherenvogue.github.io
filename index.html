@@ -50,21 +50,23 @@
 </head>
 <body class="relative h-screen w-screen flex items-center justify-center">
 
-    <!-- Background Video Section -->
-    <div class="absolute inset-0 w-full h-full z-0">
+    <!-- Background Video Section with Fallback Background Color -->
+    <div class="absolute inset-0 w-full h-full z-0 bg-[#1A1A1A]">
         <video autoplay loop muted playsinline class="w-full h-full object-cover">
-            <!-- Video File Linked Here -->
+            <!-- Video File Linked Here (Ensure background.mp4 is in the same folder) -->
             <source src="background.mp4" type="video/mp4">
+            Your browser does not support the video tag.
         </video>
         
-        <!-- Dark Gradient Overlay (Video er upore lekha clear korar jonno) -->
+        <!-- Dark Gradient Overlay -->
         <div class="absolute inset-0 bg-black/50 bg-gradient-to-b from-black/40 via-transparent to-black/80"></div>
     </div>
 
     <!-- Center Logo & Button -->
     <div class="relative z-10 text-center flex flex-col items-center content-reveal px-4">
         
-        <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight text-white mb-2 drop-shadow-lg">
+        <!-- Brand Name / Logo (Text styled as luxury logo) -->
+        <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight text-white mb-2 drop-shadow-2xl">
             SHEREN<span class="italic font-light text-[#C5A059]">Vogue</span>
         </h1>
         
@@ -73,7 +75,7 @@
         </p>
 
         <!-- Redirect Button -->
-        <a href="shop.html" class="group relative inline-flex items-center justify-center px-10 py-3.5 md:px-12 md:py-4 border border-[#C5A059] text-[#C5A059] text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold overflow-hidden transition-all hover:text-white backdrop-blur-sm shadow-lg">
+        <a href="shop.html" class="group relative inline-flex items-center justify-center px-10 py-3.5 md:px-12 md:py-4 border border-[#C5A059] text-[#C5A059] text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold overflow-hidden transition-all hover:text-white backdrop-blur-sm shadow-xl bg-black/30">
             <span class="absolute inset-0 bg-[#C5A059] w-0 group-hover:w-full transition-all duration-700 ease-out z-0"></span>
             <span class="relative z-10 flex items-center gap-2">
                 Enter Maison 
