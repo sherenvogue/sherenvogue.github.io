@@ -899,6 +899,12 @@
     document.addEventListener('DOMContentLoaded', function() {
       if (window.lucide) lucide.createIcons();
 
+// Call loadProducts to fetch dynamically from products.json
+      loadProducts();
+    });
+
+
+      
       // Update total masterpieces counter
       const statCount = document.getElementById('stat-count');
       if (statCount) statCount.innerText = products.length + '+';
