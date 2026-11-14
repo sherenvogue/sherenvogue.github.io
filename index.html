@@ -66,7 +66,7 @@
         },
         "image": "https://sherenvogue.com/logo1.png",
         "description": "SherenVogue (শিরিনভোগ) is a top-tier international luxury haute couture brand and premier fashion house celebrated for unmatched artisan craftsmanship, bespoke full-grain leather bags, luxury timepieces, and high-fashion accessories. শিরিনভোগ একটি আন্তর্জাতিক মানের শীর্ষস্থানীয় লাক্সারি ব্র্যান্ড যা এর নিখুঁত কারুকার্য এবং আভিজাত্যের জন্য বিশ্বজুড়ে সমাদৃত।",
-        "slogan": "Timeless Elegance — International Luxury Haute Couture",
+        "slogan": "Royalty is no longer a birthright—it is worn, carried, timed, and left behind in the air.",
         "foundingDate": "2026",
         "founder": {
           "@type": "Person",
@@ -147,7 +147,7 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: #090909;
@@ -162,6 +162,57 @@
     }
     .animate-slow-zoom {
       animation: slowZoom 20s ease-in-out infinite alternate;
+    }
+
+    /* Luxury ENTER Button & Click Color Animation */
+    .enter-btn {
+      position: relative;
+      background: linear-gradient(120deg, #fbbf24, #f59e0b, #fde68a, #fbbf24);
+      background-size: 250% 250%;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+    .enter-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(251, 191, 36, 0.55);
+    }
+    .enter-btn.is-animating {
+      background: linear-gradient(90deg, #fbbf24, #f43f5e, #a855f7, #10b981, #fde047, #ffffff);
+      background-size: 400% 400%;
+      animation: colorBurstFlow 0.7s ease-out forwards;
+      color: #000000;
+    }
+    .enter-btn.is-animating::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 9999px;
+      animation: rippleRing 0.7s ease-out forwards;
+    }
+    @keyframes colorBurstFlow {
+      0% {
+        background-position: 0% 50%;
+        transform: scale(0.96);
+        box-shadow: 0 0 15px rgba(251, 191, 36, 0.7);
+      }
+      50% {
+        background-position: 65% 50%;
+        transform: scale(1.07);
+        box-shadow: 0 0 35px rgba(244, 63, 94, 0.8), 0 0 55px rgba(251, 191, 36, 0.7);
+      }
+      100% {
+        background-position: 100% 50%;
+        transform: scale(1.03);
+        box-shadow: 0 0 45px rgba(255, 255, 255, 0.9);
+      }
+    }
+    @keyframes rippleRing {
+      0% {
+        box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.85);
+      }
+      100% {
+        box-shadow: 0 0 0 22px rgba(251, 191, 36, 0);
+      }
     }
   </style>
 </head>
@@ -178,75 +229,99 @@
     <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-black/95"></div>
   </div>
 
-  <!-- Top Minimal Navigation -->
-  <header class="relative z-20 w-full px-6 md:px-14 py-6 flex items-center justify-between border-b border-white/10 backdrop-blur-xs">
-    <a href="index.html" class="flex items-center gap-3 group">
-      <img src="logo1.png" alt="SherenVogue Logo" class="w-9 h-9 md:w-10 md:h-10 object-contain rounded-full border border-amber-400/40" onerror="this.style.display='none'">
-      <div>
-        <span class="font-display text-lg md:text-2xl font-bold tracking-wider text-white">
+  <!-- Top Minimal Navigation (Responsive Mobile & PC) -->
+  <header class="relative z-20 w-full px-4 sm:px-6 md:px-14 py-5 sm:py-6 flex items-center justify-between gap-3 border-b border-white/10 backdrop-blur-xs">
+    <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 group min-w-0">
+      <img src="logo1.png" alt="SherenVogue Logo" class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 shrink-0 object-contain rounded-full border border-amber-400/40" onerror="this.style.display='none'">
+      <div class="truncate">
+        <span class="font-display text-base sm:text-lg md:text-2xl font-bold tracking-wider text-white block leading-none">
           SHEREN<span class="italic font-light text-amber-400">Vogue</span>
         </span>
-        <span class="block text-[7px] tracking-[0.55em] uppercase text-neutral-400 mt-0.5">Haute Couture</span>
+        <span class="block text-[7px] tracking-[0.4em] sm:tracking-[0.55em] uppercase text-neutral-400 mt-1">Haute Couture</span>
       </div>
     </a>
 
-    <nav class="flex items-center gap-6">
+    <nav class="flex items-center gap-4 sm:gap-6 shrink-0">
       <a href="shop.html" class="hidden sm:inline-block text-[10px] uppercase tracking-[0.25em] text-neutral-300 hover:text-amber-300 transition-colors">
         Collections
       </a>
-      <a href="shop.html" class="border border-amber-400/60 text-amber-200 hover:bg-amber-400 hover:text-black px-5 py-2.5 rounded-full text-[10px] uppercase tracking-[0.25em] font-semibold transition-all duration-300">
-        Enter Boutique
+      <a href="policies.html" class="whitespace-nowrap border border-amber-400/60 text-amber-200 hover:bg-amber-400 hover:text-black px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[9px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.25em] font-semibold transition-all duration-300">
+        Policies
       </a>
     </nav>
   </header>
 
   <!-- Main Centerpiece Hero -->
-  <main class="relative z-20 flex-grow flex flex-col items-center justify-center text-center px-6 py-20 max-w-4xl mx-auto">
-    <p class="text-[10px] md:text-xs uppercase tracking-[0.45em] text-amber-300/90 font-semibold mb-4">
-      International Luxury Maison &bull; Est. 2026
-    </p>
-
-    <h1 class="font-display text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.1] text-white mb-6">
-      Timeless <span class="italic font-normal text-amber-300">Elegance</span>
+  <main class="relative z-20 flex-grow flex flex-col items-center justify-center text-center px-5 sm:px-6 py-16 sm:py-20 max-w-4xl mx-auto">
+    
+    <!-- Primary Quote -->
+    <h1 class="font-display text-2xl sm:text-4xl md:text-5xl font-semibold tracking-normal leading-[1.35] text-white mb-6 max-w-3xl">
+      “Royalty is no longer a birthright—it is <span class="italic font-normal text-amber-300">worn, carried, timed,</span> and left behind in the air.”
     </h1>
 
-    <p class="text-neutral-300 text-xs sm:text-sm md:text-base max-w-xl leading-relaxed font-light mb-10">
-      Bespoke artisan leatherwork, high-complication horology, and rare couture essentials crafted for discerning connoisseurs worldwide.
-    </p>
+    <!-- Secondary CEO Quote & Signature -->
+    <div class="mb-10 max-w-xl mx-auto">
+      <p class="text-neutral-200 text-xs sm:text-base md:text-lg italic font-light tracking-wide leading-relaxed mb-2.5">
+        “Trends expire at midnight. We craft what stays.”
+      </p>
+      <p class="font-display text-[10px] sm:text-xs uppercase tracking-[0.3em] text-amber-400 font-semibold">
+        — Md. Rafiul Islam
+      </p>
+    </div>
 
-    <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-      <a href="shop.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-amber-400 text-black px-8 py-4 rounded-full text-xs uppercase tracking-[0.25em] font-bold hover:bg-white transition-all duration-300 shadow-lg shadow-amber-500/10">
-        <span>Explore The Collection</span>
+    <!-- Centerpiece ENTER Button with Click Color Animation -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+      <a id="enter-btn" href="shop.html" onclick="handleEnterClick(event, 'shop.html')" class="enter-btn w-full sm:w-auto min-w-[220px] inline-flex items-center justify-center gap-3 text-black px-10 py-4 rounded-full text-xs sm:text-sm uppercase tracking-[0.35em] font-bold shadow-lg shadow-amber-500/20 cursor-pointer">
+        <span>ENTER</span>
         <i data-lucide="arrow-right" class="w-4 h-4"></i>
       </a>
     </div>
 
     <!-- Luxury Brand Pillars -->
-    <div class="grid grid-cols-3 gap-4 sm:gap-10 mt-16 pt-10 border-t border-white/10 w-full max-w-2xl text-center">
+    <div class="grid grid-cols-3 gap-3 sm:gap-10 mt-14 sm:mt-16 pt-8 sm:pt-10 border-t border-white/10 w-full max-w-2xl text-center">
       <div>
-        <p class="font-display text-sm md:text-lg text-amber-300 font-semibold">Bespoke</p>
-        <p class="text-[9px] md:text-[10px] uppercase tracking-widest text-neutral-400 mt-1">Artisan Craft</p>
+        <p class="font-display text-xs sm:text-sm md:text-lg text-amber-300 font-semibold">Bespoke</p>
+        <p class="text-[8px] sm:text-[10px] uppercase tracking-widest text-neutral-400 mt-1">Artisan Craft</p>
       </div>
       <div>
-        <p class="font-display text-sm md:text-lg text-amber-300 font-semibold">Haute Couture</p>
-        <p class="text-[9px] md:text-[10px] uppercase tracking-widest text-neutral-400 mt-1">Global Standard</p>
+        <p class="font-display text-xs sm:text-sm md:text-lg text-amber-300 font-semibold">Haute Couture</p>
+        <p class="text-[8px] sm:text-[10px] uppercase tracking-widest text-neutral-400 mt-1">Global Standard</p>
       </div>
       <div>
-        <p class="font-display text-sm md:text-lg text-amber-300 font-semibold">Worldwide</p>
-        <p class="text-[9px] md:text-[10px] uppercase tracking-widest text-neutral-400 mt-1">Private Concierge</p>
+        <p class="font-display text-xs sm:text-sm md:text-lg text-amber-300 font-semibold">Worldwide</p>
+        <p class="text-[8px] sm:text-[10px] uppercase tracking-widest text-neutral-400 mt-1">Private Concierge</p>
       </div>
     </div>
   </main>
 
   <!-- Minimalist Footer -->
   <footer class="relative z-20 px-6 py-6 border-t border-white/10 text-center">
-    <p class="text-[9px] uppercase tracking-[0.3em] text-neutral-500">
+    <p class="text-[9px] uppercase tracking-[0.3em] text-neutral-500 leading-relaxed">
       &copy; 2026 SherenVogue (শিরিনভোগ) &bull; Founder &amp; CEO: Md. Rafiul Islam &bull; Concierge: <a href="mailto:hello@sherenvogue.com" class="text-amber-300/80 hover:text-amber-300">hello@sherenvogue.com</a>
     </p>
   </footer>
 
   <script>
     if (window.lucide) lucide.createIcons();
+
+    function handleEnterClick(event, targetUrl) {
+      event.preventDefault();
+      const btn = document.getElementById('enter-btn');
+      if (btn) {
+        btn.classList.remove('is-animating');
+        void btn.offsetWidth; // trigger reflow
+        btn.classList.add('is-animating');
+      }
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 650);
+    }
+
+    // Reset animation state if user returns via browser back button
+    window.addEventListener('pageshow', function () {
+      const btn = document.getElementById('enter-btn');
+      if (btn) btn.classList.remove('is-animating');
+    });
   </script>
 </body>
 </html>
