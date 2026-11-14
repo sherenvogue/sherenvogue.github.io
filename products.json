@@ -4,6 +4,7 @@
     "name": "The Sheren Burgundy Edition (Heritage Regalia Structured Bag)",
     "category": "bags",
     "price": "৳10,500",
+    "rawPrice": 10500,
     "image": "100001.jpg",
     "desc": "A crown jewel of the SherenVogue haute couture collection. Masterfully handcrafted from rich burgundy artisan leather, accented with signature winged gold hardware, a twisted gold handle, and a sophisticated chain strap."
   },
@@ -12,6 +13,7 @@
     "name": "SherenVogue Royal Timepiece",
     "category": "watches",
     "price": "৳7,990",
+    "rawPrice": 7990,
     "image": "100002.jpg",
     "desc": "High-complication horology designed for timeless elegance with Roman numerals and rose-gold finish."
   },
@@ -20,8 +22,8 @@
     "name": "Sheren Vento Solare Collection Set",
     "category": "accessories",
     "price": "৳1,990",
-    "image": "100003.jpg"
-    "image": "100004.jpg",
+    "rawPrice": 1990,
+    "image": "100003.jpg",
     "desc": "Exclusive Vento Solare collection featuring a luxury timepiece, gold-accented fountain pen, and premium leather wallet."
   }
 ]
