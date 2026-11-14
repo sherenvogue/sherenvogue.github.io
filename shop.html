@@ -81,7 +81,7 @@
     Complimentary Worldwide Shipping on Orders Over ৳5000 | Support: hello@sherenvogue.com
   </div>
 
-  <!-- Main Navigation (With Logo & Brand Name) -->
+  <!-- Main Navigation -->
   <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 px-4 md:px-12 py-3 md:py-3.5">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <div class="hidden md:flex gap-8 items-center">
@@ -392,7 +392,7 @@
   <script>
     const WEB3FORMS_ACCESS_KEY = "140b2d00-51ed-40d4-bc25-72bbcf4d92a9";
 
-    // Products Data
+    // 1. Default Products Data (Fallback if JSON fails)
     let products = [
       {
         id: 1,
@@ -471,7 +471,57 @@
     let cart = [];
     let selectedProductForModal = null;
 
-    // 1. Luxury Toast Notification Function
+    // 2. Data Fetching Strategy (JSON with Fallback)
+    async function loadProducts() {
+      try {
+        const response = await fetch('products.json');
+        if (response.ok) {
+          products = await response.json();
+        } else {
+          console.warn('products.json not found. Using default products data.');
+        }
+      } catch (error) {
+        console.error('Error fetching products.json (CORS or network issue). Using default products data.', error);
+      }
+      
+      // Initialize UI after data is determined
+      initUI();
+    }
+
+    // 3. Initialize User Interface
+    function initUI() {
+      // Update statistics
+      const statCount = document.getElementById('stat-count');
+      if (statCount) statCount.innerText = products.length + '+';
+
+      // Render Featured Products
+      const featuredGrid = document.getElementById('featured-products');
+      if (featuredGrid) {
+        featuredGrid.innerHTML = products.map(p => `
+          <div class="bg-white rounded-2xl border border-gray-100 p-3 shadow-sm min-w-[200px] md:min-w-[240px] w-[220px] md:w-[260px] flex-shrink-0 snap-start flex flex-col justify-between">
+            <div>
+              <div class="w-full h-48 rounded-xl overflow-hidden bg-stone-100 mb-3 cursor-pointer" onclick="openProductModal(${p.id})">
+                <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+              </div>
+              <p class="text-[8px] uppercase tracking-[0.2em] text-amber-600 font-bold mb-0.5">${p.category || 'bags'}</p>
+              <h3 class="font-display text-xs font-bold text-neutral-900 truncate cursor-pointer" onclick="openProductModal(${p.id})">${p.name}</h3>
+              <p class="text-xs font-bold text-gray-800 mt-1">${p.price}</p>
+            </div>
+            <button type="button" onclick="addToCart(${p.id})" class="w-full mt-3 bg-neutral-900 text-white py-2 text-[9px] uppercase tracking-widest font-bold rounded-lg hover:bg-amber-600 transition-all">
+                Add To Bag
+            </button>
+          </div>
+        `).join('');
+      }
+      
+      // Render Shop Grid
+      renderShopProducts(products);
+      
+      // Init Icons
+      if (window.lucide) lucide.createIcons();
+    }
+
+    // 4. Luxury Toast Notification Function
     function showLuxuryToast(productName) {
       const toast = document.getElementById('luxury-toast');
       const msg = document.getElementById('toast-message');
@@ -487,7 +537,7 @@
       }, 3000);
     }
 
-    // 2. PAGE NAVIGATION
+    // 5. PAGE NAVIGATION
     function showPage(pageId) {
       document.querySelectorAll('.page-view').forEach(p => p.classList.add('hidden'));
       const targetPage = document.getElementById('page-' + pageId);
@@ -502,7 +552,7 @@
       if (window.lucide) lucide.createIcons();
     }
 
-    // 3. PRODUCT RENDER & SEARCH
+    // 6. PRODUCT RENDER & SEARCH
     function renderShopProducts(items) {
       const shopContainer = document.getElementById('shop-products');
       if (!shopContainer) return;
@@ -511,45 +561,6 @@
         shopContainer.innerHTML = `<p class="col-span-full text-center text-gray-400 py-10 text-xs">No products match your search query.</p>`;
         return;
       }
-
-// Products.json theke dynamic-vabe data load korar function
-    async function loadProducts() {
-      try {
-        const response = await fetch('products.json');
-        products = await response.json();
-        
-        // Home page-er counter update kora
-        const statCount = document.getElementById('stat-count');
-        if (statCount) statCount.innerText = products.length + '+';
-
-        // Featured products render kora
-        const featuredGrid = document.getElementById('featured-products');
-        if (featuredGrid) {
-          featuredGrid.innerHTML = products.map(p => `
-            <div class="bg-white rounded-2xl border border-gray-100 p-3 shadow-sm min-w-[200px] md:min-w-[240px] w-[220px] md:w-[260px] flex-shrink-0 snap-start flex flex-col justify-between">
-              <div>
-                <div class="w-full h-48 rounded-xl overflow-hidden bg-stone-100 mb-3 cursor-pointer" onclick="openProductModal(${p.id})">
-                  <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
-                </div>
-                <p class="text-[8px] uppercase tracking-[0.2em] text-amber-600 font-bold mb-0.5">${p.category || 'bags'}</p>
-                <h3 class="font-display text-xs font-bold text-neutral-900 truncate cursor-pointer" onclick="openProductModal(${p.id})">${p.name}</h3>
-                <p class="text-xs font-bold text-gray-800 mt-1">${p.price}</p>
-              </div>
-              <button type="button" onclick="addToCart(${p.id})" class="w-full mt-3 bg-neutral-900 text-white py-2 text-[9px] uppercase tracking-widest font-bold rounded-lg hover:bg-amber-600 transition-all">
-                  Add To Bag
-              </button>
-            </div>
-          `).join('');
-        }
-        
-        renderShopProducts(products);
-      } catch (error) {
-        console.error('products.json load korte somossa hocche:', error);
-      }
-    }
-
-
-
       
       shopContainer.innerHTML = items.map(p => `
         <div class="bg-white rounded-2xl border border-gray-100 p-3 shadow-sm group flex flex-col justify-between">
@@ -593,7 +604,7 @@
       else renderShopProducts(products.filter(p => p.category === cat));
     }
 
-    // 4. MODAL MANAGEMENT
+    // 7. MODAL MANAGEMENT
     function openProductModal(id) {
       const p = products.find(item => item.id === id);
       if (!p) return;
@@ -616,7 +627,7 @@
       document.getElementById('product-modal').classList.add('hidden');
     }
 
-    // 5. CART MANAGEMENT
+    // 8. CART MANAGEMENT
     function addToCart(id) {
       const p = products.find(item => item.id === id);
       if (!p) return;
@@ -690,7 +701,7 @@
       renderCart();
     }
 
-    // 6. CHECKOUT & EMAIL DISPATCH SYSTEM
+    // 9. CHECKOUT & EMAIL DISPATCH SYSTEM
     function prepareCheckout() {
       let grandTotal = cart.reduce((sum, item) => sum + ((item.rawPrice || 0) * (item.qty || 1)), 0);
       document.getElementById('checkout-total-price').innerText = '৳' + grandTotal.toLocaleString();
@@ -772,7 +783,7 @@
       showPage('success');
     }
 
-    // 7. ORDER HISTORY SYSTEM
+    // 10. ORDER HISTORY SYSTEM
     function renderHistory() {
       const container = document.getElementById('history-container');
       if (!container) return;
@@ -864,6 +875,7 @@
               access_key: WEB3FORMS_ACCESS_KEY,
               subject: `SherenVogue Order Cancelled: ${orderId}`,
               from_name: "SherenVogue Storefront",
+              to_email: "hello@sherenvogue.com",
               message: `Alert: Order ID ${orderId} has been cancelled by the customer.`
             })
           });
@@ -895,47 +907,15 @@
       }
     }
 
-   // 8. INITIALIZATION
+    // 11. STARTUP INITIALIZATION
     document.addEventListener('DOMContentLoaded', function() {
-      if (window.lucide) lucide.createIcons();
-
-
-
-
+      // 1. Fetch JSON or use fallback data, then Init UI
+      loadProducts();
       
-      // Update total masterpieces counter
-      const statCount = document.getElementById('stat-count');
-      if (statCount) statCount.innerText = products.length + '+';
-
-      // Render Featured Products Horizontal Slider
-      const featuredGrid = document.getElementById('featured-products');
-      if (featuredGrid) {
-        featuredGrid.innerHTML = products.map(p => `
-          <div class="bg-white rounded-2xl border border-gray-100 p-3 shadow-sm min-w-[200px] md:min-w-[240px] w-[220px] md:w-[260px] flex-shrink-0 snap-start flex flex-col justify-between">
-            <div>
-              <div class="w-full h-48 rounded-xl overflow-hidden bg-stone-100 mb-3 cursor-pointer" onclick="openProductModal(${p.id})">
-                <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
-              </div>
-              <p class="text-[8px] uppercase tracking-[0.2em] text-amber-600 font-bold mb-0.5">${p.category || 'bags'}</p>
-              <h3 class="font-display text-xs font-bold text-neutral-900 truncate cursor-pointer" onclick="openProductModal(${p.id})">${p.name}</h3>
-              <p class="text-xs font-bold text-gray-800 mt-1">${p.price}</p>
-            </div>
-            <button type="button" onclick="addToCart(${p.id})" class="w-full mt-3 bg-neutral-900 text-white py-2 text-[9px] uppercase tracking-widest font-bold rounded-lg hover:bg-amber-600 transition-all">
-                Add To Bag
-            </button>
-          </div>
-        `).join('');
-      }
-
-      renderShopProducts(products);
-      if (window.lucide) lucide.createIcons();
+      // 2. Initial Cart Check
+      updateCartBadge();
     });
+
   </script>
-
-    
-    
-      
-  
-
 </body>
 </html>
