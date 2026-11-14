@@ -4,22 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SherenVogue Meta Data & SEO for Fast Indexing -->
-    <title>SherenVogue | International Luxury Brand</title>
-    <meta name="description" content="Welcome to SherenVogue - International Luxury Fashion & Accessories by Founder & CEO Md. Rafiul Islam.">
-    <meta name="keywords" content="SherenVogue, Luxury Fashion, Leather Bags, Premium Watches, Haute Couture, Md. Rafiul Islam">
+    <!-- 1. Browser & Search Result Title (শুধু SherenVogue দেখাবে) -->
+    <title>SherenVogue</title>
+    
+    <!-- 2. Favicon (ব্রাউজারের ট্যাবে লোগো দেখানোর জন্য) -->
+    <link rel="icon" type="image/png" href="logo1.png">
+    
+    <!-- 3. SEO & AI Information (এখানে ইন্টারন্যাশনাল ব্র্যান্ডের কথা বলা আছে) -->
+    <meta name="description" content="SherenVogue is a premier international luxury brand and haute couture maison featuring artisan accessories, founded by CEO Md. Rafiul Islam.">
+    <meta name="keywords" content="SherenVogue, International Luxury Brand, Haute Couture, Leather Bags, Premium Watches, Md. Rafiul Islam">
     <meta name="author" content="Md. Rafiul Islam">
     <meta name="robots" content="index, follow">
     
-    <!-- Open Graph (Social Media Share) -->
-    <meta property="og:title" content="SherenVogue | Artisan Luxury">
-    <meta property="og:description" content="Enter the world of SherenVogue. Discover handcrafted luxury accessories that define your unique style.">
+    <!-- 4. Open Graph (সোশ্যাল মিডিয়ায় শেয়ার করলে লোগো ও প্রিভিউ দেখাবে) -->
+    <meta property="og:title" content="SherenVogue">
+    <meta property="og:description" content="Discover the international luxury collections of SherenVogue.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sherenvogue.com">
+    <meta property="og:image" content="logo1.png">
     <meta property="og:site_name" content="SherenVogue">
 
-    <!-- Tailwind CSS & Fonts -->
+    <!-- 5. Structured Data for AI & Google (AI-কে আপনার ব্র্যান্ড সম্পর্কে শেখানোর জন্য) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Brand",
+      "name": "SherenVogue",
+      "alternateName": "SherenVogue Haute Couture",
+      "url": "https://sherenvogue.com",
+      "logo": "https://sherenvogue.com/logo1.png",
+      "description": "SherenVogue is an international luxury brand and haute couture fashion house specializing in artisan leather goods and premium accessories.",
+      "slogan": "Timeless Elegance",
+      "founder": {
+        "@type": "Person",
+        "name": "Md. Rafiul Islam",
+        "jobTitle": "CEO & Founder"
+      }
+    }
+    </script>
+
+    <!-- Tailwind CSS, Fonts & Lucide Icons -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
     <style>
@@ -33,9 +59,19 @@
             font-family: 'Playfair Display', serif; 
         }
         
+        /* Preloader Animation */
+        #preloader {
+            transition: opacity 1.5s ease-out, visibility 1.5s ease-out;
+        }
+        .preloader-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
         /* Fade-in Animation for Center Content */
         .content-reveal {
             animation: fadeIn 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 1.2s; /* Starts after preloader */
             opacity: 0;
             transform: translateY(20px);
         }
@@ -50,40 +86,70 @@
 </head>
 <body class="relative h-screen w-screen flex items-center justify-center">
 
+    <!-- Luxury Preloader -->
+    <div id="preloader" class="fixed inset-0 z-50 bg-[#0a0a0a] flex items-center justify-center">
+        <h1 class="font-display text-[#C5A059] text-2xl md:text-3xl tracking-[0.3em] uppercase animate-pulse">
+            Sheren<span class="italic font-light text-white">Vogue</span>
+        </h1>
+    </div>
+
     <!-- Background Video Section -->
     <div class="absolute inset-0 w-full h-full z-0 bg-[#1A1A1A]">
         <video autoplay loop muted playsinline class="w-full h-full object-cover">
-            <!-- Video File Linked Here -->
             <source src="background.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         
         <!-- Dark Gradient Overlay -->
-        <div class="absolute inset-0 bg-black/50 bg-gradient-to-b from-black/40 via-transparent to-black/80"></div>
+        <div class="absolute inset-0 bg-black/50 bg-gradient-to-b from-black/40 via-transparent to-black/90"></div>
     </div>
 
-    <!-- Center Logo & Button -->
+    <!-- Center Content -->
     <div class="relative z-10 text-center flex flex-col items-center content-reveal px-4">
         
-        <!-- Logo Image Added (logo1.png) -->
+        <!-- Logo -->
         <img src="logo1.png" alt="SherenVogue Logo" class="h-16 md:h-24 mb-3 drop-shadow-2xl object-contain">
         
-        <p class="text-[9px] md:text-[11px] tracking-[0.6em] uppercase text-gray-300 mb-10 md:mb-12 font-medium">
+        <p class="text-[9px] md:text-[11px] tracking-[0.6em] uppercase text-gray-300 mb-10 md:mb-12 font-medium drop-shadow-md">
             Haute Couture Maison
         </p>
 
         <!-- Redirect Button -->
-        <a href="shop.html" class="group relative inline-flex items-center justify-center px-10 py-3.5 md:px-12 md:py-4 border border-[#C5A059] text-[#C5A059] text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold overflow-hidden transition-all hover:text-white backdrop-blur-sm shadow-xl bg-black/30">
+        <a href="shop.html" class="group relative inline-flex items-center justify-center px-10 py-3.5 md:px-12 md:py-4 border border-[#C5A059] text-[#C5A059] text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold overflow-hidden transition-all hover:text-white backdrop-blur-md bg-black/40 shadow-2xl">
             <span class="absolute inset-0 bg-[#C5A059] w-0 group-hover:w-full transition-all duration-700 ease-out z-0"></span>
             <span class="relative z-10 flex items-center gap-2">
                 Enter Maison 
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
+                <i data-lucide="arrow-right" class="h-3 w-3 transition-transform group-hover:translate-x-1 stroke-[2.5]"></i>
             </span>
         </a>
-        
     </div>
 
+    <!-- Minimal Bottom Footer & Socials -->
+    <div class="absolute bottom-6 left-0 right-0 px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-4 z-10 content-reveal opacity-0" style="animation-delay: 2s;">
+        
+        <!-- Social Icons -->
+        <div class="flex items-center gap-5 text-gray-400">
+            <a href="#" class="hover:text-[#C5A059] transition-colors"><i data-lucide="instagram" class="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]"></i></a>
+            <a href="#" class="hover:text-[#C5A059] transition-colors"><i data-lucide="facebook" class="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]"></i></a>
+            <a href="#" class="hover:text-[#C5A059] transition-colors"><i data-lucide="twitter" class="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]"></i></a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-[8px] md:text-[9px] uppercase tracking-[0.3em] text-gray-500 font-medium text-center md:text-right">
+            &copy; 2026 SherenVogue. <span class="hidden md:inline">All Rights Reserved.</span>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Remove Preloader after window loads
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('preloader').classList.add('preloader-hidden');
+            }, 800);
+        });
+    </script>
 </body>
 </html>
