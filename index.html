@@ -14,11 +14,8 @@
   <title>SherenVogue</title>
   <meta name="application-name" content="SherenVogue">
 
-
-<meta name="description" content="SherenVogue is an elite global luxury fashion and lifestyle house renowned for exquisite bespoke artisan leather bags, ultra-high-complication timepieces, and timeless accessories. Founded and led by CEO Md. Rafiul Islam. Official Website: https://sherenvogue.com">
+  <meta name="description" content="SherenVogue is an elite global luxury fashion and lifestyle house renowned for exquisite bespoke artisan leather bags, ultra-high-complication timepieces, and timeless accessories. Founded and led by CEO Md. Rafiul Islam. Official Website: https://sherenvogue.com">
   <meta name="keywords" content="SherenVogue, Sheren Vogue, SherinVogue, Sherin Vogue, Sherenvog, Shrenvogue, Serenvogue, Sheren Vogu, Shirinvog, shirin vog, sheren vog, shirinbhog, sherenbhog, শিরিনভোগ, শিরিন ভোগ, শেরেনভোগ, শেরেন ভোগ, Best Luxury Brand, Bangladashi fashion house, bogura luxury brand, Bogura life style, Luxury Fashion House, International Haute Couture, Bespoke Luxury Bags, Luxury Watches, Md. Rafiul Islam, sherenvogue.com">
-
-
 
   <meta name="author" content="Md. Rafiul Islam">
   <link rel="canonical" href="https://sherenvogue.com/">
@@ -226,72 +223,119 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #090909;
+      background-color: #070707;
       color: #ffffff;
     }
+
     .font-display {
       font-family: 'Cinzel', serif;
     }
 
-    /* Luxury ENTER Button & Click Color Animation */
+    .font-editorial {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    /* Ultra-Luxury Haute Couture ENTER Button */
     .enter-btn {
       position: relative;
-      background: linear-gradient(120deg, #fbbf24, #f59e0b, #fde68a, #fbbf24);
-      background-size: 250% 250%;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: linear-gradient(135deg, rgba(16, 14, 11, 0.82) 0%, rgba(34, 27, 16, 0.88) 50%, rgba(16, 14, 11, 0.82) 100%);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(212, 175, 55, 0.72);
+      color: #f3d98b;
+      box-shadow:
+        0 14px 36px rgba(0, 0, 0, 0.75),
+        inset 0 0 18px rgba(212, 175, 55, 0.14);
+      transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
       overflow: hidden;
     }
+
+    /* Subtle Gold Shimmer Sweep on Hover */
+    .enter-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 80%;
+      height: 100%;
+      background: linear-gradient(
+        110deg,
+        transparent 0%,
+        rgba(253, 230, 138, 0.28) 50%,
+        transparent 100%
+      );
+      transition: left 0.75s ease;
+      pointer-events: none;
+    }
+
+    .enter-btn:hover::before {
+      left: 140%;
+    }
+
     .enter-btn:hover {
+      background: linear-gradient(135deg, #c69c32 0%, #ebd07a 50%, #b38722 100%);
+      border-color: #fde68a;
+      color: #080705;
       transform: translateY(-2px);
-      box-shadow: 0 0 25px rgba(251, 191, 36, 0.55);
+      box-shadow:
+        0 16px 40px rgba(212, 175, 55, 0.32),
+        0 0 22px rgba(253, 230, 138, 0.25);
     }
+
+    /* Luxury Liquid Champagne Gold & Silk Burst on Click */
     .enter-btn.is-animating {
-      background: linear-gradient(90deg, #fbbf24, #f43f5e, #a855f7, #10b981, #fde047, #ffffff);
-      background-size: 400% 400%;
-      animation: colorBurstFlow 0.7s ease-out forwards;
-      color: #000000;
+      background: linear-gradient(90deg, #b88924, #f5d67b, #ffffff, #e5be53, #b88924);
+      background-size: 300% 300%;
+      border-color: #ffffff;
+      color: #080705;
+      animation: luxuryGoldBurst 0.68s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
+
     .enter-btn.is-animating::after {
       content: "";
       position: absolute;
       inset: 0;
-      border-radius: 9999px;
-      animation: rippleRing 0.7s ease-out forwards;
+      border-radius: inherit;
+      animation: coutureRipple 0.68s ease-out forwards;
+      pointer-events: none;
     }
-    @keyframes colorBurstFlow {
+
+    @keyframes luxuryGoldBurst {
       0% {
         background-position: 0% 50%;
-        transform: scale(0.96);
-        box-shadow: 0 0 15px rgba(251, 191, 36, 0.7);
+        transform: scale(0.97);
+        box-shadow: 0 0 18px rgba(212, 175, 55, 0.6);
       }
-      50% {
-        background-position: 65% 50%;
-        transform: scale(1.07);
-        box-shadow: 0 0 35px rgba(244, 63, 94, 0.8), 0 0 55px rgba(251, 191, 36, 0.7);
+      55% {
+        background-position: 70% 50%;
+        transform: scale(1.04);
+        box-shadow: 0 0 38px rgba(245, 214, 123, 0.85), 0 0 60px rgba(212, 175, 55, 0.5);
       }
       100% {
         background-position: 100% 50%;
-        transform: scale(1.03);
-        box-shadow: 0 0 45px rgba(255, 255, 255, 0.9);
+        transform: scale(1.02);
+        box-shadow: 0 0 48px rgba(255, 255, 255, 0.9);
       }
     }
-    @keyframes rippleRing {
+
+    @keyframes coutureRipple {
       0% {
-        box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.85);
+        box-shadow: 0 0 0 0 rgba(245, 214, 123, 0.8);
       }
       100% {
-        box-shadow: 0 0 0 22px rgba(251, 191, 36, 0);
+        box-shadow: 0 0 0 22px rgba(245, 214, 123, 0);
       }
     }
   </style>
 </head>
 
-<body class="min-h-screen flex flex-col justify-between relative overflow-x-hidden selection:bg-amber-500 selection:text-black">
+<body class="min-h-screen flex flex-col justify-between relative overflow-x-hidden selection:bg-amber-400 selection:text-black">
 
-  <!-- Background Luxury Video -->
+  <!-- Background Luxury Video (Clear Upper Viewport) -->
   <div class="fixed inset-0 z-0 overflow-hidden bg-black">
     <video
       autoplay
@@ -299,82 +343,86 @@
       muted
       playsinline
       preload="auto"
-      class="w-full h-full object-cover object-center opacity-50"
+      class="w-full h-full object-cover object-center opacity-70"
     >
       <source src="background.mp4" type="video/mp4">
     </video>
-    <div class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/50 to-black/90 pointer-events-none"></div>
+    <!-- Soft Top & Bottom Vignette so the middle video remains crystal clear -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/75 via-black/15 to-black/95 pointer-events-none"></div>
   </div>
 
-  <!-- Top Minimal Navigation (Responsive Mobile & PC) -->
-  <header class="relative z-20 w-full px-4 sm:px-6 md:px-14 py-5 sm:py-6 flex items-center justify-between gap-3 border-b border-white/10 backdrop-blur-xs">
+  <!-- Top Minimal Navigation -->
+  <header class="relative z-20 w-full px-4 sm:px-6 md:px-14 py-4 sm:py-5 flex items-center justify-between gap-3 border-b border-white/10 bg-black/25 backdrop-blur-sm">
     <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 group min-w-0">
-      <img src="logo1.png" alt="SherenVogue Logo" class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 shrink-0 object-contain rounded-full border border-amber-400/40" onerror="this.style.display='none'">
+      <img src="logo1.png" alt="SherenVogue Logo" class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 shrink-0 object-contain rounded-full border border-amber-400/50" onerror="this.style.display='none'">
       <div class="truncate">
         <span class="font-display text-base sm:text-lg md:text-2xl font-bold tracking-wider text-white block leading-none">
           SHEREN<span class="italic font-light text-amber-400">Vogue</span>
         </span>
-        <span class="block text-[7px] tracking-[0.4em] sm:tracking-[0.55em] uppercase text-neutral-400 mt-1">Haute Couture</span>
+        <span class="block text-[7px] tracking-[0.45em] sm:tracking-[0.55em] uppercase text-neutral-300 mt-1">Haute Couture</span>
       </div>
     </a>
 
     <nav class="flex items-center gap-4 sm:gap-6 shrink-0">
-      <a href="shop.html" class="hidden sm:inline-block text-[10px] uppercase tracking-[0.25em] text-neutral-300 hover:text-amber-300 transition-colors">
+      <a href="shop.html" class="hidden sm:inline-block text-[10px] uppercase tracking-[0.28em] text-neutral-200 hover:text-amber-300 transition-colors">
         Collections
       </a>
-      <a href="policies.html" class="whitespace-nowrap border border-amber-400/60 text-amber-200 hover:bg-amber-400 hover:text-black px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[9px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.25em] font-semibold transition-all duration-300">
+      <a href="policies.html" class="whitespace-nowrap border border-amber-400/55 bg-black/30 text-amber-200 hover:bg-amber-400 hover:text-black px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[9px] sm:text-[10px] uppercase tracking-[0.22em] sm:tracking-[0.25em] font-semibold transition-all duration-300">
         Policies
       </a>
     </nav>
   </header>
 
-  <!-- Main Centerpiece Hero -->
-  <main class="relative z-20 flex-grow flex flex-col items-center justify-center text-center px-5 sm:px-6 py-16 sm:py-20 max-w-4xl mx-auto">
-    
-    <!-- Primary Quote -->
-    <h1 class="font-display text-2xl sm:text-4xl md:text-5xl font-semibold tracking-normal leading-[1.35] text-white mb-6 max-w-3xl">
-      “Royalty is no longer a birthright—it is <span class="italic font-normal text-amber-300">worn, carried, timed,</span> and left behind in the air.”
-    </h1>
+  <!-- Main Hero: Open Top Space for Video, ENTER Button First, Quotes Below -->
+  <main class="relative z-20 flex-grow flex flex-col items-center justify-end text-center px-5 sm:px-6 pt-52 sm:pt-60 md:pt-64 pb-8 sm:pb-10 max-w-3xl mx-auto w-full">
 
-    <!-- Secondary CEO Quote & Signature -->
-    <div class="mb-10 max-w-xl mx-auto">
-      <p class="text-neutral-200 text-xs sm:text-base md:text-lg italic font-light tracking-wide leading-relaxed mb-2.5">
+    <!-- 1. Ultra-Luxury ENTER Button (Positioned Above Quotes) -->
+    <div class="mb-7 sm:mb-8 flex flex-col items-center">
+      <a id="enter-btn" href="shop.html" onclick="handleEnterClick(event, 'shop.html')" class="enter-btn group min-w-[230px] sm:min-w-[260px] inline-flex items-center justify-center gap-4 px-11 py-4 rounded-[2px] font-display text-xs sm:text-sm uppercase tracking-[0.42em] font-semibold cursor-pointer">
+        <span>ENTER</span>
+        <i data-lucide="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5"></i>
+      </a>
+      <!-- Subtle Couture Gold Divider Line -->
+      <div class="w-12 h-[1px] bg-gradient-to-r from-transparent via-amber-400/60 to-transparent mt-6"></div>
+    </div>
+
+    <!-- 2. Brand Quote & Founder Signature (Positioned Below ENTER Button) -->
+    <div class="max-w-2xl mx-auto">
+      <h1 class="font-display text-lg sm:text-2xl md:text-[28px] font-medium tracking-[0.04em] leading-[1.48] text-white/95 mb-3 drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
+        “Royalty is no longer a birthright—it is <span class="italic font-normal text-amber-300">worn, carried, timed,</span> and left behind in the air.”
+      </h1>
+
+      <p class="font-editorial text-neutral-200/90 text-sm sm:text-lg italic tracking-wide leading-relaxed mb-2 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
         “Trends expire at midnight. We craft what stays.”
       </p>
-      <p class="font-display text-[10px] sm:text-xs uppercase tracking-[0.3em] text-amber-400 font-semibold">
+
+      <p class="font-display text-[10px] sm:text-xs uppercase tracking-[0.34em] text-amber-400 font-semibold">
         — Md. Rafiul Islam
       </p>
     </div>
 
-    <!-- Centerpiece ENTER Button with Click Color Animation -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-      <a id="enter-btn" href="shop.html" onclick="handleEnterClick(event, 'shop.html')" class="enter-btn w-full sm:w-auto min-w-[220px] inline-flex items-center justify-center gap-3 text-black px-10 py-4 rounded-full text-xs sm:text-sm uppercase tracking-[0.35em] font-bold shadow-lg shadow-amber-500/20 cursor-pointer">
-        <span>ENTER</span>
-        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-      </a>
+    <!-- 3. Luxury Brand Pillars -->
+    <div class="grid grid-cols-3 gap-3 sm:gap-10 mt-8 sm:mt-10 pt-6 border-t border-white/10 w-full max-w-xl text-center">
+      <div>
+        <p class="font-display text-[11px] sm:text-sm md:text-base text-amber-300 font-semibold tracking-wider">Bespoke</p>
+        <p class="text-[8px] sm:text-[9px] uppercase tracking-[0.22em] text-neutral-400 mt-1">Artisan Craft</p>
+      </div>
+      <div>
+        <p class="font-display text-[11px] sm:text-sm md:text-base text-amber-300 font-semibold tracking-wider">Haute Couture</p>
+        <p class="text-[8px] sm:text-[9px] uppercase tracking-[0.22em] text-neutral-400 mt-1">Global Standard</p>
+      </div>
+      <div>
+        <p class="font-display text-[11px] sm:text-sm md:text-base text-amber-300 font-semibold tracking-wider">Worldwide</p>
+        <p class="text-[8px] sm:text-[9px] uppercase tracking-[0.22em] text-neutral-400 mt-1">Private Concierge</p>
+      </div>
     </div>
 
-    <!-- Luxury Brand Pillars -->
-    <div class="grid grid-cols-3 gap-3 sm:gap-10 mt-14 sm:mt-16 pt-8 sm:pt-10 border-t border-white/10 w-full max-w-2xl text-center">
-      <div>
-        <p class="font-display text-xs sm:text-sm md:text-lg text-amber-300 font-semibold">Bespoke</p>
-        <p class="text-[8px] sm:text-[10px] uppercase tracking-widest text-neutral-400 mt-1">Artisan Craft</p>
-      </div>
-      <div>
-        <p class="font-display text-xs sm:text-sm md:text-lg text-amber-300 font-semibold">Haute Couture</p>
-        <p class="text-[8px] sm:text-[10px] uppercase tracking-widest text-neutral-400 mt-1">Global Standard</p>
-      </div>
-      <div>
-        <p class="font-display text-xs sm:text-sm md:text-lg text-amber-300 font-semibold">Worldwide</p>
-        <p class="text-[8px] sm:text-[10px] uppercase tracking-widest text-neutral-400 mt-1">Private Concierge</p>
-      </div>
-    </div>
   </main>
 
   <!-- Minimalist Footer -->
-  <footer class="relative z-20 px-6 py-6 border-t border-white/10 text-center">
-    <p class="text-[9px] uppercase tracking-[0.3em] text-neutral-500 leading-relaxed">
-      &copy; 2026 SherenVogue (শিরিনভোগ) &bull; Founder &amp; CEO: Md. Rafiul Islam &bull; Concierge: <a href="mailto:hello@sherenvogue.com" class="text-amber-300/80 hover:text-amber-300">hello@sherenvogue.com</a>
+  <footer class="relative z-20 px-6 py-4 sm:py-5 border-t border-white/10 bg-black/50 backdrop-blur-xs text-center">
+    <p class="text-[8px] sm:text-[9px] uppercase tracking-[0.28em] text-neutral-400 leading-relaxed">
+      &copy; 2026 SherenVogue (শিরিনভোগ) &bull; Founder &amp; CEO: Md. Rafiul Islam &bull; Concierge: <a href="mailto:hello@sherenvogue.com" class="text-amber-300/85 hover:text-amber-300 transition-colors">hello@sherenvogue.com</a>
     </p>
   </footer>
 
