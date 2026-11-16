@@ -13,9 +13,6 @@
 
 
 
-
-
-"
   },
   {
     "id": 2,
@@ -28,11 +25,16 @@
   },
   {
     "id": 3,
-    "name": "Sheren Vento Solare Collection Set",
-    "category": "accessories",
-    "price": "৳1,990",
-    "rawPrice": 1990,
-    "image": "100003.jpg",
-    "desc": "Exclusive Vento Solare collection featuring a luxury timepiece, gold-accented fountain pen, and premium leather wallet."
+  
+{
+  "id": "sv-belt-01",
+  "name": "SherenVogue Sovereign Crest Leather Belt",
+  "category": "Belts",
+  "price": 3500,
+  "image": "products/1000073684.jpg",
+  "description": "Handcrafted black genuine leather belt featuring a signature brushed gold-tone automatic buckle engraved with the SherenVogue royal crest, complete with a luxury gift box."
+}
+
+
   }
 ]
